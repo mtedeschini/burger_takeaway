@@ -109,15 +109,11 @@
                 "docblock",
                 "parser"
             ],
-<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/doctrine/annotations/issues",
                 "source": "https://github.com/doctrine/annotations/tree/1.13.1"
             },
             "time": "2021-05-16T18:07:53+00:00"
-=======
-            "time": "2021-08-05T19:00:23+00:00"
->>>>>>> c244fb7f076076ece7e144d503a71cf28574537d
         },
         {
             "name": "doctrine/cache",
