@@ -410,10 +410,13 @@
             ],
             "description": "A small layer on top of trigger_error(E_USER_DEPRECATED) or PSR-3 logging with options to disable all deprecations or selectively for packages.",
             "homepage": "https://www.doctrine-project.org/",
+<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/doctrine/deprecations/issues",
                 "source": "https://github.com/doctrine/deprecations/tree/v0.5.3"
             },
+=======
+>>>>>>> b1751d75caf67d1fda3b2541c0145916760f70f5
             "time": "2021-03-21T12:59:47+00:00"
         },
         {
@@ -767,10 +770,6 @@
                 "orm",
                 "persistence"
             ],
-            "support": {
-                "issues": "https://github.com/doctrine/persistence/issues",
-                "source": "https://github.com/doctrine/persistence/tree/2.2.1"
-            },
             "time": "2021-05-19T07:07:01+00:00"
         },
         {
@@ -1515,9 +1514,12 @@
             ],
             "description": "Mercado Pago PHP SDK",
             "homepage": "https://github.com/mercadopago/sdk-php",
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/mercadopago/sdk-php/tree/2.4.1"
             },
+=======
+>>>>>>> b1751d75caf67d1fda3b2541c0145916760f70f5
             "time": "2021-07-27T19:35:30+00:00"
         },
         {
@@ -1770,10 +1772,13 @@
                 "parser",
                 "php"
             ],
+<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
                 "source": "https://github.com/nikic/PHP-Parser/tree/v4.12.0"
             },
+=======
+>>>>>>> b1751d75caf67d1fda3b2541c0145916760f70f5
             "time": "2021-07-21T10:44:31+00:00"
         },
         {
@@ -3642,9 +3647,12 @@
                 "portable",
                 "shim"
             ],
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/polyfill-php80/tree/v1.23.1"
             },
+=======
+>>>>>>> b1751d75caf67d1fda3b2541c0145916760f70f5
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4609,10 +4617,13 @@
                 }
             ],
             "description": "Component for reading phar.io manifest information from a PHP Archive (PHAR)",
+<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/phar-io/manifest/issues",
                 "source": "https://github.com/phar-io/manifest/tree/2.0.3"
             },
+=======
+>>>>>>> b1751d75caf67d1fda3b2541c0145916760f70f5
             "time": "2021-07-20T11:28:43+00:00"
         },
         {
