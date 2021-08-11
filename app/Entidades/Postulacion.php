@@ -9,7 +9,14 @@ Class Postulacion extends model{
     public $timestamps = false;
 
     protected $fillable = [
-        'idpostulacion', 'nombre', 'apellido', 'localidad', 'documento', 'correo', 'telefono', 'archivo_cv'
+        'idpostulacion',
+        'nombre',
+        'apellido', 
+        'localidad',
+        'documento',
+        'correo',
+        'telefono',
+        'archivo_cv'
     ];
     protected $hidden = [
 
