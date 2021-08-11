@@ -4,12 +4,12 @@ namespace App\Entidades;
 use DB;
 use Illuminate\Database\Eloquent\Model;
 
-class Pedudidos extends Model{
+class Pedido extends Model{
     protected $table = 'pedidos';
     public $timestamps = false;
 
     protected $fillable = [
-        'idpedido', 'total', 'fk_idsucursal', 'fk_idcliente', 'fk_idestadopago', 'fecha'
+        'idpedido', 'total', 'fk_idsucursal', 'fk_idcliente', 'fk_idestado', 'fk_idestadopago', 'fecha'
     ];
 
     protected $hidden = [
@@ -24,6 +24,7 @@ class Pedudidos extends Model{
                   total,
                   fk_idsucursal,
                   fk_idcliente,
+                  fk_idestado,
                   fk_idestadopago,
                   fecha
                 FROM pedidos ORDER BY idpedido";
