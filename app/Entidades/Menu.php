@@ -5,9 +5,7 @@
 	use DB;
 	use Illuminate\Database\Elquent\Model;
 
-	/**
-	 * 
-	 */
+	
 	class Pago extends Model
 	{
 		
@@ -32,4 +30,23 @@
         return $lstRetorno;
     }
 	}
+
+	public function insertar(){
+       
+        //Arma la query
+        $sql = "INSERT INTO pagos (
+                    idpago,
+                 	nombre,
+                 	activo
+                ) VALUES (
+                    '$this->idpago', 
+                    '$this->nombre',
+                    '$this->activo' 
+                     
+                );";
+        //Ejecuta la query
+        $lstRetorno = DB::select($sql);
+        return $lstRetorno;
+    }
+
  ?>
