@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Entidades\Pedido;
-use App\Entidades\;
-
 use Illuminate\Http\Request;
 
 class ControladorPedido extends Controller
