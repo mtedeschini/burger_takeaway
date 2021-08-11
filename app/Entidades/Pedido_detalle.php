@@ -11,7 +11,7 @@ class Pedido_detalle extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'iddetalle', 'fk_idpedido', 'fk_idproducto', 'precio_unitario', 'cantidad', 'subtotal',
+        'iddetalle', 'fk_idpedido', 'fk_idproducto', 'precio_unitario', 'cantidad', 'subtotal'
     ];
 
     protected $hidden = [
