@@ -18,7 +18,7 @@ class ControladorSucursal extends Controller{
                 $mensaje = "No tiene permisos para la operaci&oacute;n.";
                 return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
             } else {
-                return view('sistema.sucursal-listar', compact('titulo'));
+                return view('sucursal.sucursal-listar', compact('titulo'));
             }
         } else {
             return redirect('admin/login');
@@ -34,7 +34,7 @@ class ControladorSucursal extends Controller{
                 $mensaje = "No tiene pemisos para la operaci&oacute;n.";
                 return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
             } else {
-                return view('sistema.sucursal-nuevo');
+                return view('sucursal.sucursal-nuevo');
             }
         } else {
             return redirect('admin/login');
