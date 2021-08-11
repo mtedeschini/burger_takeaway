@@ -114,7 +114,7 @@ Route::group(array('domain' => '127.0.0.1'), function () {
 /* --------------------------------------------- */
 /* CONTROLADOR PEDIDOS                          */
 /* --------------------------------------------- */
-
+    Route::get('/admin/pedidos', 'ControladorPedidos@index');
 
 
 
