@@ -17,8 +17,18 @@ Class Postulacion extends model{
     ];
     public function obtenerTodos()
     {
-        $sql 
-        
+        $sql = "SELECT
+        idpostulacion,
+        nombre,
+        localidad,
+        documento,
+        correo,
+        telefono,
+        archivo_cv
+    FROM postulaciones ORDER BY idpostulacion";
+ 
+   $lstRetorno = DB::select($sql);
+    return $lstRetorno;
     }
 }
 
