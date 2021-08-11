@@ -89,8 +89,7 @@ class Cliente extends Model{
             apellido='$this->apellido',
             telefono=$this->telefono,
             correo='$this->correo',
-            fk_idusuario='$this->fk_idusuario',
-            css='$this->css'
+            fk_idusuario='$this->fk_idusuario'
             WHERE idcliente=?";
         $affected = DB::update($sql, [$this->idcliente]);
     }
