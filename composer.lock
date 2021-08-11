@@ -111,6 +111,17 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/annotations/issues",
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 067f44a13a479b75f269e880014db81f05f6f3eb
+                "source": "https://github.com/doctrine/annotations/tree/1.13.1"
+            },
+            "time": "2021-05-16T18:07:53+00:00"
+=======
+=======
+>>>>>>> 00eddac751b5458d85199c7a630888964fa9867e
                 "source": "https://github.com/doctrine/annotations/tree/1.13.2"
             },
             "time": "2021-08-05T19:00:23+00:00"
@@ -1826,6 +1837,15 @@
                 "issues": "https://github.com/paragonie/random_compat/issues",
                 "source": "https://github.com/paragonie/random_compat"
             },
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 067f44a13a479b75f269e880014db81f05f6f3eb
+            "time": "2018-07-02T15:55:56+00:00"
+=======
+=======
+>>>>>>> 00eddac751b5458d85199c7a630888964fa9867e
             "time": "2020-10-15T08:29:30+00:00"
 
         },
@@ -2272,7 +2292,14 @@
                 "source": "https://github.com/ramsey/uuid",
                 "wiki": "https://github.com/ramsey/uuid/wiki"
             },
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 067f44a13a479b75f269e880014db81f05f6f3eb
+=======
 
+>>>>>>> 00eddac751b5458d85199c7a630888964fa9867e
             "time": "2020-02-21T04:36:14+00:00"
 
             "funding": [
