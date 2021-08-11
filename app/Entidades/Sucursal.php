@@ -24,6 +24,46 @@ class Sucursal extends Model{
 
         return $lstRetorno;
     }
+
+    public function obtenerPorId($idsucursal)
+    {
+        $sql = "SELECT
+                    idsucursal,
+                    direccion,
+                    nombre
+                FROM sucursales WHERE idsucursal = $idsucursal";
+        $lstRetorno = DB::select($sql);
+        
+        if (count($lstRetorno)>0){
+            $this->idsucursal = $lstRetorno[0]->idsucursal;
+            $this->direccion = $lstRetorno[0]->direccion;
+            $this->nombre =  $lstRetorno[0]->nombre;
+            return $this;
+        }
+
+        return null;
+    }
+
+    public function insertar()
+    {
+        $sql = "INSERT INTO sucursales (
+                direccion,
+                nombre
+                ) VALUES (?, ?);";
+        $result = DB::insert($sql,[$this->direccion, $this->nombre]);
+        return $this->idsucursal = DB::getPdo()->lastInsertId();
+    }
+
+    public function guardar()
+    {
+        $sql = "UPDATE sucursales SET
+                direccion = '$this->direccion',
+                nombre = '$this->nombre4'
+                WHERE idsucursal=?;";
+        $affected = DB::update($sql,[$this->idsucursal]);
+    }
+
+    
 }
 
 ?>
