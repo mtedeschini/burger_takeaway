@@ -57,27 +57,12 @@ if (isset($msg)) {
                 </select>
             </div>
             <div class="form-group col-lg-6">
-                <label>Módulo: *</label>
-                <input type="text" maxlength="50" id="txtModulo" name="txtModulo" class="form-control" value="{{ $sucursal->modulo or '' }}" required>
-            </div>
-            <div class="form-group col-lg-6">
-                <label>Submódulo: *</label>
-                <input type="text" maxlength="50" id="txtSubmodulo" name="txtSubmodulo" class="form-control" value="{{ $sucursal->submodulo or '' }}" required>
-            </div>
-            <div class="form-group col-lg-6">
                 <label>Nombre: *</label>
                 <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="{{ $sucursal->nombre or '' }}" required>
             </div>
             <div class="form-group col-lg-6">
-                <label>Log Operación: *</label>
-                <select id="txtOperacion" name="txtOperacion" class="form-control">
-                    <option value="1" selected>Sí</option>
-                    <option value="0" selected>No</option>
-                </select>
-            </div>
-            <div class="form-group col-lg-6">
-                <label>Descripción: *</label>
-                <textarea class="form-control" name="txtDescripcion" id="txtDescripcion" cols="30" style="height:70px !important;" maxlength="50" rows="10">{{$sucursal->descripcion or '' }}</textarea>
+                <label>Dirección: *</label>
+                <input type="text" maxlength="50" id="txtDireccion" name="txtDireccion" class="form-control" value="{{ $sucursal->direccion or '' }}" required>
             </div>
         </div>
 </div>
