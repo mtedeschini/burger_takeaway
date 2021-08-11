@@ -10,6 +10,8 @@ use App\Entidades\Cliente;
 use App\Entidades\Sistema\Usuario;
 use Illuminate\Http\Request;
 
+require app_path() . '/start/constants.php';
+
 class ControladorPedido extends Controller
 {
     public function index()
@@ -27,7 +29,6 @@ class ControladorPedido extends Controller
     {
         $titulo = "Nuevo Pedido";
         return view('pedido.pedido-nuevo', compact('titulo'));
-
     }
 
 }
