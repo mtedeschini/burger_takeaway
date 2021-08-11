@@ -101,15 +101,13 @@ Route::group(array('domain' => '127.0.0.1'), function () {
 
 
 
+    Route::get('/admin/cliente/nuevo', 'ControladorCliente@nuevo');
 
     /* --------------------------------------------- */
     /* CONTROLADOR PRODUCTOS                          */
     /* --------------------------------------------- */
-
-/* --------------------------------------------- */
-/* CONTROLADOR PEDIDOS                          */
-/* --------------------------------------------- */
-    Route::get('/admin/pedidos', 'ControladorPedidos@index');
+    Route::get('/admin/productos', 'ControladorProducto@index');
+    Route::get('/admin/producto/nuevo', 'ControladorProducto@nuevo');
 
 
 
@@ -117,17 +115,18 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     /* --------------------------------------------- */
     /* CONTROLADOR PEDIDOS                          */
     /* --------------------------------------------- */
-
-
-
-
-
+    Route::get('/admin/pedidos', 'ControladorPedido@index');
+    Route::get('/admin/pedido/nuevo', 'ControladorPedido@nuevo');
+    Route::get('/admin/pedido/nuevo', 'ControladorPedido@guardar');
+    Route::get('/admin/pedido/nuevo', 'ControladorPedido@eliminar');
+    Route::get('/admin/pedido/nuevo{id}', 'ControladorPedido@editar');
+    Route::get('/admin/pedido/nuevo{id}', 'ControladorPedido@guardar');
 
 
     /* --------------------------------------------- */
     /* CONTROLADOR POSTULACIONES                          */
     /* --------------------------------------------- */
-
+    Route::get('/admin/postulacion/nueva', 'ControladorPostulacion@nuevo');
 
 
 
