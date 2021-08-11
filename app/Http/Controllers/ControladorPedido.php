@@ -17,7 +17,7 @@ class ControladorPedido extends Controller
                 $mensaje = "No tiene permisos para la operaci&oacute;n.";
                 return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
             } else {
-                return view('pedidos.pedido-listar', compact('titulo'));
+                return view('pedido.pedido-listar', compact('titulo'));
             }
         } else {
             return redirect('admin/login');
@@ -28,7 +28,7 @@ class ControladorPedido extends Controller
     public function nuevo()
     {
         $titulo = "Nuevo Pedido";
-        return view('pedidos.pedido-nuevo', compact('titulo'));
+        return view('pedido.pedido-nuevo', compact('titulo'));
 
     }
 
