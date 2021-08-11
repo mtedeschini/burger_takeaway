@@ -19,7 +19,7 @@ class ControladorPostulacion extends Controller{
     public function nuevo()
     {
         $titulo = "Nueva Postulacion";
-        return view('postulacion.postulacion-nuevo', compact('titulo'));
+        return view('postulacion.postulacion-nueva', compact('titulo'));
 
     }
 

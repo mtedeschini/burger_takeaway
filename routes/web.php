@@ -97,10 +97,14 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     /* --------------------------------------------- */
     /* CONTROLADOR CLIENTES                          */
     /* --------------------------------------------- */
+<<<<<<< HEAD
     
 
 
     Route::get('/admin/cliente/listado', 'ControladorCliente@index');
+=======
+    Route::get('/admin/clientes', 'ControladorPedidos@index'); 
+>>>>>>> 54e91452f8547f73bdc07fb0f88c9e6fda155a41
     Route::get('/admin/cliente/nuevo', 'ControladorCliente@nuevo');
 
     /* --------------------------------------------- */
@@ -115,12 +119,8 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     /* --------------------------------------------- */
     /* CONTROLADOR PEDIDOS                          */
     /* --------------------------------------------- */
-    Route::get('/admin/pedidos', 'ControladorPedidos@index');
-    Route::get('/admin/pedidos/nuevo', 'ControladorPedidos@nuevo');
-    Route::get('/admin/pedidos/nuevo', 'ControladorPedidos@guardar');
-    Route::get('/admin/pedidos/nuevo', 'ControladorPedidos@eliminar');
-    Route::get('/admin/pedidos/nuevo{id}', 'ControladorPedidos@editar');
-    Route::get('/admin/pedidos/nuevo{id}', 'ControladorPedidos@guardar');
+    Route::get('/admin/pedidos', 'ControladorPedido@index');
+    Route::get('/admin/pedido/nuevo', 'ControladorPedido@nuevo');
 
 
     /* --------------------------------------------- */

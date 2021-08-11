@@ -3,8 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Entidades\Pedido;
+use App\Entidades\Pedido_detalle;
+use App\Entidades\Producto;
+use App\Entidades\Sucursal;
+use App\Entidades\Cliente;
 use App\Entidades\Sistema\Usuario;
 use Illuminate\Http\Request;
+
+require app_path() . '/start/constants.php';
 
 class ControladorPedido extends Controller
 {
@@ -12,13 +18,7 @@ class ControladorPedido extends Controller
     {
         $titulo = "Pedidos";
         if (Usuario::autenticado() == true) {
-            if (!Pedido::autorizarOperacion("MENUCONSULTA")) {
-                $codigo = "MENUCONSULTA";
-                $mensaje = "No tiene permisos para la operaci&oacute;n.";
-                return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
-            } else {
-                return view('pedido.pedido-listar', compact('titulo'));
-            }
+            return view('pedido.pedido-listar', compact('titulo'));
         } else {
             return redirect('admin/login');
         }
@@ -29,7 +29,6 @@ class ControladorPedido extends Controller
     {
         $titulo = "Nuevo Pedido";
         return view('pedido.pedido-nuevo', compact('titulo'));
-
     }
 
 }

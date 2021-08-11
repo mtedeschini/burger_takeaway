@@ -2,18 +2,18 @@
 @section('titulo', "$titulo")
 @section('scripts')
 <script>
-    globalId = '<?php echo isset($sucursal->idsucursal) && $sucursal->idsucursal > 0 ? $sucursal->idsucursal : 0; ?>';
-    <?php $globalId = isset($sucursal->idsucursal) ? $sucursal->idsucursal : "0"; ?>
+    globalId = '<?php echo isset($producto->idproducto) && $producto->idproducto > 0 ? $producto->idproducto : 0; ?>';
+    <?php $globalId = isset($producto->idproducto) ? $producto->idproducto : "0"; ?>
 </script>
 @endsection
 @section('breadcrumb')
 <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/admin">Inicio</a></li>
-    <li class="breadcrumb-item"><a href="/admin/sucursal">Sucursales</a></li>
+    <li class="breadcrumb-item"><a href="/admin/producto">Productos</a></li>
     <li class="breadcrumb-item active">Modificar</li>
 </ol>
 <ol class="toolbar">
-    <li class="btn-item"><a title="Nuevo" href="/admin/sucursal/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
+    <li class="btn-item"><a title="Nuevo" href="/admin/producto/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
     <li class="btn-item"><a title="Guardar" href="#" class="fas fa-save" aria-hidden="true" onclick="javascript: $('#modalGuardar').modal('toggle');"><span>Guardar</span></a>
     </li>
     @if ($globalId > 0)
@@ -58,11 +58,15 @@ if (isset($msg)) {
             </div>
             <div class="form-group col-lg-6">
                 <label>Nombre: *</label>
-                <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="{{ $sucursal->nombre or '' }}" required>
+                <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="{{ $producto->nombre or '' }}" required>
             </div>
             <div class="form-group col-lg-6">
-                <label>Dirección: *</label>
-                <input type="text" maxlength="50" id="txtDireccion" name="txtDireccion" class="form-control" value="{{ $sucursal->direccion or '' }}" required>
+                <label>Precio: *</label>
+                <input type="text" maxlength="50" id="txtPrecio" name="txtPrecio" class="form-control" value="{{ $producto->precio or '' }}" required>
+            </div>
+            <div class="form-group col-lg-6">
+                <label>Descripción: *</label>
+                <textarea class="form-control" name="txtDescripcion" id="txtDescripcion" cols="30" style="height:70px !important;" maxlength="50" rows="10">{{$precio->descripcion or '' }}</textarea>
             </div>
         </div>
 </div>
@@ -72,12 +76,12 @@ if (isset($msg)) {
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Eliminar registro?</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Eliminar producto?</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body">¿Deseas eliminar el registro actual?</div>
+            <div class="modal-body">¿Deseas eliminar el producto actual?</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
                 <button type="button" class="btn btn-primary" onclick="eliminar();">Sí</button>
@@ -102,7 +106,7 @@ if (isset($msg)) {
     function eliminar() {
         $.ajax({
             type: "GET",
-            url: "{{ asset('/admin/sucursal/eliminar') }}",
+            url: "{{ asset('/admin/producto/eliminar') }}",
             data: {
                 id: globalId
             },
@@ -110,7 +114,7 @@ if (isset($msg)) {
             dataType: "json",
             success: function(data) {
                 if (data.err = "0") {
-                    msgShow("Registro eliminado exitosamente.", "success");
+                    msgShow("Producto eliminado exitosamente.", "success");
                     $("#btnEnviar").hide();
                     $("#btnEliminar").hide();
                     $('#mdlEliminar').modal('toggle');

@@ -12,8 +12,8 @@
     <li class="breadcrumb-item active">Pedidos</a></li>
 </ol>
 <ol class="toolbar">
-    <li class="btn-item"><a title="Nuevo" href="/admin/sistema/pedido/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
-    <li class="btn-item"><a title="Recargar" href="#" class="fa fa-refresh" aria-hidden="true" onclick='window.location.replace("/admin/sistema/pedidos");'><span>Recargar</span></a></li>
+    <li class="btn-item"><a title="Nuevo" href="/admin/pedido/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
+    <li class="btn-item"><a title="Recargar" href="#" class="fa fa-refresh" aria-hidden="true" onclick='window.location.replace("/admin/pedidos");'><span>Recargar</span></a></li>
 </ol>
 @endsection
 @section('contenido')
@@ -37,15 +37,6 @@ if (isset($msg)) {
     </thead>
 </table> 
 <script>
-	var dataTable = $('#grilla').DataTable({
-	    "processing": true,
-        "serverSide": true,
-	    "bFilter": true,
-	    "bInfo": true,
-	    "bSearchable": true,
-        "pageLength": 25,
-        "order": [[ 0, "asc" ]],
-	    "ajax": "{{ route('menu.cargarGrilla') }}"
-	});
+
 </script>
 @endsection
