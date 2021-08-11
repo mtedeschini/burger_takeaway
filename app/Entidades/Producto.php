@@ -30,5 +30,6 @@ class Producto extends Model
         return $lstRetorno;
     }
 
-
 }
+
+?>
