@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Entidades\Pedido;
+use App\Entidades\Sistema\Usuario;
 use Illuminate\Http\Request;
 
 class ControladorPedido extends Controller
@@ -11,7 +12,7 @@ class ControladorPedido extends Controller
     {
         $titulo = "Pedidos";
         if (Usuario::autenticado() == true) {
-            if (!Patente::autorizarOperacion("MENUCONSULTA")) {
+            if (!Pedido::autorizarOperacion("MENUCONSULTA")) {
                 $codigo = "MENUCONSULTA";
                 $mensaje = "No tiene permisos para la operaci&oacute;n.";
                 return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
