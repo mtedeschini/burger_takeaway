@@ -116,11 +116,7 @@
             "time": "2021-08-05T19:00:23+00:00"
                 "source": "https://github.com/doctrine/annotations/tree/1.13.1"
             },
-            "time": "2021-05-16T18:07:53+00:00"
-                "source": "https://github.com/doctrine/annotations/tree/1.13.2"
-            },
-            "time": "2021-08-05T19:00:23+00:00"
-        },
+
         {
             "name": "doctrine/cache",
             "version": "2.1.1",
@@ -1830,19 +1826,8 @@
                 "issues": "https://github.com/paragonie/random_compat/issues",
                 "source": "https://github.com/paragonie/random_compat"
             },
-<<<<<<< HEAD
             "time": "2020-10-15T08:29:30+00:00"
-=======
-<<<<<<< HEAD
-            "time": "2020-10-15T08:29:30+00:00"
-=======
-<<<<<<< HEAD
-            "time": "2018-07-02T15:55:56+00:00"
-=======
-            "time": "2020-10-15T08:29:30+00:00"
->>>>>>> f88d1810def93d000e8f74ebc032c0a51e0574bf
->>>>>>> 067f44a13a479b75f269e880014db81f05f6f3eb
->>>>>>> 777e915c1bb984ddb340607bf604a8282f8019f3
+
         },
         {
             "name": "phpmailer/phpmailer",
@@ -2287,15 +2272,9 @@
                 "source": "https://github.com/ramsey/uuid",
                 "wiki": "https://github.com/ramsey/uuid/wiki"
             },
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+
             "time": "2020-02-21T04:36:14+00:00"
-=======
->>>>>>> 067f44a13a479b75f269e880014db81f05f6f3eb
->>>>>>> 777e915c1bb984ddb340607bf604a8282f8019f3
+
             "funding": [
                 {
                     "url": "https://github.com/ramsey",
@@ -2306,14 +2285,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-08-06T20:32:15+00:00"
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> f88d1810def93d000e8f74ebc032c0a51e0574bf
->>>>>>> 067f44a13a479b75f269e880014db81f05f6f3eb
->>>>>>> 777e915c1bb984ddb340607bf604a8282f8019f3
+
         },
         {
             "name": "swiftmailer/swiftmailer",
