@@ -5,7 +5,7 @@ use DB;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Estados extends Model
+class Estado extends Model
 { 
     protected $table = 'estados';
     public $timestamps = false;
