@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Entidades\Producto;
 use App\Entidades\Sistema\Usuario;
+use Illuminate\Http\Request;
 
 class ControladorProducto extends Controller{
 
@@ -26,11 +27,7 @@ class ControladorProducto extends Controller{
     public function nuevo()
     {
         $titulo = "Nuevo Producto";
-
-        $entidad = new Producto();
-        $array_menu = $entidad->obtenerMenuPadre();
-
-        return view('sistema.producto-nuevo', compact('titulo', 'array_producto'));
+        return view('producto.producto-nuevo', compact('titulo'));
 
     }
 }
