@@ -2,9 +2,8 @@
 
 namespace App\Entidades;
 
+use Illuminate\database\Eloquent\Model;
 use DB;
-        use Illuminate\database\Eloquent\Model;
-
 Class Postulacion extends model{
     protected $table = 'postulaciones';
     public $timestamps = false;
@@ -18,17 +17,18 @@ Class Postulacion extends model{
     public function obtenerTodos()
     {
         $sql = "SELECT
-        idpostulacion,
-        nombre,
-        localidad,
-        documento,
-        correo,
-        telefono,
-        archivo_cv
-    FROM postulaciones ORDER BY idpostulacion";
+            idpostulacion,
+            nombre,
+            apellido,
+            localidad,
+            documento,
+            correo,
+            telefono,
+            archivo_cv
+        FROM postulaciones ORDER BY idpostulacion";
  
-   $lstRetorno = DB::select($sql);
-    return $lstRetorno;
+        $lstRetorno = DB::select($sql);
+        return $lstRetorno;
     }
 }
 
