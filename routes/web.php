@@ -116,11 +116,11 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     /* CONTROLADOR PEDIDOS                          */
     /* --------------------------------------------- */
     Route::get('/admin/pedidos', 'ControladorPedidos@index');
-    Route::get('/admin/pedidos/nuevo', 'ControladorPedidos@nuevo');
-    Route::get('/admin/pedidos/nuevo', 'ControladorPedidos@guardar');
-    Route::get('/admin/pedidos/nuevo', 'ControladorPedidos@eliminar');
-    Route::get('/admin/pedidos/nuevo{id}', 'ControladorPedidos@editar');
-    Route::get('/admin/pedidos/nuevo{id}', 'ControladorPedidos@guardar');
+    Route::get('/admin/pedido/nuevo', 'ControladorPedidos@nuevo');
+    Route::get('/admin/pedido/nuevo', 'ControladorPedidos@guardar');
+    Route::get('/admin/pedido/nuevo', 'ControladorPedidos@eliminar');
+    Route::get('/admin/pedido/nuevo{id}', 'ControladorPedidos@editar');
+    Route::get('/admin/pedido/nuevo{id}', 'ControladorPedidos@guardar');
 
 
     /* --------------------------------------------- */
