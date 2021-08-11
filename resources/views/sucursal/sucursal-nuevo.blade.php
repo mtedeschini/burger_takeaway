@@ -9,11 +9,11 @@
 @section('breadcrumb')
 <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/admin">Inicio</a></li>
-    <li class="breadcrumb-item"><a href="/admin/sucursal">Patentes</a></li>
+    <li class="breadcrumb-item"><a href="/admin/sucursal">Sucursales</a></li>
     <li class="breadcrumb-item active">Modificar</li>
 </ol>
 <ol class="toolbar">
-    <li class="btn-item"><a title="Nuevo" href="/admin/patente/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
+    <li class="btn-item"><a title="Nuevo" href="/admin/sucursal/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
     <li class="btn-item"><a title="Guardar" href="#" class="fas fa-save" aria-hidden="true" onclick="javascript: $('#modalGuardar').modal('toggle');"><span>Guardar</span></a>
     </li>
     @if ($globalId > 0)
@@ -58,15 +58,15 @@ if (isset($msg)) {
             </div>
             <div class="form-group col-lg-6">
                 <label>Módulo: *</label>
-                <input type="text" maxlength="50" id="txtModulo" name="txtModulo" class="form-control" value="{{ $patente->modulo or '' }}" required>
+                <input type="text" maxlength="50" id="txtModulo" name="txtModulo" class="form-control" value="{{ $sucursal->modulo or '' }}" required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Submódulo: *</label>
-                <input type="text" maxlength="50" id="txtSubmodulo" name="txtSubmodulo" class="form-control" value="{{ $patente->submodulo or '' }}" required>
+                <input type="text" maxlength="50" id="txtSubmodulo" name="txtSubmodulo" class="form-control" value="{{ $sucursal->submodulo or '' }}" required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Nombre: *</label>
-                <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="{{ $patente->nombre or '' }}" required>
+                <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="{{ $sucursal->nombre or '' }}" required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Log Operación: *</label>
@@ -77,7 +77,7 @@ if (isset($msg)) {
             </div>
             <div class="form-group col-lg-6">
                 <label>Descripción: *</label>
-                <textarea class="form-control" name="txtDescripcion" id="txtDescripcion" cols="30" style="height:70px !important;" maxlength="50" rows="10">{{$patente->descripcion or '' }}</textarea>
+                <textarea class="form-control" name="txtDescripcion" id="txtDescripcion" cols="30" style="height:70px !important;" maxlength="50" rows="10">{{$sucursal->descripcion or '' }}</textarea>
             </div>
         </div>
 </div>
@@ -117,7 +117,7 @@ if (isset($msg)) {
     function eliminar() {
         $.ajax({
             type: "GET",
-            url: "{{ asset('/admin/patente/eliminar') }}",
+            url: "{{ asset('/admin/sucursal/eliminar') }}",
             data: {
                 id: globalId
             },
