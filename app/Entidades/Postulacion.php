@@ -97,7 +97,7 @@ public function insertar()
             correo,
             telefono,
             archivo_cv
-        ) VALUES (?, ?, ?, ?, ?, ?);";
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
 
 
     $result = DB::insert($sql, [
