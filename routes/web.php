@@ -97,7 +97,7 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     /* --------------------------------------------- */
     /* CONTROLADOR CLIENTES                          */
     /* --------------------------------------------- */
-    Route::get('/admin/clientes', 'ControladorPedidos@menu'); 
+    
 
 
 
