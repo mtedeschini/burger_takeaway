@@ -44,7 +44,7 @@ class Estado extends Model
     }
 
     public function guardar() {
-        $sql = "UPDATE Estados SET
+        $sql = "UPDATE estados SET
             id_estado='$this->id_estado',
             nombre='$this->nombre',
             WHERE idestado=?";
@@ -53,14 +53,14 @@ class Estado extends Model
 
     public function eliminar()
     {
-        $sql = "DELETE FROM Estados WHERE
+        $sql = "DELETE FROM estados WHERE
             idestado=?";
         $affected = DB::delete($sql, [$this->idestado]);
     }
 
     public function insertar()
     {
-        $sql = "INSERT INTO Estados (
+        $sql = "INSERT INTO estados (
                 id_estado,
                 nombre
             ) VALUES (?, ?);";
