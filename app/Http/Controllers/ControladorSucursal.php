@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Entidades\Sucursal;
 use App\Entidades\Sistema\Usuario;
 
+require app_path() . '/start/constants.php';
 
 
 class ControladorSucursal extends Controller{
