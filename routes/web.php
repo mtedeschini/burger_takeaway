@@ -101,7 +101,7 @@ Route::group(array('domain' => '127.0.0.1'), function () {
 
 
 
-    Route::get('/admin/cliente/nuevo', 'Controladorcliente@nuevo');
+    Route::get('/admin/cliente/nuevo', 'ControladorCliente@nuevo');
 
     /* --------------------------------------------- */
     /* CONTROLADOR PRODUCTOS                          */
