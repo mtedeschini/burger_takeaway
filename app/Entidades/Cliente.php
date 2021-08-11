@@ -9,7 +9,7 @@ class Cliente extends Model{
     public $timestamps = false;
 
     protected $fillable = [
-        'idcliente', 'nombre', 'apellido', 'telefono', 'correo'
+        'idcliente', 'nombre', 'apellido', 'telefono', 'correo', 'fk_idusuario'
     ];
 
     protected $hidden = [
@@ -20,11 +20,12 @@ class Cliente extends Model{
     public function obtenerTodos()
     {
         $sql = "SELECT
-                  nombre,
-                  apellido,
-                  telefono,
-                  correo,
-                  fk_idusuario
+                    idcliente,
+                    nombre,
+                    apellido,
+                    telefono,
+                    correo,
+                    fk_idusuario
                 FROM clientes ORDER BY idcliente";
 
         $lstRetorno = DB::select($sql);
@@ -32,5 +33,3 @@ class Cliente extends Model{
         return $lstRetorno;
     }
 }
-
-?>

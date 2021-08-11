@@ -114,7 +114,13 @@
                 "source": "https://github.com/doctrine/annotations/tree/1.13.2"
             },
             "time": "2021-08-05T19:00:23+00:00"
+<<<<<<< HEAD
         },
+=======
+                "source": "https://github.com/doctrine/annotations/tree/1.13.1"
+            },
+
+>>>>>>> 00eddac751b5458d85199c7a630888964fa9867e
         {
             "name": "doctrine/cache",
             "version": "2.1.1",
@@ -1825,6 +1831,10 @@
                 "source": "https://github.com/paragonie/random_compat"
             },
             "time": "2020-10-15T08:29:30+00:00"
+<<<<<<< HEAD
+=======
+
+>>>>>>> 00eddac751b5458d85199c7a630888964fa9867e
         },
         {
             "name": "phpmailer/phpmailer",
@@ -2269,6 +2279,12 @@
                 "source": "https://github.com/ramsey/uuid",
                 "wiki": "https://github.com/ramsey/uuid/wiki"
             },
+<<<<<<< HEAD
+=======
+
+            "time": "2020-02-21T04:36:14+00:00"
+
+>>>>>>> 00eddac751b5458d85199c7a630888964fa9867e
             "funding": [
                 {
                     "url": "https://github.com/ramsey",
@@ -2279,7 +2295,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2021-08-06T20:32:15+00:00"
+=======
+
+>>>>>>> 00eddac751b5458d85199c7a630888964fa9867e
         },
         {
             "name": "swiftmailer/swiftmailer",
