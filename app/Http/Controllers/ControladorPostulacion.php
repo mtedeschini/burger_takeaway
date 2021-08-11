@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Entidades\Sucursal;
 
 
-class ControladorSucursal extends Controller{
+class ControladorPostulacion extends Controller{
 
 
 
