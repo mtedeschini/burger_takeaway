@@ -53,10 +53,10 @@ class Producto extends Model
 
     public function guardar() {
         $sql = "UPDATE productos SET
-            nombre='$this->nombre',
-            precio=$this->precio,
-            descripcion='$this->descripcion'
-            WHERE idproducto=?";
+                nombre='$this->nombre',
+                precio=$this->precio,
+                descripcion='$this->descripcion'
+                WHERE idproducto=?";
         $affected = DB::update($sql, [$this->idproducto]);
     }
 
@@ -73,7 +73,7 @@ class Producto extends Model
                 nombre,
                 precio,
                 descripcion
-            ) VALUES (?, ?, ?);";
+                ) VALUES (?, ?, ?);";
         $result = DB::insert($sql, [
             $this->nombre,
             $this->precio,
@@ -81,7 +81,6 @@ class Producto extends Model
         ]);
         return $this->idproducto = DB::getPdo()->lastInsertId();
     }
-
 }
 
 ?>
