@@ -77,17 +77,11 @@ class Pedido_detalle extends Model
     public function insertar()
     {
         $sql = "INSERT INTO pedido_detalles (
-                iddetalle,
-                fk_idpedido,
-                fk_idproducto,
                 precio_unitario,
                 cantidad,
                 subtotal
             ) VALUES (?, ?, ?, ?, ?, ?);";
         $result = DB::insert($sql, [
-            $this->iddetalle,
-            $this->fk_idpedido,
-            $this->fk_idproducto,
             $this->precio_unitario,
             $this->cantidad,
             $this->subtotal,
