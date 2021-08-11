@@ -111,15 +111,9 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/annotations/issues",
-<<<<<<< HEAD
-                "source": "https://github.com/doctrine/annotations/tree/1.13.1"
-            },
-            "time": "2021-05-16T18:07:53+00:00"
-=======
                 "source": "https://github.com/doctrine/annotations/tree/1.13.2"
             },
             "time": "2021-08-05T19:00:23+00:00"
->>>>>>> f88d1810def93d000e8f74ebc032c0a51e0574bf
         },
         {
             "name": "doctrine/cache",
