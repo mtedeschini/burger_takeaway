@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Estado extends Model
 { 
-    protected $table = 'estado';
+    protected $table = 'estados';
     public $timestamps = false;
 
     protected $fillable = [
@@ -23,7 +23,7 @@ class Estado extends Model
         $sql = "SELECT
                     idestado,
                     nombre
-                FROM estado ORDER BY nombre";
+                FROM estados ORDER BY nombre";
         $lstRetorno = DB::select($sql);
         return $lstRetorno;
     }
