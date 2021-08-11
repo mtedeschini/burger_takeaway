@@ -16,6 +16,7 @@ class Sucursal extends Model{
 
     public function obtenerTodos(){
         $sql = "SELECT
+                    idsucursal,
                     direccion,
                     nombre
                 FROM sucursales ORDER BY idsucursal";

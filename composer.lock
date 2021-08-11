@@ -112,11 +112,13 @@
             "support": {
                 "issues": "https://github.com/doctrine/annotations/issues",
 
-                "source": "https://github.com/doctrine/annotations/tree/1.13.2"
-            },
-            "time": "2021-08-05T19:00:23+00:00"
                 "source": "https://github.com/doctrine/annotations/tree/1.13.1"
             },
+            "time": "2021-05-16T18:07:53+00:00"
+
+                "source": "https://github.com/doctrine/annotations/tree/1.13.2"
+            },
+
 
         {
             "name": "doctrine/cache",
@@ -1827,7 +1829,8 @@
                 "issues": "https://github.com/paragonie/random_compat/issues",
                 "source": "https://github.com/paragonie/random_compat"
             },
-            "time": "2020-10-15T08:29:30+00:00"
+
+            "time": "2018-07-02T15:55:56+00:00"
 
         },
         {

@@ -5,13 +5,13 @@ namespace App\Entidades\Sistema;
 use DB;
 use Illuminate\Database\Eloquent\Model;
 
-class Pedido_detalles extends Model
+class Pedido_detalle extends Model
 {
     protected $table = 'pedido_detalles';
     public $timestamps = false;
 
     protected $fillable = [
-        'iddetalle', 'fk_idpedido', 'fk_idproducto', 'precio_unitario', 'cantidad', 'subtotal',
+        'iddetalle', 'fk_idpedido', 'fk_idproducto', 'precio_unitario', 'cantidad', 'subtotal'
     ];
 
     protected $hidden = [
