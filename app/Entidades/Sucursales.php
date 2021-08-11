@@ -1,31 +1,28 @@
 <?php
+
 namespace App\Entidades;
-
 use DB;
-
 use Illuminate\Database\Eloquent\Model;
 
-class Estados extends Model
-{ 
-    protected $table = 'estados';
+class Sucursal extends Model{
+    protected $table = 'sucursales';
     public $timestamps = false;
-
     protected $fillable = [
-     'idestado' , 'nombre'
+        'idsucursal','direccion','nombre'
     ];
-
     protected $hidden = [
 
     ];
 
-    public function obtenerTodos()
-    {
+    public function obtenerTodos(){
         $sql = "SELECT
-                    idestado,
+                    direccion,
                     nombre
-                FROM estados ORDER BY nombre";
+                FROM sucursales ORDER BY idsucursal";
         $lstRetorno = DB::select($sql);
+
         return $lstRetorno;
     }
-
 }
+
+?>

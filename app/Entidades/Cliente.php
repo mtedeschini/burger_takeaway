@@ -20,11 +20,11 @@ class Cliente extends Model{
     public function obtenerTodos()
     {
         $sql = "SELECT
-                  nombre,
-                  apellido,
-                  telefono,
-                  correo,
-                  fk_idusuario
+                    nombre,
+                    apellido,
+                    telefono,
+                    correo,
+                    fk_idusuario
                 FROM clientes ORDER BY idcliente";
 
         $lstRetorno = DB::select($sql);
@@ -32,5 +32,3 @@ class Cliente extends Model{
         return $lstRetorno;
     }
 }
-
-?>
