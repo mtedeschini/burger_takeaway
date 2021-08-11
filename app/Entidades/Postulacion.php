@@ -68,6 +68,7 @@ public function guardar() {
         documento='$this->documento',
         correo='$this->correo',
         telefono='$this->telefono'
+        archivo_cv='$this->archivo_cv'
         WHERE idpostulacion=?";
     $affected = DB::update($sql, [$this->idpostulacion]);
 }
@@ -100,7 +101,7 @@ public function insertar()
         $this->documento,
         $this->correo,
         $this->telefono,
-        $this->archivo_cv,
+        $this->archivo_cv
     ]);
     return $this->idpostulacion = DB::getPdo()->lastInsertId();
 }
