@@ -23,7 +23,6 @@ class ControladorPedido extends Controller
     {
         $titulo = "Nuevo Pedido";
         return view('pedido.pedido-nuevo', compact('titulo'));
-
     }
 
 }
