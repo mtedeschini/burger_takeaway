@@ -21,12 +21,12 @@ class Pedido_detalles extends Model
     public function obtenerTodos()
     {
         $sql = "SELECT
-                  iddetalle,
-                  fk_idpedido,
-                  fk_idproducto,
-                  precio_unitario,
-                  cantidad,
-                  subtotal
+                    iddetalle,
+                    fk_idpedido,
+                    fk_idproducto,
+                    precio_unitario,
+                    cantidad,
+                    subtotal
                 FROM pedido_detalles ORDER BY iddetalle";
         $lstRetorno = DB::select($sql);
         return $lstRetorno;
