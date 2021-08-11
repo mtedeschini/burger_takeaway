@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Entidades\Pedido;
+use App\Entidades\Pedido_detalle;
+use App\Entidades\Producto;
+use App\Entidades\Sucursal;
+use App\Entidades\Cliente;
 use App\Entidades\Sistema\Usuario;
 use Illuminate\Http\Request;
 
