@@ -55,6 +55,46 @@ class Pedido_detalle extends Model
         }
         return null;
     }
+    public function guardar() {
+        $sql = "UPDATE pedido_detalles SET
+            iddetalle='$this->iddetalle',
+            fk_idpedido='$this->fk_idpedido',
+            fk_idproducto='$this->fk_idproducto',
+            precio_unitario= $this->precio_unitario,
+            cantidad= $this->cantidad,
+            subtotal= $this->subtotal
+            WHERE iddetalle=?";
+        $affected = DB::update($sql, [$this->iddetalle]);
+    }
+
+    public function eliminar()
+    {
+        $sql = "DELETE FROM pedido_detalles WHERE
+            iddetalle=?";
+        $affected = DB::delete($sql, [$this->iddetalle]);
+    }
+
+    public function insertar()
+    {
+        $sql = "INSERT INTO pedido_detalles (
+                iddetalle,
+                fk_idpedido,
+                fk_idproducto,
+                precio_unitario,
+                cantidad,
+                subtotal
+            ) VALUES (?, ?, ?, ?, ?, ?);";
+        $result = DB::insert($sql, [
+            $this->iddetalle,
+            $this->fk_idpedido,
+            $this->fk_idproducto,
+            $this->precio_unitario,
+            $this->cantidad,
+            $this->subtotal,
+        ]);
+        return $this->iddetalle = DB::getPdo()->lastInsertId();
+    }
+
 
 
 
