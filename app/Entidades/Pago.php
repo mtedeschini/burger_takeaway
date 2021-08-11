@@ -21,9 +21,9 @@ class Pago extends Model
     public function obtenerTodos()
     {
         $sql = "SELECT
-                  idpago,
-                  nombre,
-                  activo
+                    idpago,
+                    nombre,
+                    activo
                 FROM pagos ORDER BY nombre";
         $lstRetorno = DB::select($sql);
         return $lstRetorno;
