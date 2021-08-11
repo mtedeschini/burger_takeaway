@@ -9,7 +9,7 @@ class Cliente extends Model{
     public $timestamps = false;
 
     protected $fillable = [
-        'idcliente', 'nombre', 'apellido', 'telefono', 'correo'
+        'idcliente', 'nombre', 'apellido', 'telefono', 'correo', 'fk_idusuario'
     ];
 
     protected $hidden = [
@@ -20,6 +20,7 @@ class Cliente extends Model{
     public function obtenerTodos()
     {
         $sql = "SELECT
+                    idcliente,
                     nombre,
                     apellido,
                     telefono,
