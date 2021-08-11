@@ -45,8 +45,8 @@ class Estado extends Model
 
     public function guardar() {
         $sql = "UPDATE estados SET
-            id_estado='$this->id_estado',
-            nombre='$this->nombre',
+            idestado='$this->idestado',
+            nombre='$this->nombre'
             WHERE idestado=?";
         $affected = DB::update($sql, [$this->idestado]);
     }
@@ -61,12 +61,12 @@ class Estado extends Model
     public function insertar()
     {
         $sql = "INSERT INTO estados (
-                id_estado,
+                idestado,
                 nombre
             ) VALUES (?, ?);";
         $result = DB::insert($sql, [
-            $this->id_estado,
-            $this->nombre,
+            $this->idestado,
+            $this->nombre
         ]);
         return $this->idestado = DB::getPdo()->lastInsertId();
     }
