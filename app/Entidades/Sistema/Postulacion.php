@@ -17,6 +17,7 @@ Class Postulacion extends model{
     ];
     public function obtenerTodos()
     {
+        $sql 
         
     }
 }
