@@ -21,8 +21,8 @@ class Estados extends Model
     public function obtenerTodos()
     {
         $sql = "SELECT
-                 idestado,
-                  nombre
+                    idestado,
+                    nombre
                 FROM estados ORDER BY nombre";
         $lstRetorno = DB::select($sql);
         return $lstRetorno;

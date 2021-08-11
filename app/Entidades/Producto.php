@@ -21,10 +21,10 @@ class Producto extends Model
     public function obtenerTodos()
     {
         $sql = "SELECT
-                  idproducto,
-                  nombre,
-                  precio,
-                  descripcion
+                    idproducto,
+                    nombre,
+                    precio,
+                    descripcion
                 FROM productos ORDER BY nombre";
         $lstRetorno = DB::select($sql);
         return $lstRetorno;
