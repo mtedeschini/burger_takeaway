@@ -50,6 +50,10 @@ if (isset($msg)) {
                     <input type="text" id="txtNombre" name="txtNombre" class="form-control" value="{{ $menu->nombre or '' }}" required>
                 </div>
                 <div class="form-group col-lg-6">
+                    <label>Apellido: *</label>
+                    <input type="text" id="txtApellido" name="txtApellido" class="form-control" value="{{ $menu->apellido or '' }}" required>
+                </div>
+                <div class="form-group col-lg-6">
                     <label>Men&uacute; padre:</label>
                     <select id="lstMenuPadre" name="lstMenuPadre" class="form-control">
                         <option selected value=""></option>
