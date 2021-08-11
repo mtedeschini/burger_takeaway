@@ -106,10 +106,12 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     /* --------------------------------------------- */
     /* CONTROLADOR PRODUCTOS                          */
     /* --------------------------------------------- */
+    Route::get('/admin/productos', 'ControladorProducto@index');
+    Route::get('/admin/producto/nuevo', 'ControladorProducto@nuevo');
 
-/* --------------------------------------------- */
-/* CONTROLADOR PEDIDOS                          */
-/* --------------------------------------------- */
+    /* --------------------------------------------- */
+    /* CONTROLADOR PEDIDOS                          */
+    /* --------------------------------------------- */
     Route::get('/admin/pedidos', 'ControladorPedidos@index');
 
 
