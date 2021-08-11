@@ -53,9 +53,9 @@ class Producto extends Model
 
     public function guardar() {
         $sql = "UPDATE productos SET
-                nombre='$this->nombre',
-                precio=$this->precio,
-                descripcion='$this->descripcion'
+                    nombre='$this->nombre',
+                    precio=$this->precio,
+                    descripcion='$this->descripcion'
                 WHERE idproducto=?";
         $affected = DB::update($sql, [$this->idproducto]);
     }
@@ -70,9 +70,9 @@ class Producto extends Model
     public function insertar()
     {
         $sql = "INSERT INTO productos (
-                nombre,
-                precio,
-                descripcion
+                    nombre,
+                    precio,
+                    descripcion
                 ) VALUES (?, ?, ?);";
         $result = DB::insert($sql, [
             $this->nombre,
