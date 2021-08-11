@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Entidades\Sucursal;
+use App\Entidades\Postulacion;
 
 
 class ControladorPostulacion extends Controller{
