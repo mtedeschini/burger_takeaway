@@ -29,5 +29,35 @@ public function obtenerTodos()
         return $lstRetorno;
     }
 
-    
 }
+
+public function guardar() {
+    $sql = "UPDATE estado_pagos SET
+        idestadopago=$this->idestadopago,
+        nombre='$this->nombre'
+        WHERE idestadopago=?";
+    $affected = DB::update($sql, [$this->idestadopago]);
+}
+
+public function eliminar()
+{
+    $sql = "DELETE FROM estado_pagos WHERE
+        idestadopago=?";
+    $affected = DB::delete($sql, [$this->idestadopago]);
+}
+
+public function insertar()
+{
+    $sql = "INSERT INTO estado_pagos (
+            idestadopago,
+            nombre
+        ) VALUES (?, ?);";
+    $result = DB::insert($sql, [
+        $this->idestadopago,
+        $this->nombre
+    ]);
+    return $this->idestadopago = DB::getPdo()->lastInsertId();
+}
+
+
+

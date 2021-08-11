@@ -27,5 +27,47 @@ class Estado extends Model
         $lstRetorno = DB::select($sql);
         return $lstRetorno;
     }
+    public function obtenerPorId($idestado)
+    {
+        $sql = "SELECT
+                nombre,
+                idestado
+                FROM estados WHERE idestado = $idestado";
+        $lstRetorno = DB::select($sql);
 
+        if (count($lstRetorno) > 0) {
+            $this->idestado = $lstRetorno[0]->idestado;
+            $this->nombre = $lstRetorno[0]->nombre;
+            return $this;
+        }
+        return null;
+    }
+
+    public function guardar() {
+        $sql = "UPDATE Estados SET
+            id_estado='$this->id_estado',
+            nombre='$this->nombre',
+            WHERE idestado=?";
+        $affected = DB::update($sql, [$this->idestado]);
+    }
+
+    public function eliminar()
+    {
+        $sql = "DELETE FROM Estados WHERE
+            idestado=?";
+        $affected = DB::delete($sql, [$this->idestado]);
+    }
+
+    public function insertar()
+    {
+        $sql = "INSERT INTO Estados (
+                id_estado,
+                nombre
+            ) VALUES (?, ?);";
+        $result = DB::insert($sql, [
+            $this->id_estado,
+            $this->nombre,
+        ]);
+        return $this->idestado = DB::getPdo()->lastInsertId();
+    }
 }
