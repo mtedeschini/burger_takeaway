@@ -54,6 +54,30 @@ if (isset($msg)) {
                     <input type="text" id="txtApellido" name="txtApellido" class="form-control" value="{{ $menu->apellido or '' }}" required>
                 </div>
                 <div class="form-group col-lg-6">
+                    <label>Localidad: *</label>
+                    <input type="text" id="txtLocalidad" name="txtLocalidad" class="form-control" value="{{ $menu->localidad or '' }}" required>
+                </div>
+                <div class="form-group col-lg-6">
+                    <label>Documento: *</label>
+                    <input type="text" id="txtDocumento" name="txtDocumento" class="form-control" value="{{ $menu->documento or '' }}" required>
+                </div>
+                <div class="form-group col-lg-6">
+                    <label>Correo: *</label>
+                    <input type="text" id="txtCorreo" name="txtCorreo" class="form-control" value="{{ $menu->documento or '' }}" required>
+                </div>
+                <div class="form-group col-lg-6">
+                    <label>Telefono: *</label>
+                    <input type="text" id="txtTelefono" name="txtTelefono" class="form-control" value="{{ $menu->documento or '' }}" required>
+                </div>
+                <div class="form-group col-lg-6">
+                    <label for="txtCorreo">Archivo adjunto:</label>
+                    <input type="file" id="archivo" name="archivo" class="form-control-file shadow"
+                     accept=".pdf">
+                    <small class="d-block">Archivo Cv: .pdf</small>
+                        </div>
+
+
+                <div class="form-group col-lg-6">
                     <label>Men&uacute; padre:</label>
                     <select id="lstMenuPadre" name="lstMenuPadre" class="form-control">
                         <option selected value=""></option>
