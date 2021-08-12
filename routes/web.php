@@ -97,6 +97,11 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     /* --------------------------------------------- */
     /* CONTROLADOR CLIENTES                          */
     /* --------------------------------------------- */
+    
+
+
+
+    Route::get('/admin/cliente/listado', 'ControladorCliente@index');
     Route::get('/admin/clientes', 'ControladorPedidos@index'); 
     Route::get('/admin/cliente/nuevo', 'ControladorCliente@nuevo');
 
