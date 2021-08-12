@@ -57,27 +57,24 @@ if (isset($msg)) {
                 </select>
             </div>
             <div class="form-group col-lg-6">
-                <label>Módulo: *</label>
+                <label>Cliente: </label>
                 <input type="text" maxlength="50" id="txtModulo" name="txtModulo" class="form-control" value="{{ $patente->modulo or '' }}" required>
             </div>
             <div class="form-group col-lg-6">
-                <label>Submódulo: *</label>
+                <label>Fecha: </label>
                 <input type="text" maxlength="50" id="txtSubmodulo" name="txtSubmodulo" class="form-control" value="{{ $patente->submodulo or '' }}" required>
             </div>
+          
             <div class="form-group col-lg-6">
-                <label>Nombre: *</label>
-                <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="{{ $patente->nombre or '' }}" required>
-            </div>
-            <div class="form-group col-lg-6">
-                <label>Log Operación: *</label>
+                <label>Estado del Pago: </label>
                 <select id="txtOperacion" name="txtOperacion" class="form-control">
                     <option value="1" selected>Sí</option>
                     <option value="0" selected>No</option>
                 </select>
             </div>
             <div class="form-group col-lg-6">
-                <label>Descripción: *</label>
-                <textarea class="form-control" name="txtDescripcion" id="txtDescripcion" cols="30" style="height:70px !important;" maxlength="50" rows="10">{{$patente->descripcion or '' }}</textarea>
+                <label>Total: *</label>
+                <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="{{ $patente->nombre or '' }}" required>
             </div>
         </div>
 </div>
