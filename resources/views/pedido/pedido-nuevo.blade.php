@@ -1,6 +1,7 @@
 @extends('plantilla')
 @section('titulo', "$titulo")
 @section('scripts')
+
 <script>
     globalId = '<?php echo isset($sucursal->idsucursal) && $sucursal->idsucursal > 0 ? $sucursal->idsucursal : 0; ?>';
     <?php $globalId = isset($sucursal->idsucursal) ? $sucursal->idsucursal : "0"; ?>
@@ -47,7 +48,7 @@ if (isset($msg)) {
             <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
             <div class="form-group col-lg-6">
-                <label>Tipo: *</label>
+                <label>Sucursales: *</label>
                <select  id="txtTipo" name="txtTipo" class="form-control" required>
                     <option disabled selected>Seleccionar</option>
                     <option value="CONSULTA">CONSULTA</option>
