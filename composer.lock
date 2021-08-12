@@ -1470,16 +1470,16 @@
         },
         {
             "name": "mercadopago/dx-php",
-            "version": "2.4.1",
+            "version": "2.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mercadopago/sdk-php.git",
-                "reference": "538c3cfc9a776058c1e175ad90de53b41333bca9"
+                "reference": "5b7e2e7ad87f957d712db0bc7cd84b3b1b20ffe0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mercadopago/sdk-php/zipball/538c3cfc9a776058c1e175ad90de53b41333bca9",
-                "reference": "538c3cfc9a776058c1e175ad90de53b41333bca9",
+                "url": "https://api.github.com/repos/mercadopago/sdk-php/zipball/5b7e2e7ad87f957d712db0bc7cd84b3b1b20ffe0",
+                "reference": "5b7e2e7ad87f957d712db0bc7cd84b3b1b20ffe0",
                 "shasum": ""
             },
             "require": {
@@ -1516,9 +1516,9 @@
             "description": "Mercado Pago PHP SDK",
             "homepage": "https://github.com/mercadopago/sdk-php",
             "support": {
-                "source": "https://github.com/mercadopago/sdk-php/tree/2.4.1"
+                "source": "https://github.com/mercadopago/sdk-php/tree/2.4.2"
             },
-            "time": "2021-07-27T19:35:30+00:00"
+            "time": "2021-08-11T18:20:31+00:00"
         },
         {
             "name": "monolog/monolog",

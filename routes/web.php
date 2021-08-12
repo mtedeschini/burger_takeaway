@@ -13,7 +13,7 @@
 
 Route::group(array('domain' => '127.0.0.1'), function () {
 
- 
+
 
 
 
@@ -92,8 +92,52 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::get('/admin/patente/nuevo/{id}', 'ControladorPatente@editar');
     Route::post('/admin/patente/nuevo/{id}', 'ControladorPatente@guardar');
 
+
+
+    /* --------------------------------------------- */
+    /* CONTROLADOR CLIENTES(web.php))         */
+    /* --------------------------------------------- */
+<<<<<<< HEAD
+    //Indice de rutas - comunica con  app/Http/ControllersNameOfFile.php (@llama metodo a utilizar)
+                 //ruta            //callback    
+    Route::get('/admin/clientes', 'ControladorCliente@index');//Get: Consulta dase de datos / 
+    Route::get('/admin/cliente/nuevo', 'ControladorCliente@nuevo'); 
+=======
     
-  
 
 
+
+    Route::get('/admin/cliente/listado', 'ControladorCliente@index');
+    Route::get('/admin/clientes', 'ControladorPedidos@index'); 
+    Route::get('/admin/cliente/nuevo', 'ControladorCliente@nuevo');
+>>>>>>> 6cb2fc309b7eaa7ed58455336767cccb1a9005fc
+
+    /* --------------------------------------------- */
+    /* CONTROLADOR PRODUCTOS                          */
+    /* --------------------------------------------- */
+    Route::get('/admin/productos', 'ControladorProducto@index');
+    Route::get('/admin/producto/nuevo', 'ControladorProducto@nuevo');
+
+
+
+
+    /* --------------------------------------------- */
+    /* CONTROLADOR PEDIDOS                          */
+    /* --------------------------------------------- */
+    Route::get('/admin/pedidos', 'ControladorPedido@index');
+    Route::get('/admin/pedido/nuevo', 'ControladorPedido@nuevo');
+
+
+    /* --------------------------------------------- */
+    /* CONTROLADOR POSTULACIONES                          */
+    /* --------------------------------------------- */
+    Route::get('/admin/postulacion/nuevo', 'ControladorPostulacion@nuevo');
+
+
+    /* --------------------------------------------- */
+    /* CONTROLADOR SUCURSALES                          */
+    /* --------------------------------------------- */
+
+    Route::get('/admin/sucursales', 'ControladorSucursal@index');
+    Route::get('/admin/sucursal/nuevo', 'ControladorSucursal@nuevo');
 });
