@@ -29,7 +29,7 @@
         $lstRetorno = DB::select($sql);
         return $lstRetorno;
     }
-	}
+	
 
 	public function insertar(){
        
@@ -48,5 +48,6 @@
         $lstRetorno = DB::select($sql);
         return $lstRetorno;
     }
+}
 
  ?>
