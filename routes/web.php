@@ -97,20 +97,20 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     /* --------------------------------------------- */
     /* CONTROLADOR CLIENTES(web.php))         */
     /* --------------------------------------------- */
-<<<<<<< HEAD
+
     //Indice de rutas - comunica con  app/Http/ControllersNameOfFile.php (@llama metodo a utilizar)
                  //ruta            //callback    
     Route::get('/admin/clientes', 'ControladorCliente@index');//Get: Consulta dase de datos / 
-    Route::get('/admin/cliente/nuevo', 'ControladorCliente@nuevo'); 
-=======
-    
-
-
 
     Route::get('/admin/cliente/listado', 'ControladorCliente@index');
-    Route::get('/admin/clientes', 'ControladorPedidos@index'); 
-    Route::get('/admin/cliente/nuevo', 'ControladorCliente@nuevo');
->>>>>>> 6cb2fc309b7eaa7ed58455336767cccb1a9005fc
+
+    Route::get('/admin/cliente/nuevo', 'ControladorCliente@nuevo'); 
+
+
+    
+   
+    
+
 
     /* --------------------------------------------- */
     /* CONTROLADOR PRODUCTOS                          */
