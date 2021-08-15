@@ -35,10 +35,7 @@ class ControladorCliente extends Controller
     {
         $titulo = "Nuevo cliente";
 
-        $entidad = new Cliente();
-        $array_menu = $entidad->obtenerMenuPadre();
-
-        return view('cliente.cliente-nuevo', compact('titulo', 'array_menu'));
+        return view('cliente.cliente-nuevo', compact('titulo',);
 
     }
 
