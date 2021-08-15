@@ -105,12 +105,24 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::get('/admin/cliente/listado', 'ControladorCliente@index');
 
     Route::get('/admin/cliente/nuevo', 'ControladorCliente@nuevo'); 
+<<<<<<< HEAD
+=======
+
+    
+>>>>>>> 6e12a08d4bf688834fc33749255425b3133dacaf
 
 
     
    
     
 
+<<<<<<< HEAD
+=======
+    Route::get('/admin/cliente/listado', 'ControladorCliente@index');
+    Route::get('/admin/clientes', 'ControladorPedidos@index'); 
+    Route::get('/admin/cliente/nuevo', 'ControladorCliente@nuevo');
+
+>>>>>>> 6e12a08d4bf688834fc33749255425b3133dacaf
 
     /* --------------------------------------------- */
     /* CONTROLADOR PRODUCTOS                          */
