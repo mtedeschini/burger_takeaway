@@ -103,13 +103,6 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::get('/admin/clientes', 'ControladorCliente@index');//Get: Consulta dase de datos / 
     Route::get('/admin/cliente/nuevo', 'ControladorCliente@nuevo'); 
 
-    
- 
-
-
-    Route::get('/admin/cliente/listado', 'ControladorCliente@index');
-    Route::get('/admin/clientes', 'ControladorPedidos@index'); 
-    Route::get('/admin/cliente/nuevo', 'ControladorCliente@nuevo');
 
 
     /* --------------------------------------------- */
