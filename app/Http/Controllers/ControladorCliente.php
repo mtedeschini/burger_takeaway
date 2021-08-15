@@ -30,12 +30,14 @@ class ControladorCliente extends Controller
     }
 
     
+ 
 
-    public function nuevo()
+
+     public function nuevo()
     {
         $titulo = "Nuevo cliente";
 
-        return view('cliente.cliente-nuevo', compact('titulo');
+        return view('cliente.cliente-nuevo', compact('titulo') );
 
     }
 
