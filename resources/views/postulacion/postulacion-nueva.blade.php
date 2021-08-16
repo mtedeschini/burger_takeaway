@@ -2,18 +2,18 @@
 @section('titulo', "$titulo")
 @section('scripts')
 <script>
-globalId = '<?php echo isset($menu->idmenu) && $menu->idmenu > 0 ? $menu->idmenu : 0; ?>';
-<?php $globalId = isset($menu->idmenu) ? $menu->idmenu : "0";?>
+globalId = '<?php echo isset($menu->idpostulacion) && $menu->idpostulacion > 0 ? $menu->idpostulacion : 0; ?>';
+<?php $globalId = isset($menu->idpostulacion) ? $menu->idpostulacion : "0";?>
 </script>
 @endsection
 @section('breadcrumb')
 <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/admin/home">Inicio</a></li>
-    <li class="breadcrumb-item"><a href="/admin/sistema/menu">Men&uacute;</a></li>
+    <li class="breadcrumb-item"><a href="/admin/postulacion">Postulacion</a></li>
     <li class="breadcrumb-item active">Modificar</li>
 </ol>
 <ol class="toolbar">
-    <li class="btn-item"><a title="Nuevo" href="/admin/sistema/menu/nuevo" class="fa fa-plus-circle"
+    <li class="btn-item"><a title="Nuevo" href="/admin/postulacion/nueva" class="fa fa-plus-circle"
             aria-hidden="true"><span>Nuevo</span></a></li>
     <li class="btn-item"><a title="Guardar" href="#" class="fa fa-floppy-o" aria-hidden="true"
             onclick="javascript: $('#modalGuardar').modal('toggle');"><span>Guardar</span></a>
@@ -27,7 +27,7 @@ globalId = '<?php echo isset($menu->idmenu) && $menu->idmenu > 0 ? $menu->idmenu
 </ol>
 <script>
 function fsalir() {
-    location.href = "/admin/sistema/menu";
+    location.href = "/admin";
 }
 </script>
 @endsection
