@@ -63,7 +63,7 @@ if (isset($msg)) {
             </div>
             <div class="form-group col-lg-6">
                 <label>Fecha: </label>
-                <input type="text" maxlength="50" id="txtSubmodulo" name="txtSubmodulo" class="form-control" value="{{ $patente->submodulo or '' }}" required>
+                <input type="tet" maxlength="50" id="txtSubmodulo" name="txtSubmodulo" class="form-control" value="{{ $patente->submodulo or '' }}" required>
             </div>
           
             <div class="form-group col-lg-6">
