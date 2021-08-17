@@ -77,7 +77,7 @@ if (isset($msg)) {
                     value="{{ $menu->documento or '' }}" required>
             </div>
             <div class="form-group col-lg-6">
-                <label>Telefono: *</label>
+                <label>Teléfono: *</label>
                 <input type="text" id="txtTelefono" name="txtTelefono" class="form-control"
                     value="{{ $menu->documento or '' }}" required>
             </div>
