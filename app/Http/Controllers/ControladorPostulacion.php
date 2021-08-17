@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Entidades\Postulacion;
+use App\Entidades\Sistema\Usuario;
 
 require app_path() . '/start/constants.php';
 
