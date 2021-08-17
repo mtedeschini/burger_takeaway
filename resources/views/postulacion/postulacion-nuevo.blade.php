@@ -61,8 +61,10 @@ if (isset($msg)) {
             </div>
             <div class="form-group col-lg-6">
                 <label>Localidad: *</label>
-                <input type="text" id="txtLocalidad" name="txtLocalidad" class="form-control"
-                    value="{{ $menu->localidad or '' }}" required>
+               <select  id="txtLocalidad" name="txtLocalidad" class="form-control" required>
+                    <option disabled selected>Seleccionar</option>
+                    <option value="">CABA</option>
+                </select>
             </div>
             <div class="form-group col-lg-6">
                 <label>Documento: *</label>
