@@ -4,7 +4,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Entidades\Cliente as EntidadesCliente;
 use App\Entidades\Sistema\Menu; //include_once "app/Entidades/Sistema/Menu.php";
 use App\Entidades\Sistema\Cliente; 
 use App\Entidades\Sistema\MenuArea;
@@ -48,8 +47,8 @@ class ControladorCliente extends Controller
 public function guardar(Request $request) {
     try {
         //Define la entidad servicio
-        $titulo = "Modificar Cliente";
-        $entidad = new Cliente();
+        $titulo = "Modificar cliente";
+        $entidad = new Menu();
         $entidad->cargarDesdeRequest($request);
 
         //validaciones
@@ -72,11 +71,10 @@ public function guardar(Request $request) {
             }
             
             $_POST["id"] = $entidad->idcliente;
-            return view('sistema.cliente-listar', compact('titulo', 'msg'));
+            return view('sistema.menu-listar', compact('titulo', 'msg'));
         }
     } catch (Exception $e) {
         $msg["ESTADO"] = MSG_ERROR;
         $msg["MSG"] = ERRORINSERT;
     }
-
  ?>

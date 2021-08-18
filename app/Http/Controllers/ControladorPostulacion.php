@@ -55,7 +55,7 @@ class ControladorPostulacion extends Controller{
                     $msg["MSG"] = OKINSERT;
                 }
                 
-                $_POST["id"] = $entidad->idmenu;
+                $_POST["id"] = $entidad->idpostulacion;
                 return view('postulacion.postulacion-listar', compact('titulo', 'msg'));
             }
         } catch (Exception $e) {
@@ -67,13 +67,8 @@ class ControladorPostulacion extends Controller{
         $postulacion = new Postulacion();
         $postulacion->obtenerPorId($id);
 
-        $entidad = new Postulacion();
-        $array_menu = $entidad->obtenerMenuPadre($id);
-
-        $menu_grupo = new MenuArea();
-        $array_menu_grupo = $menu_grupo->obtenerPorMenu($id);
-
-        return view('postulacion.postulacion-nuevo', compact('msg', 'titulo',)) . '?id=' . $menu->idmenu;
+    
+        return view('postulacion.postulacion-nuevo', compact('msg', 'titulo',)) . '?id=' . $postulacion->idpostulacion;
 
     }
 
