@@ -30,12 +30,16 @@
 </script>
 @endsection
 @section('contenido')
+
+
 <?php
 if (isset($msg)) {
     echo '<div id = "msg"></div>';
     echo '<script>msgShow("' . $msg["MSG"] . '", "' . $msg["ESTADO"] . '")</script>';
 }
 ?>
+
+
 <div class="panel-body">
     <div id="msg"></div>
     <?php
@@ -49,12 +53,8 @@ if (isset($msg)) {
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
             <div class="form-group col-lg-6">
                 <label>Sucursales: *</label>
-               <select  id="txtTipo" name="txtTipo" class="form-control" required>
-                    <option disabled selected>Seleccionar</option>
-                    <option value="CONSULTA">CONSULTA</option>
-                    <option value="ALTA">ALTA</option>
-                    <option value="EDITAR">EDITAR</option>
-                    <option value="BAJA">BAJA</option>
+                <select id="txtTipo" name="txtTipo" class="form-control" required>
+                    @for ($i = 0)
                 </select>
             </div>
             <div class="form-group col-lg-6">
@@ -65,7 +65,7 @@ if (isset($msg)) {
                 <label>Fecha: </label>
                 <input type="text" maxlength="50" id="txtSubmodulo" name="txtSubmodulo" class="form-control" value="{{ $patente->submodulo or '' }}" required>
             </div>
-          
+
             <div class="form-group col-lg-6">
                 <label>Estado del Pago: </label>
                 <select id="txtOperacion" name="txtOperacion" class="form-control">
