@@ -29,6 +29,59 @@ class ControladorPostulacion extends Controller{
 
     }
 
+    public function guardar(Request $request) {
+        try {
+            //Define la entidad servicio
+            $titulo = "Modificar Postulacion";
+            $entidad = new Postulacion();
+            $entidad->cargarDesdeRequest($request);
+
+            //validaciones
+            if ($entidad->nombre == "") {
+                $msg["ESTADO"] = MSG_ERROR;
+                $msg["MSG"] = "Complete todos los datos";
+            } else {
+                if ($_POST["id"] > 0) {
+                    //Es actualizacion
+                    $entidad->guardar();
+
+                    $msg["ESTADO"] = MSG_SUCCESS;
+                    $msg["MSG"] = OKINSERT;
+                } else {
+                    //Es nuevo
+                    $entidad->insertar();
+
+                    $msg["ESTADO"] = MSG_SUCCESS;
+                    $msg["MSG"] = OKINSERT;
+                }
+                
+                $_POST["id"] = $entidad->idmenu;
+                return view('postulacion.postulacion-listar', compact('titulo', 'msg'));
+            }
+        } catch (Exception $e) {
+            $msg["ESTADO"] = MSG_ERROR;
+            $msg["MSG"] = ERRORINSERT;
+        }
+
+        $id = $entidad->idpostulacion;
+        $postulacion = new Postulacion();
+        $postulacion->obtenerPorId($id);
+
+        $entidad = new Postulacion();
+        $array_menu = $entidad->obtenerMenuPadre($id);
+
+        $menu_grupo = new MenuArea();
+        $array_menu_grupo = $menu_grupo->obtenerPorMenu($id);
+
+        return view('postulacion.postulacion-nuevo', compact('msg', 'titulo',)) . '?id=' . $menu->idmenu;
+
+    }
+
+
+
+
+
+
 
 }
 
