@@ -40,7 +40,7 @@ class ControladorSucursal extends Controller{
         } else {
             return redirect('admin/login');
         }
-    }
+    
 }
 
 
