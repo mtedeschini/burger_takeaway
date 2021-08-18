@@ -10,6 +10,7 @@ class ControladorHome extends Controller
 {
 
     public function index(){
+      
         $titulo="Inicio";
         if (Usuario::autenticado() == true) {
             if (!Patente::autorizarOperacion("MENUCONSULTA")) {

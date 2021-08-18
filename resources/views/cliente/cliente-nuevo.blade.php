@@ -1,19 +1,20 @@
 @extends('plantilla')
 @section('titulo', "$titulo")
 @section('scripts')
+
 <script>
-    globalId = '<?php echo isset($sucursal->idsucursal) && $sucursal->idsucursal > 0 ? $sucursal->idsucursal : 0; ?>';
-    <?php $globalId = isset($sucursal->idsucursal) ? $sucursal->idsucursal : "0"; ?>
+    globalId = '<?php echo isset($cliente->idcliente) && $cliente->idcliente > 0 ? $cliente->idcliente : 0; ?>';
+    <?php $globalId = isset($cliente->idcliente) ? $cliente->idcliente : "0"; ?>
 </script>
 @endsection
 @section('breadcrumb')
 <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/admin">Inicio</a></li>
-    <li class="breadcrumb-item"><a href="/admin/sucursal">Sucursales</a></li>
+    <li class="breadcrumb-item"><a href="/admin/cliente">Cliente</a></li>
     <li class="breadcrumb-item active">Modificar</li>
 </ol>
 <ol class="toolbar">
-    <li class="btn-item"><a title="Nuevo" href="/admin/sucursal/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
+    <li class="btn-item"><a title="Nuevo" href="/admin/cliente/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
     <li class="btn-item"><a title="Guardar" href="#" class="fas fa-save" aria-hidden="true" onclick="javascript: $('#modalGuardar').modal('toggle');"><span>Guardar</span></a>
     </li>
     @if ($globalId > 0)
@@ -23,7 +24,7 @@
     <li class="btn-item"><a title="Salir" href="#" class="fas fa-reply" aria-hidden="true" onclick="javascript: $('#modalSalir').modal('toggle');"><span>Salir</span></a></li>
 </ol>
 <script>
-    function fsalir() {
+    function fsalir() { 
         location.href = "/admin";
     }
 </script>
@@ -44,25 +45,34 @@ if (isset($msg)) {
     ?>
     <form id="form1" method="POST">
         <div class="row">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
+           <!--  <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
-            <div class="form-group col-lg-6">
-                <label>Tipo: *</label>
+          <div class="form-group col-lg-6">
+                <label>Clientes: *</label>
                <select  id="txtTipo" name="txtTipo" class="form-control" required>
                     <option disabled selected>Seleccionar</option>
                     <option value="CONSULTA">CONSULTA</option>
                     <option value="ALTA">ALTA</option>
                     <option value="EDITAR">EDITAR</option>
                     <option value="BAJA">BAJA</option>
-                </select>
+                </select>  
+            </div>--> 
+            <div class="form-group col-lg-6">
+                <label>Nombre: </label>
+                <input type="text" maxlength="50" id="txtModulo" name="txtModulo" class="form-control" value="{{ $patente->modulo or '' }}" required>
             </div>
             <div class="form-group col-lg-6">
-                <label>Nombre: *</label>
-                <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="{{ $sucursal->nombre or '' }}" required>
+                <label>Apellido: </label>
+                <input type="text" maxlength="50" id="txtSubmodulo" name="txtSubmodulo" class="form-control" value="{{ $patente->submodulo or '' }}" required>
+            </div>
+          
+            <div class="form-group col-lg-6">
+                <label>Telefono: </label>
+                <input type="text" maxlength="50" id="txtModulo" name="txtModulo" class="form-control" value="{{ $patente->modulo or '' }}" required>
             </div>
             <div class="form-group col-lg-6">
-                <label>Dirección: *</label>
-                <input type="text" maxlength="50" id="txtDireccion" name="txtDireccion" class="form-control" value="{{ $sucursal->direccion or '' }}" required>
+                <label>Correo: *</label>
+                <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="{{ $patente->nombre or '' }}" required>
             </div>
         </div>
 </div>
@@ -85,7 +95,7 @@ if (isset($msg)) {
         </div>
     </div>
 </div>
-<script>
+<!--<script>
     $("#form1").validate();
 
     function guardar() {
@@ -102,7 +112,7 @@ if (isset($msg)) {
     function eliminar() {
         $.ajax({
             type: "GET",
-            url: "{{ asset('/admin/sucursal/eliminar') }}",
+            url: "{{ asset('/admin/patente/eliminar') }}",
             data: {
                 id: globalId
             },
@@ -121,5 +131,5 @@ if (isset($msg)) {
             }
         });
     }
-</script>
+</script>-->
 @endsection

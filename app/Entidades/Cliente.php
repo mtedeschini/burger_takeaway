@@ -57,7 +57,7 @@ class Cliente extends Model{
         return null;
     }
 
-    public function insertar()
+    public function nuevo()
     {
         $sql = "INSERT INTO clientes (
                 nombre,

@@ -3,18 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Entidades\Postulacion;
+use App\Entidades\Sistema\Usuario;
+
+require app_path() . '/start/constants.php';
 
 
 class ControladorPostulacion extends Controller{
 
+    public function index()
+    {
+        $titulo = "Postulaciones";
+        if (Usuario::autenticado() == true) {
+            return view('postulacion.postulacion-listar', compact('titulo'));
+        } else {
+            return redirect('admin/login');
+        }
 
-
-
-
-
-
-
-
+    }
+    
 
     public function nuevo()
     {
@@ -25,5 +31,6 @@ class ControladorPostulacion extends Controller{
 
 
 }
+
 
 

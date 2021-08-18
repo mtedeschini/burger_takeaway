@@ -95,13 +95,15 @@ Route::group(array('domain' => '127.0.0.1'), function () {
 
 
     /* --------------------------------------------- */
-    /* CONTROLADOR CLIENTES                          */
+    /* CONTROLADOR CLIENTES(web.php))         */
     /* --------------------------------------------- */
-    Route::get('/admin/clientes', 'ControladorPedidos@menu'); 
+
+    //Indice de rutas - comunica con  app/Http/ControllersNameOfFile.php (@llama metodo a utilizar)
+                 //ruta            //callback    
+    Route::get('/admin/clientes', 'ControladorCliente@index');//Get: Consulta dase de datos / 
+    Route::get('/admin/cliente/nuevo', 'ControladorCliente@nuevo'); 
 
 
-
-    Route::get('/admin/cliente/nuevo', 'ControladorCliente@nuevo');
 
     /* --------------------------------------------- */
     /* CONTROLADOR PRODUCTOS                          */
@@ -115,22 +117,15 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     /* --------------------------------------------- */
     /* CONTROLADOR PEDIDOS                          */
     /* --------------------------------------------- */
-    Route::get('/admin/pedidos', 'ControladorPedidos@index');
-    Route::get('/admin/pedidos/nuevo', 'ControladorPedidos@nuevo');
-    Route::get('/admin/pedidos/nuevo', 'ControladorPedidos@guardar');
-    Route::get('/admin/pedidos/nuevo', 'ControladorPedidos@eliminar');
-    Route::get('/admin/pedidos/nuevo{id}', 'ControladorPedidos@editar');
-    Route::get('/admin/pedidos/nuevo{id}', 'ControladorPedidos@guardar');
+    Route::get('/admin/pedidos', 'ControladorPedido@index');
+    Route::get('/admin/pedido/nuevo', 'ControladorPedido@nuevo');
 
 
     /* --------------------------------------------- */
     /* CONTROLADOR POSTULACIONES                          */
     /* --------------------------------------------- */
-    Route::get('/admin/postulacion/nueva', 'ControladorPostulacion@nuevo');
-
-
-
-
+    Route::get('/admin/postulaciones', 'ControladorPostulacion@index');
+    Route::get('/admin/postulacion/nuevo', 'ControladorPostulacion@nuevo');
 
 
     /* --------------------------------------------- */

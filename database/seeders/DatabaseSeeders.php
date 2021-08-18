@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Database\Seeder;
+use Illuminate\Database\Seeders;
 
-class DatabaseSeeder extends Seeder
+class DatabaseSeeders extends Seeders
 {
     /**
      * Run the database seeds.
@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
 }
 
 
-class SeederSistemaGrupo extends Seeder
+class SeederSistemaGrupo extends Seeders
 {
     /**
      * Run the database seeds.
@@ -36,13 +36,13 @@ class SeederSistemaGrupo extends Seeder
         */
 
         DB::table('sistema_grupo')->insert([
-        	'nombre' => 'FCE',
-        	'activo' => 1
+            'nombre' => 'FCE',
+            'activo' => 1
         ]);
     }
 }
 
-class SeederSistemaUsuario extends Seeder
+class SeederSistemaUsuario extends Seeders
 {
     /**
      * Run the database seeds.
@@ -59,14 +59,14 @@ class SeederSistemaUsuario extends Seeder
         */
 
         DB::table('sistema_usuario')->insert([
-        	'usuario' => 'nelson.tarche',
+            'usuario' => 'nelson.tarche',
             'nombre' => 'Nelson Daniel',
             'apellido' => 'Tarche',
-        	'email' => 'nelson.tarche@fce.uba.ar',
+            'email' => 'nelson.tarche@fce.uba.ar',
             'clave' => bcrypt('laravel'),
-        	'activo' => 1,
+            'activo' => 1,
             'root' => 1,
-        	'fk_grupo_id' => 1
+            'fk_grupo_id' => 1
         ]);
 
         DB::table('sistema_usuario')->insert([
@@ -80,7 +80,7 @@ class SeederSistemaUsuario extends Seeder
             'fk_grupo_id' => 1
         ]);
 
-       DB::table('sistema_usuario')->insert([
+        DB::table('sistema_usuario')->insert([
             'usuario' => 'usuario3',
             'nombre' => 'Nombre3',
             'apellido' => 'Apellido3',
@@ -100,7 +100,7 @@ class SeederSistemaUsuario extends Seeder
             'root' => 1,
             'fk_grupo_id' => 1
         ]);
-         DB::table('sistema_usuario')->insert([
+        DB::table('sistema_usuario')->insert([
             'usuario' => 'usuario5',
             'nombre' => 'Nombre5',
             'apellido' => 'Apellido5',
@@ -114,7 +114,7 @@ class SeederSistemaUsuario extends Seeder
 }
 
 
-class SeederSistemaUsuarioGrupo extends Seeder
+class SeederSistemaUsuarioGrupo extends Seeders
 {
     /**
      * Run the database seeds.
@@ -123,11 +123,11 @@ class SeederSistemaUsuarioGrupo extends Seeder
      */
     public function run()
     {
-        for($i=1;$i<=5;$i++)
-        DB::table('sistema_usuario_grupo')->insert([
-            'fk_usuario_id' => $i,
-            'fk_grupo_id' => 1,
-            'predeterminado' => 1
-        ]);
+        for ($i = 1; $i <= 5; $i++)
+            DB::table('sistema_usuario_grupo')->insert([
+                'fk_usuario_id' => $i,
+                'fk_grupo_id' => 1,
+                'predeterminado' => 1
+            ]);
     }
 }
