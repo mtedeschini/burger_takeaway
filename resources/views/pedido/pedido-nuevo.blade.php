@@ -3,7 +3,11 @@
 @section('scripts')
 
 <script>
-    globalId = '<?php echo isset($sucursal->idsucursal) && $sucursal->idsucursal > 0 ? $sucursal->idsucursal : 0; ?>';
+    globalId = '<?php
+
+use App\Entidades\Sucursal;
+
+echo isset($sucursal->idsucursal) && $sucursal->idsucursal > 0 ? $sucursal->idsucursal : 0; ?>';
     <?php $globalId = isset($sucursal->idsucursal) ? $sucursal->idsucursal : "0"; ?>
 </script>
 @endsection
@@ -29,14 +33,20 @@
     }
 </script>
 @endsection
+
+
 @section('contenido')
 
-
 <?php
-if (isset($msg)) {
-    echo '<div id = "msg"></div>';
-    echo '<script>msgShow("' . $msg["MSG"] . '", "' . $msg["ESTADO"] . '")</script>';
-}
+    include_once "app/Entidades/Sucursal.php";
+
+    $entidadSucursal = new Sucursal();
+    $aSucursales = $entidadSucursal->obtenerTodos();
+
+    if (isset($msg)) {
+        echo '<div id = "msg"></div>';
+        echo '<script>msgShow("' . $msg["MSG"] . '", "' . $msg["ESTADO"] . '")</script>';
+    }
 ?>
 
 
@@ -54,7 +64,9 @@ if (isset($msg)) {
             <div class="form-group col-lg-6">
                 <label>Sucursales: *</label>
                 <select id="txtTipo" name="txtTipo" class="form-control" required>
-                    @for ($i = 0)
+                    @foreach ($aSucursales as $sucursal)
+                        <option selected value="{{$sucursal->idsucursal}}">{{$sucursal->nombre}}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="form-group col-lg-6">
