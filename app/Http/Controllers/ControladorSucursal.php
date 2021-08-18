@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Entidades\Sucursal;
 use App\Entidades\Sistema\Usuario;
+use App\Entidades\Sistema\Patente;
 
 require app_path() . '/start/constants.php';
 
@@ -14,7 +15,7 @@ class ControladorSucursal extends Controller{
     {
         $titulo = "Sucursales";
         if (Usuario::autenticado() == true) {
-            if (!SUCURSAL::autorizarOperacion("SUCURSALCONSULTA")) {
+            if (!Patente::autorizarOperacion("SUCURSALCONSULTA")) {
                 $codigo = "SUCURSALCONSULTA";
                 $mensaje = "No tiene permisos para la operaci&oacute;n.";
                 return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
