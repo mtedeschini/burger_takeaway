@@ -32,7 +32,10 @@ class ControladorPedido extends Controller
         return view('pedido.pedido-nuevo', compact('titulo', 'aSucursales'));
     }
 
+
 }
+
+
 
 
 ?>
