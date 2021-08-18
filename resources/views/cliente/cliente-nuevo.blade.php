@@ -45,18 +45,9 @@ if (isset($msg)) {
     ?>
     <form id="form1" method="POST">
         <div class="row">
-           <!--  <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
+            <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
-          <div class="form-group col-lg-6">
-                <label>Clientes: *</label>
-               <select  id="txtTipo" name="txtTipo" class="form-control" required>
-                    <option disabled selected>Seleccionar</option>
-                    <option value="CONSULTA">CONSULTA</option>
-                    <option value="ALTA">ALTA</option>
-                    <option value="EDITAR">EDITAR</option>
-                    <option value="BAJA">BAJA</option>
-                </select>  
-            </div>--> 
+
             <div class="form-group col-lg-6">
                 <label>Nombre: </label>
                 <input type="text" maxlength="50" id="txtModulo" name="txtModulo" class="form-control" value="" required>
