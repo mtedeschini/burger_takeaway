@@ -31,7 +31,7 @@ class ControladorProducto extends Controller{
         $request = $_REQUEST;
 
         $entidad = new Producto();
-        $aMenu = $entidad->obtenerFiltrado();
+        $aProducto = $entidad->obtenerFiltrado();
 
         $data = array();
         $cont = 0;
@@ -43,9 +43,8 @@ class ControladorProducto extends Controller{
         for ($i = $inicio; $i < count($aProducto) && $cont < $registros_por_pagina; $i++) {
             $row = array();
             $row[] = '<a href="/admin/producto/' . $aProducto[$i]->idproducto . '">' . $aProducto[$i]->nombre . '</a>';
-            $row[] = $aProducto[$i]->padre;
-            $row[] = $aProducto[$i]->url;
-            $row[] = $aProducto[$i]->activo;
+            $row[] = $aProducto[$i]->precio;
+            $row[] = $aProducto[$i]->descripcion;
             $cont++;
             $data[] = $row;
         }
