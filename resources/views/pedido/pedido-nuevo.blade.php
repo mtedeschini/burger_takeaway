@@ -12,7 +12,7 @@ echo isset($sucursal->idsucursal) && $sucursal->idsucursal > 0 ? $sucursal->idsu
 @section('breadcrumb')
 <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/admin">Inicio</a></li>
-    <li class="breadcrumb-item"><a href="/admin/sucursal">Pedido</a></li>
+    <li class="breadcrumb-item"><a href="/admin/pedidos">Pedidos</a></li>
     <li class="breadcrumb-item active">Modificar</li>
 </ol>
 <ol class="toolbar">
@@ -57,7 +57,6 @@ echo isset($sucursal->idsucursal) && $sucursal->idsucursal > 0 ? $sucursal->idsu
             <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
 
-            /*
             <div class="form-group col-lg-6">
                 <label>Sucursales: *</label>
                 <select id="txtTipo" name="txtTipo" class="form-control" required>
@@ -66,7 +65,6 @@ echo isset($sucursal->idsucursal) && $sucursal->idsucursal > 0 ? $sucursal->idsu
                     @endforeach
                 </select>
             </div>
-            */
             <div class="form-group col-lg-6">
                 <label>Cliente: </label>
                 <input type="text" maxlength="50" id="txtModulo" name="txtModulo" class="form-control" value="" required>
