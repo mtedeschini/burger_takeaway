@@ -74,6 +74,10 @@ if (isset($msg)) {
                 <label>Correo: *</label>
                 <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="" required>
             </div>
+            <div class="form-group col-lg-6">
+                <label>Usuario: </label>
+                <input type="text" maxlength="50" id="txtUsuario" name="txtUsuario" class="form-control" value="" required>
+            </div>
         </div>
 </div>
 </form>
