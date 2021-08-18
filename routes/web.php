@@ -124,6 +124,7 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     /* --------------------------------------------- */
     /* CONTROLADOR POSTULACIONES                          */
     /* --------------------------------------------- */
+    Route::get('/admin/postulaciones', 'ControladorPostulacion@index');
     Route::get('/admin/postulacion/nuevo', 'ControladorPostulacion@nuevo');
 
 
