@@ -5,8 +5,6 @@
 <script>
     globalId = '<?php
 
-use App\Entidades\Sucursal;
-
 echo isset($sucursal->idsucursal) && $sucursal->idsucursal > 0 ? $sucursal->idsucursal : 0; ?>';
     <?php $globalId = isset($sucursal->idsucursal) ? $sucursal->idsucursal : "0"; ?>
 </script>
@@ -38,10 +36,7 @@ echo isset($sucursal->idsucursal) && $sucursal->idsucursal > 0 ? $sucursal->idsu
 @section('contenido')
 
 <?php
-    include_once "app/Entidades/Sucursal.php";
 
-    $entidadSucursal = new Sucursal();
-    $aSucursales = $entidadSucursal->obtenerTodos();
 
     if (isset($msg)) {
         echo '<div id = "msg"></div>';
@@ -74,11 +69,11 @@ echo isset($sucursal->idsucursal) && $sucursal->idsucursal > 0 ? $sucursal->idsu
             */
             <div class="form-group col-lg-6">
                 <label>Cliente: </label>
-                <input type="text" maxlength="50" id="txtModulo" name="txtModulo" class="form-control" value="{{ $patente->modulo or '' }}" required>
+                <input type="text" maxlength="50" id="txtModulo" name="txtModulo" class="form-control" value="" required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Fecha: </label>
-                <input type="tet" maxlength="50" id="txtSubmodulo" name="txtSubmodulo" class="form-control" value="{{ $patente->submodulo or '' }}" required>
+                <input type="tet" maxlength="50" id="txtSubmodulo" name="txtSubmodulo" class="form-control" value="" required>
             </div>
 
             <div class="form-group col-lg-6">
@@ -90,7 +85,7 @@ echo isset($sucursal->idsucursal) && $sucursal->idsucursal > 0 ? $sucursal->idsu
             </div>
             <div class="form-group col-lg-6">
                 <label>Total: *</label>
-                <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="{{ $patente->nombre or '' }}" required>
+                <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="" required>
             </div>
         </div>
 </div>
