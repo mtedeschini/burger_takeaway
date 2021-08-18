@@ -132,6 +132,6 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     /* CONTROLADOR SUCURSALES                          */
     /* --------------------------------------------- */
 
-    Route::get('/admin/sucursales', 'ControladorSucursal@index');
+    Route::get('/admin/sucursal', 'ControladorSucursal@index');
     Route::get('/admin/sucursal/nuevo', 'ControladorSucursal@nuevo');
 });

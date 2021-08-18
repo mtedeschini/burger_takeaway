@@ -29,7 +29,7 @@ class ControladorSucursal extends Controller{
     public function nuevo()
     {
         $titulo = "Nueva Sucursal";
-        if (Usuario::autenticado() == true) {
+        if (Usuario::autenticado() == true){
             if (!Sucursal::autorizarOperacion("SUCURSALALTA")) {
                 $codigo = "SUCURSALALTA";
                 $mensaje = "No tiene pemisos para la operaci&oacute;n.";
@@ -42,33 +42,4 @@ class ControladorSucursal extends Controller{
         }
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-?>
-
-
-
-
-
-
-
-
+}
