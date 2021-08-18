@@ -42,6 +42,10 @@ class Pedido extends Model{
         if (!empty($request['search']['value'])) {
             $sql .= " AND ( A.idpedido LIKE '%" . $request['search']['value'] . "%' ";
             $sql .= " OR B.nombre LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR C.idcliente LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR D.idestado LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR B.nombre LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR B.nombre LIKE '%" . $request['search']['value'] . "%' ";
             $sql .= " OR A.url LIKE '%" . $request['search']['value'] . "%' )";
         }
         $sql .= " ORDER BY " . $columns[$request['order'][0]['column']] . "   " . $request['order'][0]['dir'];
