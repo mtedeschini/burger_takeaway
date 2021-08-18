@@ -93,4 +93,7 @@ class Cliente extends Model{
             WHERE idcliente=?";
         $affected = DB::update($sql, [$this->idcliente]);
     }
+    public function cargarDesdeRequest() {
+        
+    }
 }
