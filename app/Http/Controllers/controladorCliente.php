@@ -1,27 +1,48 @@
-<?php
+<?php 
+
+
 
 namespace App\Http\Controllers;
 
-use App\Entidades\Sistema\Cliente;
+use App\Entidades\Sistema\Menu; //include_once "app/Entidades/Sistema/Menu.php";
+use App\Entidades\Sistema\Cliente; 
+use App\Entidades\Sistema\MenuArea;
+use App\Entidades\Sistema\Patente;
 use App\Entidades\Sistema\Usuario;
 use Illuminate\Http\Request;
-
-require app_path() . '/start/constants.php';
 
 class ControladorCliente extends Controller
 {
     public function index()
     {
-        $titulo = "Clientes";
+        $titulo = "Listado clientes";
         if (Usuario::autenticado() == true) {
-            if (!Patente::autorizarOperacion("CLIENTECONSULTA")) {
-                $codigo = "CLIENTECONSULTA";
+            if (!Patente::autorizarOperacion("MENUCONSULTA")) {
+                $codigo = "MENUCONSULTA";
                 $mensaje = "No tiene permisos para la operaci&oacute;n.";
                 return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
             } else {
-                return view('sistema.patente-listar', compact('titulo'));
+                return view('cliente.cliente-listar', compact('titulo')); //crear carpeta
             }
         } else {
             return redirect('admin/login');
         }
     }
+
+    
+ 
+
+
+     public function nuevo()
+    {
+        $titulo = "Nuevo cliente";
+
+        return view('cliente.cliente-nuevo', compact('titulo') );
+
+    }
+
+    
+  
+}
+
+ ?>
