@@ -9,7 +9,7 @@
 @section('breadcrumb')
 <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/admin">Inicio</a></li>
-    <li class="breadcrumb-item"><a href="/admin/sucursal">Sucursales</a></li>
+    <li class="breadcrumb-item"><a href="/admin/sucursales">Sucursales</a></li>
     <li class="breadcrumb-item active">Modificar</li>
 </ol>
 <ol class="toolbar">
@@ -46,23 +46,14 @@ if (isset($msg)) {
         <div class="row">
             <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
-            <div class="form-group col-lg-6">
-                <label>Tipo: *</label>
-               <select  id="txtTipo" name="txtTipo" class="form-control" required>
-                    <option disabled selected>Seleccionar</option>
-                    <option value="CONSULTA">CONSULTA</option>
-                    <option value="ALTA">ALTA</option>
-                    <option value="EDITAR">EDITAR</option>
-                    <option value="BAJA">BAJA</option>
-                </select>
-            </div>
+
             <div class="form-group col-lg-6">
                 <label>Nombre: *</label>
-                <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="{{ $sucursal->nombre or '' }}" required>
+                <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="" required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Dirección: *</label>
-                <input type="text" maxlength="50" id="txtDireccion" name="txtDireccion" class="form-control" value="{{ $sucursal->direccion or '' }}" required>
+                <input type="text" maxlength="50" id="txtDireccion" name="txtDireccion" class="form-control" value="" required>
             </div>
         </div>
 </div>

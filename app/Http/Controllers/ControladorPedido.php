@@ -24,11 +24,12 @@ class ControladorPedido extends Controller
         }
     }
 
-
     public function nuevo()
     {
         $titulo = "Nuevo Pedido";
-        return view('pedido.pedido-nuevo', compact('titulo'));
+        $entidadSucursal = new Sucursal();
+        $aSucursales = $entidadSucursal->obtenerTodos();
+        return view('pedido.pedido-nuevo', compact('titulo', 'aSucursales'));
     }
 
 }
