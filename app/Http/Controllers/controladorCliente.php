@@ -71,11 +71,10 @@ public function guardar(Request $request) {
             }
             
             $_POST["id"] = $entidad->idcliente;
-            return view('sistema.cliente-listar', compact('titulo', 'msg'));
+            return view('sistema.menu-listar', compact('titulo', 'msg'));
         }
     } catch (Exception $e) {
         $msg["ESTADO"] = MSG_ERROR;
         $msg["MSG"] = ERRORINSERT;
     }
-
  ?>
