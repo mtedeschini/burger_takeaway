@@ -1,6 +1,6 @@
 @extends('plantilla')
 
-@section('titulo', "Listado del menú")
+@section('titulo', "Listado de sucursales")
 
 @section('scripts')
 <link href="{{ asset('css/datatables.min.css') }}" rel="stylesheet">
@@ -26,10 +26,9 @@ if (isset($msg)) {
 <table id="grilla" class="display">
     <thead>
         <tr>
-            <th>Nombre</th>
-            <th>Padre</th>
-            <th>URL</th>
-            <th>Activo</th>
+            <th>idsucursal</th>
+            <th>direccion</th>
+            <th>nombre</th>
         </tr>
     </thead>
 </table> 

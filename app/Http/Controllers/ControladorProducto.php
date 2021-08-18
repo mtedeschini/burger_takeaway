@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Entidades\Producto;
 use App\Entidades\Sistema\Usuario;
+use App\Entidades\Sistema\Patente;
 use Illuminate\Http\Request;
 
 class ControladorProducto extends Controller{
@@ -17,7 +18,7 @@ class ControladorProducto extends Controller{
                 $mensaje = "No tiene permisos para la operaci&oacute;n.";
                 return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
             } else {
-                return view('sistema.producto-listar', compact('titulo'));
+                return view('producto.producto-listar', compact('titulo'));
             }
           } else {
             return redirect('admin/login');
