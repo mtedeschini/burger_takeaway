@@ -9,7 +9,7 @@ globalId = '<?php echo isset($menu->idpostulacion) && $menu->idpostulacion > 0 ?
 @section('breadcrumb')
 <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/admin/home">Inicio</a></li>
-    <li class="breadcrumb-item"><a href="/admin/postulacion">Postulacion</a></li>
+    <li class="breadcrumb-item"><a href="/admin/postulaciones">Postulaciones</a></li>
     <li class="breadcrumb-item active">Modificar</li>
 </ol>
 <ol class="toolbar">
@@ -52,12 +52,12 @@ if (isset($msg)) {
             <div class="form-group col-lg-6">
                 <label>Nombre: *</label>
                 <input type="text" id="txtNombre" name="txtNombre" class="form-control"
-                    value="{{ $menu->nombre or '' }}" required>
+                    value="" required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Apellido: *</label>
                 <input type="text" id="txtApellido" name="txtApellido" class="form-control"
-                    value="{{ $menu->apellido or '' }}" required>
+                    value="" required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Localidad: *</label>
@@ -69,22 +69,22 @@ if (isset($msg)) {
             <div class="form-group col-lg-6">
                 <label>Documento: *</label>
                 <input type="text" id="txtDocumento" name="txtDocumento" class="form-control"
-                    value="{{ $menu->documento or '' }}" required>
+                    value="" required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Correo: *</label>
                 <input type="text" id="txtCorreo" name="txtCorreo" class="form-control"
-                    value="{{ $menu->documento or '' }}" required>
+                    value="" required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Teléfono: *</label>
                 <input type="text" id="txtTelefono" name="txtTelefono" class="form-control"
-                    value="{{ $menu->documento or '' }}" required>
+                    value="" required>
             </div>
             <div class="form-group col-lg-6">
                 <label for="txtCorreo">Archivo adjunto:</label>
                 <input type="file" id="archivo" name="archivo" class="form-control-file shadow" accept=".pdf">
-                <small class="d-block">Archivo Cv: .pdf</small>
+                <small class="d-block">Archivo CV: .pdf</small>
             </div>
         </div>
     </form>
