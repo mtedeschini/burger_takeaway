@@ -37,16 +37,16 @@ class ControladorPedido extends Controller
             //Define la entidad servicio
             $titulo = "Pedido";
             $entidadPedido = new Pedido();
-            $entidadPEdido->cargarDesdeRequest($request);
+            $entidadPedido->cargarDesdeRequest($request);
 
             //validaciones
-            if ($entidadUsuario->usuario == "" || $entidadUsuario->mail == "" || $entidadUsuario->nombre == "") {
+            if (($entidadPedido->total == "" || $entidadPedido->fk_idsucursal == "") || ($entidadUsuario->fk_idcliente == "") || ($entidadPedido->fk_estadoPago == "") || ($entidadPedido->fk_estado == "") || ($entidadPago->fecha == "")){
                 $msg["ESTADO"] = MSG_ERROR;
                 $msg["MSG"] = USUARIOFALTACAMPOS;
             } else {
                 if ($_POST["id"] > 0) {
                     //Es actualizacion
-                    $entidadUsuario->guardar();
+                    $entidadPedido->guardar();
 
                     //Actualiza en datos personales
                     //$legajo = new Personal();
@@ -59,8 +59,8 @@ class ControladorPedido extends Controller
 
                     //Es nuevo
                     //$entidadUsuario->fk_idlegajo = $legajo->idlegajo;
-                    $entidadUsuario->insertar();
-                    $_POST["id"] = $entidadUsuario->idusuario;
+                    $entidadPedido->insertar();
+                    $_POST["id"] = $entidadPedido->idpedido;
                 }
 
                 if (Patente::autorizarOperacion("USUARIOAGREGARPERMISO")) {
@@ -103,10 +103,47 @@ class ControladorPedido extends Controller
         } catch (Exception $e) {
             $msg["ESTADO"] = MSG_ERROR;
             $msg["MSG"] = ERRORINSERT;
-        }                
+        }  
+    }              
+    public function cargarGrilla()
+    {
+        $request = $_REQUEST;
+
+        $entidad = new Pedido();
+        $aPedidos = $entidad->obtenerFiltrado();
+
+        $data = array();
+        $cont = 0;
+
+        $inicio = $request['start'];
+        $registros_por_pagina = $request['length'];
+
+
+        for ($i = $inicio; $i < count($aPedidos) && $cont < $registros_por_pagina; $i++) {
+            $row = array();
+            $row[] = '<a href="/admin/pedidos/' . $aPedidos[$i]->idpedido . '">' . $aPedidos[$i]->idpedido . '</a>';
+            $row[] = $aPedidos[$i]->total;
+            $row[] = $aPedidos[$i]->fk_idsucursal;
+            $row[] = $aPedidos[$i]->fk_idcliente;
+            $row[] = $aPedidos[$i]->fk_idestado;
+            $row[] = $aPedidos[$i]->fk_idestadopago;
+            $row[] = $aPedidos[$i]->fecha;
+            $cont++;
+            $data[] = $row;
+        }
+
+        $json_data = array(
+            "draw" => intval($request['draw']),
+            "recordsTotal" => count($aPedidos), //cantidad total de registros sin paginar
+            "recordsFiltered" => count($aPedidos), //cantidad total de registros en la paginacion
+            "data" => $data,
+        );
+        return json_encode($json_data);
     }
 
 }
+
+
 
 
 ?>

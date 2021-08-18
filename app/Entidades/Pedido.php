@@ -104,7 +104,7 @@ class Pedido extends Model{
         return $this->idpedido = DB::getPdo()->lastInsertId();
     }
 
-    public function cargarDesdeRequest(){
+    public function cargarDesdeRequest($request){
         $this->idPedido = $request->input('id') != "0" ? $request->input('id') : $this->idPedido;
         $this->total = $request->input('txtTotal');
         $this->fk_idsucursal = $request->input('fk_idsucursal');

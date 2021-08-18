@@ -14,6 +14,14 @@ class Sucursal extends Model{
 
     ];
 
+
+    public function cargarDesdeRequest($request) {
+        $this->idsucursal = $request->input('id') != "0" ? $request->input('id') : $this->idsucursal;
+        $this->direccion = $request->input('txtDireccion');
+        $this->nombre = $request->input('txtNombre');
+        
+    }
+
     public function obtenerTodos(){
         $sql = "SELECT
                     idsucursal,
@@ -64,7 +72,7 @@ class Sucursal extends Model{
     }
 
 
-    
+
     
 }
 
