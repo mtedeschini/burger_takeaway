@@ -63,17 +63,17 @@ class ControladorPostulacion extends Controller{
             $msg["MSG"] = ERRORINSERT;
         }
 
-        $id = $entidad->idmenu;
-        $menu = new Menu();
-        $menu->obtenerPorId($id);
+        $id = $entidad->idpostulacion;
+        $postulacion = new Postulacion();
+        $postulacion->obtenerPorId($id);
 
-        $entidad = new Menu();
+        $entidad = new Postulacion();
         $array_menu = $entidad->obtenerMenuPadre($id);
 
         $menu_grupo = new MenuArea();
         $array_menu_grupo = $menu_grupo->obtenerPorMenu($id);
 
-        return view('sistema.menu-nuevo', compact('msg', 'titulo',)) . '?id=' . $menu->idmenu;
+        return view('postulacion.postulacion-nuevo', compact('msg', 'titulo',)) . '?id=' . $menu->idmenu;
 
     }
 
