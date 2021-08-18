@@ -1,12 +1,8 @@
-<?php 
-
-
+<?php
 
 namespace App\Http\Controllers;
 
 use App\Entidades\Sistema\Menu; //include_once "app/Entidades/Sistema/Menu.php";
-use App\Entidades\Sistema\Cliente; 
-use App\Entidades\Sistema\MenuArea;
 use App\Entidades\Sistema\Patente;
 use App\Entidades\Sistema\Usuario;
 use Illuminate\Http\Request;
@@ -29,19 +25,16 @@ class ControladorCliente extends Controller
         }
     }
 
-    
- 
-
-
-     public function nuevo()
+    public function nuevo()
     {
         $titulo = "Nuevo cliente";
 
-        return view('cliente.cliente-nuevo', compact('titulo') );
+        return view('cliente.cliente-nuevo', compact('titulo'));
 
     }
 
-    public function guardar(Request $request) {
+    public function guardar(Request $request)
+    {
         try {
             //Define la entidad servicio
             $titulo = "Modificar cliente";
@@ -66,7 +59,7 @@ class ControladorCliente extends Controller
                     $msg["ESTADO"] = MSG_SUCCESS;
                     $msg["MSG"] = OKINSERT;
                 }
-                
+
                 $_POST["id"] = $entidad->idcliente;
                 return view('sistema.menu-listar', compact('titulo', 'msg'));
             }
@@ -75,5 +68,4 @@ class ControladorCliente extends Controller
             $msg["MSG"] = ERRORINSERT;
         }
     }
-} 
- ?>
+}
