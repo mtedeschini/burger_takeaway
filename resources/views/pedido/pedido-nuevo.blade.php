@@ -61,6 +61,8 @@ echo isset($sucursal->idsucursal) && $sucursal->idsucursal > 0 ? $sucursal->idsu
         <div class="row">
             <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
+
+            /*
             <div class="form-group col-lg-6">
                 <label>Sucursales: *</label>
                 <select id="txtTipo" name="txtTipo" class="form-control" required>
@@ -69,6 +71,7 @@ echo isset($sucursal->idsucursal) && $sucursal->idsucursal > 0 ? $sucursal->idsu
                     @endforeach
                 </select>
             </div>
+            */
             <div class="form-group col-lg-6">
                 <label>Cliente: </label>
                 <input type="text" maxlength="50" id="txtModulo" name="txtModulo" class="form-control" value="{{ $patente->modulo or '' }}" required>
