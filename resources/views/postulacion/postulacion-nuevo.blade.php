@@ -84,7 +84,7 @@ if (isset($msg)) {
             <div class="form-group col-lg-6">
                 <label for="txtCorreo">Archivo adjunto:</label>
                 <input type="file" id="archivo" name="archivo" class="form-control-file shadow" accept=".pdf">
-                <small class="d-block">Archivo Cv: .pdf</small>
+                <small class="d-block">Archivo CV: .pdf</small>
             </div>
         </div>
     </form>
