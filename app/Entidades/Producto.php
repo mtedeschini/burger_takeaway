@@ -23,26 +23,23 @@ class Producto extends Model
         $request = $_REQUEST;
         $columns = array(
             0 => 'A.nombre',
-            1 => 'B.nombre',
-            2 => 'A.url',
-            3 => 'A.activo',
+            1 => 'A.precio',
+            2 => 'A.descripcion'
         );
         $sql = "SELECT DISTINCT
                     A.idproducto,
                     A.nombre,
-                    B.nombre as padre,
-                    A.url,
-                    A.activo
+                    A.precio,
+                    A.descripcion
                     FROM productos A
-                    LEFT JOIN productos B ON A.id_padre = B.idproducto
                 WHERE 1=1
                 ";
 
         //Realiza el filtrado
         if (!empty($request['search']['value'])) {
             $sql .= " AND ( A.nombre LIKE '%" . $request['search']['value'] . "%' ";
-            $sql .= " OR B.nombre LIKE '%" . $request['search']['value'] . "%' ";
-            $sql .= " OR A.url LIKE '%" . $request['search']['value'] . "%' )";
+            $sql .= " OR A.precio LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR A.descripcion LIKE '%" . $request['search']['value'] . "%' )";
         }
         $sql .= " ORDER BY " . $columns[$request['order'][0]['column']] . "   " . $request['order'][0]['dir'];
 
