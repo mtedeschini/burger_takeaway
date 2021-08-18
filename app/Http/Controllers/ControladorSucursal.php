@@ -31,12 +31,12 @@ class ControladorSucursal extends Controller{
     {
         $titulo = "Nueva Sucursal";
         if (Usuario::autenticado() == true){
-            if (!Sucursal::autorizarOperacion("SUCURSALALTA")) {
+            if (!Patente::autorizarOperacion("SUCURSALALTA")) {
                 $codigo = "SUCURSALALTA";
                 $mensaje = "No tiene pemisos para la operaci&oacute;n.";
                 return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
             } else {
-                return view('sucursal.sucursal-nuevo');
+                return view('sucursal.sucursal-nuevo', compact('titulo'));
             }
         } else {
             return redirect('admin/login');

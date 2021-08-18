@@ -9,7 +9,7 @@
 @section('breadcrumb')
 <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/home">Inicio</a></li>
-    <li class="breadcrumb-item active">Men&uacute;</a></li>
+    <li class="breadcrumb-item active">Sucursales</a></li>
 </ol>
 <ol class="toolbar">
     <li class="btn-item"><a title="Nuevo" href="/admin/sucursal/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
@@ -26,9 +26,8 @@ if (isset($msg)) {
 <table id="grilla" class="display">
     <thead>
         <tr>
-            <th>idsucursal</th>
-            <th>direccion</th>
-            <th>nombre</th>
+            <th>Nombre</th>
+            <th>Direccion</th>
         </tr>
     </thead>
 </table> 
