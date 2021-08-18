@@ -63,6 +63,8 @@ class Sucursal extends Model{
         $affected = DB::update($sql,[$this->idsucursal]);
     }
 
+
+    
     
 }
 
