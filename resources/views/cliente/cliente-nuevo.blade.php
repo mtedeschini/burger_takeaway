@@ -71,7 +71,7 @@ if (isset($msg)) {
                 <input type="text" maxlength="50" id="txtModulo" name="txtModulo" class="form-control" value="" required>
             </div>
             <div class="form-group col-lg-6">
-                <label>Correo: *</label>
+                <label>Correo: </label>
                 <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="" required>
             </div>
             <div class="form-group col-lg-6">
