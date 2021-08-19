@@ -31,7 +31,7 @@ class ControladorProducto extends Controller{
         $request = $_REQUEST;
 
         $entidad = new Producto();
-        $aProducto = $entidad->obtenerFiltrado();
+        $aMenu = $entidad->obtenerFiltrado();
 
         $data = array();
         $cont = 0;
@@ -43,8 +43,9 @@ class ControladorProducto extends Controller{
         for ($i = $inicio; $i < count($aProducto) && $cont < $registros_por_pagina; $i++) {
             $row = array();
             $row[] = '<a href="/admin/producto/' . $aProducto[$i]->idproducto . '">' . $aProducto[$i]->nombre . '</a>';
-            $row[] = $aProducto[$i]->precio;
-            $row[] = $aProducto[$i]->descripcion;
+            $row[] = $aProducto[$i]->padre;
+            $row[] = $aProducto[$i]->url;
+            $row[] = $aProducto[$i]->activo;
             $cont++;
             $data[] = $row;
         }
@@ -63,6 +64,46 @@ class ControladorProducto extends Controller{
     {
         $titulo = "Nuevo Producto";
         return view('producto.producto-nuevo', compact('titulo'));
+    }
 
+    public function guardar(Request $request)
+    {
+        try {
+            //Define la entidad servicio
+            $titulo = "Guardar producto";
+            $entidad = new Producto();
+            $entidad->cargarDesdeRequest($request);
+
+            //validaciones
+            if ($entidad->nombre == "") {
+                $msg["ESTADO"] = MSG_ERROR;
+                $msg["MSG"] = "Complete todos los datos";
+            } else {
+                if ($_POST["id"] > 0) {
+                    //Es actualizacion
+                    $entidad->guardar();
+
+                    $msg["ESTADO"] = MSG_SUCCESS;
+                    $msg["MSG"] = OKINSERT;
+                } else {
+                    //Es nuevo
+                    $entidad->insertar();
+
+                    $msg["ESTADO"] = MSG_SUCCESS;
+                    $msg["MSG"] = OKINSERT;
+                }
+                $_POST["id"] = $entidad->idproducto;
+                return view('sistema.producto-listar', compact('titulo', 'msg'));
+            }
+        } catch (Exception $e) {
+            $msg["ESTADO"] = MSG_ERROR;
+            $msg["MSG"] = ERRORINSERT;
+        }
+
+        $id = $entidad->idproducto;
+        $producto = new Producto();
+        $producto->obtenerPorId($id);
+
+        return view('sistema.producto-nuevo', compact('msg', 'producto', 'titulo')) . '?id=' . $producto->idproducto;
     }
 }

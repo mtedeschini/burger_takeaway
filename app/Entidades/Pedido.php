@@ -16,6 +16,44 @@ class Pedido extends Model{
 
     ];
 
+    public function obtenerFiltrado()
+    {
+        $request = $_REQUEST;
+        $columns = array(
+            0 => 'nombre',
+            1 => 'nombre',
+            2 => 'url',
+            3 => 'activo',
+        );
+        $sql = "SELECT DISTINCT
+                    A.idpedido,
+                    A.total,
+                    B.idsucursal as sucursal,
+                    C.idcliente as cliente,
+                    D.idestado as estado,
+                    E.idestadopago,
+                    A.fecha
+                    FROM pedidos A
+                    LEFT JOIN sucursales B ON A.fk_idsucursal = B.idsucursal
+                WHERE 1=1
+                ";
+
+        //Realiza el filtrado
+        if (!empty($request['search']['value'])) {
+            $sql .= " AND ( A.idpedido LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR B.nombre LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR C.idcliente LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR D.idestado LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR B.nombre LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR B.nombre LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR A.url LIKE '%" . $request['search']['value'] . "%' )";
+        }
+        $sql .= " ORDER BY " . $columns[$request['order'][0]['column']] . "   " . $request['order'][0]['dir'];
+
+        $lstRetorno = DB::select($sql);
+
+        return $lstRetorno;
+    }
 
     public function obtenerTodos()
     {
