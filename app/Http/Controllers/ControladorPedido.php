@@ -40,7 +40,7 @@ class ControladorPedido extends Controller
             $entidadPedido->cargarDesdeRequest($request);
 
             //validaciones
-            if (($entidadPedido->total == "" || $entidadPedido->fk_idsucursal == "") || ($entidadUsuario->fk_idcliente == "") || ($entidadPedido->fk_estadoPago == "") || ($entidadPedido->fk_estado == "") || ($entidadPago->fecha == "")){
+            if (($entidadPedido->total == "" || $entidadPedido->fk_idsucursal == "") || ($entidadPedido->fk_idcliente == "") || ($entidadPedido->fk_estadoPago == "") || ($entidadPedido->fk_estado == "") || ($entidadPago->fecha == "")){
                 $msg["ESTADO"] = MSG_ERROR;
                 $msg["MSG"] = USUARIOFALTACAMPOS;
             } else {
