@@ -28,13 +28,16 @@ class Pedido extends Model{
         $sql = "SELECT DISTINCT
                     A.idpedido,
                     A.total,
-                    B.idsucursal as sucursal,
-                    C.idcliente as cliente,
-                    D.idestado as estado,
-                    E.idestadopago,
+                    B.nombre as sucursal,
+                    C.nombre as cliente,
+                    D.nombre as estado,
+                    E.nombre as estado_pago,
                     A.fecha
                     FROM pedidos A
                     LEFT JOIN sucursales B ON A.fk_idsucursal = B.idsucursal
+                    LEFT JOIN clientes C ON A.fk_idcliente = C.idcliente
+                    LEFT JOIN estados D ON A.fk_idestado = D.idestado
+                    LEFT JOIN estado_pagos E ON A.fk_idestadopago = E.idestadopago
                 WHERE 1=1
                 ";
 
@@ -42,11 +45,10 @@ class Pedido extends Model{
         if (!empty($request['search']['value'])) {
             $sql .= " AND ( A.idpedido LIKE '%" . $request['search']['value'] . "%' ";
             $sql .= " OR B.nombre LIKE '%" . $request['search']['value'] . "%' ";
-            $sql .= " OR C.idcliente LIKE '%" . $request['search']['value'] . "%' ";
-            $sql .= " OR D.idestado LIKE '%" . $request['search']['value'] . "%' ";
-            $sql .= " OR B.nombre LIKE '%" . $request['search']['value'] . "%' ";
-            $sql .= " OR B.nombre LIKE '%" . $request['search']['value'] . "%' ";
-            $sql .= " OR A.url LIKE '%" . $request['search']['value'] . "%' )";
+            $sql .= " OR C.nombre LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR D.nombre LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR E.nombre LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR A.fecha LIKE '%" . $request['search']['value'] . "%' ";
         }
         $sql .= " ORDER BY " . $columns[$request['order'][0]['column']] . "   " . $request['order'][0]['dir'];
 
@@ -155,4 +157,3 @@ class Pedido extends Model{
 
     }
 }
-?>

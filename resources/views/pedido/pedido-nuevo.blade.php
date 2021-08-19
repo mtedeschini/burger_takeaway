@@ -58,16 +58,21 @@ echo isset($sucursal->idsucursal) && $sucursal->idsucursal > 0 ? $sucursal->idsu
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
 
             <div class="form-group col-lg-6">
-                <label>Sucursales: *</label>
-                <select id="txtTipo" name="txtTipo" class="form-control" required>
+                <label>Sucursales: </label>
+                <select id="txtSucursal" name="txtSucursal" class="form-control" required>
                     @foreach ($aSucursales as $sucursal)
                         <option selected value="{{$sucursal->idsucursal}}">{{$sucursal->nombre}}</option>
                     @endforeach
                 </select>
             </div>
+
             <div class="form-group col-lg-6">
                 <label>Cliente: </label>
-                <input type="text" maxlength="50" id="txtModulo" name="txtModulo" class="form-control" value="" required>
+                <select id="txtCliente" name="txtCliente" class="form-control" required>
+                    @foreach ($aClientes as $cliente)
+                            <option selected value="{{$cliente->idcliente}}">{{$cliente->nombre}}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="form-group col-lg-6">
                 <label>Fecha: </label>
