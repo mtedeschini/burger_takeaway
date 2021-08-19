@@ -13,22 +13,11 @@
 
 Route::group(array('domain' => '127.0.0.1'), function () {
 
-    Route::get('/', 'ControladorWebHome@index');
-    Route::get('/nosotros', 'ControladorWebNosotros@index');
-    Route::get('/servicios', 'ControladorWebServicios@index');
-    Route::get('/contacto', 'ControladorWebContacto@index');
-    Route::post('/contacto', 'ControladorWebContacto@enviar');
-    Route::get('/seguro/{id}', 'ControladorWebSeguros@index');
-    Route::get('/recupero', 'ControladorWebRecupero@index');
-    
-    Route::get('/mis-productos', 'ControladorWebMisProductos@index');
-    Route::post('/mis-productos', 'ControladorWebMisProductos@guardar');
 
-    Route::get('/mis-reclamos', 'ControladorWebMisReclamos@index');
-    Route::get('/comentarios', 'ControladorWebComentarios@index');
-    Route::get('/listado-poliza', 'ControladorWebListadoPoliza@index');
 
-    Route::get('/admin/home', 'ControladorHome@index');
+
+
+
     Route::get('/admin', 'ControladorHome@index');
     /* --------------------------------------------- */
     /* CONTROLADOR LOGIN                           */
@@ -103,67 +92,53 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::get('/admin/patente/nuevo/{id}', 'ControladorPatente@editar');
     Route::post('/admin/patente/nuevo/{id}', 'ControladorPatente@guardar');
 
+
+
     /* --------------------------------------------- */
-    /* CONTROLADOR CLIENTE                          */
+    /* CONTROLADOR CLIENTES(web.php))         */
     /* --------------------------------------------- */
-    Route::get('/admin/clientes', 'ControladorCliente@index');
+
+       
+    Route::get('/admin/clientes', 'ControladorCliente@index'); 
     Route::get('/admin/cliente/nuevo', 'ControladorCliente@nuevo');
-    Route::post('/admin/cliente/nuevo', 'ControladorCliente@guardar');
-    Route::get('/admin/cliente/cargarGrilla', 'ControladorCliente@cargarGrilla')->name('cliente.cargarGrilla');
-    Route::get('/admin/cliente/eliminar', 'ControladorCliente@eliminar');
-    Route::get('/admin/cliente/nuevo/{id}', 'ControladorCliente@editar');
-    Route::post('/admin/cliente/nuevo/{id}', 'ControladorCliente@guardar');
+    Route::get('/admin/cliente/cargarGrilla', 'ControladorCliente@cargarGrilla')->name('cliente.cargarGrilla');   
+
 
 
     /* --------------------------------------------- */
-    /* CONTROLADOR POLIZA                          */
+    /* CONTROLADOR PRODUCTOS                          */
     /* --------------------------------------------- */
-    Route::get('/admin/polizas', 'ControladorPoliza@index');
-    Route::get('/admin/poliza/nuevo', 'ControladorPoliza@nuevo');
-    Route::post('/admin/poliza/nuevo', 'ControladorPoliza@guardar');
-    Route::get('/admin/poliza/cargarGrilla', 'ControladorPoliza@cargarGrilla')->name('poliza.cargarGrilla');
-    Route::get('/admin/poliza/eliminar', 'ControladorPoliza@eliminar');
-    Route::get('/admin/poliza/nuevo/{id}', 'ControladorPoliza@editar');
-    Route::post('/admin/poliza/nuevo/{id}', 'ControladorPoliza@guardar');
+    Route::get('/admin/productos', 'ControladorProducto@index');
+    Route::get('/admin/producto/nuevo', 'ControladorProducto@nuevo');
+    Route::post('/admin/producto/nuevo', 'ControladorProducto@guardar');
+    Route::get('/admin/producto/cargarGrilla', 'ControladorProducto@cargarGrilla')->name('producto.cargarGrilla');
+
+
+
 
     /* --------------------------------------------- */
-    /* CONTROLADOR SEGUROS                          */
+    /* CONTROLADOR PEDIDOS                          */
     /* --------------------------------------------- */
-    Route::get('/admin/seguros', 'ControladorSeguro@index');
-    Route::get('/admin/seguro/nuevo', 'ControladorSeguro@nuevo');
-    Route::post('/admin/seguro/nuevo', 'ControladorSeguro@guardar');
-    Route::get('/admin/seguro/eliminar', 'ControladorSeguro@eliminar');
-    Route::get('/admin/seguro/cargarGrilla', 'ControladorSeguro@cargarGrilla')->name('seguro.cargarGrilla');
-    Route::get('/admin/seguro/nuevo/{id}', 'ControladorSeguro@editar');
-    Route::post('/admin/seguro/nuevo/{id}', 'ControladorSeguro@guardar');
+    Route::get('/admin/pedidos', 'ControladorPedido@index');
+    Route::get('/admin/pedido/nuevo', 'ControladorPedido@nuevo');
+    Route::post('/admin/pedido/nuevo', 'ControladorPedido@guardar');
+    Route::get('/admin/pedido/cargarGrilla', 'ControladorPedido@cargarGrilla')->name('pedido.cargarGrilla');
+
 
     /* --------------------------------------------- */
-    /* CONTROLADOR ASEGURADORAS                          */
+    /* CONTROLADOR POSTULACIONES                          */
     /* --------------------------------------------- */
-    Route::get('/admin/aseguradoras', 'ControladorAseguradora@index');
-    Route::get('/admin/aseguradora/nuevo', 'ControladorAseguradora@nuevo');
-    Route::post('/admin/aseguradora/nuevo', 'ControladorAseguradora@guardar');
-    Route::get('/admin/aseguradora/cargarGrilla', 'ControladorAseguradora@cargarGrilla')->name('aseguradora.cargarGrilla');
-    route::get('admin/aseguradora/eliminar', 'controladorAseguradora@eliminar');
-    Route::get('/admin/aseguradora/nuevo/{id}', 'ControladorAseguradora@editar');
-    Route::post('/admin/aseguradora/nuevo/{id}', 'ControladorAseguradora@guardar');
-    /* --------------------------------------------- */
-    /* CONTROLADOR RECLAMOS                          */
-    /* --------------------------------------------- */
-    Route::get('/admin/reclamos', 'ControladorReclamo@index');
-    Route::get('/admin/reclamo/nuevo', 'ControladorReclamo@nuevo');
-    Route::post('/admin/reclamo/nuevo', 'ControladorReclamo@guardar');
-    Route::get('/admin/reclamo/cargarGrilla', 'ControladorReclamo@cargarGrilla')->name('reclamo.cargarGrilla');
-    Route::get('/admin/reclamo/eliminar', 'ControladorReclamo@eliminar');
-    Route::get('/admin/reclamo/nuevo/{id}', 'ControladorReclamo@editar');
-    Route::post('/admin/reclamo/nuevo/{id}', 'ControladorReclamo@guardar');
+    Route::get('/admin/postulaciones', 'ControladorPostulacion@index');
+    Route::get('/admin/postulacion/nuevo', 'ControladorPostulacion@nuevo');
+    Route::post('/admin/postulacion/nuevo', 'ControladorPostulacion@guardar');
 
-     /* --------------------------------------------- */
-    /* CONTROLADOR LOGIN  WEB                      */
-    /* --------------------------------------------- */
-    Route::get('/login', 'ControladorWebLogin@index');
-    Route::get('/logout', 'ControladorWebLogin@logout');
-    Route::post('/logout', 'ControladorWebLogin@entrar');
-    Route::post('/login', 'ControladorWebLogin@entrar');
 
+    /* --------------------------------------------- */
+    /* CONTROLADOR SUCURSALES                          */
+    /* --------------------------------------------- */
+
+    Route::get('/admin/sucursales', 'ControladorSucursal@index');
+    Route::get('/admin/sucursal/nuevo', 'ControladorSucursal@nuevo');
+    Route::post('/admin/sucursal/nuevo', 'ControladorSucursal@guardar');
+    Route::get('/admin/sistema/sucursal/cargarGrilla', 'Controladorsucursal@cargarGrilla')->name('sucursal.cargarGrilla');
 });

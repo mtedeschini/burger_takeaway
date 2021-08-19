@@ -3,27 +3,22 @@
 namespace App\Http\Controllers;
 
 // use Adldap\Laravel\Facades\Adldap;
-use Illuminate\Http\Request;
-use App\Entidades\Sistema\Usuario;
 use App\Entidades\Sistema\Area;
-use App\Entidades\Sistema\Patente;
 use App\Entidades\Sistema\Menu;
-use Illuminate\Support\Facades\Auth;
+use App\Entidades\Sistema\Patente;
+use App\Entidades\Sistema\Usuario;
+use Illuminate\Http\Request;
 use Session;
 
 require app_path() . '/start/constants.php';
+require app_path() . '/start/funciones_generales.php';
 
 class ControladorLogin extends Controller
 {
     public function index(Request $request)
     {
         $titulo = 'Acceso';
-
-        // if((substr($request->ip(), 0, 7 ) == "157.92.") || $request->ip() == "190.2.6.187") {
         return view('sistema.login', compact('titulo'));
-        //   } else {
-        //       return redirect(env('APP_URL_AUTOGESTION') . '');
-        //   }
     }
 
     public function login(Request $request)
@@ -37,16 +32,16 @@ class ControladorLogin extends Controller
         return redirect('admin/login');
     }
 
-    public function entrar(Request $request)
-    {
-        $usuarioIngresado = $request->input('txtUsuario');
-        $claveIngresada = $request->input('txtClave');
+    public function entrar(Request $request){
+
+        $usuarioIngresado = fescape_string($request->input('txtUsuario'));
+        $claveIngresada = fescape_string($request->input('txtClave'));
 
         $usuario = new Usuario();
         $lstUsuario = $usuario->validarUsuario($usuarioIngresado);
 
-        if (count($lstUsuario) > 0){
-            if ($usuario->validarClave($claveIngresada, $lstUsuario[0]->clave)){
+        if (count($lstUsuario) > 0) {
+            if ($usuario->validarClave($claveIngresada, $lstUsuario[0]->clave)) {
                 $titulo = 'Inicio';
                 $request->session()->put('usuario_id', $lstUsuario[0]->idusuario);
                 $request->session()->put('usuario', $lstUsuario[0]->usuario);
@@ -61,10 +56,11 @@ class ControladorLogin extends Controller
                 $request->session()->put('array_grupos', $aGrupo);
 
                 //Grupo predeterminado
-                if (isset($lstUsuario[0]->areapredeterminada) && $lstUsuario[0]->areapredeterminada != "")
+                if (isset($lstUsuario[0]->areapredeterminada) && $lstUsuario[0]->areapredeterminada != "") {
                     $request->session()->put('grupo_id', $lstUsuario[0]->areapredeterminada);
-                else
+                } else {
                     $request->session()->put('grupo_id', $aGrupo[0]->idarea);
+                }
 
                 //Carga los permisos del usuario
                 $familia = new Patente();
@@ -80,20 +76,17 @@ class ControladorLogin extends Controller
                     $request->session()->put('array_menu', $aMenu);
                 }
                 return view('sistema.index', compact('titulo'));
+            } else {
+                $titulo = 'Acceso denegado';
+                $msg["ESTADO"] = MSG_ERROR;
+                $msg["MSG"] = "Credenciales incorrectas";
+                return view('sistema.login', compact('titulo', 'msg'));
             }
-            else {
-                    $titulo = 'Acceso denegado';
-                    $msg["ESTADO"] = MSG_ERROR;
-                    $msg["MSG"] = "Credenciales incorrectas";
-                    return view('sistema.login', compact('titulo', 'msg'));
-                }
-        }else {
+        } else {
             $titulo = 'Acceso denegado';
             $msg["ESTADO"] = MSG_ERROR;
             $msg["MSG"] = "Credenciales incorrectas";
             return view('sistema.login', compact('titulo', 'msg'));
-            
-            
-    } 
+        }
     }
 }
