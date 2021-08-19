@@ -70,7 +70,7 @@ class ControladorProducto extends Controller{
     {
         try {
             //Define la entidad servicio
-            $titulo = "Modificar producto";
+            $titulo = "Guardar producto";
             $entidad = new Producto();
             $entidad->cargarDesdeRequest($request);
 
