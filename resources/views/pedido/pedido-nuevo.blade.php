@@ -3,14 +3,16 @@
 @section('scripts')
 
 <script>
-    globalId = '<?php echo isset($sucursal->idsucursal) && $sucursal->idsucursal > 0 ? $sucursal->idsucursal : 0; ?>';
+    globalId = '<?php
+
+echo isset($sucursal->idsucursal) && $sucursal->idsucursal > 0 ? $sucursal->idsucursal : 0; ?>';
     <?php $globalId = isset($sucursal->idsucursal) ? $sucursal->idsucursal : "0"; ?>
 </script>
 @endsection
 @section('breadcrumb')
 <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/admin">Inicio</a></li>
-    <li class="breadcrumb-item"><a href="/admin/sucursal">Pedido</a></li>
+    <li class="breadcrumb-item"><a href="/admin/pedidos">Pedidos</a></li>
     <li class="breadcrumb-item active">Modificar</li>
 </ol>
 <ol class="toolbar">
@@ -29,14 +31,17 @@
     }
 </script>
 @endsection
+
+
 @section('contenido')
 
-
 <?php
-if (isset($msg)) {
-    echo '<div id = "msg"></div>';
-    echo '<script>msgShow("' . $msg["MSG"] . '", "' . $msg["ESTADO"] . '")</script>';
-}
+
+
+    if (isset($msg)) {
+        echo '<div id = "msg"></div>';
+        echo '<script>msgShow("' . $msg["MSG"] . '", "' . $msg["ESTADO"] . '")</script>';
+    }
 ?>
 
 
@@ -51,19 +56,27 @@ if (isset($msg)) {
         <div class="row">
             <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
+
             <div class="form-group col-lg-6">
-                <label>Sucursales: *</label>
-                <select id="txtTipo" name="txtTipo" class="form-control" required>
-                    @for ($i = 0)
+                <label>Sucursales: </label>
+                <select id="txtSucursal" name="txtSucursal" class="form-control" required>
+                    @foreach ($aSucursales as $sucursal)
+                        <option selected value="{{$sucursal->idsucursal}}">{{$sucursal->nombre}}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="form-group col-lg-6">
+                <label>Cliente: </label>
+                <select id="txtCliente" name="txtCliente" class="form-control" required>
+                    @foreach ($aClientes as $cliente)
+                            <option selected value="{{$cliente->idcliente}}">{{$cliente->nombre}}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="form-group col-lg-6">
-                <label>Cliente: </label>
-                <input type="text" maxlength="50" id="txtModulo" name="txtModulo" class="form-control" value="{{ $patente->modulo or '' }}" required>
-            </div>
-            <div class="form-group col-lg-6">
                 <label>Fecha: </label>
-                <input type="tet" maxlength="50" id="txtSubmodulo" name="txtSubmodulo" class="form-control" value="{{ $patente->submodulo or '' }}" required>
+                <input type="tet" maxlength="50" id="txtSubmodulo" name="txtSubmodulo" class="form-control" value="" required>
             </div>
 
             <div class="form-group col-lg-6">
@@ -75,7 +88,7 @@ if (isset($msg)) {
             </div>
             <div class="form-group col-lg-6">
                 <label>Total: *</label>
-                <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="{{ $patente->nombre or '' }}" required>
+                <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="" required>
             </div>
         </div>
 </div>

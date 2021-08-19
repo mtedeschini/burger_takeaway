@@ -12,7 +12,7 @@
     <li class="breadcrumb-item active">Productos</a></li>
 </ol>
 <ol class="toolbar">
-    <li class="btn-item"><a title="Nuevo" href="/admin/sistema/producto/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
+    <li class="btn-item"><a title="Nuevo" href="/admin/producto/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
     <li class="btn-item"><a title="Recargar" href="#" class="fa fa-refresh" aria-hidden="true" onclick='window.location.replace("/admin/sistema/productos");'><span>Recargar</span></a></li>
 </ol>
 @endsection
@@ -32,4 +32,17 @@ if (isset($msg)) {
         </tr>
     </thead>
 </table> 
+
+<script>
+	var dataTable = $('#grilla').DataTable({
+	    "processing": true,
+        "serverSide": true,
+	    "bFilter": true,
+	    "bInfo": true,
+	    "bSearchable": true,
+        "pageLength": 25,
+        "order": [[ 0, "asc" ]],
+	    "ajax": "{{ route('producto.cargarGrilla') }}"
+	});
+</script>
 @endsection

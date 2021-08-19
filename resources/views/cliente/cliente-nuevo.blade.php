@@ -10,7 +10,7 @@
 @section('breadcrumb')
 <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/admin">Inicio</a></li>
-    <li class="breadcrumb-item"><a href="/admin/cliente">Cliente</a></li>
+    <li class="breadcrumb-item"><a href="/admin/clientes">Cliente</a></li>
     <li class="breadcrumb-item active">Modificar</li>
 </ol>
 <ol class="toolbar">
@@ -45,34 +45,29 @@ if (isset($msg)) {
     ?>
     <form id="form1" method="POST">
         <div class="row">
-           <!--  <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
+            <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
-          <div class="form-group col-lg-6">
-                <label>Clientes: *</label>
-               <select  id="txtTipo" name="txtTipo" class="form-control" required>
-                    <option disabled selected>Seleccionar</option>
-                    <option value="CONSULTA">CONSULTA</option>
-                    <option value="ALTA">ALTA</option>
-                    <option value="EDITAR">EDITAR</option>
-                    <option value="BAJA">BAJA</option>
-                </select>  
-            </div>--> 
+
             <div class="form-group col-lg-6">
                 <label>Nombre: </label>
-                <input type="text" maxlength="50" id="txtModulo" name="txtModulo" class="form-control" value="{{ $patente->modulo or '' }}" required>
+                <input type="text" maxlength="50" id="txtModulo" name="txtModulo" class="form-control" value="" required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Apellido: </label>
-                <input type="text" maxlength="50" id="txtSubmodulo" name="txtSubmodulo" class="form-control" value="{{ $patente->submodulo or '' }}" required>
+                <input type="text" maxlength="50" id="txtSubmodulo" name="txtSubmodulo" class="form-control" value="" required>
             </div>
           
             <div class="form-group col-lg-6">
                 <label>Telefono: </label>
-                <input type="text" maxlength="50" id="txtModulo" name="txtModulo" class="form-control" value="{{ $patente->modulo or '' }}" required>
+                <input type="text" maxlength="50" id="txtModulo" name="txtModulo" class="form-control" value="" required>
             </div>
             <div class="form-group col-lg-6">
-                <label>Correo: *</label>
-                <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="{{ $patente->nombre or '' }}" required>
+                <label>Correo: </label>
+                <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="" required>
+            </div>
+            <div class="form-group col-lg-6">
+                <label>Usuario: </label>
+                <input type="text" maxlength="50" id="txtUsuario" name="txtUsuario" class="form-control" value="" required>
             </div>
         </div>
 </div>

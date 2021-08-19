@@ -16,6 +16,46 @@ class Pedido extends Model{
 
     ];
 
+    public function obtenerFiltrado()
+    {
+        $request = $_REQUEST;
+        $columns = array(
+            0 => 'nombre',
+            1 => 'nombre',
+            2 => 'url',
+            3 => 'activo',
+        );
+        $sql = "SELECT DISTINCT
+                    A.idpedido,
+                    A.total,
+                    B.nombre as sucursal,
+                    C.nombre as cliente,
+                    D.nombre as estado,
+                    E.nombre as estado_pago,
+                    A.fecha
+                    FROM pedidos A
+                    LEFT JOIN sucursales B ON A.fk_idsucursal = B.idsucursal
+                    LEFT JOIN clientes C ON A.fk_idcliente = C.idcliente
+                    LEFT JOIN estados D ON A.fk_idestado = D.idestado
+                    LEFT JOIN estado_pagos E ON A.fk_idestadopago = E.idestadopago
+                WHERE 1=1
+                ";
+
+        //Realiza el filtrado
+        if (!empty($request['search']['value'])) {
+            $sql .= " AND ( A.idpedido LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR B.nombre LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR C.nombre LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR D.nombre LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR E.nombre LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR A.fecha LIKE '%" . $request['search']['value'] . "%' ";
+        }
+        $sql .= " ORDER BY " . $columns[$request['order'][0]['column']] . "   " . $request['order'][0]['dir'];
+
+        $lstRetorno = DB::select($sql);
+
+        return $lstRetorno;
+    }
 
     public function obtenerTodos()
     {
@@ -103,5 +143,17 @@ class Pedido extends Model{
         ]);
         return $this->idpedido = DB::getPdo()->lastInsertId();
     }
+
+    public function cargarDesdeRequest($request){
+        $this->idPedido = $request->input('id') != "0" ? $request->input('id') : $this->idPedido;
+        $this->total = $request->input('txtTotal');
+        $this->fk_idsucursal = $request->input('fk_idsucursal');
+        $this->fk_idcliente = $request->input('fk_idcliente');
+        $this->fk_idestado = $request->input('fk_idestado');
+        $this->fk_idestadopago = $request->input('fk_idestadopago');
+        if (isset($request['txtAnioNac']) && isset($request['txtMesNac']) && isset($request['txtDiaNac'])) {
+            $this->fecha_nac = $request['txtAnioNac'] . "-" . $request['txtMesNac'] . "-" . $request['txtDiaNac'];
+        }
+
+    }
 }
-?>

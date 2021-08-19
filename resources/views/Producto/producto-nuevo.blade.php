@@ -9,7 +9,7 @@
 @section('breadcrumb')
 <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/admin">Inicio</a></li>
-    <li class="breadcrumb-item"><a href="/admin/producto">Productos</a></li>
+    <li class="breadcrumb-item"><a href="/admin/productos">Productos</a></li>
     <li class="breadcrumb-item active">Modificar</li>
 </ol>
 <ol class="toolbar">
@@ -47,26 +47,16 @@ if (isset($msg)) {
             <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
             <div class="form-group col-lg-6">
-                <label>Tipo: *</label>
-               <select  id="txtTipo" name="txtTipo" class="form-control" required>
-                    <option disabled selected>Seleccionar</option>
-                    <option value="CONSULTA">CONSULTA</option>
-                    <option value="ALTA">ALTA</option>
-                    <option value="EDITAR">EDITAR</option>
-                    <option value="BAJA">BAJA</option>
-                </select>
-            </div>
-            <div class="form-group col-lg-6">
                 <label>Nombre: *</label>
-                <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="{{ $producto->nombre or '' }}" required>
+                <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="" required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Precio: *</label>
-                <input type="text" maxlength="50" id="txtPrecio" name="txtPrecio" class="form-control" value="{{ $producto->precio or '' }}" required>
+                <input type="text" maxlength="50" id="txtPrecio" name="txtPrecio" class="form-control" value="" required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Descripción: *</label>
-                <textarea class="form-control" name="txtDescripcion" id="txtDescripcion" cols="30" style="height:70px !important;" maxlength="50" rows="10">{{$precio->descripcion or '' }}</textarea>
+                <textarea class="form-control" name="txtDescripcion" id="txtDescripcion" cols="30" style="height:70px !important;" maxlength="50" rows="10"></textarea>
             </div>
         </div>
 </div>
