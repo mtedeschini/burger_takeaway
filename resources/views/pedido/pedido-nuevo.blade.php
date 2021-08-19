@@ -60,6 +60,7 @@ echo isset($sucursal->idsucursal) && $sucursal->idsucursal > 0 ? $sucursal->idsu
             <div class="form-group col-lg-6">
                 <label>Sucursal: </label>
                 <select id="txtSucursal" name="txtSucursal" class="form-control" required>
+                    <option value="" disabled selected>Seleccionar</option>
                     @foreach ($aSucursales as $sucursal)
                         <option selected value="{{$sucursal->idsucursal}}">{{$sucursal->nombre}}</option>
                     @endforeach
@@ -68,6 +69,7 @@ echo isset($sucursal->idsucursal) && $sucursal->idsucursal > 0 ? $sucursal->idsu
             <div class="form-group col-lg-6">
                 <label>Cliente: </label>
                 <select id="txtCliente" name="txtCliente" class="form-control" required>
+                    <option value="" disabled selected>Seleccionar</option>
                     @foreach ($aClientes as $cliente)
                             <option selected value="{{$cliente->idcliente}}">{{$cliente->nombre}}</option>
                     @endforeach
@@ -96,19 +98,26 @@ echo isset($sucursal->idsucursal) && $sucursal->idsucursal > 0 ? $sucursal->idsu
                 <input type="time" required="" class="form-control d-inline" style="width: 120px" name="txtHora" id="txtHora" value="">
             </div>
             <div class="form-group col-lg-6">
-                <label>Estado del pago: </label>
-                <select id="txtOperacion" name="txtOperacion" class="form-control">
-                    <option value="1" selected>Sí</option>
-                    <option value="0" selected>No</option>
+                <label>Estado de pago: </label>
+                <select id="txtEstadoPago" name="txtEstadoPago" class="form-control">
+                    <option value="" disabled selected>Seleccionar</option>
+                    <option value="Pagado" selected>Pagado</option>
+                    <option value="No Pagado" selected>No Pagado</option>
                 </select>
             </div>
             <div class="form-group col-lg-6">
                 <label>Total:</label>
-                <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="" required>
+                <input type="text" maxlength="50" id="txtTotal" name="txtTotal" class="form-control" value="" required>
             </div>
             <div class="form-group col-lg-6">
-                <label>Estado del pedido:</label>
-                <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="" required>
+                <label>Estado de pedido:</label>
+                <select id="txtEstadoPedido" name="txtEstadoPedido" class="form-control">
+                    <option value="" disabled selected>Seleccionar</option>
+                    <option value="En preparación" selected>En preparacion</option>
+                    <option value="Preparado" selected>Preparado</option>
+                    <option value="Entregado" selected>Entregado</option>
+                </select>
+                
             </div>
         </div>
     </form>

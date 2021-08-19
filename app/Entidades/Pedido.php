@@ -147,12 +147,12 @@ class Pedido extends Model{
     public function cargarDesdeRequest($request){
         $this->idPedido = $request->input('id') != "0" ? $request->input('id') : $this->idPedido;
         $this->total = $request->input('txtTotal');
-        $this->fk_idsucursal = $request->input('fk_idsucursal');
-        $this->fk_idcliente = $request->input('fk_idcliente');
-        $this->fk_idestado = $request->input('fk_idestado');
-        $this->fk_idestadopago = $request->input('fk_idestadopago');
-        if (isset($request['txtAnioNac']) && isset($request['txtMesNac']) && isset($request['txtDiaNac'])) {
-            $this->fecha_nac = $request['txtAnioNac'] . "-" . $request['txtMesNac'] . "-" . $request['txtDiaNac'];
+        $this->fk_idsucursal = $request->input('txtSucursal');
+        $this->fk_idcliente = $request->input('txtCliente');
+        $this->fk_idestado = $request->input('txtEstadoPedido');
+        $this->fk_idestadopago = $request->input('txtEstadoPago');
+        if (isset($request['txtAnio']) && isset($request['txtMes']) && isset($request['txtDia'])) {
+            $this->fecha_nac = $request['txtAnio'] . "-" . $request['txtMes'] . "-" . $request['txtDia'];
         }
 
     }
