@@ -32,6 +32,8 @@ class ControladorPedido extends Controller
         return view('pedido.pedido-nuevo', compact('titulo', 'aSucursales'));
     }
 
+    
+
     public function guardar(Request $request){
         try {
             //Define la entidad servicio
@@ -57,6 +59,7 @@ class ControladorPedido extends Controller
                     //$entidadUsuario->fk_idlegajo = $legajo->idlegajo;
                     $entidadPedido->insertar();
                     $_POST["id"] = $entidadPedido->idpedido;
+                    return view('sistema.usuario-listar', compact('titulo', 'msg'));
                 }
 
             }

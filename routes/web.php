@@ -121,6 +121,7 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     /* --------------------------------------------- */
     Route::get('/admin/pedidos', 'ControladorPedido@index');
     Route::get('/admin/pedido/nuevo', 'ControladorPedido@nuevo');
+    Route::post('/admin/pedido/nuevo', 'ControladorPedido@guardar');
     Route::get('/admin/pedido/cargarGrilla', 'ControladorPedido@cargarGrilla')->name('pedido.cargarGrilla');
 
 
