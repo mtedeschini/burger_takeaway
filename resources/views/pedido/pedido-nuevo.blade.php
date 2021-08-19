@@ -65,7 +65,6 @@ echo isset($sucursal->idsucursal) && $sucursal->idsucursal > 0 ? $sucursal->idsu
                     @endforeach
                 </select>
             </div>
-
             <div class="form-group col-lg-6">
                 <label>Cliente: </label>
                 <select id="txtCliente" name="txtCliente" class="form-control" required>
@@ -75,28 +74,27 @@ echo isset($sucursal->idsucursal) && $sucursal->idsucursal > 0 ? $sucursal->idsu
                 </select>
             </div>
             <div class="form-group col-lg-6">
-                    <label for="txtFechaHora" class="d-block">Fecha y Hora:</label>
-                        <select class="form-control d-inline" name="txtDia" id="txtDia" style="width: 80px">
-                            <option selected="" disabled="">DD</option>
-                            @for ($i = 1; $i <= 31; $i++)
-                                <option value="{{ $i }}">{{ $i }}</option>
-                            @endfor
-                        </select>
-                        <select class="form-control d-inline" name="txtMes" id="txtMes" style="width: 80px">
-                            <option selected="" disabled="">MM</option>
-                            @for ($i = 1; $i <= 12; $i++)
-                                <option value="{{ $i }}">{{ $i }}</option>
-                            @endfor
-                        </select>
-                        <select class="form-control d-inline" name="txtAnio" id="txtAnio" style="width: 100px">
-                            <option selected="" disabled="">YYYY</option>
-                            @for ($i = 1900; $i <= date("Y"); $i++) 
-                                <option value="{{ $i }}">{{ $i }}</option>
-                            @endfor
-                        </select>
+                <label for="txtFechaHora" class="d-block">Fecha y Hora:</label>
+                <select class="form-control d-inline" name="txtDia" id="txtDia" style="width: 80px">
+                    <option selected="" disabled="">DD</option>
+                    @for ($i = 1; $i <= 31; $i++)
+                        <option value="{{ $i }}">{{ $i }}</option>
+                    @endfor
+                </select>
+                <select class="form-control d-inline" name="txtMes" id="txtMes" style="width: 80px">
+                    <option selected="" disabled="">MM</option>
+                    @for ($i = 1; $i <= 12; $i++)
+                        <option value="{{ $i }}">{{ $i }}</option>
+                    @endfor
+                </select>
+                <select class="form-control d-inline" name="txtAnio" id="txtAnio" style="width: 100px">
+                    <option selected="" disabled="">YYYY</option>
+                    @for ($i = 1900; $i <= date("Y"); $i++) 
+                        <option value="{{ $i }}">{{ $i }}</option>
+                    @endfor
+                </select>
                 <input type="time" required="" class="form-control d-inline" style="width: 120px" name="txtHora" id="txtHora" value="">
             </div>
-            
             <div class="form-group col-lg-6">
                 <label>Estado del pago: </label>
                 <select id="txtOperacion" name="txtOperacion" class="form-control">
@@ -113,10 +111,9 @@ echo isset($sucursal->idsucursal) && $sucursal->idsucursal > 0 ? $sucursal->idsu
                 <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="" required>
             </div>
         </div>
+    </form>
     </div>
-
-</div>
-</form>
+    
 </div>
 <div class="modal fade" id="mdlEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
