@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Entidades\Postulacion;
 use App\Entidades\Sistema\Usuario;
+use App\Entidades\Sistema\Patente;
+use Illuminate\Http\Request;
 
 require app_path() . '/start/constants.php';
 
