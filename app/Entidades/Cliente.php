@@ -107,7 +107,7 @@ class Cliente extends Model{
             4 => 'A.fk_idusuario'
         );
         $sql = "SELECT DISTINCT
-                    A.idcliente,
+                    A.idcliente, 
                     A.nombre,
                     A.apellido,
                     A.telefono,
