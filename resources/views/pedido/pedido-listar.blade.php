@@ -1,6 +1,6 @@
 @extends('plantilla')
 
-@section('titulo', "Listado del Pedidos")
+@section('titulo', "Listado de Pedidos")
 
 @section('scripts')
 <link href="{{ asset('css/datatables.min.css') }}" rel="stylesheet">
@@ -35,8 +35,19 @@ if (isset($msg)) {
             <th>Fecha</th>
         </tr>
     </thead>
-</table> 
+</table>
 <script>
-
+    var dataTable = $('#grilla').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "bFilter": true,
+        "bInfo": true,
+        "bSearchable": true,
+        "pageLength": 25,
+        "order": [
+            [0, "asc"]
+        ],
+        "ajax": "{{ route('pedido.cargarGrilla') }}"
+    });
 </script>
 @endsection

@@ -95,6 +95,7 @@ class Cliente extends Model{
     }
 
 
+
     public function obtenerFiltrado()
     {
         $request = $_REQUEST;
@@ -129,5 +130,6 @@ class Cliente extends Model{
         $lstRetorno = DB::select($sql);
 
         return $lstRetorno;
-    }
+
+   }
 }
