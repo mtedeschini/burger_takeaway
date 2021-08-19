@@ -75,10 +75,28 @@ echo isset($sucursal->idsucursal) && $sucursal->idsucursal > 0 ? $sucursal->idsu
                 </select>
             </div>
             <div class="form-group col-lg-6">
-                <label>Fecha: </label>
-                <input type="tet" maxlength="50" id="txtSubmodulo" name="txtSubmodulo" class="form-control" value="" required>
+                    <label for="txtFechaHora" class="d-block">Fecha y Hora:</label>
+                        <select class="form-control d-inline" name="txtDia" id="txtDia" style="width: 80px">
+                            <option selected="" disabled="">DD</option>
+                            @for ($i = 1; $i <= 31; $i++)
+                                <option value="{{ $i }}">{{ $i }}</option>
+                            @endfor
+                        </select>
+                        <select class="form-control d-inline" name="txtMes" id="txtMes" style="width: 80px">
+                            <option selected="" disabled="">MM</option>
+                            @for ($i = 1; $i <= 12; $i++)
+                                <option value="{{ $i }}">{{ $i }}</option>
+                            @endfor
+                        </select>
+                        <select class="form-control d-inline" name="txtAnio" id="txtAnio" style="width: 100px">
+                            <option selected="" disabled="">YYYY</option>
+                            @for ($i = 1900; $i <= date("Y"); $i++) 
+                                <option value="{{ $i }}">{{ $i }}</option>
+                            @endfor
+                        </select>
+                <input type="time" required="" class="form-control d-inline" style="width: 120px" name="txtHora" id="txtHora" value="">
             </div>
-
+            
             <div class="form-group col-lg-6">
                 <label>Estado del pago: </label>
                 <select id="txtOperacion" name="txtOperacion" class="form-control">
@@ -95,6 +113,8 @@ echo isset($sucursal->idsucursal) && $sucursal->idsucursal > 0 ? $sucursal->idsu
                 <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="" required>
             </div>
         </div>
+    </div>
+
 </div>
 </form>
 </div>
