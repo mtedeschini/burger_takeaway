@@ -5,8 +5,8 @@
 <script>
     globalId = '<?php
 
-echo isset($sucursal->idsucursal) && $sucursal->idsucursal > 0 ? $sucursal->idsucursal : 0; ?>';
-    <?php $globalId = isset($sucursal->idsucursal) ? $sucursal->idsucursal : "0"; ?>
+echo isset($pedido->idpedido) && $pedido->idpedido > 0 ? $pedido->idpedido : 0; ?>';
+    <?php $globalId = isset($pedido->idpedido) ? $pedido->idpedido : "0"; ?>
 </script>
 @endsection
 @section('breadcrumb')
@@ -16,7 +16,7 @@ echo isset($sucursal->idsucursal) && $sucursal->idsucursal > 0 ? $sucursal->idsu
     <li class="breadcrumb-item active">Modificar</li>
 </ol>
 <ol class="toolbar">
-    <li class="btn-item"><a title="Nuevo" href="/admin/sucursal/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
+    <li class="btn-item"><a title="Nuevo" href="/admin/pedido/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
     <li class="btn-item"><a title="Guardar" href="#" class="fas fa-save" aria-hidden="true" onclick="javascript: $('#modalGuardar').modal('toggle');"><span>Guardar</span></a>
     </li>
     @if ($globalId > 0)
@@ -158,7 +158,7 @@ echo isset($sucursal->idsucursal) && $sucursal->idsucursal > 0 ? $sucursal->idsu
     function eliminar() {
         $.ajax({
             type: "GET",
-            url: "{{ asset('/admin/patente/eliminar') }}",
+            url: "{{ asset('/admin/pedido/eliminar') }}",
             data: {
                 id: globalId
             },
