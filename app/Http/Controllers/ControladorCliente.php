@@ -2,8 +2,7 @@
 
  namespace App\Http\Controllers;
 
-use App\Entidades\Cliente as EntidadesCliente;
-use App\Entidades\Sistema\Menu; //include_once "app/Entidades/Sistema/Menu.php";
+use App\Entidades\Sistema\Menu;
 use App\Entidades\Sistema\Cliente; 
 use App\Entidades\Sistema\MenuArea;
 use App\Entidades\Sistema\Patente;
@@ -28,20 +27,10 @@ class ControladorCliente extends Controller
         }
     }
 
-    
- 
- 
-
-     public function nuevo()
-    {
+    public function nuevo(){
         $titulo = "Nuevo cliente";
-
         return view('cliente.cliente-nuevo', compact('titulo') );
-
     }
-
-    
-  
 
     public function guardar(Request $request) 
     {
@@ -93,9 +82,9 @@ class ControladorCliente extends Controller
         $registros_por_pagina = $request['length'];
 
 
-        for ($i = $inicio; $i < count($aClientes) && $cont < $registros_por_pagina; $i++) {
+        for ($i = $inicio; $i < count($aCliente) && $cont < $registros_por_pagina; $i++) {
             $row = array();
-            $row[] = '<a href="/admin/sistema/clientes/' . $aClientes[$i]->idcliente . '">' . $aClientes[$i]->nombre . '</a>';
+            $row[] = '<a href="/admin/sistema/clientes/' . $aCliente[$i]->idcliente . '">' . $aCliente[$i]->nombre . '</a>';
             $row[] = $aCliente[$i]->nombre;
             $row[] = $aCliente[$i]->apellido;
             $row[] = $aCliente[$i]->telefono;
@@ -108,8 +97,8 @@ class ControladorCliente extends Controller
 
         $json_data = array(
             "draw" => intval($request['draw']),
-            "recordsTotal" => count($aMenu), //cantidad total de registros sin paginar
-            "recordsFiltered" => count($aMenu), //cantidad total de registros en la paginacion
+            "recordsTotal" => count($aCliente), //cantidad total de registros sin paginar
+            "recordsFiltered" => count($aCliente), //cantidad total de registros en la paginacion
             "data" => $data,
         );
         return json_encode($json_data);
