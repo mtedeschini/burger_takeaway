@@ -46,7 +46,7 @@ if (isset($msg)) {
 	    "bSearchable": true,
         "pageLength": 25,
         "order": [[ 0, "asc" ]],
-	    "ajax": "{{ route('menu.cargarGrilla') }}"
+	    "ajax": "{{ route('usuarios.cargarGrilla') }}"
 	});
 </script>
 @endsection
