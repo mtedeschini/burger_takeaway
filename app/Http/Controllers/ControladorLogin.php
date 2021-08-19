@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Session;
 
 require app_path() . '/start/constants.php';
+require app_path() . '/start/funciones_generales.php';
 
 class ControladorLogin extends Controller
 {
@@ -39,14 +40,15 @@ class ControladorLogin extends Controller
 
     public function entrar(Request $request)
     {
-        $usuarioIngresado = $request->input('txtUsuario');
-        $claveIngresada = $request->input('txtClave');
+
+        $usuarioIngresado = fescape_string($request->input('txtUsuario'));
+        $claveIngresada = fescape_string($request->input('txtClave'));
 
         $usuario = new Usuario();
         $lstUsuario = $usuario->validarUsuario($usuarioIngresado);
 
-        if (count($lstUsuario) > 0){
-            if ($usuario->validarClave($claveIngresada, $lstUsuario[0]->clave)){
+        if (count($lstUsuario) > 0) {
+            if ($usuario->validarClave($claveIngresada, $lstUsuario[0]->clave)) {
                 $titulo = 'Inicio';
                 $request->session()->put('usuario_id', $lstUsuario[0]->idusuario);
                 $request->session()->put('usuario', $lstUsuario[0]->usuario);
@@ -80,20 +82,17 @@ class ControladorLogin extends Controller
                     $request->session()->put('array_menu', $aMenu);
                 }
                 return view('sistema.index', compact('titulo'));
+            } else {
+                $titulo = 'Acceso denegado';
+                $msg["ESTADO"] = MSG_ERROR;
+                $msg["MSG"] = "Credenciales incorrectas";
+                return view('sistema.login', compact('titulo', 'msg'));
             }
-            else {
-                    $titulo = 'Acceso denegado';
-                    $msg["ESTADO"] = MSG_ERROR;
-                    $msg["MSG"] = "Credenciales incorrectas";
-                    return view('sistema.login', compact('titulo', 'msg'));
-                }
-        }else {
+        } else {
             $titulo = 'Acceso denegado';
             $msg["ESTADO"] = MSG_ERROR;
             $msg["MSG"] = "Credenciales incorrectas";
             return view('sistema.login', compact('titulo', 'msg'));
-            
-            
-    } 
+        }
     }
 }
