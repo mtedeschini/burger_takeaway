@@ -100,7 +100,8 @@ Route::group(array('domain' => '127.0.0.1'), function () {
 
        
     Route::get('/admin/clientes', 'ControladorCliente@index'); 
-    Route::get('/admin/cliente/nuevo', 'ControladorCliente@nuevo'); 
+    Route::get('/admin/cliente/nuevo', 'ControladorCliente@nuevo');
+    Route::get('/admin/cliente/cargarGrilla', 'ControladorCliente@cargarGrilla')->name('cliente.cargarGrilla');   
 
 
 

@@ -2,9 +2,9 @@
 
  namespace App\Http\Controllers;
 
-use App\Entidades\Cliente as EntidadesCliente;
+//use App\Entidades\Cliente as EntidadesCliente;
 use App\Entidades\Sistema\Menu; //include_once "app/Entidades/Sistema/Menu.php";
-use App\Entidades\Sistema\Cliente; 
+use App\Entidades\Cliente;  
 use App\Entidades\Sistema\MenuArea;
 use App\Entidades\Sistema\Patente;
 use App\Entidades\Sistema\Usuario;
@@ -76,13 +76,13 @@ class ControladorCliente extends Controller
         $msg["ESTADO"] = MSG_ERROR;
         $msg["MSG"] = ERRORINSERT;
     }
-
+ }
     public function cargarGrilla()
     {
         $request = $_REQUEST;
 
         $entidad = new Cliente();
-        $aCliente = $entidad->obtenerFiltrado();
+        $aClientes = $entidad->obtenerFiltrado();
 
         $data = array();
         $cont = 0;
@@ -93,12 +93,12 @@ class ControladorCliente extends Controller
 
         for ($i = $inicio; $i < count($aClientes) && $cont < $registros_por_pagina; $i++) {
             $row = array();
-            $row[] = '<a href="/admin/sistema/clientes/' . $aClientes[$i]->idcliente . '">' . $aClientes[$i]->nombre . '</a>';
-            $row[] = $aCliente[$i]->nombre;
-            $row[] = $aCliente[$i]->apellido;
-            $row[] = $aCliente[$i]->telefono;
-            $row[] = $aCliente[$i]->correo;
-            $row[] = $aCliente[$i]->usuario;
+            $row[] = '<a href="/admin/cliente/' . $aClientes[$i]->idcliente . '">' . $aClientes[$i]->nombre . '</a>'; 
+            
+            $row[] = $aClientes[$i]->apellido;
+            $row[] = $aClientes[$i]->telefono;
+            $row[] = $aClientes[$i]->correo;
+            $row[] = $aClientes[$i]->usuario;
 
             $cont++;
             $data[] = $row;
@@ -106,8 +106,8 @@ class ControladorCliente extends Controller
 
         $json_data = array(
             "draw" => intval($request['draw']),
-            "recordsTotal" => count($aMenu), //cantidad total de registros sin paginar
-            "recordsFiltered" => count($aMenu), //cantidad total de registros en la paginacion
+            "recordsTotal" => count($aClientes), //cantidad total de registros sin paginar
+            "recordsFiltered" => count($aClientes), //cantidad total de registros en la paginacion
             "data" => $data,
         );
         return json_encode($json_data);
