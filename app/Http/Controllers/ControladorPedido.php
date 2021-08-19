@@ -70,7 +70,4 @@ class ControladorPedido extends Controller
 
 }
 
-
-
-
 ?>
