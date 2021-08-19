@@ -59,7 +59,7 @@ echo isset($sucursal->idsucursal) && $sucursal->idsucursal > 0 ? $sucursal->idsu
 
             <div class="form-group col-lg-6">
                 <label>Sucursales: *</label>
-                <select id="txtTipo" name="txtTipo" class="form-control" required>
+                <select id="txtSucursal" name="txtSucursal" class="form-control" required>
                     @foreach ($aSucursales as $sucursal)
                         <option selected value="{{$sucursal->idsucursal}}">{{$sucursal->nombre}}</option>
                     @endforeach
@@ -67,11 +67,11 @@ echo isset($sucursal->idsucursal) && $sucursal->idsucursal > 0 ? $sucursal->idsu
             </div>
             <div class="form-group col-lg-6">
                 <label>Cliente: </label>
-                <input type="text" maxlength="50" id="txtModulo" name="txtModulo" class="form-control" value="" required>
+                <input type="text" maxlength="50" id="txtModulo" name="txtModulo" class="form-control" value="{{}}" required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Fecha: </label>
-                <input type="tet" maxlength="50" id="txtSubmodulo" name="txtSubmodulo" class="form-control" value="" required>
+                <input type="tet" maxlength="50" id="txtSubmodulo" name="txtSubmodulo" class="form-control" value="{{}}" required>
             </div>
 
             <div class="form-group col-lg-6">
