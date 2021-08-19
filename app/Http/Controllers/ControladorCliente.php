@@ -1,8 +1,6 @@
 <?php 
 
-
-
-namespace App\Http\Controllers;
+ namespace App\Http\Controllers;
 
 use App\Entidades\Cliente as EntidadesCliente;
 use App\Entidades\Sistema\Menu; //include_once "app/Entidades/Sistema/Menu.php";
@@ -45,7 +43,7 @@ class ControladorCliente extends Controller
     
   
 
-public function guardar(Request $request) {
+    public function guardar(Request $request) {
     try {
         //Define la entidad servicio
         $titulo = "Modificar Cliente";
