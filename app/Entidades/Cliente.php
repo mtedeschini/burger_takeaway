@@ -95,7 +95,7 @@ class Cliente extends Model{
     }
 
 
-
+    //search
     public function obtenerFiltrado()
     {
         $request = $_REQUEST;
@@ -107,13 +107,14 @@ class Cliente extends Model{
             4 => 'A.fk_idusuario'
         );
         $sql = "SELECT DISTINCT
+                    A.idcliente, 
                     A.nombre,
                     A.apellido,
                     A.telefono,
                     A.correo,
-                    A.fk_idusuario
+                    B.usuario
                     FROM clientes A
-                    LEFT JOIN sistema_usuario B ON A.fk_idusuario = B.idusuario  
+                    LEFT JOIN sistema_usuarios B ON A.fk_idusuario = B.idusuario  
                 WHERE 1=1
                 ";
 
@@ -123,6 +124,7 @@ class Cliente extends Model{
             $sql .= " OR A.apellido LIKE '%" . $request['search']['value'] . "%' ";
              $sql .= " OR A.telefono LIKE '%" . $request['search']['value'] . "%' ";
               $sql .= " OR A.correo LIKE '%" . $request['search']['value'] . "%' ";
+              $sql .= " OR usuario LIKE '%" . $request['search']['value'] . "%' ";
             
         }
         $sql .= " ORDER BY " . $columns[$request['order'][0]['column']] . "   " . $request['order'][0]['dir'];
