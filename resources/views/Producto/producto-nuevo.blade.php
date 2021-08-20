@@ -52,7 +52,7 @@ if (isset($msg)) {
             </div>
             <div class="form-group col-lg-6">
                 <label>Precio: *</label>
-                <input type="text" maxlength="50" id="txtPrecio" name="txtPrecio" class="form-control" value="" required>
+                <input type="number" maxlength="50" id="txtPrecio" name="txtPrecio" class="form-control" value="" required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Descripción: *</label>

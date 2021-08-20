@@ -7,6 +7,10 @@ use App\Entidades\Sistema\Usuario;
 use App\Entidades\Sistema\Patente;
 use Illuminate\Http\Request;
 
+
+require app_path().'/start/constants.php';
+
+
 class ControladorProducto extends Controller{
 
     public function index()
@@ -92,7 +96,7 @@ class ControladorProducto extends Controller{
                     $msg["MSG"] = OKINSERT;
                 }
                 $_POST["id"] = $entidad->idproducto;
-                return view('sistema.producto-listar', compact('titulo', 'msg'));
+                return view('producto.producto-listar', compact('titulo', 'msg'));
             }
         } catch (Exception $e) {
             $msg["ESTADO"] = MSG_ERROR;
@@ -103,6 +107,6 @@ class ControladorProducto extends Controller{
         $producto = new Producto();
         $producto->obtenerPorId($id);
 
-        return view('sistema.producto-nuevo', compact('msg', 'producto', 'titulo')) . '?id=' . $producto->idproducto;
+        return view('producto.producto-nuevo', compact('msg', 'producto', 'titulo')) . '?id=' . $producto->idproducto;
     }
 }

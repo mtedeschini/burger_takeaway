@@ -18,37 +18,6 @@ class Producto extends Model
 
     ];
 
-    public function obtenerFiltrado()
-    {
-        $request = $_REQUEST;
-        $columns = array(
-            0 => 'A.nombre',
-            1 => 'A.precio',
-            2 => 'A.descripcion'
-        );
-        $sql = "SELECT DISTINCT
-                    A.idproducto,
-                    A.nombre,
-                    A.precio,
-                    A.descripcion
-                    FROM productos A
-                WHERE 1=1
-                ";
-
-        //Realiza el filtrado
-        if (!empty($request['search']['value'])) {
-            $sql .= " AND ( A.nombre LIKE '%" . $request['search']['value'] . "%' ";
-            $sql .= " OR A.precio LIKE '%" . $request['search']['value'] . "%' ";
-            $sql .= " OR A.descripcion LIKE '%" . $request['search']['value'] . "%' )";
-        }
-        $sql .= " ORDER BY " . $columns[$request['order'][0]['column']] . "   " . $request['order'][0]['dir'];
-
-        $lstRetorno = DB::select($sql);
-
-        return $lstRetorno;
-    }
-
-
     public function obtenerTodos()
     {
         $sql = "SELECT
@@ -113,7 +82,7 @@ class Producto extends Model
         return $this->idproducto = DB::getPdo()->lastInsertId();
     }
 
-        //esta funcion ya la habia echo valentina pero yo no la veia cuando hice la sincronizacion y la volvi a hacer. Disculpen las molestias
+        //esta funcion ya la habia echo valentina pero yo no la veia cuando hice la sincronizacion y la volvi a hacer.
     public function obtenerFiltrado()
     {
         $request = $_REQUEST;
@@ -145,6 +114,13 @@ class Producto extends Model
         return $lstRetorno;
 
    }
+
+   public function cargarDesdeRequest($request) {
+    $this->idproducto = $request->input('id') != "0" ? $request->input('id') : $this->idproducto;
+    $this->nombre = $request->input('txtNombre');
+    $this->precio = $request->input('txtPrecio') != "" ? $request->input('txtPrecio') : 0;
+    $this->descripcion = $request->input('descripcion');
+    }
 }
 
 
