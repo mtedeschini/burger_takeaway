@@ -28,10 +28,11 @@ class ControladorPedido extends Controller
     {
         $titulo = "Nuevo Pedido";
         $entidadSucursal = new Sucursal();
+        $entidadCliente = new Cliente();
+        $aClientes = $entidadCliente->obtenerTodos();
         $aSucursales = $entidadSucursal->obtenerTodos();
-        return view('pedido.pedido-nuevo', compact('titulo', 'aSucursales'));
+        return view('pedido.pedido-nuevo', compact('titulo', 'aSucursales', 'aClientes'));
     }
-
     
 
     public function guardar(Request $request){

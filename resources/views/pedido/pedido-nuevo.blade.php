@@ -5,8 +5,8 @@
 <script>
     globalId = '<?php
 
-echo isset($sucursal->idsucursal) && $sucursal->idsucursal > 0 ? $sucursal->idsucursal : 0; ?>';
-    <?php $globalId = isset($sucursal->idsucursal) ? $sucursal->idsucursal : "0"; ?>
+echo isset($pedido->idpedido) && $pedido->idpedido > 0 ? $pedido->idpedido : 0; ?>';
+    <?php $globalId = isset($pedido->idpedido) ? $pedido->idpedido : "0"; ?>
 </script>
 @endsection
 @section('breadcrumb')
@@ -16,7 +16,7 @@ echo isset($sucursal->idsucursal) && $sucursal->idsucursal > 0 ? $sucursal->idsu
     <li class="breadcrumb-item active">Modificar</li>
 </ol>
 <ol class="toolbar">
-    <li class="btn-item"><a title="Nuevo" href="/admin/sucursal/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
+    <li class="btn-item"><a title="Nuevo" href="/admin/pedido/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
     <li class="btn-item"><a title="Guardar" href="#" class="fas fa-save" aria-hidden="true" onclick="javascript: $('#modalGuardar').modal('toggle');"><span>Guardar</span></a>
     </li>
     @if ($globalId > 0)
@@ -58,41 +58,70 @@ echo isset($sucursal->idsucursal) && $sucursal->idsucursal > 0 ? $sucursal->idsu
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
 
             <div class="form-group col-lg-6">
-                <label>Sucursales: </label>
+                <label>Sucursal: </label>
                 <select id="txtSucursal" name="txtSucursal" class="form-control" required>
+                    <option value="" disabled selected>Seleccionar</option>
                     @foreach ($aSucursales as $sucursal)
                         <option selected value="{{$sucursal->idsucursal}}">{{$sucursal->nombre}}</option>
                     @endforeach
                 </select>
             </div>
-
             <div class="form-group col-lg-6">
                 <label>Cliente: </label>
                 <select id="txtCliente" name="txtCliente" class="form-control" required>
+                    <option value="" disabled selected>Seleccionar</option>
                     @foreach ($aClientes as $cliente)
                             <option selected value="{{$cliente->idcliente}}">{{$cliente->nombre}}</option>
                     @endforeach
                 </select>
             </div>
             <div class="form-group col-lg-6">
-                <label>Fecha: </label>
-                <input type="tet" maxlength="50" id="txtSubmodulo" name="txtSubmodulo" class="form-control" value="" required>
+                <label for="txtFechaHora" class="d-block">Fecha y Hora:</label>
+                <select class="form-control d-inline" name="txtDia" id="txtDia" style="width: 80px">
+                    <option selected="" disabled="">DD</option>
+                    @for ($i = 1; $i <= 31; $i++)
+                        <option value="{{ $i }}">{{ $i }}</option>
+                    @endfor
+                </select>
+                <select class="form-control d-inline" name="txtMes" id="txtMes" style="width: 80px">
+                    <option selected="" disabled="">MM</option>
+                    @for ($i = 1; $i <= 12; $i++)
+                        <option value="{{ $i }}">{{ $i }}</option>
+                    @endfor
+                </select>
+                <select class="form-control d-inline" name="txtAnio" id="txtAnio" style="width: 100px">
+                    <option selected="" disabled="">YYYY</option>
+                    @for ($i = 1900; $i <= date("Y"); $i++) 
+                        <option value="{{ $i }}">{{ $i }}</option>
+                    @endfor
+                </select>
+                <input type="time" required="" class="form-control d-inline" style="width: 120px" name="txtHora" id="txtHora" value="">
             </div>
-
             <div class="form-group col-lg-6">
-                <label>Estado del Pago: </label>
-                <select id="txtOperacion" name="txtOperacion" class="form-control">
-                    <option value="1" selected>Sí</option>
-                    <option value="0" selected>No</option>
+                <label>Estado de pago: </label>
+                <select id="txtEstadoPago" name="txtEstadoPago" class="form-control">
+                    <option value="" disabled selected>Seleccionar</option>
+                    <option value="Pagado" selected>Pagado</option>
+                    <option value="No Pagado" selected>No Pagado</option>
                 </select>
             </div>
             <div class="form-group col-lg-6">
-                <label>Total: *</label>
-                <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="" required>
+                <label>Total:</label>
+                <input type="text" maxlength="50" id="txtTotal" name="txtTotal" class="form-control" value="" required>
+            </div>
+            <div class="form-group col-lg-6">
+                <label>Estado de pedido:</label>
+                <select id="txtEstadoPedido" name="txtEstadoPedido" class="form-control">
+                    <option value="" disabled selected>Seleccionar</option>
+                    <option value="No entregado" selected>No entregado</option>
+                    <option value="Entregado" selected>Entregado</option>
+                </select>
+                
             </div>
         </div>
-</div>
-</form>
+    </form>
+    </div>
+    
 </div>
 <div class="modal fade" id="mdlEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -128,7 +157,7 @@ echo isset($sucursal->idsucursal) && $sucursal->idsucursal > 0 ? $sucursal->idsu
     function eliminar() {
         $.ajax({
             type: "GET",
-            url: "{{ asset('/admin/patente/eliminar') }}",
+            url: "{{ asset('/admin/pedido/eliminar') }}",
             data: {
                 id: globalId
             },
