@@ -113,8 +113,7 @@ echo isset($pedido->idpedido) && $pedido->idpedido > 0 ? $pedido->idpedido : 0; 
                 <label>Estado de pedido:</label>
                 <select id="txtEstadoPedido" name="txtEstadoPedido" class="form-control">
                     <option value="" disabled selected>Seleccionar</option>
-                    <option value="En preparación" selected>En preparacion</option>
-                    <option value="Preparado" selected>Preparado</option>
+                    <option value="No entregado" selected>Preparado</option>
                     <option value="Entregado" selected>Entregado</option>
                 </select>
                 
