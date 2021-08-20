@@ -82,6 +82,7 @@ class Producto extends Model
         return $this->idproducto = DB::getPdo()->lastInsertId();
     }
 
+        //esta funcion ya la habia echo valentina pero yo no la veia cuando hice la sincronizacion y la volvi a hacer. Disculpen las molestias
     public function obtenerFiltrado()
     {
         $request = $_REQUEST;
