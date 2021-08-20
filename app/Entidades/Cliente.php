@@ -93,7 +93,11 @@ class Cliente extends Model{
             WHERE idcliente=?";
         $affected = DB::update($sql, [$this->idcliente]);
     }
-    public function cargarDesdeRequest() {
-        
-    }
+ 
+
+public function cargarDesdeRequest() {
+        $this->idcliente = $request->input('id') != "0" ? $request->input('id') : $this->idcliente;
+        $this->nombre = $request->input('txtNombre');
+        $this->apellido = $request->input('txtApellido');
+}
 }
