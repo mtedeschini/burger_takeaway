@@ -82,6 +82,7 @@ class Producto extends Model
         return $this->idproducto = DB::getPdo()->lastInsertId();
     }
 
+        //esta funcion ya la habia echo valentina pero yo no la veia cuando hice la sincronizacion y la volvi a hacer.
     public function obtenerFiltrado()
     {
         $request = $_REQUEST;
@@ -113,6 +114,13 @@ class Producto extends Model
         return $lstRetorno;
 
    }
+
+   public function cargarDesdeRequest($request) {
+    $this->idproducto = $request->input('id') != "0" ? $request->input('id') : $this->idproducto;
+    $this->nombre = $request->input('txtNombre');
+    $this->precio = $request->input('txtPrecio') != "" ? $request->input('txtPrecio') : 0;
+    $this->descripcion = $request->input('descripcion');
+    }
 }
 
 
