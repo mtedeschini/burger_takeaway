@@ -95,9 +95,14 @@ class Cliente extends Model{
     }
  
 
-public function cargarDesdeRequest() {
+public function cargarDesdeRequest($request) {
         $this->idcliente = $request->input('id') != "0" ? $request->input('id') : $this->idcliente;
         $this->nombre = $request->input('txtNombre');
         $this->apellido = $request->input('txtApellido');
+        $this->telefono = $request->input('txtTelefono');
+        $this->correo = $request->input('txtCorreo');
+        $this->fk_idusuario = $request->input('txtFk_idusuario');
+
 }
 }
+?>
