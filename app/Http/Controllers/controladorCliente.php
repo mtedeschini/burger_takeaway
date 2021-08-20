@@ -41,14 +41,14 @@ class ControladorCliente extends Controller
 
     }
 
-    
-  
 }
+  
+
 public function guardar(Request $request) {
     try {
         //Define la entidad servicio
         $titulo = "Modificar cliente";
-        $entidad = new Menu();
+        $entidad = new Cliente();
         $entidad->cargarDesdeRequest($request);
 
         //validaciones
@@ -71,10 +71,12 @@ public function guardar(Request $request) {
             }
             
             $_POST["id"] = $entidad->idcliente;
-            return view('sistema.menu-listar', compact('titulo', 'msg'));
+            return view('sistema.cliente-listar', compact('titulo', 'msg'));
         }
     } catch (Exception $e) {
         $msg["ESTADO"] = MSG_ERROR;
         $msg["MSG"] = ERRORINSERT;
     }
+}
+
  ?>
