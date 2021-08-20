@@ -31,7 +31,7 @@ class ControladorProducto extends Controller{
         $request = $_REQUEST;
 
         $entidad = new Producto();
-        $aMenu = $entidad->obtenerFiltrado();
+        $aProductos = $entidad->obtenerFiltrado();
 
         $data = array();
         $cont = 0;
@@ -40,20 +40,19 @@ class ControladorProducto extends Controller{
         $registros_por_pagina = $request['length'];
 
 
-        for ($i = $inicio; $i < count($aProducto) && $cont < $registros_por_pagina; $i++) {
+        for ($i = $inicio; $i < count($aProductos) && $cont < $registros_por_pagina; $i++) {
             $row = array();
-            $row[] = '<a href="/admin/producto/' . $aProducto[$i]->idproducto . '">' . $aProducto[$i]->nombre . '</a>';
-            $row[] = $aProducto[$i]->padre;
-            $row[] = $aProducto[$i]->url;
-            $row[] = $aProducto[$i]->activo;
+            $row[] = '<a href="/admin/producto/' . $aProductos[$i]->idproducto . '">' . $aProductos[$i]->nombre . '</a>';
+            $row[] = $aProductos[$i]->precio;
+            $row[] = $aProductos[$i]->descripcion;
             $cont++;
             $data[] = $row;
         }
 
         $json_data = array(
             "draw" => intval($request['draw']),
-            "recordsTotal" => count($aProducto), //cantidad total de registros sin paginar
-            "recordsFiltered" => count($aProducto), //cantidad total de registros en la paginacion
+            "recordsTotal" => count($aProductos), //cantidad total de registros sin paginar
+            "recordsFiltered" => count($aProductos), //cantidad total de registros en la paginacion
             "data" => $data,
         );
         return json_encode($json_data);
