@@ -18,6 +18,37 @@ class Producto extends Model
 
     ];
 
+    public function obtenerFiltrado()
+    {
+        $request = $_REQUEST;
+        $columns = array(
+            0 => 'A.nombre',
+            1 => 'A.precio',
+            2 => 'A.descripcion'
+        );
+        $sql = "SELECT DISTINCT
+                    A.idproducto,
+                    A.nombre,
+                    A.precio,
+                    A.descripcion
+                    FROM productos A
+                WHERE 1=1
+                ";
+
+        //Realiza el filtrado
+        if (!empty($request['search']['value'])) {
+            $sql .= " AND ( A.nombre LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR A.precio LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR A.descripcion LIKE '%" . $request['search']['value'] . "%' )";
+        }
+        $sql .= " ORDER BY " . $columns[$request['order'][0]['column']] . "   " . $request['order'][0]['dir'];
+
+        $lstRetorno = DB::select($sql);
+
+        return $lstRetorno;
+    }
+
+
     public function obtenerTodos()
     {
         $sql = "SELECT
