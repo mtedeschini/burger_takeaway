@@ -103,13 +103,13 @@ class Pedido extends Model{
 
     public function guardar() {
         $sql = "UPDATE pedidos SET
-            idpedido=$this->idpedido,
-            total=$this->total,
-            fk_idsucursal=$this->fk_idsucursal,
-            fk_idcliente=$this->fk_idcliente,
-            fk_idestado=$this->fk_idestado,
-            fk_idestadopago=$this->fk_idestadopago,
-            fecha='$this->fecha'
+                    idpedido=$this->idpedido,
+                    total=$this->total,
+                    fk_idsucursal=$this->fk_idsucursal,
+                    fk_idcliente=$this->fk_idcliente,
+                    fk_idestado=$this->fk_idestado,
+                    fk_idestadopago=$this->fk_idestadopago,
+                    fecha='$this->fecha'
             WHERE idpedido=?";
         $affected = DB::update($sql, [$this->idpedido]);
     }
