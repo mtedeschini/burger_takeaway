@@ -45,7 +45,7 @@ class ControladorSucursal extends Controller{
         for ($i = $inicio; $i < count($aSucursales) && $cont < $registros_por_pagina; $i++) {
             $row = array();
 
-            $row[] = '<a href="/admin/sistema/sucursales/' . $aSucursales[$i]->idsucursal . '">' . $aSucursales[$i]->nombre . '</a>';
+            $row[] = '<a href="/admin/sucursal/' . $aSucursales[$i]->idsucursal . '">' . $aSucursales[$i]->nombre . '</a>';
            
             $row[] = $aSucursales[$i]->nombre;
             $row[] = $aSucursales[$i]->direccion;
