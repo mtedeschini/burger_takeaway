@@ -25,7 +25,7 @@ class Pedido extends Model
             3 => 'C.nombre',
             4 => 'D.nombre',
             5 => 'E.nombre',
-            6 => 'A.fecha'
+            6 => 'A.fecha',
         );
         $sql = "SELECT DISTINCT
                     A.idpedido,
@@ -50,7 +50,7 @@ class Pedido extends Model
             $sql .= " OR C.nombre LIKE '%" . $request['search']['value'] . "%' ";
             $sql .= " OR D.nombre LIKE '%" . $request['search']['value'] . "%' ";
             $sql .= " OR E.nombre LIKE '%" . $request['search']['value'] . "%' ";
-            $sql .= " OR A.fecha LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR A.fecha LIKE '%" . $request['search']['value'] . "%' )";
         }
         $sql .= " ORDER BY " . $columns[$request['order'][0]['column']] . "   " . $request['order'][0]['dir'];
 
