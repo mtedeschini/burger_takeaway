@@ -111,11 +111,11 @@ class Postulacion extends model
         $this->idpostulacion = $request->input('id') != "0" ? $request->input('id') : $this->idpostulacion;
         $this->nombre = $request->input('txtNombre');
         $this->apellido = $request->input('txtApellido');
-        $this->localidad = $request->input('lstLocalidad');
+        $this->localidad = $request->input('txtLocalidad');
         $this->documento = $request->input('txtDocumento');
         $this->correo = $request->input('txtCorreo');
         $this->telefono = $request->input('txtTelefono');
-        $this->archivo_cv = $request->input('txtArchivo');
+        $this->archivo_cv = $request->input('txtCorreo');
     }
 
 }
