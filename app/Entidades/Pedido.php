@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Entidades;
+
 use DB;
 use Illuminate\Database\Eloquent\Model;
 
-class Pedido extends Model{
+class Pedido extends Model
+{
     protected $table = 'pedidos';
     public $timestamps = false;
 
@@ -12,18 +14,18 @@ class Pedido extends Model{
         'idpedido', 'total', 'fk_idsucursal', 'fk_idcliente', 'fk_idestado', 'fk_idestadopago', 'fecha'
     ];
 
-    protected $hidden = [
+    protected $hidden = [];
 
-    ];
-
-    public function obtenerFiltrado()
-    {
+    public function obtenerFiltrado(){
         $request = $_REQUEST;
         $columns = array(
-            0 => 'nombre',
-            1 => 'nombre',
-            2 => 'url',
-            3 => 'activo',
+            0 => 'A.idpedido',
+            1 => 'A.total',
+            2 => 'B.nombre',
+            3 => 'C.nombre',
+            4 => 'D.nombre',
+            5 => 'E.nombre',
+            6 => 'A.fecha'
         );
         $sql = "SELECT DISTINCT
                     A.idpedido,
@@ -101,7 +103,8 @@ class Pedido extends Model{
         return null;
     }
 
-    public function guardar() {
+    public function guardar()
+    {
         $sql = "UPDATE pedidos SET
                     idpedido=$this->idpedido,
                     total=$this->total,
@@ -144,7 +147,8 @@ class Pedido extends Model{
         return $this->idpedido = DB::getPdo()->lastInsertId();
     }
 
-    public function cargarDesdeRequest($request){
+    public function cargarDesdeRequest($request)
+    {
         $this->idPedido = $request->input('id') != "0" ? $request->input('id') : $this->idPedido;
         $this->total = $request->input('txtTotal');
         $this->fk_idsucursal = $request->input('txtSucursal');
@@ -154,6 +158,5 @@ class Pedido extends Model{
         if (isset($request['txtAnio']) && isset($request['txtMes']) && isset($request['txtDia'])) {
             $this->fecha_nac = $request['txtAnio'] . "-" . $request['txtMes'] . "-" . $request['txtDia'];
         }
-
     }
 }

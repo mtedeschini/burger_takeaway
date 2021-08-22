@@ -99,7 +99,7 @@ class ControladorPedido extends Controller
             $row[] = $aPedidos[$i]->sucursal;
             $row[] = $aPedidos[$i]->cliente;
             $row[] = $aPedidos[$i]->estado;
-            $row[] = $aPedidos[$i]->estadopago;
+            $row[] = $aPedidos[$i]->estado_pago;
             $row[] = $aPedidos[$i]->fecha;
             $cont++;
             $data[] = $row;
