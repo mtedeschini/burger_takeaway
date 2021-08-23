@@ -62,11 +62,15 @@
                     @foreach ($aSucursales as $sucursal)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <option  value="{{$sucursal->idsucursal}}">{{$sucursal->nombre}}</option>
 =======
 =======
 >>>>>>> b3d114c67b788c160658ae780e243f14349bd20c
                         @if (isset($sucursal->idsucursal) == $entidadPedido->fk_idsucursal)
+=======
+                        @if (isset($sucursal->idsucursal) == $pedido->fk_idsucursal)
+>>>>>>> 68addd592c18fa0e67fe7f83b3cca0aca8a0c462
                             <option  selected value="{{$sucursal->idsucursal}}">{{$sucursal->nombre}}</option>
                         @else
                             <option  value="{{$sucursal->idsucursal}}">{{$sucursal->nombre}}</option>
@@ -83,6 +87,7 @@
                 <select id="txtCliente" name="txtCliente" class="form-control" required>
                     <option value="" disabled selected>Seleccionar</option>
                     @foreach ($aClientes as $cliente)
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -110,6 +115,9 @@
 =======
 >>>>>>> b3d114c67b788c160658ae780e243f14349bd20c
                         @if (isset($cliente->idcliente) == $entidadPedido->fk_idcliente)
+=======
+                        @if (isset($cliente->idcliente) == $pedido->fk_idcliente)
+>>>>>>> 68addd592c18fa0e67fe7f83b3cca0aca8a0c462
                             <option selected value="{{$cliente->idcliente}}">{{$cliente->nombre}}</option>
                         @else
                             <option value="{{$cliente->idcliente}}">{{$cliente->nombre}}</option>
@@ -129,6 +137,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <option value="{{ $i }}">{{ $i }}</option>
 =======
 =======
@@ -136,6 +145,9 @@
 =======
 >>>>>>> b3d114c67b788c160658ae780e243f14349bd20c
                         @if ($entidadPedido->fecha != "" and $i == date_format(date_create($entidadPedido->fecha),"d"))
+=======
+                        @if ($pedido->fecha != "" and $i == date_format(date_create($pedido->fecha),"d"))
+>>>>>>> 68addd592c18fa0e67fe7f83b3cca0aca8a0c462
                             <option selected value="{{ $i }}">{{ $i}}</option>
                         @else
                             <option value="{{ $i }}">{{ $i}}</option>
@@ -155,6 +167,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <option value="{{ $i }}">{{ $i }}</option>
 =======
 =======
@@ -162,6 +175,9 @@
 =======
 >>>>>>> b3d114c67b788c160658ae780e243f14349bd20c
                         @if ($entidadPedido->fecha != "" and $i == date_format(date_create($entidadPedido->fecha),"m"))
+=======
+                        @if ($pedido->fecha != "" and $i == date_format(date_create($pedido->fecha),"m"))
+>>>>>>> 68addd592c18fa0e67fe7f83b3cca0aca8a0c462
                             <option selected value="{{ $i }}">{{ $i }}</option>
                         @else
                             <option value="{{ $i }}">{{ $i }}</option>
@@ -181,6 +197,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <option value="{{ $i }}">{{ $i }}</option>
 =======
 =======
@@ -188,6 +205,9 @@
 =======
 >>>>>>> b3d114c67b788c160658ae780e243f14349bd20c
                         @if ($entidadPedido->fecha != ""  and $i == date_format(date_create($entidadPedido->fecha),"Y"))
+=======
+                        @if ($pedido->fecha != ""  and $i == date_format(date_create($pedido->fecha),"Y"))
+>>>>>>> 68addd592c18fa0e67fe7f83b3cca0aca8a0c462
                             <option select value="{{ $i }}">{{ $i }}</option>
                         @else
                             <option value="{{ $i }}">{{ $i }}</option>
@@ -214,6 +234,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                             <option value="{{$estadoPago->idestadopago}}">{{$estadoPago->nombre}}</option>
 =======
 =======
@@ -225,6 +246,9 @@
 =======
 >>>>>>> b3d114c67b788c160658ae780e243f14349bd20c
                             @if (isset($estadoPago->idestadopago) and $entidadPedido->fk_estadopago)
+=======
+                            @if (isset($estadoPago->idestadopago) and $pedido->fk_estadopago)
+>>>>>>> 68addd592c18fa0e67fe7f83b3cca0aca8a0c462
                                 <option selected value="{{$estadoPago->idestadopago}}">{{$estadoPago->nombre}}</option>
                             @else
                                 <option value="{{$estadoPago->idestadopago}}">{{$estadoPago->nombre}}</option>
@@ -259,6 +283,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                             <option value="{{$estado->idestado}}">{{$estado->nombre}}</option>
 =======
 =======
@@ -270,6 +295,9 @@
 =======
 >>>>>>> b3d114c67b788c160658ae780e243f14349bd20c
                             @if (isset($estado->idestado) == $entidadPedido->fk_estado)
+=======
+                            @if (isset($estado->idestado) == $pedido->fk_estado)
+>>>>>>> 68addd592c18fa0e67fe7f83b3cca0aca8a0c462
                                 <option selected value="{{$estado->idestado}}">{{$estado->nombre}}</option>
                             @else
                                 <option value="{{$estado->idestado}}">{{$estado->nombre}}</option>
