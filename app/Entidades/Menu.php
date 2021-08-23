@@ -5,7 +5,8 @@
 	use DB;
 	use Illuminate\Database\Elquent\Model;
 
-	
+
+    
 	class Pago extends Model
 	{
 		
