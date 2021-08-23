@@ -124,34 +124,18 @@ class ControladorSucursal extends Controller{
 
     public function editar($id)
     {
-<<<<<<< HEAD
         $titulo = "Modificar Sucursal";
-=======
-        $titulo = "Modificar Menú";
->>>>>>> 5fa8d777ad98f3cfa8fc1ef4cd045d1bbda8ade1
         if (Usuario::autenticado() == true) {
             if (!Patente::autorizarOperacion("MENUMODIFICACION")) {
                 $codigo = "MENUMODIFICACION";
                 $mensaje = "No tiene pemisos para la operaci&oacute;n.";
                 return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
             } else {
-<<<<<<< HEAD
-                $sucursal = new Sucursal();
-                $sucursal->obtenerPorId($id);
-
-                 return view('sucursal.sucursal-nuevo', compact('titulo'));
-            }
-        } else {
-            return redirect('admin/login');
-        }
-    }
-=======
                 $menu = new Sucursal();
                 $menu->obtenerPorId($id);
 
                 $entidad = new Sucursal();
                 $array_menu = $entidad->obtenerMenuPadre($id);
->>>>>>> 5fa8d777ad98f3cfa8fc1ef4cd045d1bbda8ade1
 
                 $menu_grupo = new MenuArea();
                 $array_menu_grupo = $menu_grupo->obtenerPorMenu($id);
