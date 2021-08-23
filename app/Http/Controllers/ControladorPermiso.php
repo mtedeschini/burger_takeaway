@@ -36,7 +36,9 @@ class ControladorPermiso extends Controller
                 $mensaje = "No tiene pemisos para la operaci&oacute;n.";
                 return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
             } else {
-                return view('sistema.permiso-nuevo');
+                $permiso = new Familia();
+
+                return view('sistema.permiso-nuevo', compact('permiso'));
             }
         } else {
            return redirect('admin/login');
