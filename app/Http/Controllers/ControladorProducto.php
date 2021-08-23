@@ -61,7 +61,29 @@ class ControladorProducto extends Controller{
         );
         return json_encode($json_data);
     }
+    
+    public function eliminar(Request $request)
+    {
+        $id = $request->input('id');
 
+        if (Usuario::autenticado() == true) {
+            if (Patente::autorizarOperacion("PRODUCTOELIMINAR")) {
+
+          
+                $entidad = new Producto();
+                $entidad->cargarDesdeRequest($request);
+                $entidad->eliminar();
+
+                $aResultado["err"] = EXIT_SUCCESS;
+            } else {
+                $codigo = "ELIMINARPROFESIONAL";
+                $aResultado["err"] = "No tiene pemisos para la operaci&oacute;n.";
+            }
+            echo json_encode($aResultado);
+        } else {
+            return redirect('admin/login');
+        }
+    }
 
     public function nuevo()
     {
@@ -109,4 +131,6 @@ class ControladorProducto extends Controller{
 
         return view('producto.producto-nuevo', compact('msg', 'producto', 'titulo')) . '?id=' . $producto->idproducto;
     }
+
+    public function editar()
 }
