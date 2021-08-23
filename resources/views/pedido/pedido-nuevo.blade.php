@@ -61,7 +61,9 @@
                     <option value="" disabled selected>Seleccionar</option>
                     @foreach ($aSucursales as $sucursal)
                         @if (isset($sucursal->idsucursal) == $entidadPedido->fk_idcliente)
-                            <option  value="{{$sucursal->idsucursal}}">{{$sucursal->nombre}}</option>
+                            <option selected value="{{$sucursal->idsucursal}}">{{$sucursal->nombre}}</option>
+                        @else
+                            <option value="{{$sucursal->idsucursal}}">{{$sucursal->nombre}}</option>
                         @endif 
                     @endforeach
                 </select>
