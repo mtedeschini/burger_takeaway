@@ -76,7 +76,6 @@ class Sucursal extends Model{
     {
         $request = $_REQUEST;
         $columns = array(
- 
             0 => 'nombre',  
             1 => 'direccion'
         );
