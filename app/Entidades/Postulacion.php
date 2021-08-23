@@ -76,6 +76,7 @@ class Postulacion extends model
     public function guardar()
     {
         $sql = "UPDATE postulaciones SET
+        idpostulacion=$this->idpostulacion,
         nombre='$this->nombre',
         apellido='$this->apellido',
         localidad=$this->localidad,
@@ -97,6 +98,7 @@ class Postulacion extends model
     public function insertar()
     {
         $sql = "INSERT INTO postulaciones (
+            idpostulacion,
             nombre,
             apellido,
             localidad,
@@ -104,9 +106,10 @@ class Postulacion extends model
             correo,
             telefono,
             archivo_cv
-        ) VALUES (?, ?, ?, ?, ?, ?, ?);";
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
 
         $result = DB::insert($sql, [
+            $this->idpostulacion,
             $this->nombre,
             $this->apellido,
             $this->localidad,
