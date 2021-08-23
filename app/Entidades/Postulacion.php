@@ -97,7 +97,6 @@ class Postulacion extends model
     public function insertar()
     {
         $sql = "INSERT INTO postulaciones (
-            idpostulacion,
             nombre,
             apellido,
             localidad,
@@ -108,7 +107,6 @@ class Postulacion extends model
         ) VALUES (?, ?, ?, ?, ?, ?, ?);";
 
         $result = DB::insert($sql, [
-            $this->idpostulacion,
             $this->nombre,
             $this->apellido,
             $this->localidad,
@@ -148,7 +146,8 @@ class Postulacion extends model
 
         //Realiza el filtrado
         if (!empty($request['search']['value'])) {
-            $sql .= " AND ( nombre LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " AND ( idpostulacion LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR nombre LIKE '%" . $request['search']['value'] . "%' ";
             $sql .= " OR apellido LIKE '%" . $request['search']['value'] . "%' ";
             $sql .= " OR localidad LIKE '%" . $request['search']['value'] . "%' "; 
             $sql .= " OR documento LIKE '%" . $request['search']['value'] . "%' "; 
