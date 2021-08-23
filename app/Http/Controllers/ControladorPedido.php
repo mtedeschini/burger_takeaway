@@ -126,7 +126,7 @@ class ControladorPedido extends Controller
         $id = $request->input('id');
 
         if (Usuario::autenticado() == true) {
-            if (Patente::autorizarOperacion("PEDIDOLIMINAR")) {
+            if (Pedido::autorizarOperacion("PEDIDOLIMINAR")) {
 
           
                 $entidad = new Pedido();
@@ -150,18 +150,12 @@ class ControladorPedido extends Controller
     {
         $titulo = "Modificar Pedido";
         if (Usuario::autenticado() == true)
-        
         {
-            if (!Pedido::autorizarOperacion("MENUMODIFICACION")) {
-                $codigo = "MENUMODIFICACION";
-                $mensaje = "No tiene pemisos para la operaci&oacute;n.";
-                return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
-            } else {
-                $pedido = new Pedido();
-                $pedido->obtenerPorId($id);
+            $pedido = new Pedido();
+            $pedido->obtenerPorId($id);
+        
 
-                return view('pedido.pedido-nuevo', compact('pedido', 'titulo'));
-            }
+            return view('pedido.pedido-nuevo', compact('pedido', 'titulo'));
         }   else {
             return redirect('admin/login');
         }
