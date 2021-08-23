@@ -59,12 +59,17 @@ if (isset($msg)) {
                 <input type="text" id="txtApellido" name="txtApellido" class="form-control"
                     value="" required>
             </div>
-            <div class="form-group col-lg-6">
+            <!--<div class="form-group col-lg-6">
                 <label>Localidad: *</label>
                <select  id="lstLocalidad" name="lstLocalidad" class="form-control" required>
                     <option disabled selected>Seleccionar</option>
                     <option value="">CABA</option>
                 </select>
+            </div>-->
+            <div class="form-group col-lg-6">
+                <label>Localidad: *</label>
+                <input type="text" id="txtLocalidad" name="txtLocalidad" class="form-control"
+                    value="" required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Documento: *</label>
@@ -83,7 +88,7 @@ if (isset($msg)) {
             </div>
             <div class="form-group col-lg-6">
                 <label for="txtArchivo">Archivo adjunto:</label>
-                <input type="file" id="txtArchivo" name="archivo" class="form-control-file shadow" accept=".pdf">
+                <input type="file" id="txtArchivo" name="txtArchivo" class="form-control-file shadow" accept=".pdf">
                 <small class="d-block">Archivo CV: .pdf</small>
             </div>
         </div>

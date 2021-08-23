@@ -22,6 +22,7 @@ class Sucursal extends Model{
         
     }
 
+
     public function obtenerTodos(){
         $sql = "SELECT
                     idsucursal,
@@ -71,7 +72,31 @@ class Sucursal extends Model{
         $affected = DB::update($sql,[$this->idsucursal]);
     }
 
+    public function obtenerFiltrado()
+    {
+        $request = $_REQUEST;
+        $columns = array(
+            0 => 'nombre',  
+            1 => 'direccion'
+        );
+        $sql = "SELECT DISTINCT
+                    idsucursal,
+                    nombre,
+                    direccion
+                    
+                    FROM sucursales";
 
+        //Realiza el filtrado
+        if (!empty($request['search']['value'])) {
+            $sql .= " AND ( nombre LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR direccion LIKE '%" . $request['search']['value'] . "%' ";
+        }
+        $sql .= " ORDER BY " . $columns[$request['order'][0]['column']] . "   " . $request['order'][0]['dir'];
+
+        $lstRetorno = DB::select($sql);
+
+        return $lstRetorno;
+    }
 
     
 }

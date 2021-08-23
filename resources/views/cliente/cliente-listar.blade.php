@@ -9,7 +9,7 @@
 @section('breadcrumb')
 <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/home">Inicio</a></li>
-    <li class="breadcrumb-item active">Cliente</a></li>
+    <li class="breadcrumb-item active">Clientes</a></li> 
 </ol>
 <ol class="toolbar">
     <li class="btn-item"><a title="Nuevo" href="/admin/cliente/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
@@ -28,15 +28,13 @@ if (isset($msg)) {
         <tr>
             <th>Nombre</th>
             <th>Apellido</th>
-            <th>DNI</th>
-            <th>Teléfono</th>
-            <th>Dirección</th>
-            <th>Código postal</th>
-            <th>Fecha Nac</th>
+            <th>Telefono</th>
             <th>Correo</th>
-            <th>Usuario</th>
-            <th>Botones</th>
-        </tr>
+            <th>Usuario</th>    
+            
+        </tr> 
+
+
     </thead>
 </table> 
 <script>
@@ -48,7 +46,7 @@ if (isset($msg)) {
 	    "bSearchable": true,
         "pageLength": 25,
         "order": [[ 0, "asc" ]],
-	    "ajax": "{{ route('menu.cargarGrilla') }}"
+	    "ajax": "{{ route('cliente.cargarGrilla') }}" 
 	});
 </script>
 @endsection
