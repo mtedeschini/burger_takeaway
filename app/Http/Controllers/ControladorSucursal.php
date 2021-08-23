@@ -56,6 +56,7 @@ class ControladorSucursal extends Controller{
 
         $json_data = array(
             "draw" => intval($request['draw']),
+            
             "recordsTotal" => count($aSucursales), //cantidad total de registros sin paginar
             "recordsFiltered" => count($aSucursales), //cantidad total de registros en la paginacion
             "data" => $data,

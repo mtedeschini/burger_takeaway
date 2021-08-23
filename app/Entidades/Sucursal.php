@@ -77,39 +77,29 @@ class Sucursal extends Model{
         $request = $_REQUEST;
         $columns = array(
             0 => 'A.nombre',
-            1 => 'A.apellido',
-            2 => 'A.telefono',
-            3 => 'A.correo',
-            4 => 'A.fk_idusuario'
-        );//el usuario es unico por lo tanto se debe invocar ?
+            1 => 'A.direccion',  
+        );
         $sql = "SELECT DISTINCT
-                    A.idcliente, 
-                    A.nombre,
-                    A.apellido,
-                    A.telefono,
-                    A.correo,
-                    B.usuario
-                    FROM clientes A
-                    LEFT JOIN sistema_usuarios B ON A.fk_idusuario = B.idusuario  
-                WHERE 1=1
-                "; 
+                    idsucursal,
+                    nombre,
+                    direccion
+                    FROM sucursales 
 
+                WHERE 1=1
+                ";
         //Realiza el filtrado
         if (!empty($request['search']['value'])) {
-            $sql .= " AND ( A.nombre LIKE '%" . $request['search']['value'] . "%' " ;
-            $sql .= " OR A.apellido LIKE '%" . $request['search']['value'] . "%' " ;
-            $sql .= " OR A.telefono LIKE '%" . $request['search']['value'] . "%' " ;
-            $sql .= " OR A.correo LIKE '%" . $request['search']['value'] . "%') ";
-            $sql .= " ORDER BY " . $columns[$request['order'][0]['column']] . "   " . $request['order'][0]['dir'];
+            $sql .= " AND ( A.nombre LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR B.nombre LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR A.url LIKE '%" . $request['search']['value'] . "%' )";
         }
-
-     
+        $sql .= " ORDER BY " . $columns[$request['order'][0]['column']] . "   " . $request['order'][0]['dir'];
 
         $lstRetorno = DB::select($sql);
 
         return $lstRetorno;
+    }
 
-   }
 
     
 }
