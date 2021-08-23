@@ -49,11 +49,11 @@ if (isset($msg)) {
 
             <div class="form-group col-lg-6">
                 <label>Nombre: *</label>
-                <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="{{$sucursal->nombre or ''}}"> 
+                <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="{{ $sucursal->nombre }}"> 
             </div>
             <div class="form-group col-lg-6">
                 <label>Dirección: *</label>
-                <input type="text" maxlength="50" id="txtDireccion" name="txtDireccion" class="form-control" value="{{$sucursal->direccion or ''}}">
+                <input type="text" maxlength="50" id="txtDireccion" name="txtDireccion" class="form-control" value="{{ $sucursal->direccion }}">
             </div>
         </div>
 </div>
