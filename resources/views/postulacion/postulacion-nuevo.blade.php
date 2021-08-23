@@ -2,8 +2,13 @@
 @section('titulo', "$titulo")
 @section('scripts')
 <script>
+<<<<<<< HEAD
 globalId = '<?php echo isset($producto->idpostulacion) && $producto->idpostulacion > 0 ? $producto->idpostulacion : 0; ?>';
 <?php $globalId = isset($producto->idpostulacion) ? $producto->idpostulacion : "0";?>
+=======
+globalId = '<?php echo isset($postulacion->idpostulacion) && $postulacion->idpostulacion > 0 ? $postulacion->idpostulacion : 0; ?>';
+<?php $globalId = isset($postulacion->idpostulacion) ? $postulacion->idpostulacion : "0";?>
+>>>>>>> ddc8bf8e3909045f2dbbbed547190fb0d010201d
 </script>
 @endsection
 @section('breadcrumb')
@@ -52,15 +57,24 @@ if (isset($msg)) {
             <div class="form-group col-lg-6">
                 <label>Nombre: *</label>
                 <input type="text" id="txtNombre" name="txtNombre" class="form-control"
+<<<<<<< HEAD
                     value="{{ $postulacion->nombre or '' }}" required>
+=======
+                    value="{{ $postulacion->nombre }}" required>
+>>>>>>> ddc8bf8e3909045f2dbbbed547190fb0d010201d
             </div>
             <div class="form-group col-lg-6">
                 <label>Apellido: *</label>
                 <input type="text" id="txtApellido" name="txtApellido" class="form-control"
+<<<<<<< HEAD
                     value="{{ $postulacion->apellido or '' }}" required>
+=======
+                    value="{{ $postulacion->apellido }}" required>
+>>>>>>> ddc8bf8e3909045f2dbbbed547190fb0d010201d
             </div>
             <!--<div class="form-group col-lg-6">
                 <label>Localidad: *</label>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -85,20 +99,33 @@ if (isset($msg)) {
                 <input type="text" id="txtLocalidad" name="txtLocalidad" class="form-control"
                     value="{{ $postulacion->localidad or '' }}" required>
 >>>>>>> 7061f9e3906b01613f7b7c795a616b1750464831
+=======
+                <input type="text" id="txtLocalidad" name="txtLocalidad" class="form-control"
+                    value="{{ $postulacion->localidad }}" required>
+>>>>>>> ddc8bf8e3909045f2dbbbed547190fb0d010201d
             </div>
             <div class="form-group col-lg-6">
                 <label>Documento: *</label>
                 <input type="text" id="txtDocumento" name="txtDocumento" class="form-control"
+<<<<<<< HEAD
                     value="{{ $postulacion->documento or '' }}" required>
+=======
+                    value="{{ $postulacion->documento }}" required>
+>>>>>>> ddc8bf8e3909045f2dbbbed547190fb0d010201d
             </div>
             <div class="form-group col-lg-6">
                 <label>Correo: *</label>
                 <input type="text" id="txtCorreo" name="txtCorreo" class="form-control"
+<<<<<<< HEAD
                     value="{{ $postulacion->correo or '' }}" required>
+=======
+                    value="{{ $postulacion->correo }}" required>
+>>>>>>> ddc8bf8e3909045f2dbbbed547190fb0d010201d
             </div>
             <div class="form-group col-lg-6">
                 <label>Teléfono: *</label>
                 <input type="text" id="txtTelefono" name="txtTelefono" class="form-control"
+<<<<<<< HEAD
                     value="{{ $postulacion->telefono or '' }}" required>
             </div>
             <div class="form-group col-lg-6">
@@ -116,6 +143,13 @@ if (isset($msg)) {
 =======
                 <input type="file" id="txtArchivo" name="txtArchivo" class="form-control-file shadow" accept=".pdf" value="{{ $postulacion->archivo_cv or '' }}">
 >>>>>>> 7061f9e3906b01613f7b7c795a616b1750464831
+=======
+                    value="{{ $postulacion->telefono }}" required>
+            </div>
+            <div class="form-group col-lg-6">
+                <label for="txtArchivo">Archivo adjunto:</label>
+                <input type="file" id="txtArchivo" name="txtArchivo" class="form-control-file shadow" accept=".pdf" value="{{ $postulacion->archivo_cv }}">
+>>>>>>> ddc8bf8e3909045f2dbbbed547190fb0d010201d
                 <small class="d-block">Archivo CV: .pdf</small>
             </div>
         </div>

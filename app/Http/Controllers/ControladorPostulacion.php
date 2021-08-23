@@ -122,7 +122,7 @@ class ControladorPostulacion extends Controller{
         $id = $request->input('id');
 
         if (Postulacion::autenticado() == true) {
-            if (Patente::autorizarOperacion("POSTULACIONELIMINAR")) {
+            if (Patente::autorizarOperacion("MENUELIMINAR")) {
 
                 $entidad = new Postulacion();
                 $entidad->cargarDesdeRequest($request);

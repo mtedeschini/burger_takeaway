@@ -106,6 +106,7 @@ Route::group(array('domain' => '127.0.0.1'), function () {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     Route::get('/admin/cliente/cargarGrilla', 'ControladorCliente@cargarGrilla')->name('cliente.cargarGrilla');   
 
 
@@ -114,10 +115,13 @@ Route::group(array('domain' => '127.0.0.1'), function () {
 >>>>>>> 3d978005a327f06825d0b7d92a0ecf44b1eb7d4b
 =======
 >>>>>>> 7061f9e3906b01613f7b7c795a616b1750464831
+=======
+>>>>>>> ddc8bf8e3909045f2dbbbed547190fb0d010201d
     Route::get('/admin/cliente/cargarGrilla', 'ControladorCliente@cargarGrilla')->name('cliente.cargarGrilla'); 
     Route::post('/admin/cliente/eliminar', 'ControladorCliente@eliminar');   
     Route::get('/admin/cliente/nuevo/{id}', 'Controladorcliente@editar');
     Route::post('/admin/cliente/nuevo/{id}', 'Controladorcliente@guardar');
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> 3d978005a327f06825d0b7d92a0ecf44b1eb7d4b
@@ -125,6 +129,8 @@ Route::group(array('domain' => '127.0.0.1'), function () {
 >>>>>>> 3d978005a327f06825d0b7d92a0ecf44b1eb7d4b
 =======
 >>>>>>> 7061f9e3906b01613f7b7c795a616b1750464831
+=======
+>>>>>>> ddc8bf8e3909045f2dbbbed547190fb0d010201d
 
     /* --------------------------------------------- */
     /* CONTROLADOR PRODUCTOS                          */
@@ -160,6 +166,7 @@ Route::group(array('domain' => '127.0.0.1'), function () {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     Route::get('/admin/postulacion/menu/{id}', 'ControladorPostulacion@editar');
 >>>>>>> 3d978005a327f06825d0b7d92a0ecf44b1eb7d4b
@@ -170,6 +177,10 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::get('/admin/postulacion/{id}', 'ControladorPostulacion@editar');
     Route::post('/admin/postulacion/{id}', 'ControladorPostulacion@guardar');
 >>>>>>> 7061f9e3906b01613f7b7c795a616b1750464831
+=======
+    Route::get('/admin/postulacion/{id}', 'ControladorPostulacion@editar');
+    Route::post('/admin/postulacion/{id}', 'ControladorPostulacion@guardar');
+>>>>>>> ddc8bf8e3909045f2dbbbed547190fb0d010201d
 
     
     /* --------------------------------------------- */
@@ -182,16 +193,20 @@ Route::group(array('domain' => '127.0.0.1'), function () {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     Route::get('/admin/sucursal/cargarGrilla', 'Controladorsucursal@cargarGrilla')->name('sucursal.cargarGrilla');
 =======
 =======
 >>>>>>> 3d978005a327f06825d0b7d92a0ecf44b1eb7d4b
 =======
 >>>>>>> 7061f9e3906b01613f7b7c795a616b1750464831
+=======
+>>>>>>> ddc8bf8e3909045f2dbbbed547190fb0d010201d
     Route::get('/admin/sucursal/cargarGrilla', 'ControladorSucursal@cargarGrilla')->name('sucursal.cargarGrilla');
     Route::get('/admin/sucursal/nuevo/{id}', 'ControladorSucursal@editar');
     Route::post('/admin/sucursal/nuevo/{id}', 'ControladorSucursal@guardar');
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> 3d978005a327f06825d0b7d92a0ecf44b1eb7d4b
@@ -199,4 +214,6 @@ Route::group(array('domain' => '127.0.0.1'), function () {
 >>>>>>> 3d978005a327f06825d0b7d92a0ecf44b1eb7d4b
 =======
 >>>>>>> 7061f9e3906b01613f7b7c795a616b1750464831
+=======
+>>>>>>> ddc8bf8e3909045f2dbbbed547190fb0d010201d
 });

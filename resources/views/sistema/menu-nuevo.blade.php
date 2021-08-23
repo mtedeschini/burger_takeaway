@@ -47,7 +47,7 @@ if (isset($msg)) {
                 <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
                 <div class="form-group col-lg-6">
                     <label>Nombre: *</label>
-                    <input type="text" id="txtNombre" name="txtNombre" class="form-control" value="{{ $menu->nombre or '' }}" required>
+                    <input type="text" id="txtNombre" name="txtNombre" class="form-control" value="{{ $menu->nombre }}" required>
                 </div>
                 <div class="form-group col-lg-6">
                     <label>Men&uacute; padre:</label>
@@ -66,7 +66,7 @@ if (isset($msg)) {
                 </div>
                 <div class="form-group col-lg-6">
                     <label>Orden:</label>
-                    <input type="number" id="txtOrden" name="txtOrden" class="form-control" value="{{$menu->orden or ''}}">
+                    <input type="number" id="txtOrden" name="txtOrden" class="form-control" value="{{$menu->orden }}">
                 </div>
                 <div class="form-group col-lg-6">
                     <label>Activo: *</label>
@@ -78,11 +78,11 @@ if (isset($msg)) {
                 </div>
                 <div class="form-group col-lg-6">
                     <label>URL:</label>
-                    <input type="text" id="txtUrl" name="txtUrl" class="form-control" value="{{$menu->url or ''}}">
+                    <input type="text" id="txtUrl" name="txtUrl" class="form-control" value="{{$menu->url }}">
                 </div>
                  <div class="form-group col-lg-6">
                     <label>CSS:</label>
-                    <input type="text" id="txtCss" name="txtCss" class="form-control" value="{{$menu->css or ''}}">
+                    <input type="text" id="txtCss" name="txtCss" class="form-control" value="{{$menu->css }}">
                     <a href="https://fontawesome.com/icons?d=gallery" target="blank">Catálogo de íconos</a>
                 </div>
             </div>
