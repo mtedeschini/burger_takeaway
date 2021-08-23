@@ -134,8 +134,10 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::get('/admin/postulacion/nuevo', 'ControladorPostulacion@nuevo');
     Route::post('/admin/postulacion/nuevo', 'ControladorPostulacion@guardar');
     Route::get('/admin/postulacion/cargarGrilla', 'ControladorPostulacion@cargarGrilla')->name('postulacion.cargarGrilla');
+    Route::get('/admin/postulacion/eliminar', 'ControladorPostulacion@eliminar');
+    Route::get('/admin/postulacion/{id}', 'ControladorPostulacion@editar');
 
-    
+
     /* --------------------------------------------- */
     /* CONTROLADOR SUCURSALES                          */
     /* --------------------------------------------- */
@@ -143,5 +145,8 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::get('/admin/sucursales', 'ControladorSucursal@index');
     Route::get('/admin/sucursal/nuevo', 'ControladorSucursal@nuevo');
     Route::post('/admin/sucursal/nuevo', 'ControladorSucursal@guardar');
-    Route::get('/admin/sucursal/cargarGrilla', 'Controladorsucursal@cargarGrilla')->name('sucursal.cargarGrilla');
+    Route::get('/admin/sucursal/cargarGrilla', 'ControladorSucursal@cargarGrilla')->name('sucursal.cargarGrilla');
+    Route::get('/admin/sucursal/nuevo/{id}', 'ControladorSucursal@editar');
+    Route::post('/admin/sucursal/nuevo/{id}', 'ControladorSucursal@guardar');
+
 });
