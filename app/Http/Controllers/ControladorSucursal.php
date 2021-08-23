@@ -47,7 +47,6 @@ class ControladorSucursal extends Controller{
 
             $row[] = '<a href="/admin/sucursal/' . $aSucursales[$i]->idsucursal . '">' . $aSucursales[$i]->nombre . '</a>';
            
-            $row[] = $aSucursales[$i]->nombre;
             $row[] = $aSucursales[$i]->direccion;
             
             $cont++;
@@ -56,6 +55,7 @@ class ControladorSucursal extends Controller{
 
         $json_data = array(
             "draw" => intval($request['draw']),
+            
             "recordsTotal" => count($aSucursales), //cantidad total de registros sin paginar
             "recordsFiltered" => count($aSucursales), //cantidad total de registros en la paginacion
             "data" => $data,

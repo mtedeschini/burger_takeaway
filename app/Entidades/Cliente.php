@@ -47,7 +47,7 @@ class Cliente extends Model{
                     A.telefono,
                     A.correo,
                     B.usuario
-                  FROM clientes A
+                FROM clientes A
                 LEFT JOIN sistema_usuarios B ON A.fk_idusuario = B.idusuario  
                 
                 ";
@@ -91,11 +91,34 @@ class Cliente extends Model{
         $affected = DB::delete($sql, [$this->idcliente]);
     }
 
+      public function insertar()
+    {
+        $sql = "INSERT INTO clientes (
+                    nombre,
+                    apellido,
+                    telefono,
+                    correo,
+                    fk_idusuario 
+                  
+                ) 
+
+                VALUES (?, ?, ?, ?, ?);";
+        $result = DB::insert($sql, [
+            $this->nombre,
+            $this->apellido,
+            $this->telefono,
+            $this->correo,
+            $this->fk_idusuario,
+
+        ]);
+        return $this->idproducto = DB::getPdo()->lastInsertId();
+    }
+
     public function guardar() {
         $sql = "UPDATE clientes SET
             nombre='$this->nombre',
             apellido='$this->apellido',
-            telefono=$this->telefono,
+            telefono='$this->telefono',
             correo='$this->correo',
             fk_idusuario=$this->fk_idusuario
             WHERE idcliente=?";
@@ -120,7 +143,7 @@ class Cliente extends Model{
                     A.apellido,
                     A.telefono,
                     A.correo,
-                    B.usuario
+                    B.usuario 
                     FROM clientes A
                     LEFT JOIN sistema_usuarios B ON A.fk_idusuario = B.idusuario  
                 WHERE 1=1
@@ -141,5 +164,15 @@ class Cliente extends Model{
 
         return $lstRetorno;
 
-   }
+   }// end obtener por filtrado
+
+    public function cargarDesdeRequest($request) {
+    $this->idcliente = $request->input('id') != "0" ? $request->input('id') : $this->idcliente;
+    $this->nombre = $request->input('txtNombre');
+    $this->apellido = $request->input('txtApellido');
+    $this->telefono = $request->input('txtTelefono');
+    $this->correo = $request->input('txtCorreo');
+    $this->usuario = $request->input('txtUsuario');
+
+    }
 }

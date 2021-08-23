@@ -60,7 +60,7 @@
                 <select id="txtSucursal" name="txtSucursal" class="form-control" required>
                     <option value="" disabled selected>Seleccionar</option>
                     @foreach ($aSucursales as $sucursal)
-                        <option selected value="{{$sucursal->idsucursal}}">{{$sucursal->nombre}}</option>
+                        <option  value="{{$sucursal->idsucursal}}">{{$sucursal->nombre}}</option>
                     @endforeach
                 </select>
             </div>
@@ -69,7 +69,7 @@
                 <select id="txtCliente" name="txtCliente" class="form-control" required>
                     <option value="" disabled selected>Seleccionar</option>
                     @foreach ($aClientes as $cliente)
-                            <option selected value="{{$cliente->idcliente}}">{{$cliente->nombre}}</option>
+                            <option  value="{{$cliente->idcliente}}">{{$cliente->nombre}}</option>
                     @endforeach
                 </select>
             </div>
@@ -89,7 +89,7 @@
                 </select>
                 <select class="form-control d-inline" name="txtAnio" id="txtAnio" style="width: 100px">
                     <option selected="" disabled="">YYYY</option>
-                    @for ($i = 1900; $i <= date("Y"); $i++) 
+                    @for ($i = 2000; $i <= date("Y"); $i++) 
                         <option value="{{ $i }}">{{ $i }}</option>
                     @endfor
                 </select>
@@ -98,9 +98,10 @@
             <div class="form-group col-lg-6">
                 <label>Estado de pago: </label>
                 <select id="txtEstadoPago" name="txtEstadoPago" class="form-control" required>
-                    <option value="" disabled selected>Seleccionar</option>
-                    <option value="Pagado" selected>Pagado</option>
-                    <option value="No Pagado" selected>No Pagado</option>
+                <option value="" disabled selected>Seleccionar</option>
+                    @foreach ($aEstadoPagos as $estadoPago)
+                            <option value="{{$estadoPago->idestadopago}}">{{$estadoPago->nombre}}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="form-group col-lg-6">
@@ -110,9 +111,11 @@
             <div class="form-group col-lg-6">
                 <label>Estado de pedido:</label>
                 <select id="txtEstadoPedido" name="txtEstadoPedido" class="form-control">
-                    <option value="" disabled selected>Seleccionar</option>
-                    <option value="No entregado" selected>No entregado</option>
-                    <option value="Entregado" selected>Entregado</option>
+                <option value="" disabled selected>Seleccionar</option>
+                    @foreach ($aEstados as $estado)
+                            <option value="{{$estado->idestado}}">{{$estado->nombre}}</option>
+                    @endforeach
+                </select>
                 </select>
                 
             </div>
