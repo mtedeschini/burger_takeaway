@@ -121,13 +121,14 @@ class Postulacion extends model
     {
         $request = $_REQUEST;
         $columns = array(
-            0 => 'nombre',
-            1 => 'apellido',
-            2 => 'localidad',
-            3 => 'documento',
-            4 => 'correo',
-            5 => 'telefono',
-            6 => 'archivo_cv',
+            0 => 'idpostulacion',
+            1 => 'nombre',
+            2 => 'apellido',
+            3 => 'localidad',
+            4 => 'documento',
+            5 => 'correo',
+            6 => 'telefono',
+            7 => 'archivo_cv',
        
         );
         $sql = "SELECT DISTINCT
