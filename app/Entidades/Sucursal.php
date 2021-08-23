@@ -21,34 +21,7 @@ class Sucursal extends Model{
         $this->nombre = $request->input('txtNombre');
         
     }
-        public function obtenerFiltrado()
-    {
-        $request = $_REQUEST;
-        $columns = array(
-            0 => 'nombre',
-            1 => 'direccion',
-        );
-        $sql = "SELECT DISTINCT
-                    nombre,
-                    direccion,
 
-                    FROM sistema_menues A
-                    LEFT JOIN sistema_menues B ON A.id_padre = B.idmenu
-                WHERE 1=1
-                ";
-
-        //Realiza el filtrado
-        if (!empty($request['search']['value'])) {
-            $sql .= " AND ( A.nombre LIKE '%" . $request['search']['value'] . "%' ";
-            $sql .= " OR B.nombre LIKE '%" . $request['search']['value'] . "%' ";
-            $sql .= " OR A.url LIKE '%" . $request['search']['value'] . "%' )";
-        }
-        $sql .= " ORDER BY " . $columns[$request['order'][0]['column']] . "   " . $request['order'][0]['dir'];
-
-        $lstRetorno = DB::select($sql);
-
-        return $lstRetorno;
-    }
 
     public function obtenerTodos(){
         $sql = "SELECT
@@ -99,7 +72,31 @@ class Sucursal extends Model{
         $affected = DB::update($sql,[$this->idsucursal]);
     }
 
+    public function obtenerFiltrado()
+    {
+        $request = $_REQUEST;
+        $columns = array(
+            0 => 'nombre',  
+            1 => 'direccion'
+        );
+        $sql = "SELECT DISTINCT
+                    idsucursal,
+                    nombre,
+                    direccion
+                    
+                    FROM sucursales";
 
+        //Realiza el filtrado
+        if (!empty($request['search']['value'])) {
+            $sql .= " AND ( nombre LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR direccion LIKE '%" . $request['search']['value'] . "%' ";
+        }
+        $sql .= " ORDER BY " . $columns[$request['order'][0]['column']] . "   " . $request['order'][0]['dir'];
+
+        $lstRetorno = DB::select($sql);
+
+        return $lstRetorno;
+    }
 
     
 }

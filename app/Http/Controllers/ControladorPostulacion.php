@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Entidades\Postulacion;
 use App\Entidades\Sistema\Usuario;
+use App\Entidades\Sistema\Patente;
+use Illuminate\Http\Request;
 
 require app_path() . '/start/constants.php';
 
@@ -27,6 +29,49 @@ class ControladorPostulacion extends Controller{
         $titulo = "Nueva Postulacion";
         return view('postulacion.postulacion-nuevo', compact('titulo'));
 
+    }
+
+    public function cargarGrilla()
+    {
+        $request = $_REQUEST;
+
+        $entidad = new Postulacion();
+        $aPostulaciones = $entidad->obtenerFiltrado(); 
+
+        $data = array();
+        $cont = 0;
+
+        $inicio = $request['start'];
+        $registros_por_pagina = $request['length'];
+
+
+        for ($i = $inicio; $i < count($aPostulaciones) && $cont < $registros_por_pagina; $i++) {
+            $row = array();
+
+            $row[] = '<a href="/admin/postulacion/' . $aPostulaciones[$i]->idpostulacion . '">' . $aPostulaciones[$i]->idpostulacion . '</a>'; 
+
+            $row[] = $aPostulaciones[$i]->nombre;
+            $row[] = $aPostulaciones[$i]->apellido;
+            $row[] = $aPostulaciones[$i]->localidad;
+            $row[] = $aPostulaciones[$i]->documento;
+            $row[] = $aPostulaciones[$i]->correo;
+            $row[] = $aPostulaciones[$i]->telefono;
+            $row[] = $aPostulaciones[$i]->archivo_cv;
+
+           
+            $cont++;
+            $data[] = $row;
+        }
+
+        $json_data = array(
+            "draw" => intval($request['draw']),
+
+            "recordsTotal" => count($aPostulaciones), //cantidad total de registros sin paginar
+            "recordsFiltered" => count($aPostulaciones), //cantidad total de registros en la paginacion
+            
+            "data" => $data,
+        );
+        return json_encode($json_data);
     }
 
     public function guardar(Request $request) {
@@ -72,11 +117,27 @@ class ControladorPostulacion extends Controller{
 
     }
 
+    public function eliminar(Request $request)
+    {
+        $id = $request->input('id');
 
+        if (Postulacion::autenticado() == true) {
+            if (Patente::autorizarOperacion("POSTULACIONELIMINAR")) {
 
+                $entidad = new Postulacion();
+                $entidad->cargarDesdeRequest($request);
+                $entidad->eliminar();
 
-
-
+                $aResultado["err"] = EXIT_SUCCESS; //eliminado correctamente
+            } else {
+                $codigo = "ELIMINARPROFESIONAL";
+                $aResultado["err"] = "No tiene pemisos para la operaci&oacute;n.";
+            }
+            echo json_encode($aResultado);
+        } else {
+            return redirect('admin/postulaciones');
+        }
+    }
 
 }
 

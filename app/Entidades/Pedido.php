@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Entidades;
+
 use DB;
 use Illuminate\Database\Eloquent\Model;
 
-class Pedido extends Model{
+class Pedido extends Model
+{
     protected $table = 'pedidos';
     public $timestamps = false;
 
@@ -12,29 +14,32 @@ class Pedido extends Model{
         'idpedido', 'total', 'fk_idsucursal', 'fk_idcliente', 'fk_idestado', 'fk_idestadopago', 'fecha'
     ];
 
-    protected $hidden = [
+    protected $hidden = [];
 
-    ];
-
-    public function obtenerFiltrado()
-    {
+    public function obtenerFiltrado(){
         $request = $_REQUEST;
         $columns = array(
-            0 => 'nombre',
-            1 => 'nombre',
-            2 => 'url',
-            3 => 'activo',
+            0 => 'A.idpedido',
+            1 => 'A.total',
+            2 => 'B.nombre',
+            3 => 'C.nombre',
+            4 => 'D.nombre',
+            5 => 'E.nombre',
+            6 => 'A.fecha',
         );
         $sql = "SELECT DISTINCT
                     A.idpedido,
                     A.total,
-                    B.idsucursal as sucursal,
-                    C.idcliente as cliente,
-                    D.idestado as estado,
-                    E.idestadopago,
+                    B.nombre as sucursal,
+                    C.nombre as cliente,
+                    D.nombre as estado,
+                    E.nombre as estado_pago,
                     A.fecha
                     FROM pedidos A
                     LEFT JOIN sucursales B ON A.fk_idsucursal = B.idsucursal
+                    LEFT JOIN clientes C ON A.fk_idcliente = C.idcliente
+                    LEFT JOIN estados D ON A.fk_idestado = D.idestado
+                    LEFT JOIN estado_pagos E ON A.fk_idestadopago = E.idestadopago
                 WHERE 1=1
                 ";
 
@@ -42,11 +47,10 @@ class Pedido extends Model{
         if (!empty($request['search']['value'])) {
             $sql .= " AND ( A.idpedido LIKE '%" . $request['search']['value'] . "%' ";
             $sql .= " OR B.nombre LIKE '%" . $request['search']['value'] . "%' ";
-            $sql .= " OR C.idcliente LIKE '%" . $request['search']['value'] . "%' ";
-            $sql .= " OR D.idestado LIKE '%" . $request['search']['value'] . "%' ";
-            $sql .= " OR B.nombre LIKE '%" . $request['search']['value'] . "%' ";
-            $sql .= " OR B.nombre LIKE '%" . $request['search']['value'] . "%' ";
-            $sql .= " OR A.url LIKE '%" . $request['search']['value'] . "%' )";
+            $sql .= " OR C.nombre LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR D.nombre LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR E.nombre LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR A.fecha LIKE '%" . $request['search']['value'] . "%' )";
         }
         $sql .= " ORDER BY " . $columns[$request['order'][0]['column']] . "   " . $request['order'][0]['dir'];
 
@@ -65,7 +69,7 @@ class Pedido extends Model{
                   fk_idestado,
                   fk_idestadopago,
                   fecha
-                FROM pedidos ORDER BY idpedido";
+                FROM pedidos ORDER BY idpedido;";
 
 
         $lstRetorno = DB::select($sql);
@@ -99,16 +103,17 @@ class Pedido extends Model{
         return null;
     }
 
-    public function guardar() {
+    public function guardar()
+    {
         $sql = "UPDATE pedidos SET
-            idpedido=$this->idpedido,
-            total=$this->total,
-            fk_idsucursal=$this->fk_idsucursal,
-            fk_idcliente=$this->fk_idcliente,
-            fk_idestado=$this->fk_idestado,
-            fk_idestadopago=$this->fk_idestadopago,
-            fecha='$this->fecha'
-            WHERE idpedido=?";
+                    idpedido=$this->idpedido,
+                    total=$this->total,
+                    fk_idsucursal=$this->fk_idsucursal,
+                    fk_idcliente=$this->fk_idcliente,
+                    fk_idestado=$this->fk_idestado,
+                    fk_idestadopago=$this->fk_idestadopago,
+                    fecha='$this->fecha'
+            WHERE idpedido=?;";
         $affected = DB::update($sql, [$this->idpedido]);
     }
 
@@ -122,6 +127,7 @@ class Pedido extends Model{
     public function insertar()
     {
         $sql = "INSERT INTO pedidos (
+                idpedido,
                 total,
                 fk_idsucursal,
                 fk_idcliente,
@@ -129,8 +135,9 @@ class Pedido extends Model{
                 fk_idestadopago,
                 fecha
 
-            ) VALUES (?, ?, ?, ?, ?, ?);";
+            ) VALUES (?, ?, ?, ?, ?, ?, ?);";
         $result = DB::insert($sql, [
+            $this->idpedido,
             $this->total,
             $this->fk_idsucursal,
             $this->fk_idcliente,
@@ -141,5 +148,15 @@ class Pedido extends Model{
         ]);
         return $this->idpedido = DB::getPdo()->lastInsertId();
     }
+
+    public function cargarDesdeRequest($request)
+    {
+        $this->idpedido = $request->input('id') != "0" ? $request->input('id') : $this->idpedido;
+        $this->total = $request->input('txtTotal');
+        $this->fk_idsucursal = $request->input('txtSucursal');
+        $this->fk_idcliente = $request->input('txtCliente');
+        $this->fk_idestado = $request->input('txtEstadoPedido');
+        $this->fk_idestadopago = $request->input('txtEstadoPago');
+        $this->fecha = $request->input('txtAnio') . ":" . $request->input('txtMes') . ":" . $request->input('txtDia');
+    }
 }
-?>
