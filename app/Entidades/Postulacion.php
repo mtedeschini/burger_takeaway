@@ -85,7 +85,6 @@ class Postulacion extends model
     public function insertar()
     {
         $sql = "INSERT INTO postulaciones (
-           idpostulacion,
             nombre,
             apellido,
             localidad,
@@ -93,7 +92,7 @@ class Postulacion extends model
             correo,
             telefono,
             archivo_cv
-        ) VALUES (?, ?, ?, ?, ?, ?);";
+        ) VALUES (?, ?, ?, ?, ?, ?, ?);";
 
         $result = DB::insert($sql, [
             $this->nombre,
@@ -115,7 +114,7 @@ class Postulacion extends model
         $this->documento = $request->input('txtDocumento');
         $this->correo = $request->input('txtCorreo');
         $this->telefono = $request->input('txtTelefono');
-        $this->archivo_cv = $request->input('txtCorreo');
+        $this->archivo_cv = $request->input('txtArchivo');
     }
 
 }

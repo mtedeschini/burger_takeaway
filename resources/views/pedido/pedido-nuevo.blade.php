@@ -3,9 +3,7 @@
 @section('scripts')
 
 <script>
-    globalId = '<?php
-
-echo isset($pedido->idpedido) && $pedido->idpedido > 0 ? $pedido->idpedido : 0; ?>';
+    globalId = '<?php echo isset($pedido->idpedido) && $pedido->idpedido > 0 ? $pedido->idpedido : 0; ?>';
     <?php $globalId = isset($pedido->idpedido) ? $pedido->idpedido : "0"; ?>
 </script>
 @endsection
@@ -95,11 +93,11 @@ echo isset($pedido->idpedido) && $pedido->idpedido > 0 ? $pedido->idpedido : 0; 
                         <option value="{{ $i }}">{{ $i }}</option>
                     @endfor
                 </select>
-                <input type="time" required="" class="form-control d-inline" style="width: 120px" name="txtHora" id="txtHora" value="">
+                <input type="time" required="" class="form-control d-inline" style="width: 120px" name="txtHora" id="txtHora">
             </div>
             <div class="form-group col-lg-6">
                 <label>Estado de pago: </label>
-                <select id="txtEstadoPago" name="txtEstadoPago" class="form-control">
+                <select id="txtEstadoPago" name="txtEstadoPago" class="form-control" required>
                     <option value="" disabled selected>Seleccionar</option>
                     <option value="Pagado" selected>Pagado</option>
                     <option value="No Pagado" selected>No Pagado</option>

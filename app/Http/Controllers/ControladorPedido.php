@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Entidades\Pedido;
-use App\Entidades\Pedido_detalle;
-use App\Entidades\Producto;
 use App\Entidades\Sucursal;
 use App\Entidades\Cliente;
 use App\Entidades\Sistema\Usuario;
@@ -38,37 +36,48 @@ class ControladorPedido extends Controller
     public function guardar(Request $request){
         try {
             //Define la entidad servicio
-            $titulo = "Pedido";
+            $titulo = "Modificar Pedido";
             $entidadPedido = new Pedido();
             $entidadPedido->cargarDesdeRequest($request);
 
             //validaciones
-            if (($entidadPedido->total == "" || $entidadPedido->fk_idsucursal == "") || ($entidadPedido->fk_idcliente == "") || ($entidadPedido->fk_estadoPago == "") || ($entidadPedido->fk_estado == "") || ($entidadPago->fecha == "")){
+            if (($entidadPedido->total == "" || $entidadPedido->fk_idsucursal == "") || ($entidadPedido->fk_idcliente == "") || ($entidadPedido->fk_estadoPago == "") || ($entidadPedido->fk_estado == "") || ($entidadPedido->fecha == "")){
                 $msg["ESTADO"] = MSG_ERROR;
-                $msg["MSG"] = USUARIOFALTACAMPOS;
+                $msg["MSG"] = "Complete todos los datos";
             } else {
                 if ($_POST["id"] > 0) {
                     //Es actualizacion
                     $entidadPedido->guardar();
 
+                    $msg["ESTADO"] = MSG_SUCCESS;
+                    $msg["MSG"] = OKINSERT;
+                    
                 } else {
-                    //Inserta en datos personales
-                    //$legajo = new Personal();
-                    //$legajo->insertarDesdeUsuario($entidadUsuario);
-
-                    //Es nuevo
-                    //$entidadUsuario->fk_idlegajo = $legajo->idlegajo;
+                    //es nuevo
                     $entidadPedido->insertar();
-                    $_POST["id"] = $entidadPedido->idpedido;
-                    return view('sistema.usuario-listar', compact('titulo', 'msg'));
+
+                    $msg["ESTADO"] = MSG_SUCCESS;
+                    $msg["MSG"] = OKINSERT;        
                 }
 
+            
+                $_POST["id"] = $entidadPedido->idpedido;
+                return view('pedido.pedido-listar', compact('titulo','msg',));
             }
         } catch (Exception $e) {
             $msg["ESTADO"] = MSG_ERROR;
             $msg["MSG"] = ERRORINSERT;
         }  
-    }              
+        
+        $id = $entidadPedido->idpedido;
+        $pedido = new Pedido();
+    
+        $pedido->obtenerPorId($id);
+     
+        return view('pedido.pedido-nuevo', compact('msg', 'pedido', 'titulo')) . '?id=' . $pedido->idpedido;
+    }        
+    
+    
     public function cargarGrilla()
     {
         $request = $_REQUEST;
@@ -90,7 +99,7 @@ class ControladorPedido extends Controller
             $row[] = $aPedidos[$i]->sucursal;
             $row[] = $aPedidos[$i]->cliente;
             $row[] = $aPedidos[$i]->estado;
-            $row[] = $aPedidos[$i]->estadopago;
+            $row[] = $aPedidos[$i]->estado_pago;
             $row[] = $aPedidos[$i]->fecha;
             $cont++;
             $data[] = $row;
@@ -106,5 +115,3 @@ class ControladorPedido extends Controller
     }
 
 }
-
-?>

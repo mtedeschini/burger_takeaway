@@ -105,7 +105,8 @@ class Producto extends Model
         if (!empty($request['search']['value'])) {
             $sql .= " AND ( nombre LIKE '%" . $request['search']['value'] . "%' ";
             $sql .= " OR precio LIKE '%" . $request['search']['value'] . "%' ";
-            $sql .= " OR descripcion LIKE '%" . $request['search']['value'] . "%' ";    
+            $sql .= " OR descripcion LIKE '%" . $request['search']['value'] . "%' )"; 
+           
         }
         $sql .= " ORDER BY " . $columns[$request['order'][0]['column']] . "   " . $request['order'][0]['dir'];
 
@@ -115,11 +116,11 @@ class Producto extends Model
 
    }
 
-   public function cargarDesdeRequest($request) {
+    public function cargarDesdeRequest($request) {
     $this->idproducto = $request->input('id') != "0" ? $request->input('id') : $this->idproducto;
     $this->nombre = $request->input('txtNombre');
     $this->precio = $request->input('txtPrecio') != "" ? $request->input('txtPrecio') : 0;
-    $this->descripcion = $request->input('descripcion');
+    $this->descripcion = $request->input('txtDescripcion');
     }
 }
 
