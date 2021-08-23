@@ -61,34 +61,34 @@ class ControladorProducto extends Controller{
         );
         return json_encode($json_data);
     }
-    
-    public function eliminar(Request $request)
-    {
-        $id = $request->input('id');
 
-        if (Usuario::autenticado() == true) {
-            if (Patente::autorizarOperacion("PRODUCTOELIMINAR")) {
-
-          
-                $entidad = new Producto();
-                $entidad->cargarDesdeRequest($request);
-                $entidad->eliminar();
-
-                $aResultado["err"] = EXIT_SUCCESS;
-            } else {
-                $codigo = "ELIMINARPROFESIONAL";
-                $aResultado["err"] = "No tiene pemisos para la operaci&oacute;n.";
-            }
-            echo json_encode($aResultado);
-        } else {
-            return redirect('admin/login');
-        }
-    }
 
     public function nuevo()
     {
         $titulo = "Nuevo Producto";
         return view('producto.producto-nuevo', compact('titulo'));
+    }
+
+
+    public function editar($id)
+    {
+        $titulo = "Modificar Producto";
+        if (Usuario::autenticado() == true)
+        
+        {
+            if (!Patente::autorizarOperacion("MENUMODIFICACION")) {
+                $codigo = "MENUMODIFICACION";
+                $mensaje = "No tiene pemisos para la operaci&oacute;n.";
+                return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
+            } else {
+                $producto = new Prodcuto();
+                $producto->obtenerPorId($id);
+
+                return view('producto.producto-nuevo', compact('producto', 'titulo'));
+            }
+        }   else {
+            return redirect('admin/login');
+        }
     }
 
     public function guardar(Request $request)
@@ -132,5 +132,5 @@ class ControladorProducto extends Controller{
         return view('producto.producto-nuevo', compact('msg', 'producto', 'titulo')) . '?id=' . $producto->idproducto;
     }
 
-
+    
 }
