@@ -48,11 +48,11 @@ if (isset($msg)) {
     <div class="row">
         <div class="form-group col-lg-6">
             <label>Nombre y Apellido: *</label>
-            <input type="text" id="txtNombre" name="txtNombre" class="form-control" value="{{$grupo->descarea or ''}}" required>
+            <input type="text" id="txtNombre" name="txtNombre" class="form-control" value="{{$grupo->descarea }}" required>
         </div>
         <div class="form-group col-lg-6">
             <label>Nombre corto: *</label>
-            <input type="text" id="txtNombreCorto" name="txtNombreCorto" class="form-control" value="{{$grupo->ncarea or ''}}" required>
+            <input type="text" id="txtNombreCorto" name="txtNombreCorto" class="form-control" value="{{$grupo->ncarea }}" required>
         </div>
         <div class="form-group col-lg-6">
             <label>Activo: *</label>
