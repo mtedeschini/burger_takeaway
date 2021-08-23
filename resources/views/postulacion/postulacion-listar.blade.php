@@ -49,7 +49,7 @@ if (isset($msg)) {
 	    "ajax": "{{ route('postulacion.cargarGrilla') }}"
 	});
 </script>
-@endsection
+
 @endsection
 
             
