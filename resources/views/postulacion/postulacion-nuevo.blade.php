@@ -2,8 +2,8 @@
 @section('titulo', "$titulo")
 @section('scripts')
 <script>
-globalId = '<?php echo isset($menu->idpostulacion) && $menu->idpostulacion > 0 ? $menu->idpostulacion : 0; ?>';
-<?php $globalId = isset($menu->idpostulacion) ? $menu->idpostulacion : "0";?>
+globalId = '<?php echo isset($producto->idpostulacion) && $producto->idpostulacion > 0 ? $producto->idpostulacion : 0; ?>';
+<?php $globalId = isset($producto->idpostulacion) ? $producto->idpostulacion : "0";?>
 </script>
 @endsection
 @section('breadcrumb')
@@ -52,15 +52,16 @@ if (isset($msg)) {
             <div class="form-group col-lg-6">
                 <label>Nombre: *</label>
                 <input type="text" id="txtNombre" name="txtNombre" class="form-control"
-                    value="" required>
+                    value="{{ $postulacion->nombre or '' }}" required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Apellido: *</label>
                 <input type="text" id="txtApellido" name="txtApellido" class="form-control"
-                    value="" required>
+                    value="{{ $postulacion->apellido or '' }}" required>
             </div>
             <!--<div class="form-group col-lg-6">
                 <label>Localidad: *</label>
+<<<<<<< HEAD
                <select  id="lstLocalidad" name="lstLocalidad" class="form-control" required>
                     <option disabled selected>Seleccionar</option>
                     <option value="">CABA</option>
@@ -70,25 +71,33 @@ if (isset($msg)) {
                 <label>Localidad: *</label>
                 <input type="text" id="txtLocalidad" name="txtLocalidad" class="form-control"
                     value="" required>
+=======
+                <input type="text" id="txtLocalidad" name="txtLocalidad" class="form-control"
+                    value="{{ $postulacion->localidad or '' }}" required>
+>>>>>>> 3d978005a327f06825d0b7d92a0ecf44b1eb7d4b
             </div>
             <div class="form-group col-lg-6">
                 <label>Documento: *</label>
                 <input type="text" id="txtDocumento" name="txtDocumento" class="form-control"
-                    value="" required>
+                    value="{{ $postulacion->documento or '' }}" required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Correo: *</label>
                 <input type="text" id="txtCorreo" name="txtCorreo" class="form-control"
-                    value="" required>
+                    value="{{ $postulacion->correo or '' }}" required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Teléfono: *</label>
                 <input type="text" id="txtTelefono" name="txtTelefono" class="form-control"
-                    value="" required>
+                    value="{{ $postulacion->telefono or '' }}" required>
             </div>
             <div class="form-group col-lg-6">
                 <label for="txtArchivo">Archivo adjunto:</label>
+<<<<<<< HEAD
                 <input type="file" id="txtArchivo" name="txtArchivo" class="form-control-file shadow" accept=".pdf">
+=======
+                <input type="file" id="txtArchivo" name="txtArchivo" class="form-control-file shadow" accept=".pdf" value="{{ $postulacion->archivo_cv or '' }}">
+>>>>>>> 3d978005a327f06825d0b7d92a0ecf44b1eb7d4b
                 <small class="d-block">Archivo CV: .pdf</small>
             </div>
         </div>
