@@ -89,7 +89,7 @@
                 </select>
                 <select class="form-control d-inline" name="txtAnio" id="txtAnio" style="width: 100px">
                     <option selected="" disabled="">YYYY</option>
-                    @for ($i = 1900; $i <= date("Y"); $i++) 
+                    @for ($i = 2000; $i <= date("Y"); $i++) 
                         <option value="{{ $i }}">{{ $i }}</option>
                     @endfor
                 </select>
