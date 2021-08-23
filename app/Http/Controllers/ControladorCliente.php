@@ -11,6 +11,9 @@ use App\Entidades\Sistema\Patente;
 use App\Entidades\Sistema\Usuario;
 use Illuminate\Http\Request;
 
+
+require app_path().'/start/constants.php';
+
 class ControladorCliente extends Controller
 {
     public function index()
@@ -109,12 +112,18 @@ class ControladorCliente extends Controller
             }
             
             $_POST["id"] = $entidad->idcliente;
-            return view('sistema.cliente-listar', compact('titulo', 'msg'));
+            return view('cliente.cliente-listar', compact('titulo', 'msg'));
         }
     } catch (Exception $e) {
         $msg["ESTADO"] = MSG_ERROR;
         $msg["MSG"] = ERRORINSERT;
     }
+
+    $id = $entidad->idcliente;
+        $cliente= new Producto();
+        $cliente->obtenerPorId($id);
+
+        return view('producto.producto-nuevo', compact('msg', 'producto', 'titulo')) . '?id=' . $cliente->idproducto; 
 }
 
 }
