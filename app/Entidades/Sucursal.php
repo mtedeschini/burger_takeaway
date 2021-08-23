@@ -76,8 +76,8 @@ class Sucursal extends Model{
     {
         $request = $_REQUEST;
         $columns = array(
-            0 => 'A.nombre',
-            1 => 'A.direccion',  
+            0 => 'nombre',
+            1 => 'direccion',  
         );
         $sql = "SELECT DISTINCT
                     idsucursal,
