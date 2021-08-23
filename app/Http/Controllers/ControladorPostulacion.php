@@ -30,6 +30,30 @@ class ControladorPostulacion extends Controller{
         return view('postulacion.postulacion-nuevo', compact('titulo'));
 
     }
+    public function editar($id)
+    {
+        $titulo = "Modificar Menú";
+        if (Usuario::autenticado() == true) {
+            if (!Patente::autorizarOperacion("MENUMODIFICACION")) {
+                $codigo = "MENUMODIFICACION";
+                $mensaje = "No tiene pemisos para la operaci&oacute;n.";
+                return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
+            } else {
+                $postulacion = new Postulacion();
+                $postulacion->obtenerPorId($id);
+
+                $entidad = new Menu();
+                $array_menu = $entidad->obtenerMenuPadre($id);
+
+                $menu_grupo = new MenuArea();
+                $array_menu_grupo = $menu_grupo->obtenerPorMenu($id);
+
+                return view('postulacion.postulacion-nuevo', compact('menu', 'titulo', 'array_menu', 'array_menu_grupo'));
+            }
+        } else {
+            return redirect('admin/login');
+        }
+    }
 
     public function cargarGrilla()
     {
