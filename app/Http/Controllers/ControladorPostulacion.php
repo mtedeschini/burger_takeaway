@@ -42,7 +42,7 @@ class ControladorPostulacion extends Controller{
                 $postulacion = new Postulacion();
                 $postulacion->obtenerPorId($id);
 
-                return view('postulacion.postulacion-nuevo', compact('postulacion', 'titulo'));
+                return view('postulacion.postulacion-nuevo', compact('postulacion', 'titulo',));
             }
         } else {
             return redirect('admin/login');
