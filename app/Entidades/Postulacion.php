@@ -16,6 +16,18 @@ class Postulacion extends model
     protected $hidden = [
 
     ];
+
+    public function cargarDesdeRequest($request) {
+        $this->idpostulacion = $request->input('id') != "0" ? $request->input('id') : $this->idpostulacion;
+        $this->nombre = $request->input('txtNombre');
+        $this->apellido = $request->input('txtApellido');
+        $this->localidad = $request->input('txtLocalidad');
+        $this->documento = $request->input('txtDocumento');
+        $this->correo = $request->input('txtCorreo');
+        $this->telefono = $request->input('txtTelefono');
+        $this->archivo_cv = $request->input('txtArchivo');
+    }
+
     public function obtenerTodos()
     {
         $sql = "SELECT
@@ -115,7 +127,7 @@ class Postulacion extends model
             3 => 'documento',
             4 => 'correo',
             5 => 'telefono',
-            6 => 'archivo_cv'
+            6 => 'archivo_cv',
        
         );
         $sql = "SELECT DISTINCT
@@ -135,10 +147,10 @@ class Postulacion extends model
         if (!empty($request['search']['value'])) {
             $sql .= " AND ( nombre LIKE '%" . $request['search']['value'] . "%' ";
             $sql .= " OR apellido LIKE '%" . $request['search']['value'] . "%' ";
-            $sql .= " OR localidad LIKE '%" . $request['search']['value'] . "%' )"; 
-            $sql .= " OR documento LIKE '%" . $request['search']['value'] . "%' )"; 
-            $sql .= " OR correo LIKE '%" . $request['search']['value'] . "%' )"; 
-            $sql .= " OR telefono LIKE '%" . $request['search']['value'] . "%' )"; 
+            $sql .= " OR localidad LIKE '%" . $request['search']['value'] . "%' "; 
+            $sql .= " OR documento LIKE '%" . $request['search']['value'] . "%' "; 
+            $sql .= " OR correo LIKE '%" . $request['search']['value'] . "%' "; 
+            $sql .= " OR telefono LIKE '%" . $request['search']['value'] . "%' "; 
             $sql .= " OR archivo_cv LIKE '%" . $request['search']['value'] . "%' )"; 
            
         }
@@ -150,15 +162,9 @@ class Postulacion extends model
 
    }
     
-    public function cargarDesdeRequest($request) {
-        $this->idpostulacion = $request->input('id') != "0" ? $request->input('id') : $this->idpostulacion;
-        $this->nombre = $request->input('txtNombre');
-        $this->apellido = $request->input('txtApellido');
-        $this->localidad = $request->input('txtLocalidad');
-        $this->documento = $request->input('txtDocumento');
-        $this->correo = $request->input('txtCorreo');
-        $this->telefono = $request->input('txtTelefono');
-        $this->archivo_cv = $request->input('txtArchivo');
-    }
+    
 
 }
+
+
+?>

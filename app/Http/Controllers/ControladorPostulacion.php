@@ -65,12 +65,9 @@ class ControladorPostulacion extends Controller{
         $json_data = array(
             "draw" => intval($request['draw']),
 
-            "recordsTotal" => count($aClientes), //cantidad total de registros sin paginar
-            "recordsFiltered" => count($aClientes), //cantidad total de registros en la paginacion
-
-            "recordsTotal" => count($aClientes), //cantidad total de registros sin paginar
-            "recordsFiltered" => count($aClientes), //cantidad total de registros en la paginacion
-
+            "recordsTotal" => count($aPostulaciones), //cantidad total de registros sin paginar
+            "recordsFiltered" => count($aPostulaciones), //cantidad total de registros en la paginacion
+            
             "data" => $data,
         );
         return json_encode($json_data);
