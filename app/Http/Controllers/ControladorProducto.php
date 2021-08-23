@@ -66,7 +66,9 @@ class ControladorProducto extends Controller{
     public function nuevo()
     {
         $titulo = "Nuevo Producto";
-        return view('producto.producto-nuevo', compact('titulo'));
+        $producto = new Producto();
+
+        return view('producto.producto-nuevo', compact('producto', 'titulo'));
     }
 
 
@@ -81,7 +83,7 @@ class ControladorProducto extends Controller{
                 $mensaje = "No tiene pemisos para la operaci&oacute;n.";
                 return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
             } else {
-                $producto = new Prodcuto();
+                $producto = new Producto();
                 $producto->obtenerPorId($id);
 
                 return view('producto.producto-nuevo', compact('producto', 'titulo'));
