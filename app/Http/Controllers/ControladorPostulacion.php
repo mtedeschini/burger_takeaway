@@ -32,7 +32,7 @@ class ControladorPostulacion extends Controller{
     }
     public function editar($id)
     {
-        $titulo = "Modificar Menú";
+        $titulo = "Modificar Postulacion";
         if (Usuario::autenticado() == true) {
             if (!Patente::autorizarOperacion("MENUMODIFICACION")) {
                 $codigo = "MENUMODIFICACION";
