@@ -9,8 +9,8 @@
 @endsection
 @section('breadcrumb')
 <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/admin">Inicio</a></li>
-    <li class="breadcrumb-item"><a href="/admin/clientes">Cliente</a></li>
+    <li class="breadcrumb-item"><a href="#">Inicio</a></li> <!--a donde lleva -->
+    <li class="breadcrumb-item"><a href="/admin/clientes">Clientes</a></li>
     <li class="breadcrumb-item active">Modificar</li>
 </ol>
 <ol class="toolbar">
@@ -50,20 +50,20 @@ if (isset($msg)) {
 
             <div class="form-group col-lg-6">
                 <label>Nombre: </label>
-                <input type="text" maxlength="50" id="txtModulo" name="txtModulo" class="form-control" value="" required>
+                <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="" required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Apellido: </label>
-                <input type="text" maxlength="50" id="txtSubmodulo" name="txtSubmodulo" class="form-control" value="" required>
+                <input type="text" maxlength="50" id="txtApellido" name="txtApellido" class="form-control" value="" required>
             </div>
           
             <div class="form-group col-lg-6">
                 <label>Telefono: </label>
-                <input type="text" maxlength="50" id="txtModulo" name="txtModulo" class="form-control" value="" required>
+                <input type="text" maxlength="50" id="txtTelefono" name="txtTelefono" class="form-control" value="" required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Correo: </label>
-                <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="" required>
+                <input type="text" maxlength="50" id="txtCorreo" name="txtCorreo" class="form-control" value="" required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Usuario: </label>
@@ -90,7 +90,7 @@ if (isset($msg)) {
         </div>
     </div>
 </div>
-<!--<script>
+<script>
     $("#form1").validate();
 
     function guardar() {
@@ -104,7 +104,7 @@ if (isset($msg)) {
         }
     }
 
-    function eliminar() {
+    /*function eliminar() {
         $.ajax({
             type: "GET",
             url: "{{ asset('/admin/patente/eliminar') }}",
@@ -125,6 +125,6 @@ if (isset($msg)) {
                 }
             }
         });
-    }
-</script>-->
+    }*/
+</script>
 @endsection

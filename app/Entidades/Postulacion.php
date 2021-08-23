@@ -16,6 +16,18 @@ class Postulacion extends model
     protected $hidden = [
 
     ];
+
+    public function cargarDesdeRequest($request) {
+        $this->idpostulacion = $request->input('id') != "0" ? $request->input('id') : $this->idpostulacion;
+        $this->nombre = $request->input('txtNombre');
+        $this->apellido = $request->input('txtApellido');
+        $this->localidad = $request->input('txtLocalidad');
+        $this->documento = $request->input('txtDocumento');
+        $this->correo = $request->input('txtCorreo');
+        $this->telefono = $request->input('txtTelefono');
+        $this->archivo_cv = $request->input('txtArchivo');
+    }
+
     public function obtenerTodos()
     {
         $sql = "SELECT
@@ -64,6 +76,7 @@ class Postulacion extends model
     public function guardar()
     {
         $sql = "UPDATE postulaciones SET
+        idpostulacion=$this->idpostulacion,
         nombre='$this->nombre',
         apellido='$this->apellido',
         localidad=$this->localidad,
@@ -85,7 +98,7 @@ class Postulacion extends model
     public function insertar()
     {
         $sql = "INSERT INTO postulaciones (
-           idpostulacion,
+            idpostulacion,
             nombre,
             apellido,
             localidad,
@@ -93,9 +106,10 @@ class Postulacion extends model
             correo,
             telefono,
             archivo_cv
-        ) VALUES (?, ?, ?, ?, ?, ?);";
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
 
         $result = DB::insert($sql, [
+            $this->idpostulacion,
             $this->nombre,
             $this->apellido,
             $this->localidad,
@@ -106,5 +120,56 @@ class Postulacion extends model
         ]);
         return $this->idpostulacion = DB::getPdo()->lastInsertId();
     }
+    public function obtenerFiltrado()
+    {
+        $request = $_REQUEST;
+        $columns = array(
+            0 => 'idpostulacion',
+            1 => 'nombre',
+            2 => 'apellido',
+            3 => 'localidad',
+            4 => 'documento',
+            5 => 'correo',
+            6 => 'telefono',
+            7 => 'archivo_cv',
+       
+        );
+        $sql = "SELECT DISTINCT
+                    idpostulacion,
+                    nombre,
+                    apellido,
+                    localidad,
+                    documento,
+                    correo,
+                    telefono,
+                    archivo_cv
+                    FROM postulaciones 
+                WHERE 1=1
+                ";
+
+        //Realiza el filtrado
+        if (!empty($request['search']['value'])) {
+            $sql .= " AND ( idpostulacion LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR nombre LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR apellido LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR localidad LIKE '%" . $request['search']['value'] . "%' "; 
+            $sql .= " OR documento LIKE '%" . $request['search']['value'] . "%' "; 
+            $sql .= " OR correo LIKE '%" . $request['search']['value'] . "%' "; 
+            $sql .= " OR telefono LIKE '%" . $request['search']['value'] . "%' "; 
+            $sql .= " OR archivo_cv LIKE '%" . $request['search']['value'] . "%' )"; 
+           
+        }
+        $sql .= " ORDER BY " . $columns[$request['order'][0]['column']] . "   " . $request['order'][0]['dir'];
+
+        $lstRetorno = DB::select($sql);
+
+        return $lstRetorno;
+
+   }
+    
+    
 
 }
+
+
+?>
