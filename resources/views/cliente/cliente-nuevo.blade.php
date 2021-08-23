@@ -104,10 +104,10 @@ if (isset($msg)) {
         }
     }
 
-    /*function eliminar() {
+    function eliminar() {
         $.ajax({
             type: "GET",
-            url: "{{ asset('/admin/patente/eliminar') }}",
+            url: "{{ asset('/admin/cliente/nuevo') }}", 
             data: {
                 id: globalId
             },
@@ -125,6 +125,6 @@ if (isset($msg)) {
                 }
             }
         });
-    }*/
+    }
 </script>
 @endsection
