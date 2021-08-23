@@ -2,6 +2,7 @@
 
 	namespace App\Entidades;
 
+    
 	use DB;
 	use Illuminate\Database\Elquent\Model;
 
