@@ -93,13 +93,9 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::get('/admin/patente/nuevo/{id}', 'ControladorPatente@editar');
     Route::post('/admin/patente/nuevo/{id}', 'ControladorPatente@guardar');
 
-
-
     /* --------------------------------------------- */
     /* CONTROLADOR CLIENTES*/
     /* --------------------------------------------- */
-
-       
     Route::get('/admin/clientes', 'ControladorCliente@index');  
     Route::get('/admin/cliente/nuevo', 'ControladorCliente@nuevo');
     Route::post('/admin/cliente/nuevo', 'ControladorCliente@guardar'); 
@@ -115,10 +111,9 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::get('/admin/producto/nuevo', 'ControladorProducto@nuevo');
     Route::post('/admin/producto/nuevo', 'ControladorProducto@guardar');
     Route::get('/admin/producto/cargarGrilla', 'ControladorProducto@cargarGrilla')->name('producto.cargarGrilla');
+    Route::post('/admin/pedido/eliminar', 'ControladorProducto@eliminar');
     Route::get('/admin/producto/{id}', 'ControladorProducto@editar');
     Route::post('/admin/producto/{id}', 'ControladorProducto@guardar');
-
-
 
 
     /* --------------------------------------------- */
@@ -128,6 +123,7 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::get('/admin/pedido/nuevo', 'ControladorPedido@nuevo');
     Route::post('/admin/pedido/nuevo', 'ControladorPedido@guardar');
     Route::get('/admin/pedido/cargarGrilla', 'ControladorPedido@cargarGrilla')->name('pedido.cargarGrilla');
+    Route::post('/admin/pedido/eliminar', 'ControladorPedido@eliminar');
     Route::get('/admin/pedido/{id}', 'ControladorPedido@editar');
     Route::post('/admin/pedido/{id}', 'ControladorPedido@guardar');
 
@@ -139,6 +135,7 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::get('/admin/postulacion/nuevo', 'ControladorPostulacion@nuevo');
     Route::post('/admin/postulacion/nuevo', 'ControladorPostulacion@guardar');
     Route::get('/admin/postulacion/cargarGrilla', 'ControladorPostulacion@cargarGrilla')->name('postulacion.cargarGrilla');
+    Route::post('/admin/postulacion/eliminar', 'ControladorPostulacion@eliminar');
     Route::get('/admin/postulacion/{id}', 'ControladorPostulacion@editar');
     Route::post('/admin/postulacion/{id}', 'ControladorPostulacion@guardar');
 
