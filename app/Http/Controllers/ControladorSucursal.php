@@ -107,7 +107,7 @@ class ControladorSucursal extends Controller{
                 }
                 
                 $_POST["id"] = $entidad->idsucursal;
-                return view('sistema.menu-listar', compact('titulo', 'msg'));
+                return view('sucursal.sucursal-listar', compact('titulo', 'msg'));
             }
         } catch (Exception $e) {
             $msg["ESTADO"] = MSG_ERROR;
@@ -118,45 +118,23 @@ class ControladorSucursal extends Controller{
         $sucursal = new Sucursal();
         $sucursal->obtenerPorId($id);
 
-        return view('sistema.sucursal-nuevo', compact('msg', 'sucursal', 'titulo')) . '?id=' . $sucursal->idsucursal;
+        return view('sucursal.sucursal-nuevo', compact('msg', 'sucursal', 'titulo')) . '?id=' . $sucursal->idsucursal;
 
     }
 
     public function editar($id)
     {
-<<<<<<< HEAD
         $titulo = "Modificar Sucursal";
-=======
-        $titulo = "Modificar Menú";
->>>>>>> 5fa8d777ad98f3cfa8fc1ef4cd045d1bbda8ade1
         if (Usuario::autenticado() == true) {
             if (!Patente::autorizarOperacion("MENUMODIFICACION")) {
                 $codigo = "MENUMODIFICACION";
                 $mensaje = "No tiene pemisos para la operaci&oacute;n.";
                 return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
             } else {
-<<<<<<< HEAD
-                $sucursal = new Sucursal();
-                $sucursal->obtenerPorId($id);
-
-                 return view('sucursal.sucursal-nuevo', compact('titulo'));
-            }
-        } else {
-            return redirect('admin/login');
-        }
-    }
-=======
                 $menu = new Sucursal();
                 $menu->obtenerPorId($id);
 
-                $entidad = new Sucursal();
-                $array_menu = $entidad->obtenerMenuPadre($id);
->>>>>>> 5fa8d777ad98f3cfa8fc1ef4cd045d1bbda8ade1
-
-                $menu_grupo = new MenuArea();
-                $array_menu_grupo = $menu_grupo->obtenerPorMenu($id);
-
-                return view('sucursales.menu-nuevo', compact('menu', 'titulo', 'array_menu', 'array_menu_grupo'));
+                return view('sucursal.sucursal-nuevo', compact('sucursal', 'titulo', 'array_menu', 'array_menu_grupo'));
             }
         } else {
             return redirect('admin/login');
