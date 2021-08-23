@@ -175,7 +175,7 @@ class Cliente extends Model{
     $this->usuario = $request->input('txtUsuario');
 
     }
-}
+
 }
 ?>
 
