@@ -122,7 +122,7 @@ function guardar() {
 function eliminar() {
     $.ajax({
         type: "GET",
-        url: "{{ asset('admin/postulacion/eliminar') }}",
+        url: "{{ asset('admin/sistema/menu/eliminar') }}",
         data: {
             id: globalId
         },
