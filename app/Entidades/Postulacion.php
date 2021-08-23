@@ -82,7 +82,7 @@ class Postulacion extends model
         localidad=$this->localidad,
         documento='$this->documento',
         correo='$this->correo',
-        telefono='$this->telefono'
+        telefono='$this->telefono',
         archivo_cv='$this->archivo_cv'
         WHERE idpostulacion=?";
         $affected = DB::update($sql, [$this->idpostulacion]);
