@@ -122,5 +122,28 @@ class ControladorSucursal extends Controller{
 
     }
 
+    public function editar($id)
+    {
+        $titulo = "Modificar Menú";
+        if (Usuario::autenticado() == true) {
+            if (!Patente::autorizarOperacion("MENUMODIFICACION")) {
+                $codigo = "MENUMODIFICACION";
+                $mensaje = "No tiene pemisos para la operaci&oacute;n.";
+                return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
+            } else {
+                $menu = new Sucursal();
+                $menu->obtenerPorId($id);
 
+                $entidad = new Sucursal();
+                $array_menu = $entidad->obtenerMenuPadre($id);
+
+                $menu_grupo = new MenuArea();
+                $array_menu_grupo = $menu_grupo->obtenerPorMenu($id);
+
+                return view('sucursales.menu-nuevo', compact('menu', 'titulo', 'array_menu', 'array_menu_grupo'));
+            }
+        } else {
+            return redirect('admin/login');
+        }
+    }
 }
