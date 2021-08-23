@@ -176,6 +176,6 @@ class Cliente extends Model{
 
     }
 
-}
+} 
 ?>
 
