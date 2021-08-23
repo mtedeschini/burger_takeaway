@@ -97,6 +97,7 @@ class Postulacion extends model
     public function insertar()
     {
         $sql = "INSERT INTO postulaciones (
+            idpostulacion,
             nombre,
             apellido,
             localidad,
@@ -107,6 +108,7 @@ class Postulacion extends model
         ) VALUES (?, ?, ?, ?, ?, ?, ?);";
 
         $result = DB::insert($sql, [
+            $this->idpostulacion,
             $this->nombre,
             $this->apellido,
             $this->localidad,
