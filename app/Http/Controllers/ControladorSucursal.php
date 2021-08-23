@@ -72,7 +72,8 @@ class ControladorSucursal extends Controller{
                 $mensaje = "No tiene pemisos para la operaci&oacute;n.";
                 return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
             } else {
-                return view('sucursal.sucursal-nuevo', compact('titulo'));
+                $sucursal = new Sucursal();
+                return view('sucursal.sucursal-nuevo', compact('sucursal', 'titulo'));
             }
         } else {
             return redirect('admin/login');
@@ -131,8 +132,8 @@ class ControladorSucursal extends Controller{
                 $mensaje = "No tiene pemisos para la operaci&oacute;n.";
                 return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
             } else {
-                $menu = new Sucursal();
-                $menu->obtenerPorId($id);
+                $sucursal = new Sucursal();
+                $sucursal->obtenerPorId($id);
 
                 return view('sucursal.sucursal-nuevo', compact('sucursal', 'titulo', 'array_menu', 'array_menu_grupo'));
             }
