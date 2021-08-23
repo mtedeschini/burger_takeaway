@@ -68,7 +68,7 @@ class ControladorMenu extends Controller
         $entidad = new Menu();
         $array_menu = $entidad->obtenerMenuPadre();
 
-        return view('sistema.menu-nuevo', compact('titulo', 'array_menu'));
+        return view('sistema.menu-nuevo', compact('menu', 'titulo', 'array_menu'));
 
     }
 
