@@ -154,4 +154,5 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::get('/admin/sucursal/nuevo/{id}', 'ControladorSucursal@editar');
     Route::post('/admin/sucursal/nuevo/{id}', 'ControladorSucursal@guardar');
 
+    
 });
