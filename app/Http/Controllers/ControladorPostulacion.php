@@ -33,10 +33,10 @@ class ControladorPostulacion extends Controller{
 
     public function editar($id)
     {
-        $titulo = "Modificar Postulacion";
+        $titulo = "Modificar Menu";
         if (Usuario::autenticado() == true) {
-            if (!Patente::autorizarOperacion("POSTULACIONMODIFICACION")) {
-                $codigo = "POSTULACIONMODIFICACION";
+            if (!Patente::autorizarOperacion("MENUMODIFICACION")) {
+                $codigo = "MENUMODIFICACION";
                 $mensaje = "No tiene pemisos para la operaci&oacute;n.";
                 return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
             } else {
