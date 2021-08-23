@@ -122,5 +122,23 @@ class ControladorSucursal extends Controller{
 
     }
 
+    public function editar($id)
+    {
+        $titulo = "Modificar Sucursal";
+        if (Usuario::autenticado() == true) {
+            if (!Patente::autorizarOperacion("MENUMODIFICACION")) {
+                $codigo = "MENUMODIFICACION";
+                $mensaje = "No tiene pemisos para la operaci&oacute;n.";
+                return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
+            } else {
+                $sucursal = new Sucursal();
+                $sucursal->obtenerPorId($id);
+
+                 return view('sucursal.sucursal-nuevo', compact('titulo'));
+            }
+        } else {
+            return redirect('admin/login');
+        }
+    }
 
 }
