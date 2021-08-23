@@ -35,7 +35,8 @@ class ControladorGrupo extends Controller
                 $mensaje = "No tiene pemisos para la operaci&oacute;n.";
                 return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
             } else {
-                 return view('sistema.grupo-nuevo');
+                $grupo = new Area();
+                return view('sistema.grupo-nuevo', compact('grupo'));
             }
         } else {
            return redirect('admin/login');
