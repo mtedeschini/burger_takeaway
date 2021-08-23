@@ -131,10 +131,10 @@ class ControladorSucursal extends Controller{
                 $mensaje = "No tiene pemisos para la operaci&oacute;n.";
                 return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
             } else {
-                $sucursal = new Sucursal();
-                $sucursal->obtenerPorId($id);
+                $menu = new Sucursal();
+                $menu->obtenerPorId($id);
 
-                return view('sucursal.sucursal-nuevo', compact('sucursal', 'titulo'));
+                return view('sucursal.sucursal-nuevo', compact('sucursal', 'titulo', 'array_menu', 'array_menu_grupo'));
             }
         } else {
             return redirect('admin/login');
