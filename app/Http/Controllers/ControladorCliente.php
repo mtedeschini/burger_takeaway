@@ -84,6 +84,7 @@ class ControladorCliente extends Controller
         return json_encode($json_data);
     }
 
+        
 
      public function guardar(Request $request) {
     try { 
@@ -126,29 +127,35 @@ class ControladorCliente extends Controller
         return view('producto.producto-nuevo', compact('msg', 'producto', 'titulo')) . '?id=' . $cliente->idproducto; 
 }
 
-}
 
-public function eliminar(Request $request)
-{
-    $id = $request->input('id');
+        public function eliminar(Request $request)
+    {
+        $id = $request->input('id'); 
 
-    if (Usuario::autenticado() == true) {
-        if (Patente::autorizarOperacion("CLIENTEELIMINAR")) {
+        if (Usuario::autenticado() == true) {
+            if (Patente::autorizarOperacion("MENUELIMINAR")) {
 
-      
-            $entidad = new Cliente();
-            $entidad->cargarDesdeRequest($request);
-            $entidad->eliminar();
+          
+                $entidad = new Cliente();
+                $entidad->cargarDesdeRequest($request);
+                $entidad->eliminar();
 
-            $aResultado["err"] = EXIT_SUCCESS; //eliminado correctamente
+                $aResultado["err"] = EXIT_SUCCESS; //eliminado correctamente
+            } else {
+                $codigo = "ELIMINARPROFESIONAL";
+                $aResultado["err"] = "No tiene pemisos para la operaci&oacute;n.";
+            }
+            echo json_encode($aResultado);
         } else {
-            $codigo = "ELIMINARPROFESIONAL";
-            $aResultado["err"] = "No tiene pemisos para la operaci&oacute;n.";
+            return redirect('admin/clientes'); 
         }
-        echo json_encode($aResultado);
-    } else {
-        return redirect('admin/login');
     }
+
+
+
 }
+
+
+
 
 ?>

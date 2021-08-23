@@ -58,15 +58,15 @@ if (isset($msg)) {
             </div>
             <div class="form-group col-lg-6">
                 <label>Módulo: *</label>
-                <input type="text" maxlength="50" id="txtModulo" name="txtModulo" class="form-control" value="{{ $patente->modulo or '' }}" required>
+                <input type="text" maxlength="50" id="txtModulo" name="txtModulo" class="form-control" value="{{ $patente->modulo }}" required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Submódulo: *</label>
-                <input type="text" maxlength="50" id="txtSubmodulo" name="txtSubmodulo" class="form-control" value="{{ $patente->submodulo or '' }}" required>
+                <input type="text" maxlength="50" id="txtSubmodulo" name="txtSubmodulo" class="form-control" value="{{ $patente->submodulo }}" required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Nombre: *</label>
-                <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="{{ $patente->nombre or '' }}" required>
+                <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="{{ $patente->nombre }}" required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Log Operación: *</label>
@@ -77,7 +77,7 @@ if (isset($msg)) {
             </div>
             <div class="form-group col-lg-6">
                 <label>Descripción: *</label>
-                <textarea class="form-control" name="txtDescripcion" id="txtDescripcion" cols="30" style="height:70px !important;" maxlength="50" rows="10">{{$patente->descripcion or '' }}</textarea>
+                <textarea class="form-control" name="txtDescripcion" id="txtDescripcion" cols="30" style="height:70px !important;" maxlength="50" rows="10">{{$patente->descripcion }}</textarea>
             </div>
         </div>
 </div>
