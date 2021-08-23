@@ -38,6 +38,8 @@ class ControladorUsuario extends Controller
                 $mensaje = "No tiene pemisos para la operaci&oacute;n.";
                 return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
             } else {
+                $usuario = new Usuario();
+
                 /* CAMBIOS PARA EL DESPLEGABLE */
                 $area = new Area();
                 $array_area =  $area->obtenerTodos();
@@ -45,7 +47,7 @@ class ControladorUsuario extends Controller
                 $grupo = new Area();
                 $array_grupo = $grupo->obtenerTodos();
 
-                return view('sistema.nuevo-usuario', compact('array_area', 'array_grupo'));
+                return view('sistema.nuevo-usuario', compact('usuario', 'array_area', 'array_grupo'));
             }
         } else {
            return redirect('admin/login');

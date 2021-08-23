@@ -27,7 +27,9 @@ class ControladorPostulacion extends Controller{
     public function nuevo()
     {
         $titulo = "Nueva Postulacion";
-        return view('postulacion.postulacion-nuevo', compact('titulo'));
+        $postulacion = new Postulacion();
+
+        return view('postulacion.postulacion-nuevo', compact('postulacion', 'titulo'));
 
     }
     public function editar($id)
