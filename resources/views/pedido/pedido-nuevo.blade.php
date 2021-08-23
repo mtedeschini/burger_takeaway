@@ -60,7 +60,7 @@
                 <select id="txtSucursal" name="txtSucursal" class="form-control" required>
                     <option value="" disabled selected>Seleccionar</option>
                     @foreach ($aSucursales as $sucursal)
-                        @if (isset($sucursal->idsucursal) == $entidadPedido->fk_idcliente)
+                        @if (isset($sucursal->idsucursal) == $entidadPedido->fk_idsucursal)
                             <option selected value="{{$sucursal->idsucursal}}">{{$sucursal->nombre}}</option>
                         @else
                             <option value="{{$sucursal->idsucursal}}">{{$sucursal->nombre}}</option>
@@ -73,7 +73,10 @@
                 <select id="txtCliente" name="txtCliente" class="form-control" required>
                     <option value="" disabled selected>Seleccionar</option>
                     @foreach ($aClientes as $cliente)
-                            <option  value="{{$cliente->idcliente}}">{{$cliente->nombre}}</option>
+                        @if (isset($cliente->idcliente) == $entidadPedido->fk_idcliente)
+                            <option  selected value="{{$cliente->idcliente}}">{{$cliente->nombre}}</option>
+                        @else
+                            <option value="{{$cliente->idcliente}}">{{$cliente->nombre}}</option>
                     @endforeach
                 </select>
             </div>
