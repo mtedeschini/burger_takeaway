@@ -44,7 +44,7 @@ class ControladorCliente extends Controller
 }
   
 
-public function guardar(Request $request) {
+    public function guardar(Request $request) {
     try {
         //Define la entidad servicio
         $titulo = "Modificar cliente";
