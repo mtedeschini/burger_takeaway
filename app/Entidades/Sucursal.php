@@ -71,6 +71,7 @@ class Sucursal extends Model{
                 WHERE idsucursal=?;";
         $affected = DB::update($sql,[$this->idsucursal]);
     }
+    
     public function eliminar()
     {
         $sql = "DELETE FROM sucursales WHERE
