@@ -52,43 +52,36 @@ if (isset($msg)) {
             <div class="form-group col-lg-6">
                 <label>Nombre: *</label>
                 <input type="text" id="txtNombre" name="txtNombre" class="form-control"
-                    value="" required>
+                    value="{{ $postulacion->nombre or '' }}" required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Apellido: *</label>
                 <input type="text" id="txtApellido" name="txtApellido" class="form-control"
-                    value="" required>
+                    value="{{ $postulacion->apellido or '' }}" required>
             </div>
-            <!--<div class="form-group col-lg-6">
-                <label>Localidad: *</label>
-               <select  id="lstLocalidad" name="lstLocalidad" class="form-control" required>
-                    <option disabled selected>Seleccionar</option>
-                    <option value="">CABA</option>
-                </select>
-            </div>-->
             <div class="form-group col-lg-6">
                 <label>Localidad: *</label>
                 <input type="text" id="txtLocalidad" name="txtLocalidad" class="form-control"
-                    value="" required>
+                    value="{{ $postulacion->localidad or '' }}" required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Documento: *</label>
                 <input type="text" id="txtDocumento" name="txtDocumento" class="form-control"
-                    value="" required>
+                    value="{{ $postulacion->documento or '' }}" required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Correo: *</label>
                 <input type="text" id="txtCorreo" name="txtCorreo" class="form-control"
-                    value="" required>
+                    value="{{ $postulacion->correo or '' }}" required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Teléfono: *</label>
                 <input type="text" id="txtTelefono" name="txtTelefono" class="form-control"
-                    value="" required>
+                    value="{{ $postulacion->telefono or '' }}" required>
             </div>
             <div class="form-group col-lg-6">
                 <label for="txtArchivo">Archivo adjunto:</label>
-                <input type="file" id="txtArchivo" name="txtArchivo" class="form-control-file shadow" accept=".pdf">
+                <input type="file" id="txtArchivo" name="txtArchivo" class="form-control-file shadow" accept=".pdf" value="{{ $postulacion->archivo_cv or '' }}">
                 <small class="d-block">Archivo CV: .pdf</small>
             </div>
         </div>
