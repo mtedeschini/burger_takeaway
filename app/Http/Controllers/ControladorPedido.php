@@ -47,7 +47,7 @@ class ControladorPedido extends Controller
             $entidadPedido->cargarDesdeRequest($request);
 
             //validaciones
-            if (($entidadPedido->total == "" || $entidadPedido->fk_idsucursal == "") || ($entidadPedido->fk_idcliente == "") || ($entidadPedido->fk_estadoPago == "") || ($entidadPedido->fk_estado == "") || ($entidadPedido->fecha == "")){
+            if ($entidadPedido->total == ""){
                 $msg["ESTADO"] = MSG_ERROR;
                 $msg["MSG"] = "Complete todos los datos";
             } else {

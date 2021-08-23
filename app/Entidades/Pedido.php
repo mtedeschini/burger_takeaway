@@ -69,7 +69,7 @@ class Pedido extends Model
                   fk_idestado,
                   fk_idestadopago,
                   fecha
-                FROM pedidos ORDER BY idpedido";
+                FROM pedidos ORDER BY idpedido;";
 
 
         $lstRetorno = DB::select($sql);
@@ -113,7 +113,7 @@ class Pedido extends Model
                     fk_idestado=$this->fk_idestado,
                     fk_idestadopago=$this->fk_idestadopago,
                     fecha='$this->fecha'
-            WHERE idpedido=?";
+            WHERE idpedido=?;";
         $affected = DB::update($sql, [$this->idpedido]);
     }
 
@@ -127,6 +127,7 @@ class Pedido extends Model
     public function insertar()
     {
         $sql = "INSERT INTO pedidos (
+                idpedido,
                 total,
                 fk_idsucursal,
                 fk_idcliente,
@@ -134,8 +135,9 @@ class Pedido extends Model
                 fk_idestadopago,
                 fecha
 
-            ) VALUES (?, ?, ?, ?, ?, ?);";
+            ) VALUES (?, ?, ?, ?, ?, ?, ?);";
         $result = DB::insert($sql, [
+            $this->idpedido,
             $this->total,
             $this->fk_idsucursal,
             $this->fk_idcliente,
@@ -149,14 +151,14 @@ class Pedido extends Model
 
     public function cargarDesdeRequest($request)
     {
-        $this->idPedido = $request->input('id') != "0" ? $request->input('id') : $this->idPedido;
+        $this->idPedido = $request->input('id') != "0" ? $request->input('id') : $this->idpedido;
         $this->total = $request->input('txtTotal');
         $this->fk_idsucursal = $request->input('txtSucursal');
         $this->fk_idcliente = $request->input('txtCliente');
         $this->fk_idestado = $request->input('txtEstadoPedido');
         $this->fk_idestadopago = $request->input('txtEstadoPago');
         if (isset($request['txtAnio']) && isset($request['txtMes']) && isset($request['txtDia'])) {
-            $this->fecha_nac = $request['txtAnio'] . "-" . $request['txtMes'] . "-" . $request['txtDia'];
+            $this->fecha = $request['txtAnio'] . "-" . $request['txtMes'] . "-" . $request['txtDia'];
         }
     }
 }
