@@ -32,7 +32,7 @@ class ControladorPostulacion extends Controller{
     }
     public function editar($id)
     {
-        $titulo = "Modificar Menú";
+        $titulo = "Modificar Postulacion";
         if (Usuario::autenticado() == true) {
             if (!Patente::autorizarOperacion("MENUMODIFICACION")) {
                 $codigo = "MENUMODIFICACION";
@@ -42,13 +42,7 @@ class ControladorPostulacion extends Controller{
                 $postulacion = new Postulacion();
                 $postulacion->obtenerPorId($id);
 
-                $entidad = new Menu();
-                $array_menu = $entidad->obtenerMenuPadre($id);
-
-                $menu_grupo = new MenuArea();
-                $array_menu_grupo = $menu_grupo->obtenerPorMenu($id);
-
-                return view('postulacion.postulacion-nuevo', compact('menu', 'titulo', 'array_menu', 'array_menu_grupo'));
+                return view('postulacion.postulacion-nuevo', compact('postulacion', 'titulo'));
             }
         } else {
             return redirect('admin/login');
