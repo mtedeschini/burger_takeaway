@@ -132,5 +132,5 @@ class ControladorProducto extends Controller{
         return view('producto.producto-nuevo', compact('msg', 'producto', 'titulo')) . '?id=' . $producto->idproducto;
     }
 
-    public function editar()
+
 }
