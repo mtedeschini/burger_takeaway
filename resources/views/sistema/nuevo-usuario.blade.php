@@ -50,26 +50,26 @@ if (isset($msg)) {
             <label>Usuario: *</label>
         </div>
        <div class="form-group col-lg-4">
-            <input type="text" id="txtUsuario" name="txtUsuario" class="form-control" value="{{$usuario->usuario or ''}}" required>
-            <input type="hidden" id="txtLegajo" name="txtLegajo" value="{{$usuario->fk_legajo_id or ''}}" required>
+            <input type="text" id="txtUsuario" name="txtUsuario" class="form-control" value="{{$usuario->usuario }}" required>
+            <input type="hidden" id="txtLegajo" name="txtLegajo" value="{{$usuario->fk_legajo_id }}" required>
         </div>
         <div class="form-group col-lg-2">
             <label>Nombre:</label>
        </div>
         <div class="form-group col-lg-4">
-            <input type="text" id="txtNombre" name="txtNombre" class="form-control" value="{{$usuario->nombre or ''}}">
+            <input type="text" id="txtNombre" name="txtNombre" class="form-control" value="{{$usuario->nombre }}">
         </div>
         <div class="form-group col-lg-2">
             <label>Apellido:</label>
         </div>
         <div class="form-group col-lg-4">
-            <input type="text" id="txtApellido" name="txtApellido" class="form-control" value="{{$usuario->apellido or ''}}">
+            <input type="text" id="txtApellido" name="txtApellido" class="form-control" value="{{$usuario->apellido }}">
         </div>
         <div class="form-group col-lg-2">
             <label>Email: *</label>
         </div>
         <div class="form-group col-lg-4">
-            <input type="email" id="txtEmail" name="txtEmail" class="form-control" required value="{{$usuario->mail or ''}}">
+            <input type="email" id="txtEmail" name="txtEmail" class="form-control" required value="{{$usuario->mail }}">
         </div>
         <div class="form-group col-lg-2">
             <label>Activo: *</label>

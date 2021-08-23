@@ -51,7 +51,7 @@ if (isset($msg)) {
     <div class="row">
         <div class="form-group col-lg-12">
             <label>Nombre: *</label>
-            <input type="text" id="txtNombre" name="txtNombre" class="form-control" value="{{$permiso->nombre or ''}}" required>
+            <input type="text" id="txtNombre" name="txtNombre" class="form-control" value="{{$permiso->nombre }}" required>
         </div>
         <div class="form-group col-lg-12">
             <label>Descripci&oacute;n:</label>
