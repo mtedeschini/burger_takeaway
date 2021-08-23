@@ -67,10 +67,7 @@ class ControladorPostulacion extends Controller{
 
             "recordsTotal" => count($aPostulaciones), //cantidad total de registros sin paginar
             "recordsFiltered" => count($aPostulaciones), //cantidad total de registros en la paginacion
-
-            "recordsTotal" => count($aPostulaciones), //cantidad total de registros sin paginar
-            "recordsFiltered" => count($aPostulaciones), //cantidad total de registros en la paginacion
-
+            
             "data" => $data,
         );
         return json_encode($json_data);
