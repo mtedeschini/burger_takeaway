@@ -70,13 +70,19 @@
                     <option value="" disabled selected>Seleccionar</option>
                     @foreach ($aClientes as $cliente)
 <<<<<<< HEAD
+<<<<<<< HEAD
                             <option  value="{{$cliente->idcliente}}">{{$cliente->nombre}}</option>
 =======
+=======
+>>>>>>> 3d978005a327f06825d0b7d92a0ecf44b1eb7d4b
                         @if (isset($cliente->idcliente) == $entidadPedido->fk_idcliente)
                             <option  selected value="{{$cliente->idcliente}}">{{$cliente->nombre}}</option>
                         @else
                             <option value="{{$cliente->idcliente}}">{{$cliente->nombre}}</option>
                         @endif
+<<<<<<< HEAD
+>>>>>>> 3d978005a327f06825d0b7d92a0ecf44b1eb7d4b
+=======
 >>>>>>> 3d978005a327f06825d0b7d92a0ecf44b1eb7d4b
                     @endforeach
                 </select>
@@ -109,13 +115,19 @@
                 <option value="" disabled selected>Seleccionar</option>
                     @foreach ($aEstadoPagos as $estadoPago)
 <<<<<<< HEAD
+<<<<<<< HEAD
                             <option value="{{$estadoPago->idestadopago}}">{{$estadoPago->nombre}}</option>
 =======
+=======
+>>>>>>> 3d978005a327f06825d0b7d92a0ecf44b1eb7d4b
                             @if (isset($estadoPago->idestadopago) and $entidadPedido->fk_estadopago)
                                 <option selected value="{{$estadoPago->idestadopago}}">{{$estadoPago->nombre}}</option>
                             @else
                                 <option value="{{$estadoPago->idestadopago}}">{{$estadoPago->nombre}}</option>
                             @endif
+<<<<<<< HEAD
+>>>>>>> 3d978005a327f06825d0b7d92a0ecf44b1eb7d4b
+=======
 >>>>>>> 3d978005a327f06825d0b7d92a0ecf44b1eb7d4b
                     @endforeach
                 </select>
@@ -130,13 +142,19 @@
                 <option value="" disabled selected>Seleccionar</option>
                     @foreach ($aEstados as $estado)
 <<<<<<< HEAD
+<<<<<<< HEAD
                             <option value="{{$estado->idestado}}">{{$estado->nombre}}</option>
 =======
+=======
+>>>>>>> 3d978005a327f06825d0b7d92a0ecf44b1eb7d4b
                             @if (isset($estado->idestado) == $entidadPedido->fk_estado)
                                 <option selected value="{{$estado->idestado}}">{{$estado->nombre}}</option>
                             @else
                                 <option value="{{$estado->idestado}}">{{$estado->nombre}}</option>
                             @endif
+<<<<<<< HEAD
+>>>>>>> 3d978005a327f06825d0b7d92a0ecf44b1eb7d4b
+=======
 >>>>>>> 3d978005a327f06825d0b7d92a0ecf44b1eb7d4b
                     @endforeach
                 </select>

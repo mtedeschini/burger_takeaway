@@ -62,6 +62,7 @@ if (isset($msg)) {
             <!--<div class="form-group col-lg-6">
                 <label>Localidad: *</label>
 <<<<<<< HEAD
+<<<<<<< HEAD
                <select  id="lstLocalidad" name="lstLocalidad" class="form-control" required>
                     <option disabled selected>Seleccionar</option>
                     <option value="">CABA</option>
@@ -71,6 +72,10 @@ if (isset($msg)) {
                 <label>Localidad: *</label>
                 <input type="text" id="txtLocalidad" name="txtLocalidad" class="form-control"
                     value="" required>
+=======
+                <input type="text" id="txtLocalidad" name="txtLocalidad" class="form-control"
+                    value="{{ $postulacion->localidad or '' }}" required>
+>>>>>>> 3d978005a327f06825d0b7d92a0ecf44b1eb7d4b
 =======
                 <input type="text" id="txtLocalidad" name="txtLocalidad" class="form-control"
                     value="{{ $postulacion->localidad or '' }}" required>
@@ -94,7 +99,11 @@ if (isset($msg)) {
             <div class="form-group col-lg-6">
                 <label for="txtArchivo">Archivo adjunto:</label>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <input type="file" id="txtArchivo" name="txtArchivo" class="form-control-file shadow" accept=".pdf">
+=======
+                <input type="file" id="txtArchivo" name="txtArchivo" class="form-control-file shadow" accept=".pdf" value="{{ $postulacion->archivo_cv or '' }}">
+>>>>>>> 3d978005a327f06825d0b7d92a0ecf44b1eb7d4b
 =======
                 <input type="file" id="txtArchivo" name="txtArchivo" class="form-control-file shadow" accept=".pdf" value="{{ $postulacion->archivo_cv or '' }}">
 >>>>>>> 3d978005a327f06825d0b7d92a0ecf44b1eb7d4b

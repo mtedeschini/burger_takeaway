@@ -104,14 +104,20 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::get('/admin/cliente/nuevo', 'ControladorCliente@nuevo');
     Route::post('/admin/cliente/nuevo', 'ControladorCliente@guardar'); 
 <<<<<<< HEAD
+<<<<<<< HEAD
     Route::get('/admin/cliente/cargarGrilla', 'ControladorCliente@cargarGrilla')->name('cliente.cargarGrilla');   
 
 
 =======
+=======
+>>>>>>> 3d978005a327f06825d0b7d92a0ecf44b1eb7d4b
     Route::get('/admin/cliente/cargarGrilla', 'ControladorCliente@cargarGrilla')->name('cliente.cargarGrilla'); 
     Route::post('/admin/cliente/eliminar', 'ControladorCliente@eliminar');   
     Route::get('/admin/cliente/nuevo/{id}', 'Controladorcliente@editar');
     Route::post('/admin/cliente/nuevo/{id}', 'Controladorcliente@guardar');
+<<<<<<< HEAD
+>>>>>>> 3d978005a327f06825d0b7d92a0ecf44b1eb7d4b
+=======
 >>>>>>> 3d978005a327f06825d0b7d92a0ecf44b1eb7d4b
 
     /* --------------------------------------------- */
@@ -142,6 +148,10 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::post('/admin/postulacion/nuevo', 'ControladorPostulacion@guardar');
     Route::get('/admin/postulacion/cargarGrilla', 'ControladorPostulacion@cargarGrilla')->name('postulacion.cargarGrilla');
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    Route::get('/admin/postulacion/menu/{id}', 'ControladorPostulacion@editar');
+>>>>>>> 3d978005a327f06825d0b7d92a0ecf44b1eb7d4b
 =======
     Route::get('/admin/postulacion/menu/{id}', 'ControladorPostulacion@editar');
 >>>>>>> 3d978005a327f06825d0b7d92a0ecf44b1eb7d4b
@@ -155,11 +165,17 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::get('/admin/sucursal/nuevo', 'ControladorSucursal@nuevo');
     Route::post('/admin/sucursal/nuevo', 'ControladorSucursal@guardar');
 <<<<<<< HEAD
+<<<<<<< HEAD
     Route::get('/admin/sucursal/cargarGrilla', 'Controladorsucursal@cargarGrilla')->name('sucursal.cargarGrilla');
 =======
+=======
+>>>>>>> 3d978005a327f06825d0b7d92a0ecf44b1eb7d4b
     Route::get('/admin/sucursal/cargarGrilla', 'ControladorSucursal@cargarGrilla')->name('sucursal.cargarGrilla');
     Route::get('/admin/sucursal/nuevo/{id}', 'ControladorSucursal@editar');
     Route::post('/admin/sucursal/nuevo/{id}', 'ControladorSucursal@guardar');
 
+<<<<<<< HEAD
+>>>>>>> 3d978005a327f06825d0b7d92a0ecf44b1eb7d4b
+=======
 >>>>>>> 3d978005a327f06825d0b7d92a0ecf44b1eb7d4b
 });
