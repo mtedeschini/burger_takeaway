@@ -31,26 +31,6 @@ class ControladorPostulacion extends Controller{
 
     }
 
-    public function editar($id)
-    {
-        $titulo = "Modificar Postulacion";
-        if (Usuario::autenticado() == true) {
-            if (!Patente::autorizarOperacion("POSTULACIONMODIFICACION")) {
-                $codigo = "POSTULACIONMODIFICACION";
-                $mensaje = "No tiene pemisos para la operaci&oacute;n.";
-                return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
-            } else {
-                $postulacion = new Postulacion();
-                $postulacion->obtenerPorId($id);
-
-
-                return view('postulacion.postulacion-nuevo', compact('postulacion', 'titulo'));
-            }
-        } else {
-            return redirect('admin/login');
-        }
-    }
-
     public function cargarGrilla()
     {
         $request = $_REQUEST;
