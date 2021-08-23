@@ -32,8 +32,8 @@ class ControladorMenu extends Controller
     {
         $request = $_REQUEST;
 
-        $entidad = new Cliente();
-        $aCliente = $entidad->obtenerFiltrado();
+        $entidad = new Menu();
+        $aMenu = $entidad->obtenerFiltrado();
 
         $data = array();
         $cont = 0;
