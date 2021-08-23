@@ -105,10 +105,7 @@ class ControladorMenu extends Controller
         if (Usuario::autenticado() == true) {
             if (Patente::autorizarOperacion("MENUELIMINAR")) {
 
-                $menu_grupo = new MenuArea();
-                $menu_grupo->fk_idmenu = $id;
-                $menu_grupo->eliminarPorMenu();
-
+          
                 $entidad = new Menu();
                 $entidad->cargarDesdeRequest($request);
                 $entidad->eliminar();
