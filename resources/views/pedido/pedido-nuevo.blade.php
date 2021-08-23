@@ -60,11 +60,7 @@
                 <select id="txtSucursal" name="txtSucursal" class="form-control" required>
                     <option value="" disabled selected>Seleccionar</option>
                     @foreach ($aSucursales as $sucursal)
-                        @if (isset($sucursal->idsucursal) == $entidadPedido->fk_idsucursal)
-                            <option selected value="{{$sucursal->idsucursal}}">{{$sucursal->nombre}}</option>
-                        @else
-                            <option value="{{$sucursal->idsucursal}}">{{$sucursal->nombre}}</option>
-                        @endif 
+                        <option  value="{{$sucursal->idsucursal}}">{{$sucursal->nombre}}</option>
                     @endforeach
                 </select>
             </div>
@@ -77,6 +73,7 @@
                             <option  selected value="{{$cliente->idcliente}}">{{$cliente->nombre}}</option>
                         @else
                             <option value="{{$cliente->idcliente}}">{{$cliente->nombre}}</option>
+                        @endif
                     @endforeach
                 </select>
             </div>
@@ -85,19 +82,30 @@
                 <select class="form-control d-inline" name="txtDia" id="txtDia" style="width: 80px">
                     <option selected="" disabled="">DD</option>
                     @for ($i = 1; $i <= 31; $i++)
-                        <option value="{{ $i }}">{{ $i }}</option>
+                        @if ($entidadPedido->fecha != "" and $i == date_format(date_create($entidadPedido->fecha),"d"))
+                            <option selected value="{{ $i }}">{{ $i}}</option>
+                        @else
+                            <option value="{{ $i }}">{{ $i}}</option>
+                        @endif 
                     @endfor
                 </select>
                 <select class="form-control d-inline" name="txtMes" id="txtMes" style="width: 80px">
                     <option selected="" disabled="">MM</option>
                     @for ($i = 1; $i <= 12; $i++)
-                        <option value="{{ $i }}">{{ $i }}</option>
+                        @if ($entidadPedido->fecha != "" and $i == date_format(date_create($entidadPedido->fecha),"m"))
+                            <option selected value="{{ $i }}">{{ $i }}</option>
+                        @else
+                            <option value="{{ $i }}">{{ $i }}</option>
+                        @endif
                     @endfor
                 </select>
                 <select class="form-control d-inline" name="txtAnio" id="txtAnio" style="width: 100px">
                     <option selected="" disabled="">YYYY</option>
                     @for ($i = 2000; $i <= date("Y"); $i++) 
-                        <option value="{{ $i }}">{{ $i }}</option>
+                        @if ($entidadPedido->fecha != ""  and $i == date_format(date_create($entidadPedido->fecha),"Y"))
+                            <option select value="{{ $i }}">{{ $i }}</option>
+                        @else
+                            <option value="{{ $i }}">{{ $i }}</option>
                     @endfor
                 </select>
                 <input type="time" required="" class="form-control d-inline" style="width: 120px" name="txtHora" id="txtHora">
@@ -107,7 +115,11 @@
                 <select id="txtEstadoPago" name="txtEstadoPago" class="form-control" required>
                 <option value="" disabled selected>Seleccionar</option>
                     @foreach ($aEstadoPagos as $estadoPago)
-                            <option value="{{$estadoPago->idestadopago}}">{{$estadoPago->nombre}}</option>
+                            @if (isset($estadoPago->idestadopago) and $entidadPedido->fk_estadopago)
+                                <option selected value="{{$estadoPago->idestadopago}}">{{$estadoPago->nombre}}</option>
+                            @else
+                                <option value="{{$estadoPago->idestadopago}}">{{$estadoPago->nombre}}</option>
+                            @endif
                     @endforeach
                 </select>
             </div>
@@ -120,7 +132,11 @@
                 <select id="txtEstadoPedido" name="txtEstadoPedido" class="form-control">
                 <option value="" disabled selected>Seleccionar</option>
                     @foreach ($aEstados as $estado)
-                            <option value="{{$estado->idestado}}">{{$estado->nombre}}</option>
+                            @if (isset($estado->idestado) == $entidadPedido->fk_estado)
+                                <option selected value="{{$estado->idestado}}">{{$estado->nombre}}</option>
+                            @else
+                                <option value="{{$estado->idestado}}">{{$estado->nombre}}</option>
+                            @endif
                     @endforeach
                 </select>
                 </select>

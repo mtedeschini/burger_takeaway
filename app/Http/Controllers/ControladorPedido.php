@@ -31,12 +31,11 @@ class ControladorPedido extends Controller
         $entidadEstadoPago = new EstadoPago();
         $entidadEstado = new Estado();
         $entidadCliente = new Cliente();
-        $entidadPedido = new Pedido();
         $aClientes = $entidadCliente->obtenerTodos();
         $aEstadoPagos = $entidadEstadoPago->obtenerTodos();
         $aEstados = $entidadEstado->obtenerTodos();
         $aSucursales = $entidadSucursal->obtenerTodos();
-        return view('pedido.pedido-nuevo', compact('titulo', 'aSucursales', 'aClientes', 'aEstadoPagos', 'aEstados','entidadPedido'));
+        return view('pedido.pedido-nuevo', compact('titulo', 'aSucursales', 'aClientes', 'aEstadoPagos', 'aEstados'));
     }
     
 
@@ -119,6 +118,29 @@ class ControladorPedido extends Controller
             "data" => $data,
         );
         return json_encode($json_data);
+    }
+
+    public function eliminar(Request $request)
+    {
+        $id = $request->input('id');
+
+        if (Usuario::autenticado() == true) {
+            if (Patente::autorizarOperacion("PEDIDOLIMINAR")) {
+
+          
+                $entidad = new Pedido();
+                $entidad->cargarDesdeRequest($request);
+                $entidad->eliminar();
+
+                $aResultado["err"] = EXIT_SUCCESS; //eliminado correctamente
+            } else {
+                $codigo = "ELIMINARPROFESIONAL";
+                $aResultado["err"] = "No tiene pemisos para la operaci&oacute;n.";
+            }
+            echo json_encode($aResultado);
+        } else {
+            return redirect('admin/login');
+        }
     }
 
 }
