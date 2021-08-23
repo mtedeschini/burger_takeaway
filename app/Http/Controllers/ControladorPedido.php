@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Entidades\Pedido;
 use App\Entidades\Sucursal;
 use App\Entidades\Cliente;
+use App\Entidades\EstadoPago;
+use App\Entidades\Estado;
 use App\Entidades\Sistema\Usuario;
 use Illuminate\Http\Request;
 
@@ -26,10 +28,14 @@ class ControladorPedido extends Controller
     {
         $titulo = "Nuevo Pedido";
         $entidadSucursal = new Sucursal();
+        $entidadEstadoPago = new EstadoPago();
+        $entidadEstado = new Estado();
         $entidadCliente = new Cliente();
         $aClientes = $entidadCliente->obtenerTodos();
+        $aEstadoPagos = $entidadEstadoPago->obtenerTodos();
+        $aEstados = $entidadEstado->obtenerTodos();
         $aSucursales = $entidadSucursal->obtenerTodos();
-        return view('pedido.pedido-nuevo', compact('titulo', 'aSucursales', 'aClientes'));
+        return view('pedido.pedido-nuevo', compact('titulo', 'aSucursales', 'aClientes', 'aEstadoPagos', 'aEstados'));
     }
     
 
@@ -41,7 +47,7 @@ class ControladorPedido extends Controller
             $entidadPedido->cargarDesdeRequest($request);
 
             //validaciones
-            if (($entidadPedido->total == "" || $entidadPedido->fk_idsucursal == "") || ($entidadPedido->fk_idcliente == "") || ($entidadPedido->fk_estadoPago == "") || ($entidadPedido->fk_estado == "") || ($entidadPedido->fecha == "")){
+            if ($entidadPedido->total == ""){
                 $msg["ESTADO"] = MSG_ERROR;
                 $msg["MSG"] = "Complete todos los datos";
             } else {
