@@ -143,7 +143,7 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::get('/admin/sucursal/nuevo', 'ControladorSucursal@nuevo');
     Route::post('/admin/sucursal/nuevo', 'ControladorSucursal@guardar');
     Route::get('/admin/sucursal/cargarGrilla', 'ControladorSucursal@cargarGrilla')->name('sucursal.cargarGrilla');
-    Route::get('/admin/sucursal/{id}', 'ControladorSucursal@editar');
-    Route::post('/admin/sucursal/{id}', 'ControladorSucursal@guardar');
+    Route::get('/admin/sucursal/nuevo/{id}', 'ControladorSucursal@editar');
+    Route::post('/admin/sucursal/nuevo/{id}', 'ControladorSucursal@guardar');
 
 });
