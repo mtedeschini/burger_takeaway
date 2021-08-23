@@ -134,7 +134,7 @@ class ControladorSucursal extends Controller{
                 $sucursal = new Sucursal();
                 $sucursal->obtenerPorId($id);
 
-                return view('sucursal.sucursal-nuevo', compact('sucursal', 'titulo'));
+                return view('sucursal.sucursal-nuevo', compact('sucursal', 'titulo', 'array_menu', 'array_menu_grupo'));
             }
         } else {
             return redirect('admin/login');
