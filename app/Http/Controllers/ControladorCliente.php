@@ -34,7 +34,9 @@ class ControladorCliente extends Controller
 
     public function nuevo(){
         $titulo = "Nuevo cliente";
-        return view('cliente.cliente-nuevo', compact('titulo') );
+        $cliente = new Cliente();
+
+        return view('cliente.cliente-nuevo', compact('cliente', 'titulo') );
     }
 
   
@@ -56,7 +58,7 @@ class ControladorCliente extends Controller
         for ($i = $inicio; $i < count($aClientes) && $cont < $registros_por_pagina; $i++) {
             $row = array();
 
-            $row[] = '<a href="/admin/cliente/' . $aClientes[$i]->idcliente . '">' . $aClientes[$i]->nombre . '</a>'; 
+             $row[] = '<a href="/admin/cliente/' . $aClientes[$i]->idcliente . '" class="btn btn-secondary"><i class="fas  fa-search"></i></a>'; 
             
             $row[] = $aClientes[$i]->apellido;
             $row[] = $aClientes[$i]->telefono;
@@ -84,6 +86,7 @@ class ControladorCliente extends Controller
         return json_encode($json_data);
     }
 
+        
 
      public function guardar(Request $request) {
     try { 
@@ -126,5 +129,35 @@ class ControladorCliente extends Controller
         return view('producto.producto-nuevo', compact('msg', 'producto', 'titulo')) . '?id=' . $cliente->idproducto; 
 }
 
+
+        public function eliminar(Request $request)
+    {
+        $id = $request->input('id'); 
+
+        if (Usuario::autenticado() == true) {
+            if (Patente::autorizarOperacion("MENUELIMINAR")) {
+
+          
+                $entidad = new Cliente();
+                $entidad->cargarDesdeRequest($request);
+                $entidad->eliminar();
+
+                $aResultado["err"] = EXIT_SUCCESS; //eliminado correctamente
+            } else {
+                $codigo = "ELIMINARPROFESIONAL";
+                $aResultado["err"] = "No tiene pemisos para la operaci&oacute;n.";
+            }
+            echo json_encode($aResultado);
+        } else {
+            return redirect('admin/clientes'); 
+        }
+    }
+
+
+
 }
+
+
+
+
 ?>

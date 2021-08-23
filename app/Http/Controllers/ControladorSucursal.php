@@ -72,7 +72,8 @@ class ControladorSucursal extends Controller{
                 $mensaje = "No tiene pemisos para la operaci&oacute;n.";
                 return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
             } else {
-                return view('sucursal.sucursal-nuevo', compact('titulo'));
+                $sucursal = new Sucursal();
+                return view('sucursal.sucursal-nuevo', compact('sucursal', 'titulo'));
             }
         } else {
             return redirect('admin/login');
@@ -107,7 +108,7 @@ class ControladorSucursal extends Controller{
                 }
                 
                 $_POST["id"] = $entidad->idsucursal;
-                return view('sistema.menu-listar', compact('titulo', 'msg'));
+                return view('sucursal.sucursal-listar', compact('titulo', 'msg'));
             }
         } catch (Exception $e) {
             $msg["ESTADO"] = MSG_ERROR;
@@ -118,9 +119,49 @@ class ControladorSucursal extends Controller{
         $sucursal = new Sucursal();
         $sucursal->obtenerPorId($id);
 
-        return view('sistema.sucursal-nuevo', compact('msg', 'sucursal', 'titulo')) . '?id=' . $sucursal->idsucursal;
+        return view('sucursal.sucursal-nuevo', compact('msg', 'sucursal', 'titulo')) . '?id=' . $sucursal->idsucursal;
 
     }
 
+    public function editar($id)
+    {
+        $titulo = "Modificar Sucursal";
+        if (Usuario::autenticado() == true) {
+            if (!Patente::autorizarOperacion("MENUMODIFICACION")) {
+                $codigo = "MENUMODIFICACION";
+                $mensaje = "No tiene pemisos para la operaci&oacute;n.";
+                return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
+            } else {
+                $sucursal = new Sucursal();
+                $sucursal->obtenerPorId($id);
 
+                return view('sucursal.sucursal-nuevo', compact('sucursal', 'titulo'));
+            }
+        } else {
+            return redirect('admin/login');
+        }
+    }
+
+    public function eliminar(Request $request)
+    {
+        $id = $request->input('id');
+
+        if (Usuario::autenticado() == true) {
+            if (Patente::autorizarOperacion("MENUELIMINAR")) {
+
+          
+                $entidad = new Sucursal();
+                $entidad->cargarDesdeRequest($request);
+                $entidad->eliminar();
+
+                $aResultado["err"] = EXIT_SUCCESS; //eliminado correctamente
+            } else {
+                $codigo = "ELIMINARPROFESIONAL";
+                $aResultado["err"] = "No tiene pemisos para la operaci&oacute;n.";
+            }
+            echo json_encode($aResultado);
+        } else {
+            return redirect('admin/login');
+        }
+    }
 }

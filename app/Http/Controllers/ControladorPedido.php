@@ -31,11 +31,12 @@ class ControladorPedido extends Controller
         $entidadEstadoPago = new EstadoPago();
         $entidadEstado = new Estado();
         $entidadCliente = new Cliente();
+        $entidadPedido = new Pedido();
         $aClientes = $entidadCliente->obtenerTodos();
         $aEstadoPagos = $entidadEstadoPago->obtenerTodos();
         $aEstados = $entidadEstado->obtenerTodos();
         $aSucursales = $entidadSucursal->obtenerTodos();
-        return view('pedido.pedido-nuevo', compact('titulo', 'aSucursales', 'aClientes', 'aEstadoPagos', 'aEstados'));
+        return view('pedido.pedido-nuevo', compact('entidadPedido', 'titulo', 'aSucursales', 'aClientes', 'aEstadoPagos', 'aEstados', 'entidadPedido'));
     }
     
 
@@ -100,13 +101,13 @@ class ControladorPedido extends Controller
 
         for ($i = $inicio; $i < count($aPedidos) && $cont < $registros_por_pagina; $i++) {
             $row = array();
-            $row[] = '<a href="/admin/pedidos/' . $aPedidos[$i]->idpedido . '">' . $aPedidos[$i]->idpedido . '</a>';
+            $row[] = '<a href="/admin/pedido/' . $aPedidos[$i]->idpedido . '" class="btn btn-secondary"><i class="fas fa-search"></i></a>';
             $row[] = $aPedidos[$i]->total;
             $row[] = $aPedidos[$i]->sucursal;
             $row[] = $aPedidos[$i]->cliente;
             $row[] = $aPedidos[$i]->estado;
             $row[] = $aPedidos[$i]->estado_pago;
-            $row[] = $aPedidos[$i]->fecha;
+            $row[] = date_format(date_create($aPedidos[$i]->fecha), 'd/m/Y H:i');
             $cont++;
             $data[] = $row;
         }
@@ -118,6 +119,46 @@ class ControladorPedido extends Controller
             "data" => $data,
         );
         return json_encode($json_data);
+    }
+
+    public function eliminar(Request $request)
+    {
+        $id = $request->input('id');
+
+        if (Usuario::autenticado() == true) {
+            if (Pedido::autorizarOperacion("PEDIDOLIMINAR")) {
+
+          
+                $entidad = new Pedido();
+                $entidad->cargarDesdeRequest($request);
+                $entidad->eliminar();
+
+                $aResultado["err"] = EXIT_SUCCESS; //eliminado correctamente
+            } else {
+                $codigo = "ELIMINARPROFESIONAL";
+                $aResultado["err"] = "No tiene pemisos para la operaci&oacute;n.";
+            }
+            echo json_encode($aResultado);
+        } else {
+            return redirect('admin/login');
+        }
+    }
+
+
+    
+    public function editar($id)
+    {
+        $titulo = "Modificar Pedido";
+        if (Usuario::autenticado() == true)
+        {
+            $pedido = new Pedido();
+            $pedido->obtenerPorId($id);
+        
+
+            return view('pedido.pedido-nuevo', compact('pedido', 'titulo'));
+        }   else {
+            return redirect('admin/login');
+        }
     }
 
 }

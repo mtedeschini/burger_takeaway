@@ -66,7 +66,31 @@ class ControladorProducto extends Controller{
     public function nuevo()
     {
         $titulo = "Nuevo Producto";
-        return view('producto.producto-nuevo', compact('titulo'));
+        $producto = new Producto();
+
+        return view('producto.producto-nuevo', compact('producto', 'titulo'));
+    }
+
+
+    public function editar($id)
+    {
+        $titulo = "Modificar Producto";
+        if (Usuario::autenticado() == true)
+        
+        {
+            if (!Patente::autorizarOperacion("MENUMODIFICACION")) {
+                $codigo = "MENUMODIFICACION";
+                $mensaje = "No tiene pemisos para la operaci&oacute;n.";
+                return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
+            } else {
+                $producto = new Producto();
+                $producto->obtenerPorId($id);
+
+                return view('producto.producto-nuevo', compact('producto', 'titulo'));
+            }
+        }   else {
+            return redirect('admin/login');
+        }
     }
 
     public function guardar(Request $request)
@@ -109,4 +133,6 @@ class ControladorProducto extends Controller{
 
         return view('producto.producto-nuevo', compact('msg', 'producto', 'titulo')) . '?id=' . $producto->idproducto;
     }
+
+    
 }
