@@ -69,6 +69,7 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::get('/admin/usuarios/cargarGrilla', 'ControladorUsuario@cargarGrilla')->name('usuarios.cargarGrilla');
     Route::get('/admin/usuarios/buscarUsuario', 'ControladorUsuario@buscarUsuario');
     Route::get('/admin/usuarios/{usuario}', 'ControladorUsuario@editar');
+    Route::post('/admin/usuarios/{usuario}', 'ControladorUsuario@guardar');
 
     /* --------------------------------------------- */
     /* CONTROLADOR MENU                             */
@@ -102,9 +103,10 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::get('/admin/clientes', 'ControladorCliente@index');  
     Route::get('/admin/cliente/nuevo', 'ControladorCliente@nuevo');
     Route::post('/admin/cliente/nuevo', 'ControladorCliente@guardar'); 
-    Route::get('/admin/cliente/cargarGrilla', 'ControladorCliente@cargarGrilla')->name('cliente.cargarGrilla');   
-
-
+    Route::get('/admin/cliente/cargarGrilla', 'ControladorCliente@cargarGrilla')->name('cliente.cargarGrilla'); 
+    Route::post('/admin/cliente/eliminar', 'ControladorCliente@eliminar');   
+    Route::get('/admin/cliente/nuevo/{id}', 'Controladorcliente@editar');
+    Route::post('/admin/cliente/nuevo/{id}', 'Controladorcliente@guardar');
 
     /* --------------------------------------------- */
     /* CONTROLADOR PRODUCTOS                          */
