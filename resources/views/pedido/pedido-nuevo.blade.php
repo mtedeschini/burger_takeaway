@@ -60,11 +60,7 @@
                 <select id="txtSucursal" name="txtSucursal" class="form-control" required>
                     <option value="" disabled selected>Seleccionar</option>
                     @foreach ($aSucursales as $sucursal)
-                        @if (isset($sucursal->idsucursal) == $entidadPedido->fk_idsucursal)
-                            <option selected value="{{$sucursal->idsucursal}}">{{$sucursal->nombre}}</option>
-                        @else
-                            <option value="{{$sucursal->idsucursal}}">{{$sucursal->nombre}}</option>
-                        @endif 
+                        <option  value="{{$sucursal->idsucursal}}">{{$sucursal->nombre}}</option>
                     @endforeach
                 </select>
             </div>
@@ -77,6 +73,7 @@
                             <option  selected value="{{$cliente->idcliente}}">{{$cliente->nombre}}</option>
                         @else
                             <option value="{{$cliente->idcliente}}">{{$cliente->nombre}}</option>
+                        @endif
                     @endforeach
                 </select>
             </div>
@@ -107,7 +104,11 @@
                 <select id="txtEstadoPago" name="txtEstadoPago" class="form-control" required>
                 <option value="" disabled selected>Seleccionar</option>
                     @foreach ($aEstadoPagos as $estadoPago)
-                            <option value="{{$estadoPago->idestadopago}}">{{$estadoPago->nombre}}</option>
+                            @if (isset($estadoPago->idestadopago) and $entidadPedido->fk_estadopago)
+                                <option selected value="{{$estadoPago->idestadopago}}">{{$estadoPago->nombre}}</option>
+                            @else
+                                <option value="{{$estadoPago->idestadopago}}">{{$estadoPago->nombre}}</option>
+                            @endif
                     @endforeach
                 </select>
             </div>
@@ -120,7 +121,11 @@
                 <select id="txtEstadoPedido" name="txtEstadoPedido" class="form-control">
                 <option value="" disabled selected>Seleccionar</option>
                     @foreach ($aEstados as $estado)
-                            <option value="{{$estado->idestado}}">{{$estado->nombre}}</option>
+                            @if (isset($estado->idestado) == $entidadPedido->fk_estado)
+                                <option selected value="{{$estado->idestado}}">{{$estado->nombre}}</option>
+                            @else
+                                <option value="{{$estado->idestado}}">{{$estado->nombre}}</option>
+                            @endif
                     @endforeach
                 </select>
                 </select>
