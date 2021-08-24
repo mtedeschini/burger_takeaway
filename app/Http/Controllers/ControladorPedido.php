@@ -31,11 +31,12 @@ class ControladorPedido extends Controller
         $entidadEstadoPago = new EstadoPago();
         $entidadEstado = new Estado();
         $entidadCliente = new Cliente();
+        $entidadPedido = new Pedido();
         $aClientes = $entidadCliente->obtenerTodos();
         $aEstadoPagos = $entidadEstadoPago->obtenerTodos();
         $aEstados = $entidadEstado->obtenerTodos();
         $aSucursales = $entidadSucursal->obtenerTodos();
-        return view('pedido.pedido-nuevo', compact('titulo', 'aSucursales', 'aClientes', 'aEstadoPagos', 'aEstados'));
+        return view('pedido.pedido-nuevo', compact('entidadPedido', 'titulo', 'aSucursales', 'aClientes', 'aEstadoPagos', 'aEstados', 'entidadPedido'));
     }
     
 
@@ -125,7 +126,7 @@ class ControladorPedido extends Controller
         $id = $request->input('id');
 
         if (Usuario::autenticado() == true) {
-            if (Pedido::autorizarOperacion("PEDIDOLIMINAR")) {
+            if (Patente::autorizarOperacion("PEDIDOLIMINAR")) {
 
           
                 $entidad = new Pedido();
@@ -149,10 +150,18 @@ class ControladorPedido extends Controller
     {
         $titulo = "Modificar Pedido";
         if (Usuario::autenticado() == true)
+        
         {
-            $pedido = new Pedido();
-            $pedido->obtenerPorId($id);
-            return view('pedido.pedido-nuevo', compact('pedido', 'titulo'));
+            if (!Pedido::autorizarOperacion("MENUMODIFICACION")) {
+                $codigo = "MENUMODIFICACION";
+                $mensaje = "No tiene pemisos para la operaci&oacute;n.";
+                return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
+            } else {
+                $pedido = new Pedido();
+                $pedido->obtenerPorId($id);
+
+                return view('pedido.pedido-nuevo', compact('pedido', 'titulo'));
+            }
         }   else {
             return redirect('admin/login');
         }

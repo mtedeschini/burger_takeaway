@@ -104,7 +104,7 @@ if (isset($msg)) {
         }
     }
 
-    /*function eliminar() {
+    function eliminar() {
         $.ajax({
             type: "GET",
             url: "{{ asset('/admin/cliente/eliminar') }}", 
@@ -125,14 +125,6 @@ if (isset($msg)) {
                 }
             }
         });
-<<<<<<< HEAD
-<<<<<<< HEAD
-    }*/
-=======
     } 
->>>>>>> ddc8bf8e3909045f2dbbbed547190fb0d010201d
-=======
-    } 
->>>>>>> b3d114c67b788c160658ae780e243f14349bd20c
 </script>
 @endsection
