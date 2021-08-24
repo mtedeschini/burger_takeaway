@@ -78,8 +78,8 @@ class ControladorProducto extends Controller{
         if (Usuario::autenticado() == true)
         
         {
-            if (!Patente::autorizarOperacion("MENUMODIFICACION")) {
-                $codigo = "MENUMODIFICACION";
+            if (!Patente::autorizarOperacion("PRODUCTOMODIFICACION")) {
+                $codigo = "PRODUCTOMODIFICACION";
                 $mensaje = "No tiene pemisos para la operaci&oacute;n.";
                 return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
             } else {
