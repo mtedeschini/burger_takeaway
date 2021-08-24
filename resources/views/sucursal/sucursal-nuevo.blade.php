@@ -49,23 +49,14 @@ if (isset($msg)) {
 
             <div class="form-group col-lg-6">
                 <label>Nombre: *</label>
-<<<<<<< HEAD
-                <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="{{$sucursal->nombre or ''}}"> required>
+                <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="{{$sucursal->nombre or ''}}" required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Dirección: *</label>
-                <input type="text" maxlength="50" id="txtDireccion" name="txtDireccion" class="form-control" value="{{$sucursal->direccion or ''}}"> required>
-=======
-                <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="{{ $sucursal->nombre }}"> 
-            </div>
-            <div class="form-group col-lg-6">
-                <label>Dirección: *</label>
-                <input type="text" maxlength="50" id="txtDireccion" name="txtDireccion" class="form-control" value="{{ $sucursal->direccion }}">
->>>>>>> b3d114c67b788c160658ae780e243f14349bd20c
+                <input type="text" maxlength="50" id="txtDireccion" name="txtDireccion" class="form-control" value="{{$sucursal->direccion or ''}}" required>
             </div>
         </div>
-</div>
-</form>
+    </form>
 </div>
 <div class="modal fade" id="mdlEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
