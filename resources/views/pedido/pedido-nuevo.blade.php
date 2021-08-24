@@ -60,11 +60,10 @@
                 <select id="txtSucursal" name="txtSucursal" class="form-control" required>
                     <option value="" disabled selected>Seleccionar</option>
                     @foreach ($aSucursales as $sucursal)
-                        <option  value="{{$sucursal->idsucursal}}">{{$sucursal->nombre}}</option>
-                        @if (isset($sucursal->idsucursal) == $entidadPedido->fk_idsucursal)
+                        @if (isset($sucursal->idsucursal) == $pedido->fk_idsucursal)
 =======
                         @if (isset($sucursal->idsucursal) == $pedido->fk_idsucursal)
->>>>>>> 68addd592c18fa0e67fe7f83b3cca0aca8a0c462
+>>>>>>> 34b9da231040f3befcb528ce98e59a99abfaac0d
                             <option  selected value="{{$sucursal->idsucursal}}">{{$sucursal->nombre}}</option>
                         @else
                             <option  value="{{$sucursal->idsucursal}}">{{$sucursal->nombre}}</option>
@@ -81,6 +80,7 @@
                 <select id="txtCliente" name="txtCliente" class="form-control" required>
                     <option value="" disabled selected>Seleccionar</option>
                     @foreach ($aClientes as $cliente)
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -112,6 +112,12 @@
 =======
                         @if (isset($cliente->idcliente) == $pedido->fk_idcliente)
 >>>>>>> 68addd592c18fa0e67fe7f83b3cca0aca8a0c462
+=======
+                        @if (isset($cliente->idcliente) == $entidadPedido->fk_idcliente)
+=======
+                        @if (isset($cliente->idcliente) == $pedido->fk_idcliente)
+>>>>>>> 1626b41ab6762d6ada91df7c003c1e65481eaf5e
+>>>>>>> 34b9da231040f3befcb528ce98e59a99abfaac0d
                             <option selected value="{{$cliente->idcliente}}">{{$cliente->nombre}}</option>
                         @else
                             <option value="{{$cliente->idcliente}}">{{$cliente->nombre}}</option>
@@ -132,6 +138,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <option value="{{ $i }}">{{ $i }}</option>
 =======
 =======
@@ -142,6 +149,12 @@
 =======
                         @if ($pedido->fecha != "" and $i == date_format(date_create($pedido->fecha),"d"))
 >>>>>>> 68addd592c18fa0e67fe7f83b3cca0aca8a0c462
+=======
+                        @if ($entidadPedido->fecha != "" and $i == date_format(date_create($entidadPedido->fecha),"d"))
+=======
+                        @if ($pedido->fecha != "" and $i == date_format(date_create($pedido->fecha),"d"))
+>>>>>>> 1626b41ab6762d6ada91df7c003c1e65481eaf5e
+>>>>>>> 34b9da231040f3befcb528ce98e59a99abfaac0d
                             <option selected value="{{ $i }}">{{ $i}}</option>
                         @else
                             <option value="{{ $i }}">{{ $i}}</option>
@@ -162,6 +175,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <option value="{{ $i }}">{{ $i }}</option>
 =======
 =======
@@ -172,6 +186,12 @@
 =======
                         @if ($pedido->fecha != "" and $i == date_format(date_create($pedido->fecha),"m"))
 >>>>>>> 68addd592c18fa0e67fe7f83b3cca0aca8a0c462
+=======
+                        @if ($entidadPedido->fecha != "" and $i == date_format(date_create($entidadPedido->fecha),"m"))
+=======
+                        @if ($pedido->fecha != "" and $i == date_format(date_create($pedido->fecha),"m"))
+>>>>>>> 1626b41ab6762d6ada91df7c003c1e65481eaf5e
+>>>>>>> 34b9da231040f3befcb528ce98e59a99abfaac0d
                             <option selected value="{{ $i }}">{{ $i }}</option>
                         @else
                             <option value="{{ $i }}">{{ $i }}</option>
@@ -192,6 +212,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <option value="{{ $i }}">{{ $i }}</option>
 =======
 =======
@@ -202,6 +223,12 @@
 =======
                         @if ($pedido->fecha != ""  and $i == date_format(date_create($pedido->fecha),"Y"))
 >>>>>>> 68addd592c18fa0e67fe7f83b3cca0aca8a0c462
+=======
+                        @if ($entidadPedido->fecha != ""  and $i == date_format(date_create($entidadPedido->fecha),"Y"))
+=======
+                        @if ($pedido->fecha != ""  and $i == date_format(date_create($pedido->fecha),"Y"))
+>>>>>>> 1626b41ab6762d6ada91df7c003c1e65481eaf5e
+>>>>>>> 34b9da231040f3befcb528ce98e59a99abfaac0d
                             <option select value="{{ $i }}">{{ $i }}</option>
                         @else
                             <option value="{{ $i }}">{{ $i }}</option>
@@ -229,6 +256,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                             <option value="{{$estadoPago->idestadopago}}">{{$estadoPago->nombre}}</option>
 =======
 =======
@@ -243,6 +271,12 @@
 =======
                             @if (isset($estadoPago->idestadopago) and $pedido->fk_estadopago)
 >>>>>>> 68addd592c18fa0e67fe7f83b3cca0aca8a0c462
+=======
+                            @if (isset($estadoPago->idestadopago) and $entidadPedido->fk_estadopago)
+=======
+                            @if (isset($estadoPago->idestadopago) and $pedido->fk_estadopago)
+>>>>>>> 1626b41ab6762d6ada91df7c003c1e65481eaf5e
+>>>>>>> 34b9da231040f3befcb528ce98e59a99abfaac0d
                                 <option selected value="{{$estadoPago->idestadopago}}">{{$estadoPago->nombre}}</option>
                             @else
                                 <option value="{{$estadoPago->idestadopago}}">{{$estadoPago->nombre}}</option>
@@ -278,6 +312,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                             <option value="{{$estado->idestado}}">{{$estado->nombre}}</option>
 =======
 =======
@@ -292,6 +327,12 @@
 =======
                             @if (isset($estado->idestado) == $pedido->fk_estado)
 >>>>>>> 68addd592c18fa0e67fe7f83b3cca0aca8a0c462
+=======
+                            @if (isset($estado->idestado) == $entidadPedido->fk_estado)
+=======
+                            @if (isset($estado->idestado) == $pedido->fk_estado)
+>>>>>>> 1626b41ab6762d6ada91df7c003c1e65481eaf5e
+>>>>>>> 34b9da231040f3befcb528ce98e59a99abfaac0d
                                 <option selected value="{{$estado->idestado}}">{{$estado->nombre}}</option>
                             @else
                                 <option value="{{$estado->idestado}}">{{$estado->nombre}}</option>

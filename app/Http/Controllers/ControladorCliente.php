@@ -58,9 +58,9 @@ class ControladorCliente extends Controller
         for ($i = $inicio; $i < count($aClientes) && $cont < $registros_por_pagina; $i++) {
             $row = array();
 
-             $row[] = '<a href="/admin/cliente/' . $aClientes[$i]->idcliente . '" class="btn btn-secondary"><i class="fas  fa-search"></i></a>'; 
-            
-            $row[] = $aClientes[$i]->apellido;
+
+             $row[] = '<a href="/admin/cliente/' . $aClientes[$i]->idcliente . '" class="btn btn-secondary"><i class="fas fa-search"></i></a>'; 
+             $row[] = $aClientes[$i]->nombre . " " .$aClientes[$i]->apellido;
             $row[] = $aClientes[$i]->telefono;
             $row[] = $aClientes[$i]->correo;
             $row[] = $aClientes[$i]->usuario;
@@ -150,6 +150,27 @@ class ControladorCliente extends Controller
             echo json_encode($aResultado);
         } else {
             return redirect('admin/clientes'); 
+        }
+    }
+
+    public function editar($id) 
+    {
+        $titulo = "Modificar Cliente";
+        if (Usuario::autenticado() == true)
+        
+        {
+            if (!Patente::autorizarOperacion("MENUMODIFICACION")) {
+                $codigo = "MENUMODIFICACION";
+                $mensaje = "No tiene pemisos para la operaci&oacute;n.";
+                return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
+            } else {
+                $cliente = new Cliente();
+                $cliente->obtenerPorId($id); 
+
+                return view('cliente.cliente-nuevo', compact('cliente', 'titulo')); 
+            }
+        }   else {
+            return redirect('admin/login');  
         }
     }
 
