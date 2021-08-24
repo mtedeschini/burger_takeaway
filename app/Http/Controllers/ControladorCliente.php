@@ -153,26 +153,29 @@ class ControladorCliente extends Controller
         }
     }
 
-    public function editar($id) 
+    public function editar($id)
     {
         $titulo = "Modificar Cliente";
-        if (Usuario::autenticado() == true)
-        
-        {
+        if (Usuario::autenticado() == true) {
             if (!Patente::autorizarOperacion("MENUMODIFICACION")) {
                 $codigo = "MENUMODIFICACION";
                 $mensaje = "No tiene pemisos para la operaci&oacute;n.";
                 return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
             } else {
                 $cliente = new Cliente();
-                $cliente->obtenerPorId($id); 
+                $cliente->obtenerPorId($id);
 
-                return view('cliente.cliente-nuevo', compact('cliente', 'titulo')); 
+                $entidad = new Cliente();
+                $array_menu = $entidad->obtenerMenuPadre($id);
+
+           
+                return view('sistema.menu-nuevo', compact('cliente', 'titulo'));
             }
-        }   else {
-            return redirect('admin/login');  
+        } else {
+            return redirect('admin/login');
         }
     }
+
 
 
 
