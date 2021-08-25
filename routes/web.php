@@ -13,6 +13,10 @@
 
 Route::group(array('domain' => '127.0.0.1'), function () {
 
+    Route::get('/', 'ControladorWebHome@index');
+    Route::get('/nosotros', 'ControladorWebNosotros@index');
+    Route::get('/takeaway', 'ControladorWebTakeaway@index');
+    Route::get('/contacto', 'ControladorWebContacto@index');
 
 
 
