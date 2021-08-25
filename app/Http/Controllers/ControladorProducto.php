@@ -94,6 +94,30 @@ class ControladorProducto extends Controller{
         }
     }
 
+    
+    public function eliminar(Request $request)
+    {
+        $id = $request->input('id');
+
+        if (Usuario::autenticado() == true) {
+            if (Pedido::autorizarOperacion("PRODUCTOELIMINAR")) {
+
+          
+                $entidad = new Producto();
+                $entidad->cargarDesdeRequest($request);
+                $entidad->eliminar();
+
+                $aResultado["err"] = EXIT_SUCCESS; //eliminado correctamente
+            } else {
+                $codigo = "ELIMINARPROFESIONAL";
+                $aResultado["err"] = "No tiene pemisos para la operaci&oacute;n.";
+            }
+            echo json_encode($aResultado);
+        } else {
+            return redirect('admin/login');
+        }
+    }
+
     public function guardar(Request $request)
     {
         try {
@@ -118,7 +142,7 @@ class ControladorProducto extends Controller{
                     $productAnt = new Producto();
                     $productAnt->obtenerPorId($entidad->idproducto);
 
-                    if ($_FILES["archivo"]["error"] === UPLOAD_ERR_OK){
+                    if($_FILES["archivo"]["error"] === UPLOAD_ERR_OK){
                         //Eliminar imagen anterior
                         @unlink(env('APP_PATH') . "/public/files/$productAnt->imagen");                          
                     } else {
