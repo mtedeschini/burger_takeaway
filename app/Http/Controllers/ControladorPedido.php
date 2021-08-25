@@ -166,8 +166,7 @@ class ControladorPedido extends Controller
             $aEstadoPagos = $estadoPago->obtenerTodos();
             $aEstados = $estado->obtenerTodos();
             $aSucursales = $sucursal->obtenerTodos();
-            return view('pedido.pedido-nuevo', compact('titulo','pedido','sucursal','estadoPago','estado','cliente',
-                                                        'aSucursales', 'aClientes', 'aEstadoPagos', 'aEstados'));
+            return view('pedido.pedido-nuevo', compact('titulo','aSucursales', 'aClientes', 'aEstadoPagos', 'aEstados'));
         }   else {
             return redirect('admin/login');
         }
