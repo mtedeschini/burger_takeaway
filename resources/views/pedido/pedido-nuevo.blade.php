@@ -73,7 +73,7 @@
                 <select id="txtCliente" name="txtCliente" class="form-control" required>
                     <option value="" disabled selected>Seleccionar</option>
                     @foreach ($aClientes as $cliente)
-                        @if (isset($cliente->idcliente) == $pedido->fk_idcliente)
+                        @if ((isset($cliente->idcliente) && $cliente->idcliente == $pedido->fk_idcliente))
                             <option selected value="{{$cliente->idcliente}}">{{$cliente->nombre}}</option>
                         @else
                             <option value="{{$cliente->idcliente}}">{{$cliente->nombre}}</option>
@@ -113,14 +113,14 @@
                         @endif
                     @endfor
                 </select>
-                <input type="time" required="" class="form-control d-inline" style="width: 120px" name="txtHora" id="txtHora">
+                <input type="time" required="" class="form-control d-inline" style="width: 120px" name="txtHora" id="txtHora" value="">
             </div>
             <div class="form-group col-lg-6">
                 <label>Estado de pago: </label>
                 <select id="txtEstadoPago" name="txtEstadoPago" class="form-control" required>
                 <option value="" disabled selected>Seleccionar</option>
                     @foreach ($aEstadoPagos as $estadoPago)
-                            @if (isset($estadoPago->idestadopago) and $pedido->fk_estadopago)
+                            @if (isset($estadoPago->idestadopago) && $estadoPago->idestadopago == $pedido->fk_idestadopago)
                                 <option selected value="{{$estadoPago->idestadopago}}">{{$estadoPago->nombre}}</option>
                             @else
                                 <option value="{{$estadoPago->idestadopago}}">{{$estadoPago->nombre}}</option>
@@ -130,14 +130,14 @@
             </div>
             <div class="form-group col-lg-6">
                 <label>Total:</label>
-                <input type="text" maxlength="50" id="txtTotal" name="txtTotal" class="form-control" value="" required>
+                    <input type="text" maxlength="50" id="txtTotal" name="txtTotal" class="form-control" value="{{$pedido->total}}" required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Estado de pedido:</label>
                 <select id="txtEstadoPedido" name="txtEstadoPedido" class="form-control">
                 <option value="" disabled selected>Seleccionar</option>
                     @foreach ($aEstados as $estado)
-                            @if (isset($estado->idestado) == $pedido->fk_estado)
+                            @if ((isset($estado->idestado) && $estado->idestado == $pedido->fk_idestado))
                                 <option selected value="{{$estado->idestado}}">{{$estado->nombre}}</option>
                             @else
                                 <option value="{{$estado->idestado}}">{{$estado->nombre}}</option>
