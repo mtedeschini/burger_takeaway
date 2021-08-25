@@ -107,8 +107,8 @@ class ControladorPostulacion extends Controller{
             {
                 $nombre = date("Ymdhmsi") . ".pdf"; 
                 $archivo = $_FILES["archivo"]["tmp_name"];
-                move_uploaded_file($archivo, env('APP_PATH') . "public/cv/$nombre");//guardaelarchivo
-                $entidad->cv =$nombre;
+                move_uploaded_file($archivo, env('APP_PATH') . "public/images/$nombre");//guardaelarchivo
+                $entidad->imagen =$nombre;
             }   
             //validaciones
             if ($entidad->nombre == "") {
@@ -122,10 +122,10 @@ class ControladorPostulacion extends Controller{
                     if(isset($_FILES["archivo"]) && $_FILES["archivo"]["name"] != ""){
                         $archivoAnterior =$_FILES["archivo"]["name"];
                         if($archivoAnterior !=""){
-                            @unlink (env('APP_PATH') . "public/cv/$archivoAnterior");
+                            @unlink (env('APP_PATH') . "public/images/$archivoAnterior");
                         }
                     } else {
-                        $entidad->cv = $postulacionAnt->cv;
+                        $entidad->imagen = $postulacionAnt->imagen;
                     }  
                     //Es actualizacion
                     $entidad->guardar();
