@@ -9,7 +9,7 @@
           <div class="row slider-text justify-content-center align-items-center">
 
             <div class="col-md-7 col-sm-12 text-center ftco-animate">
-            	<h1 class="mb-3 mt-5 bread">TAKE AWAY</h1>
+            	<h1 class="mb-3 mt-5 bread">NUESTRO MENÚ</h1>
 	            <p class="breadcrumbs"><span class="mr-2"><a href="/">Inicio</a></span></p>
             </div>
 
@@ -22,8 +22,8 @@
     	<div class="container">
     		<div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section ftco-animate text-center">
-            <h2 class="mb-4">Our Menu</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+            <h2 class="mb-4">TAKE AWAY</h2>
+            <p>Estamos en C.A.B.A y G.B.A. Te esperamos en cualquiera de nuestras sucursales para retirar nuestras mejores hamburguesas.</p>
           </div>
         </div>
     	</div>
