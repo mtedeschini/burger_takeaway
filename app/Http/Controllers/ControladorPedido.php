@@ -31,12 +31,12 @@ class ControladorPedido extends Controller
         $entidadEstadoPago = new EstadoPago();
         $entidadEstado = new Estado();
         $entidadCliente = new Cliente();
-        $entidadPedido = new Pedido();
+        $pedido = new Pedido();
         $aClientes = $entidadCliente->obtenerTodos();
         $aEstadoPagos = $entidadEstadoPago->obtenerTodos();
         $aEstados = $entidadEstado->obtenerTodos();
         $aSucursales = $entidadSucursal->obtenerTodos();
-        return view('pedido.pedido-nuevo', compact('entidadPedido', 'titulo', 'aSucursales', 'aClientes', 'aEstadoPagos', 'aEstados', 'entidadPedido'));
+        return view('pedido.pedido-nuevo', compact('titulo', 'aSucursales', 'aClientes', 'aEstadoPagos', 'aEstados','pedido'));
     }
     
 
@@ -80,7 +80,7 @@ class ControladorPedido extends Controller
         $pedido = new Pedido();
     
         $pedido->obtenerPorId($id);
-     
+
         return view('pedido.pedido-nuevo', compact('msg', 'pedido', 'titulo')) . '?id=' . $pedido->idpedido;
     }        
     
@@ -126,7 +126,7 @@ class ControladorPedido extends Controller
         $id = $request->input('id');
 
         if (Usuario::autenticado() == true) {
-            if (Patente::autorizarOperacion("PEDIDOLIMINAR")) {
+            if (Pedido::autorizarOperacion("PEDIDOLIMINAR")) {
 
           
                 $entidad = new Pedido();
@@ -150,18 +150,10 @@ class ControladorPedido extends Controller
     {
         $titulo = "Modificar Pedido";
         if (Usuario::autenticado() == true)
-        
         {
-            if (!Pedido::autorizarOperacion("MENUMODIFICACION")) {
-                $codigo = "MENUMODIFICACION";
-                $mensaje = "No tiene pemisos para la operaci&oacute;n.";
-                return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
-            } else {
-                $pedido = new Pedido();
-                $pedido->obtenerPorId($id);
-
-                return view('pedido.pedido-nuevo', compact('pedido', 'titulo'));
-            }
+            $pedido = new Pedido();
+            $pedido->obtenerPorId($id);
+            return view('pedido.pedido-nuevo', compact('titulo','pedido'));
         }   else {
             return redirect('admin/login');
         }
