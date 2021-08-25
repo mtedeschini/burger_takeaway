@@ -46,10 +46,8 @@ class Cliente extends Model{
                     A.apellido,
                     A.telefono,
                     A.correo,
-                    B.usuario
-                FROM clientes A
-                LEFT JOIN sistema_usuarios B ON A.fk_idusuario = B.idusuario  
-                
+                    A.fk_idusuario
+                FROM clientes A  
                 ";
         $lstRetorno = DB::select($sql);
 
