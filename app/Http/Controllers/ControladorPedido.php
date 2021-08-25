@@ -152,16 +152,22 @@ class ControladorPedido extends Controller
         if (Usuario::autenticado() == true)
         {
             $pedido = new Pedido();
+            
+            $sucursal = new Sucursal();
+            $estadoPago = new EstadoPago();
+            $estado = new Estado();
+            $cliente = new Cliente();
             $pedido->obtenerPorId($id);
-            $entidadSucursal = new Sucursal();
-            $entidadEstadoPago = new EstadoPago();
-            $entidadEstado = new Estado();
-            $entidadCliente = new Cliente();
-            $aClientes = $entidadCliente->obtenerTodos();
-            $aEstadoPagos = $entidadEstadoPago->obtenerTodos();
-            $aEstados = $entidadEstado->obtenerTodos();
-            $aSucursales = $entidadSucursal->obtenerTodos();
-            return view('pedido.pedido-nuevo', compact('titulo','pedido','aSucursales', 'aClientes', 'aEstadoPagos', 'aEstados'));
+            $sucursal->obtenerPorId($pedido->idsucursal);
+            $estadoPago->obtenerPorId($pedido->fk_idestadopago);
+            $estado->obtenerPorId($pedido->fk_idestado);
+            $cliente->obtenerPorId($pedido->fk_idcliente);
+            $aClientes = $cliente->obtenerTodos();
+            $aEstadoPagos = $estadoPago->obtenerTodos();
+            $aEstados = $estado->obtenerTodos();
+            $aSucursales = $sucursal->obtenerTodos();
+            return view('pedido.pedido-nuevo', compact('titulo','pedido','sucursal','estadoPago','estado','cliente',
+                                                        'aSucursales', 'aClientes', 'aEstadoPagos', 'aEstados'));
         }   else {
             return redirect('admin/login');
         }
