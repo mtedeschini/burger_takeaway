@@ -118,7 +118,7 @@ class ControladorProducto extends Controller{
                     $productAnt = new Producto();
                     $productAnt->obtenerPorId($entidad->idproducto);
 
-                    if ($_FILES["archivo"]["error"] === UPLOAD_ERR_OK){
+                    if($_FILES["archivo"]["error"] === UPLOAD_ERR_OK){
                         //Eliminar imagen anterior
                         @unlink(env('APP_PATH') . "/public/files/$productAnt->imagen");                          
                     } else {
