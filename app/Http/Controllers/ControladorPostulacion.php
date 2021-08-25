@@ -76,7 +76,7 @@ class ControladorPostulacion extends Controller{
             $row[] = $aPostulaciones[$i]->documento;
             $row[] = $aPostulaciones[$i]->correo;
             $row[] = $aPostulaciones[$i]->telefono;
-            $row[] = '<img src="/files/'. $aProductos[$i]->imagen .'" class="img-thumbnail">';
+            $row[] = '<img src="/files/'. $aPostulaciones[$i]->archivo_cv .'" class="img-thumbnail">';
 
            
             $cont++;
@@ -107,7 +107,7 @@ class ControladorPostulacion extends Controller{
                 $nombre = date("Ymdhmsi") . ".pdf"; 
                 $archivo = $_FILES["archivo"]["tmp_name"];
                 move_uploaded_file($archivo, env('APP_PATH') . "public/files/$nombre");//guardaelarchivo
-                $entidad->imagen =$nombre;
+                $entidad->archivo_cv =$nombre;
             }   
             //validaciones
             if ($entidad->nombre == "") {
@@ -120,9 +120,9 @@ class ControladorPostulacion extends Controller{
 
                     if ($_FILES["archivo"]["error"] === UPLOAD_ERR_OK){
                         //Eliminar imagen anterior
-                        @unlink(env('APP_PATH') . "/public/files/$productAnt->imagen");                          
+                        @unlink(env('APP_PATH') . "/public/files/$productAnt->archivo_cv");                          
                     } else {
-                        $entidad->imagen = $productAnt->imagen;
+                        $entidad->archivo_cv = $productAnt->archivo_cv;
                     }
                     //Es actualizacion
                     $entidad->guardar();

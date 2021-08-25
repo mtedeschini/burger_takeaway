@@ -157,12 +157,11 @@ class ControladorPedido extends Controller
             $entidadEstadoPago = new EstadoPago();
             $entidadEstado = new Estado();
             $entidadCliente = new Cliente();
-            $pedido = new Pedido();
-            $aSucursales = $entidadSucursal->obtenerPorId($pedido->fk_idsucursal);
-            $aClientes = $pedido->fk_idcliente;
-            $aEstadoPagos = $pedido->fk_ideestadopago;
-            $aEstados = $pedido->fk_idestado;
-            return view('pedido.pedido-nuevo', compact('titulo','pedido'));
+            $aClientes = $entidadCliente->obtenerTodos();
+            $aEstadoPagos = $entidadEstadoPago->obtenerTodos();
+            $aEstados = $entidadEstado->obtenerTodos();
+            $aSucursales = $entidadSucursal->obtenerTodos();
+            return view('pedido.pedido-nuevo', compact('titulo','pedido','aSucursales', 'aClientes', 'aEstadoPagos', 'aEstados'));
         }   else {
             return redirect('admin/login');
         }
