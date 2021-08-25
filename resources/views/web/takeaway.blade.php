@@ -34,7 +34,7 @@
             @foreach ($aProductos as $producto)                            
                     <div class="col-lg-4 d-flex ftco-animate row">
                         <div class="col-5">
-                            <img src=../../..public/files/"{{$producto->imagen}}" alt="">
+                            <img class="w-100 p-3" src="files/{{$producto->imagen}}" alt="">
                         </div>
                         <div class="text p-4 m-3 col-5">
                             <h3>{{$producto->nombre}}</h3>
