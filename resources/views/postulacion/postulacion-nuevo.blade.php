@@ -2,18 +2,8 @@
 @section('titulo', "$titulo")
 @section('scripts')
 <script>
-<<<<<<< HEAD
-<<<<<<< HEAD
-globalId = '<?php echo isset($producto->idpostulacion) && $producto->idpostulacion > 0 ? $producto->idpostulacion : 0; ?>';
-<?php $globalId = isset($producto->idpostulacion) ? $producto->idpostulacion : "0";?>
-=======
 globalId = '<?php echo isset($postulacion->idpostulacion) && $postulacion->idpostulacion > 0 ? $postulacion->idpostulacion : 0; ?>';
 <?php $globalId = isset($postulacion->idpostulacion) ? $postulacion->idpostulacion : "0";?>
->>>>>>> ddc8bf8e3909045f2dbbbed547190fb0d010201d
-=======
-globalId = '<?php echo isset($postulacion->idpostulacion) && $postulacion->idpostulacion > 0 ? $postulacion->idpostulacion : 0; ?>';
-<?php $globalId = isset($postulacion->idpostulacion) ? $postulacion->idpostulacion : "0";?>
->>>>>>> b3d114c67b788c160658ae780e243f14349bd20c
 </script>
 @endsection
 @section('breadcrumb')
@@ -62,126 +52,36 @@ if (isset($msg)) {
             <div class="form-group col-lg-6">
                 <label>Nombre: *</label>
                 <input type="text" id="txtNombre" name="txtNombre" class="form-control"
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    value="{{ $postulacion->nombre or '' }}" required>
-=======
                     value="{{ $postulacion->nombre }}" required>
->>>>>>> ddc8bf8e3909045f2dbbbed547190fb0d010201d
-=======
-                    value="{{ $postulacion->nombre }}" required>
->>>>>>> b3d114c67b788c160658ae780e243f14349bd20c
             </div>
             <div class="form-group col-lg-6">
                 <label>Apellido: *</label>
                 <input type="text" id="txtApellido" name="txtApellido" class="form-control"
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    value="{{ $postulacion->apellido or '' }}" required>
-=======
                     value="{{ $postulacion->apellido }}" required>
->>>>>>> ddc8bf8e3909045f2dbbbed547190fb0d010201d
-=======
-                    value="{{ $postulacion->apellido }}" required>
->>>>>>> b3d114c67b788c160658ae780e243f14349bd20c
             </div>
-            <!--<div class="form-group col-lg-6">
-                <label>Localidad: *</label>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-               <select  id="lstLocalidad" name="lstLocalidad" class="form-control" required>
-                    <option disabled selected>Seleccionar</option>
-                    <option value="">CABA</option>
-                </select>
-            </div>-->
             <div class="form-group col-lg-6">
                 <label>Localidad: *</label>
                 <input type="text" id="txtLocalidad" name="txtLocalidad" class="form-control"
-                    value="" required>
-=======
-                <input type="text" id="txtLocalidad" name="txtLocalidad" class="form-control"
-                    value="{{ $postulacion->localidad or '' }}" required>
->>>>>>> 3d978005a327f06825d0b7d92a0ecf44b1eb7d4b
-=======
-                <input type="text" id="txtLocalidad" name="txtLocalidad" class="form-control"
-                    value="{{ $postulacion->localidad or '' }}" required>
->>>>>>> 3d978005a327f06825d0b7d92a0ecf44b1eb7d4b
-=======
-                <input type="text" id="txtLocalidad" name="txtLocalidad" class="form-control"
-                    value="{{ $postulacion->localidad or '' }}" required>
->>>>>>> 7061f9e3906b01613f7b7c795a616b1750464831
-=======
-                <input type="text" id="txtLocalidad" name="txtLocalidad" class="form-control"
                     value="{{ $postulacion->localidad }}" required>
->>>>>>> ddc8bf8e3909045f2dbbbed547190fb0d010201d
-=======
-                <input type="text" id="txtLocalidad" name="txtLocalidad" class="form-control"
-                    value="{{ $postulacion->localidad }}" required>
->>>>>>> b3d114c67b788c160658ae780e243f14349bd20c
             </div>
             <div class="form-group col-lg-6">
                 <label>Documento: *</label>
                 <input type="text" id="txtDocumento" name="txtDocumento" class="form-control"
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    value="{{ $postulacion->documento or '' }}" required>
-=======
                     value="{{ $postulacion->documento }}" required>
->>>>>>> ddc8bf8e3909045f2dbbbed547190fb0d010201d
-=======
-                    value="{{ $postulacion->documento }}" required>
->>>>>>> b3d114c67b788c160658ae780e243f14349bd20c
             </div>
             <div class="form-group col-lg-6">
                 <label>Correo: *</label>
                 <input type="text" id="txtCorreo" name="txtCorreo" class="form-control"
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    value="{{ $postulacion->correo or '' }}" required>
-=======
                     value="{{ $postulacion->correo }}" required>
->>>>>>> ddc8bf8e3909045f2dbbbed547190fb0d010201d
-=======
-                    value="{{ $postulacion->correo }}" required>
->>>>>>> b3d114c67b788c160658ae780e243f14349bd20c
             </div>
             <div class="form-group col-lg-6">
                 <label>Teléfono: *</label>
                 <input type="text" id="txtTelefono" name="txtTelefono" class="form-control"
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    value="{{ $postulacion->telefono or '' }}" required>
-            </div>
-            <div class="form-group col-lg-6">
-                <label for="txtArchivo">Archivo adjunto:</label>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                <input type="file" id="txtArchivo" name="txtArchivo" class="form-control-file shadow" accept=".pdf">
-=======
-                <input type="file" id="txtArchivo" name="txtArchivo" class="form-control-file shadow" accept=".pdf" value="{{ $postulacion->archivo_cv or '' }}">
->>>>>>> 3d978005a327f06825d0b7d92a0ecf44b1eb7d4b
-=======
-                <input type="file" id="txtArchivo" name="txtArchivo" class="form-control-file shadow" accept=".pdf" value="{{ $postulacion->archivo_cv or '' }}">
->>>>>>> 3d978005a327f06825d0b7d92a0ecf44b1eb7d4b
-=======
-                <input type="file" id="txtArchivo" name="txtArchivo" class="form-control-file shadow" accept=".pdf" value="{{ $postulacion->archivo_cv or '' }}">
->>>>>>> 7061f9e3906b01613f7b7c795a616b1750464831
-=======
-=======
->>>>>>> b3d114c67b788c160658ae780e243f14349bd20c
                     value="{{ $postulacion->telefono }}" required>
             </div>
             <div class="form-group col-lg-6">
                 <label for="txtArchivo">Archivo adjunto:</label>
                 <input type="file" id="txtArchivo" name="txtArchivo" class="form-control-file shadow" accept=".pdf" value="{{ $postulacion->archivo_cv }}">
-<<<<<<< HEAD
->>>>>>> ddc8bf8e3909045f2dbbbed547190fb0d010201d
-=======
->>>>>>> b3d114c67b788c160658ae780e243f14349bd20c
                 <small class="d-block">Archivo CV: .pdf</small>
             </div>
         </div>
@@ -222,7 +122,7 @@ function guardar() {
 function eliminar() {
     $.ajax({
         type: "GET",
-        url: "{{ asset('admin/postulacion/eliminar') }}",
+        url: "{{ asset('admin/sistema/menu/eliminar') }}",
         data: {
             id: globalId
         },

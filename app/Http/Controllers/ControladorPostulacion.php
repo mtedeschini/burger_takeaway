@@ -68,7 +68,11 @@ class ControladorPostulacion extends Controller{
         for ($i = $inicio; $i < count($aPostulaciones) && $cont < $registros_por_pagina; $i++) {
             $row = array();
 
+<<<<<<< HEAD
+            $row[] = '<a href="/admin/postulacion/' . $aPostulaciones[$i]->idpostulacion . '">' . $aPostulaciones[$i]->idpostulacion . '</a>'; 
+=======
             $row[] = '<a href="/admin/postulacion/' . $aPostulaciones[$i]->idpostulacion . '" class="btn btn-secondary"><i class="fas fa-search"></i></a>';
+>>>>>>> 1626b41ab6762d6ada91df7c003c1e65481eaf5e
 
             $row[] = $aPostulaciones[$i]->nombre;
             $row[] = $aPostulaciones[$i]->apellido;
@@ -93,7 +97,6 @@ class ControladorPostulacion extends Controller{
         );
         return json_encode($json_data);
     }
-
 
     public function guardar(Request $request) {
         try {
@@ -138,27 +141,11 @@ class ControladorPostulacion extends Controller{
 
     }
 
-    public function eliminar(Request $request)
-    {
-        $id = $request->input('id');
 
-        if (Postulacion::autenticado() == true) {
-            if (Patente::autorizarOperacion("MENUELIMINAR")) {
 
-                $entidad = new Postulacion();
-                $entidad->cargarDesdeRequest($request);
-                $entidad->eliminar();
 
-                $aResultado["err"] = EXIT_SUCCESS; //eliminado correctamente
-            } else {
-                $codigo = "ELIMINARPROFESIONAL";
-                $aResultado["err"] = "No tiene pemisos para la operaci&oacute;n.";
-            }
-            echo json_encode($aResultado);
-        } else {
-            return redirect('admin/postulaciones');
-        }
-    }
+
+
 
 }
 

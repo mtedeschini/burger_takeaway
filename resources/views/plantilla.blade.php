@@ -27,7 +27,7 @@
   <script src="{{ asset('js/localization/messages_es.js') }}"></script>
   <script src="{{ asset('js/funciones_generales.js') }}"></script>
   <script src="{{ asset('js/bootstrap-select.js') }}"></script>
- 
+
 	<script>
 	    function cambiarGrupo() {
 	        idGrupo = $("#lstGrupo option:selected").val();

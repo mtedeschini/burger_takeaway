@@ -34,6 +34,8 @@
 @section('contenido')
 
 <?php
+
+
     if (isset($msg)) {
         echo '<div id = "msg"></div>';
         echo '<script>msgShow("' . $msg["MSG"] . '", "' . $msg["ESTADO"] . '")</script>';
@@ -58,7 +60,11 @@
                 <select id="txtSucursal" name="txtSucursal" class="form-control" required>
                     <option value="" disabled selected>Seleccionar</option>
                     @foreach ($aSucursales as $sucursal)
+<<<<<<< HEAD
+                        @if (isset($sucursal->idsucursal) == $entidadPedido->fk_idsucursal)
+=======
                         @if (isset($sucursal->idsucursal) == $pedido->fk_idsucursal)
+>>>>>>> 1626b41ab6762d6ada91df7c003c1e65481eaf5e
                             <option  selected value="{{$sucursal->idsucursal}}">{{$sucursal->nombre}}</option>
                         @else
                             <option  value="{{$sucursal->idsucursal}}">{{$sucursal->nombre}}</option>
@@ -71,7 +77,11 @@
                 <select id="txtCliente" name="txtCliente" class="form-control" required>
                     <option value="" disabled selected>Seleccionar</option>
                     @foreach ($aClientes as $cliente)
+<<<<<<< HEAD
+                        @if (isset($cliente->idcliente) == $entidadPedido->fk_idcliente)
+=======
                         @if (isset($cliente->idcliente) == $pedido->fk_idcliente)
+>>>>>>> 1626b41ab6762d6ada91df7c003c1e65481eaf5e
                             <option selected value="{{$cliente->idcliente}}">{{$cliente->nombre}}</option>
                         @else
                             <option value="{{$cliente->idcliente}}">{{$cliente->nombre}}</option>
@@ -84,7 +94,11 @@
                 <select class="form-control d-inline" name="txtDia" id="txtDia" style="width: 80px">
                     <option selected="" disabled="">DD</option>
                     @for ($i = 1; $i <= 31; $i++)
+<<<<<<< HEAD
+                        @if ($entidadPedido->fecha != "" and $i == date_format(date_create($entidadPedido->fecha),"d"))
+=======
                         @if ($pedido->fecha != "" and $i == date_format(date_create($pedido->fecha),"d"))
+>>>>>>> 1626b41ab6762d6ada91df7c003c1e65481eaf5e
                             <option selected value="{{ $i }}">{{ $i}}</option>
                         @else
                             <option value="{{ $i }}">{{ $i}}</option>
@@ -94,7 +108,11 @@
                 <select class="form-control d-inline" name="txtMes" id="txtMes" style="width: 80px">
                     <option selected="" disabled="">MM</option>
                     @for ($i = 1; $i <= 12; $i++)
+<<<<<<< HEAD
+                        @if ($entidadPedido->fecha != "" and $i == date_format(date_create($entidadPedido->fecha),"m"))
+=======
                         @if ($pedido->fecha != "" and $i == date_format(date_create($pedido->fecha),"m"))
+>>>>>>> 1626b41ab6762d6ada91df7c003c1e65481eaf5e
                             <option selected value="{{ $i }}">{{ $i }}</option>
                         @else
                             <option value="{{ $i }}">{{ $i }}</option>
@@ -104,7 +122,11 @@
                 <select class="form-control d-inline" name="txtAnio" id="txtAnio" style="width: 100px">
                     <option selected="" disabled="">YYYY</option>
                     @for ($i = 2000; $i <= date("Y"); $i++) 
+<<<<<<< HEAD
+                        @if ($entidadPedido->fecha != ""  and $i == date_format(date_create($entidadPedido->fecha),"Y"))
+=======
                         @if ($pedido->fecha != ""  and $i == date_format(date_create($pedido->fecha),"Y"))
+>>>>>>> 1626b41ab6762d6ada91df7c003c1e65481eaf5e
                             <option select value="{{ $i }}">{{ $i }}</option>
                         @else
                             <option value="{{ $i }}">{{ $i }}</option>
@@ -118,7 +140,11 @@
                 <select id="txtEstadoPago" name="txtEstadoPago" class="form-control" required>
                 <option value="" disabled selected>Seleccionar</option>
                     @foreach ($aEstadoPagos as $estadoPago)
+<<<<<<< HEAD
+                            @if (isset($estadoPago->idestadopago) and $entidadPedido->fk_estadopago)
+=======
                             @if (isset($estadoPago->idestadopago) and $pedido->fk_estadopago)
+>>>>>>> 1626b41ab6762d6ada91df7c003c1e65481eaf5e
                                 <option selected value="{{$estadoPago->idestadopago}}">{{$estadoPago->nombre}}</option>
                             @else
                                 <option value="{{$estadoPago->idestadopago}}">{{$estadoPago->nombre}}</option>
@@ -135,7 +161,11 @@
                 <select id="txtEstadoPedido" name="txtEstadoPedido" class="form-control">
                 <option value="" disabled selected>Seleccionar</option>
                     @foreach ($aEstados as $estado)
+<<<<<<< HEAD
+                            @if (isset($estado->idestado) == $entidadPedido->fk_estado)
+=======
                             @if (isset($estado->idestado) == $pedido->fk_estado)
+>>>>>>> 1626b41ab6762d6ada91df7c003c1e65481eaf5e
                                 <option selected value="{{$estado->idestado}}">{{$estado->nombre}}</option>
                             @else
                                 <option value="{{$estado->idestado}}">{{$estado->nombre}}</option>
@@ -169,6 +199,7 @@
 </div>
 <script>
     $("#form1").validate();
+
     function guardar() {
         if ($("#form1").valid()) {
             modificado = false;
@@ -179,6 +210,7 @@
             return false;
         }
     }
+
     function eliminar() {
         $.ajax({
             type: "GET",
