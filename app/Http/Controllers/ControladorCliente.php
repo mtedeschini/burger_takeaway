@@ -166,10 +166,10 @@ class ControladorCliente extends Controller
                 $cliente->obtenerPorId($id);
 
                 $entidad = new Cliente();
-                $array_menu = $entidad->obtenerMenuPadre($id);
+                $array_cliente = $entidad->obtenerMenuPadre($id);
 
            
-                return view('sistema.menu-nuevo', compact('cliente', 'titulo'));
+                return view('sistema.cliente-nuevo', compact('cliente', 'titulo'));
             }
         } else {
             return redirect('admin/login');
