@@ -31,7 +31,6 @@ class Producto extends Model
         return $lstRetorno;
     }
 
-    
     public function obtenerPorId($idproducto)
     {
         $sql = "SELECT
