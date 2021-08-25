@@ -17,11 +17,11 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::get('/nosotros', 'ControladorWebNosotros@index');
     Route::get('/takeaway', 'ControladorWebTakeaway@index');
     Route::get('/contacto', 'ControladorWebContacto@index');
+    Route::get('/mi-cuenta', 'ControladorWebMiCuenta@index');
+    Route::get('/carrito', 'ControladorWebCarrito@index');
 
 
-
-
-
+    
     Route::get('/admin', 'ControladorHome@index');
     /* --------------------------------------------- */
     /* CONTROLADOR LOGIN                           */
@@ -115,7 +115,7 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::get('/admin/producto/nuevo', 'ControladorProducto@nuevo');
     Route::post('/admin/producto/nuevo', 'ControladorProducto@guardar');
     Route::get('/admin/producto/cargarGrilla', 'ControladorProducto@cargarGrilla')->name('producto.cargarGrilla');
-    Route::get('/admin/pedido/eliminar', 'ControladorProducto@eliminar');
+    Route::get('/admin/producto/eliminar', 'ControladorProducto@eliminar');
     Route::get('/admin/producto/{id}', 'ControladorProducto@editar');
     Route::post('/admin/producto/{id}', 'ControladorProducto@guardar');
 
