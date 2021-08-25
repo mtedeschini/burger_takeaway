@@ -7,8 +7,10 @@ class ControladorWebTakeaway extends Controller
 {
 
     public function index()
-    {
-        return view('web.takeaway');
+    {   
+        $producto = new Producto();
+        $aProductos = $producto->obtenerTodos();
+        return view('web.takeaway', compact('aProductos'));
     }
 
 }
