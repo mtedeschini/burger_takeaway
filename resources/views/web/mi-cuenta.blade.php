@@ -36,7 +36,7 @@
 	              <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
 	            </div>
 	            <div class="col-md-12 mb-3">
-	              <p><select>Pedidos Activos:</select> <a href=""></a></p>
+	              <p><span>Pedidos Activos:</span> <a href=""></a></p>
 	            </div>
 						</div>
 					</div>
