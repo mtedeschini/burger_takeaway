@@ -47,10 +47,9 @@
 	                  <input type="text" class="form-control" placeholder="Email">
 	                </div>
                 </div>	
-	                <table class="table table-hover border">
-	                  <input type="text" class="form-control" placeholder="Pedidos Activos">        
-                        </table>
-      
+                <table class="table table-hover border">
+	                  <input type="table" class="table table-hover border" placeholder="Pedidos Activos">        
+                </table>                
             </form>
           </div>
         </div>
