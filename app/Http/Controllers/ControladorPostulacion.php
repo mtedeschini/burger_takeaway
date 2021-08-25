@@ -95,18 +95,38 @@ class ControladorPostulacion extends Controller{
     }
 
     public function guardar(Request $request) {
+        $idpostulacion=$request['id'];
         try {
-            //Define la entidad servicio
+            //Define la entidad 
             $titulo = "Modificar Postulacion";
             $entidad = new Postulacion();
             $entidad->cargarDesdeRequest($request);
+            $idpostulacion=$_REQUEST['id'];
 
+            if($_FILES["archivo"]["error"] === UPLOAD_ERR_OK)
+            {
+                $nombre = date("Ymdhmsi") . ".pdf"; 
+                $archivo = $_FILES["archivo"]["tmp_name"];
+                move_uploaded_file($archivo, env('APP_PATH') . "public/cv/$nombre");//guardaelarchivo
+                $entidad->cv =$nombre;
+            }   
             //validaciones
             if ($entidad->nombre == "") {
                 $msg["ESTADO"] = MSG_ERROR;
                 $msg["MSG"] = "Complete todos los datos";
             } else {
                 if ($_POST["id"] > 0) {
+                    $postulacionAnt = new postulacion();
+                    $postulacionAnt->obtenerPorId($entidad->idpostulacion);
+
+                    if(isset($_FILES["archivo"]) && $_FILES["archivo"]["name"] != ""){
+                        $archivoAnterior =$_FILES["archivo"]["name"];
+                        if($archivoAnterior !=""){
+                            @unlink (env('APP_PATH') . "public/cv/$archivoAnterior");
+                        }
+                    } else {
+                        $entidad->cv = $postulacionAnt->cv;
+                    }  
                     //Es actualizacion
                     $entidad->guardar();
 

@@ -45,7 +45,7 @@ if (isset($msg)) {
     echo '<script>msgShow("' . $msg["MSG"] . '", "' . $msg["ESTADO"] . '")</script>';
 }
 ?>
-    <form id="form1" method="POST">
+    <form id="form1" method="POST" enctype="multipart/form-data">
         <div class="row">
             <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
@@ -81,7 +81,7 @@ if (isset($msg)) {
             </div>
             <div class="form-group col-lg-6">
                 <label for="txtArchivo">Archivo adjunto:</label>
-                <input type="file" id="txtArchivo" name="txtArchivo" class="form-control-file shadow" accept=".pdf" value="{{ $postulacion->archivo_cv }}">
+                <input type="file" id="archivo" name="archivo" class="form-control-file shadow" accept=".pdf" value="{{ $postulacion->archivo_cv }}">
                 <small class="d-block">Archivo CV: .pdf</small>
             </div>
         </div>
