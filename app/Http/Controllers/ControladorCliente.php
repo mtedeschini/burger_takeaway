@@ -2,11 +2,7 @@
 
  namespace App\Http\Controllers;
 
-
-//use App\Entidades\Cliente as EntidadesCliente;
-use App\Entidades\Sistema\Menu; //include_once "app/Entidades/Sistema/Menu.php";
 use App\Entidades\Cliente;    
-use App\Entidades\Sistema\MenuArea;
 use App\Entidades\Sistema\Patente;
 use App\Entidades\Sistema\Usuario;
 use Illuminate\Http\Request;
@@ -165,11 +161,7 @@ class ControladorCliente extends Controller
                 $cliente = new Cliente();
                 $cliente->obtenerPorId($id);
 
-                $entidad = new Cliente();
-                $array_menu = $entidad->obtenerMenuPadre($id);
-
-           
-                return view('sistema.menu-nuevo', compact('cliente', 'titulo'));
+                return view('cliente.cliente-nuevo', compact('cliente', 'titulo'));
             }
         } else {
             return redirect('admin/login');

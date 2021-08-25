@@ -101,8 +101,8 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::post('/admin/cliente/nuevo', 'ControladorCliente@guardar'); 
     Route::get('/admin/cliente/cargarGrilla', 'ControladorCliente@cargarGrilla')->name('cliente.cargarGrilla'); 
     Route::get('/admin/cliente/eliminar', 'ControladorCliente@eliminar');   
-    Route::get('/admin/cliente/nuevo/{id}', 'ControladorCliente@editar');
-    Route::post('/admin/cliente/nuevo/{id}', 'ControladorCliente@guardar');  
+    Route::get('/admin/cliente/{id}', 'ControladorCliente@editar');
+    Route::post('/admin/cliente/{id}', 'ControladorCliente@guardar');  
 
     /* --------------------------------------------- */
     /* CONTROLADOR PRODUCTOS                          */
