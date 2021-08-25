@@ -68,11 +68,7 @@ class ControladorPostulacion extends Controller{
         for ($i = $inicio; $i < count($aPostulaciones) && $cont < $registros_por_pagina; $i++) {
             $row = array();
 
-<<<<<<< HEAD
-            $row[] = '<a href="/admin/postulacion/' . $aPostulaciones[$i]->idpostulacion . '">' . $aPostulaciones[$i]->idpostulacion . '</a>'; 
-=======
             $row[] = '<a href="/admin/postulacion/' . $aPostulaciones[$i]->idpostulacion . '" class="btn btn-secondary"><i class="fas fa-search"></i></a>';
->>>>>>> 1626b41ab6762d6ada91df7c003c1e65481eaf5e
 
             $row[] = $aPostulaciones[$i]->nombre;
             $row[] = $aPostulaciones[$i]->apellido;
