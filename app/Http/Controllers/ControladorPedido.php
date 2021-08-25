@@ -31,12 +31,11 @@ class ControladorPedido extends Controller
         $entidadEstadoPago = new EstadoPago();
         $entidadEstado = new Estado();
         $entidadCliente = new Cliente();
-        $entidadPedido = new Pedido();
         $aClientes = $entidadCliente->obtenerTodos();
         $aEstadoPagos = $entidadEstadoPago->obtenerTodos();
         $aEstados = $entidadEstado->obtenerTodos();
         $aSucursales = $entidadSucursal->obtenerTodos();
-        return view('pedido.pedido-nuevo', compact('entidadPedido', 'titulo', 'aSucursales', 'aClientes', 'aEstadoPagos', 'aEstados', 'entidadPedido'));
+        return view('pedido.pedido-nuevo', compact('titulo', 'aSucursales', 'aClientes', 'aEstadoPagos', 'aEstados'));
     }
     
 
@@ -166,8 +165,6 @@ class ControladorPedido extends Controller
 =======
             $pedido = new Pedido();
             $pedido->obtenerPorId($id);
-        
-
             return view('pedido.pedido-nuevo', compact('pedido', 'titulo'));
 >>>>>>> 1626b41ab6762d6ada91df7c003c1e65481eaf5e
         }   else {
