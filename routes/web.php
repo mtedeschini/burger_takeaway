@@ -17,11 +17,11 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::get('/nosotros', 'ControladorWebNosotros@index');
     Route::get('/takeaway', 'ControladorWebTakeaway@index');
     Route::get('/contacto', 'ControladorWebContacto@index');
+    Route::get('/mi-cuenta', 'ControladorWebMiCuenta@index');
+    Route::get('/carrito', 'ControladorWebCarrito@index');
 
 
-
-
-
+    
     Route::get('/admin', 'ControladorHome@index');
     /* --------------------------------------------- */
     /* CONTROLADOR LOGIN                           */
