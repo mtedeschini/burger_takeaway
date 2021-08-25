@@ -76,7 +76,7 @@ class ControladorPostulacion extends Controller{
             $row[] = $aPostulaciones[$i]->documento;
             $row[] = $aPostulaciones[$i]->correo;
             $row[] = $aPostulaciones[$i]->telefono;
-            $row[] = $aPostulaciones[$i]->archivo_cv;
+            $row[] = '<img src="/files/'. $aProductos[$i]->imagen .'" class="img-thumbnail">';
 
            
             $cont++;
