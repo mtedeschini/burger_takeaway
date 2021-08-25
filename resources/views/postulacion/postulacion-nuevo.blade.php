@@ -80,8 +80,8 @@ if (isset($msg)) {
                     value="{{ $postulacion->telefono }}" required>
             </div>
             <div class="form-group col-lg-6">
-                <label for="txtArchivo">Archivo adjunto:</label>
-                <input type="file" id="txtArchivo" name="txtArchivo" class="form-control-file shadow" accept=".pdf" value="{{ $postulacion->archivo_cv }}">
+                <label for="archivo">Archivo adjunto:</label>
+                <input type="file" id="archivo" name="archivo" class="form-control-file shadow" accept=".pdf" value="{{ $postulacion->archivo_cv }}">
                 <small class="d-block">Archivo CV: .pdf</small>
             </div>
         </div>
