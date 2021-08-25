@@ -46,7 +46,7 @@ class ControladorProducto extends Controller{
 
         for ($i = $inicio; $i < count($aProductos) && $cont < $registros_por_pagina; $i++) {
             $row = array();
-            $row[] = '<img src="/images/'. $aProductos[$i]->imagen .'" class="img-thumbnail">';
+            $row[] = '<img src="/files/'. $aProductos[$i]->imagen .'" class="img-thumbnail">';
             $row[] = '<a href="/admin/producto/' . $aProductos[$i]->idproducto . '">' . $aProductos[$i]->nombre . '</a>';
             $row[] = $aProductos[$i]->precio;
             $row[] = $aProductos[$i]->descripcion;
@@ -105,7 +105,7 @@ class ControladorProducto extends Controller{
             if ($_FILES["archivo"]["error"] === UPLOAD_ERR_OK) {//Se adjunta imagen
                 $nombre = date("Ymdhmsi") . ".jpg";
                 $archivo = $_FILES["archivo"]["tmp_name"];
-                move_uploaded_file($archivo, env('APP_PATH') . "/public/images/$nombre"); //guardaelarchivo
+                move_uploaded_file($archivo, env('APP_PATH') . "/public/files/$nombre"); //guardaelarchivo
                 $entidad->imagen = $nombre;
             }
 
@@ -120,7 +120,7 @@ class ControladorProducto extends Controller{
 
                     if ($_FILES["archivo"]["error"] === UPLOAD_ERR_OK){
                         //Eliminar imagen anterior
-                        @unlink(env('APP_PATH') . "/public/images/$productAnt->imagen");                          
+                        @unlink(env('APP_PATH') . "/public/files/$productAnt->imagen");                          
                     } else {
                         $entidad->imagen = $productAnt->imagen;
                     }
