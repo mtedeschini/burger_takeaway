@@ -95,12 +95,13 @@ class ControladorProducto extends Controller{
     }
 
     
+
     public function eliminar(Request $request)
     {
         $id = $request->input('id');
 
         if (Usuario::autenticado() == true) {
-            if (Pedido::autorizarOperacion("MENUELIMINAR")) {
+            if (Patente::autorizarOperacion("MENUELIMINAR")) {
 
           
                 $entidad = new Producto();
