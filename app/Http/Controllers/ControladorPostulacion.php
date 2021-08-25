@@ -106,7 +106,7 @@ class ControladorPostulacion extends Controller{
             {
                 $nombre = date("Ymdhmsi") . ".pdf"; 
                 $archivo = $_FILES["archivo"]["tmp_name"];
-                move_uploaded_file($archivo, env('APP_PATH') . "public/files/$nombre");//guardaelarchivo
+                move_uploaded_file($archivo, env('APP_PATH') . "/public/files/$nombre");//guardaelarchivo
                 $entidad->archivo_cv =$nombre;
             }   
             //validaciones

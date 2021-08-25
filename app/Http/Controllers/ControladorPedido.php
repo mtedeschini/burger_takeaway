@@ -152,15 +152,16 @@ class ControladorPedido extends Controller
         if (Usuario::autenticado() == true)
         {
             $pedido = new Pedido();
+            
+            $sucursal = new Sucursal();
+            $estadoPago = new EstadoPago();
+            $estado = new Estado();
+            $cliente = new Cliente();
             $pedido->obtenerPorId($id);
-            $entidadSucursal = new Sucursal();
-            $entidadEstadoPago = new EstadoPago();
-            $entidadEstado = new Estado();
-            $entidadCliente = new Cliente();
-            $aClientes = $entidadCliente->obtenerTodos();
-            $aEstadoPagos = $entidadEstadoPago->obtenerTodos();
-            $aEstados = $entidadEstado->obtenerTodos();
-            $aSucursales = $entidadSucursal->obtenerTodos();
+            $aClientes = $cliente->obtenerTodos();
+            $aEstadoPagos = $estadoPago->obtenerTodos();
+            $aEstados = $estado->obtenerTodos();
+            $aSucursales = $sucursal->obtenerTodos();
             return view('pedido.pedido-nuevo', compact('titulo','pedido','aSucursales', 'aClientes', 'aEstadoPagos', 'aEstados'));
         }   else {
             return redirect('admin/login');
