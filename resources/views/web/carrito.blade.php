@@ -9,7 +9,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-6 col-sm-6">
-                                    img
+                                    <img src="" alt="">
                                     NombreProducto
                                 </div>
                                 <div class="col-6 col-sm-6 text-center">

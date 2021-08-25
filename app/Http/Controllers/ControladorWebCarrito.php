@@ -8,7 +8,7 @@ class ControladorWebCarrito extends Controller {
 
     public function index() {
         $producto = new Producto();
-        $aProductos = $producto->obtenerPorId();
+        $aProductos = $producto->obtenerTodos();
         return view('web.carrito', compact('aProductos'));
     }
 
