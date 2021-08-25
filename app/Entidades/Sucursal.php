@@ -74,8 +74,8 @@ class Sucursal extends Model{
     public function eliminar()
     {
         $sql = "DELETE FROM sucursales WHERE
-            idpedido=?";
-        $affected = DB::delete($sql, [$this->idpedido]);
+            idsucursal=?";
+        $affected = DB::delete($sql, [$this->idsucursal]);
     }
 
     public function obtenerFiltrado()
