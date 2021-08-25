@@ -120,6 +120,9 @@ class ControladorPostulacion extends Controller{
                     $postulacionAnt->obtenerPorId($entidad->idpostulacion);
 
                     if(isset($_FILES["archivo"]) && $_FILES["archivo"]["name"] != ""){
+                        //Eliminar imagen anterior
+
+                        //Setear nueva imagen
                         $archivoAnterior =$_FILES["archivo"]["name"];
                         if($archivoAnterior !=""){
                             @unlink (env('APP_PATH') . "public/images/$archivoAnterior");
