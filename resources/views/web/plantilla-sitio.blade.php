@@ -42,6 +42,8 @@
 			       <li class="nav-item"><a href="/nosotros" class="nav-link">Nosotros</a></li>
 	          <li class="nav-item"><a href="/takeaway" class="nav-link">Takeaway</a></li>
 	          <li class="nav-item"><a href="/contacto" class="nav-link">Contacto</a></li>
+	          <li class="nav-item"><a href="/mi-cuenta" class="nav-link">Mi cuenta</a></li>
+	          <li class="nav-item"><a href="/carrito" class="nav-link">Carrito</a></li>
 	        </ul>
 	      </div>
 		  </div>

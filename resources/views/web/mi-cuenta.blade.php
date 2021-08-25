@@ -9,8 +9,8 @@
           <div class="row slider-text justify-content-center align-items-center">
 
             <div class="col-md-7 col-sm-12 text-center ftco-animate">
-            	<h1 class="mb-3 mt-5 bread">CONTACTANOS</h1>
-	            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Inicio</a></span> <span>Contacto</span></p>
+            	<h1 class="mb-3 mt-5 bread">Mi Cuenta</h1>
+	            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Mi Cuenta</span></p>
             </div>
 
           </div>
@@ -24,19 +24,19 @@
 					<div class="col-md-4 contact-info ftco-animate">
 						<div class="row">
 							<div class="col-md-12 mb-4">
-	              <h2 class="h4">Información de Contacto</h2>
+	              <h2 class="h4">nombre</h2>
 	            </div>
 	            <div class="col-md-12 mb-3">
-	              <p><span>Dirección:</span> Av. Alicia Moreau de Justo 1150, C1107 AAX, Buenos Aires</p>
+	              <p><span>apellido:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
 	            </div>
 	            <div class="col-md-12 mb-3">
-	              <p><span>Teléfono:</span> <a href="tel://1234567920">+54 9 11 34075725</a></p>
+	              <p><span>celular:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
 	            </div>
 	            <div class="col-md-12 mb-3">
-	              <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@burguers.com</a></p>
+	              <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
 	            </div>
 	            <div class="col-md-12 mb-3">
-	              <p><span>Sitio Web:</span> <a href="#">burguers.com</a></p>
+	              <p><span>Pedidos Activos:</span> <a href=""></a></p>
 	            </div>
 						</div>
 					</div>
@@ -46,12 +46,12 @@
             	<div class="row">
             		<div class="col-md-6">
 	                <div class="form-group">
-	                  <input type="text" class="form-control" placeholder="Nombre">
+	                  <input type="text" class="form-control" placeholder="Your Name">
 	                </div>
                 </div>
                 <div class="col-md-6">
 	                <div class="form-group">
-	                  <input type="text" class="form-control" placeholder="Email">
+	                  <input type="text" class="form-control" placeholder="Your Email">
 	                </div>
 	                </div>
               </div>
