@@ -84,7 +84,7 @@ class ControladorSucursal extends Controller{
     public function guardar(Request $request) {
         try {
             //Define la entidad servicio
-            $titulo = "Modificar menú";
+            $titulo = "Modificar sucursal";
             $entidad = new Sucursal();
             $entidad->cargarDesdeRequest($request);
 
