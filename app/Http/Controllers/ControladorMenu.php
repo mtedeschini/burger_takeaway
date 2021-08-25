@@ -32,8 +32,8 @@ class ControladorMenu extends Controller
     {
         $request = $_REQUEST;
 
-        $entidad = new Cliente();
-        $aCliente = $entidad->obtenerFiltrado();
+        $entidad = new Menu();
+        $aMenu = $entidad->obtenerFiltrado();
 
         $data = array();
         $cont = 0;
@@ -64,9 +64,11 @@ class ControladorMenu extends Controller
     public function nuevo()
     {
         $titulo = "Nuevo Menú";
-        $menu = new Menu();
-        $array_menu = $menu->obtenerMenuPadre();
-        return view('sistema.menu-nuevo', compact('menu', 'titulo', 'array_menu'));
+
+        $entidad = new Menu();
+        $array_menu = $entidad->obtenerMenuPadre();
+
+        return view('sistema.menu-nuevo', compact('titulo', 'array_menu'));
 
     }
 
