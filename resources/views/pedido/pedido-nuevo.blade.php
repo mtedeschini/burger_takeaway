@@ -186,7 +186,7 @@
     function eliminar() {
         $.ajax({
             type: "GET",
-            url: "{{ asset('/admin/pedido/eliminar') }}",
+            url: "{{ asset('admin/sistema/menu/eliminar') }}",
             data: {
                 id: globalId
             },
