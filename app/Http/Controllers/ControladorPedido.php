@@ -126,7 +126,7 @@ class ControladorPedido extends Controller
         $id = $request->input('id');
 
         if (Usuario::autenticado() == true) {
-            if (Pedido::autorizarOperacion("PEDIDOLIMINAR")) {
+            if (Patente::autorizarOperacion("MENUELIMINAR")) {
 
           
                 $entidad = new Pedido();
