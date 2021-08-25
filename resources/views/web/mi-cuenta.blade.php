@@ -42,16 +42,14 @@
 	                </div>
                 </div>
                 <div class="row">
-            		<div class="col-md-6">
+            		<div class="col-md-12">
 	                <div class="form-group">
 	                  <input type="text" class="form-control" placeholder="Email">
 	                </div>
-                </div>	<div class="row">
-            		<div class="col-md-6">
-	                <div class="form-group">
-	                  <input type="text" class="form-control" placeholder="Pedidos Activos">
-	                </div>
-                </div>
+                </div>	
+                <table class="table table-hover border">
+	                  <input type="table" class="table table-hover border" placeholder="Pedidos Activos">        
+                </table>                
             </form>
           </div>
         </div>
