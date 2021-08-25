@@ -101,13 +101,12 @@ class ControladorPostulacion extends Controller{
             $titulo = "Modificar Postulacion";
             $entidad = new Postulacion();
             $entidad->cargarDesdeRequest($request);
-            $idpostulacion=$_REQUEST['id'];
 
             if($_FILES["archivo"]["error"] === UPLOAD_ERR_OK)
             {
                 $nombre = date("Ymdhmsi") . ".pdf"; 
                 $archivo = $_FILES["archivo"]["tmp_name"];
-                move_uploaded_file($archivo, env('APP_PATH') . "public/images/$nombre");//guardaelarchivo
+                move_uploaded_file($archivo, env('APP_PATH') . "public/files/$nombre");//guardaelarchivo
                 $entidad->imagen =$nombre;
             }   
             //validaciones
@@ -119,17 +118,12 @@ class ControladorPostulacion extends Controller{
                     $postulacionAnt = new Postulacion();
                     $postulacionAnt->obtenerPorId($entidad->idpostulacion);
 
-                    if(isset($_FILES["archivo"]) && $_FILES["archivo"]["name"] != ""){
+                    if ($_FILES["archivo"]["error"] === UPLOAD_ERR_OK){
                         //Eliminar imagen anterior
-
-                        //Setear nueva imagen
-                        $archivoAnterior =$_FILES["archivo"]["name"];
-                        if($archivoAnterior !=""){
-                            @unlink (env('APP_PATH') . "public/images/$archivoAnterior");
-                        }
+                        @unlink(env('APP_PATH') . "/public/files/$productAnt->imagen");                          
                     } else {
-                        $entidad->imagen = $postulacionAnt->imagen;
-                    }  
+                        $entidad->imagen = $productAnt->imagen;
+                    }
                     //Es actualizacion
                     $entidad->guardar();
 
