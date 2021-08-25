@@ -43,6 +43,7 @@ if (isset($msg)) {
     }
     ?>
     <form id="form1" method="POST" enctype="multipart/form-data">
+
         <div class="row">
             <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
@@ -57,6 +58,11 @@ if (isset($msg)) {
             <div class="form-group col-lg-6">
                 <label>Descripción: *</label>
                 <textarea class="form-control" name="txtDescripcion" id="txtDescripcion" cols="30" style="height:70px !important;" maxlength="50" rows="10"></textarea>
+            </div>
+            <div class="form-group col-lg-6">
+                <label for="txtArchivo">Archivo adjunto:</label>
+                <input type="file" id="txtArchivo" name="txtArchivo" class="form-control-file" accept=".jpg, .jpeg, .png" value="">
+                <small class="d-block">Archivos admitidos: .jpg, .jpeg, .png </small>
             </div>
         </div>
 </div>

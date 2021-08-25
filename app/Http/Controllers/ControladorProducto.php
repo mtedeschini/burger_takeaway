@@ -134,5 +134,63 @@ class ControladorProducto extends Controller{
         return view('producto.producto-nuevo', compact('msg', 'producto', 'titulo')) . '?id=' . $producto->idproducto;
     }
 
+   public function guardarArchivo(Request $request) {
+
+        $idproducto=$request['id'];
+        try {
+            //Define la entidad servicio
+            $titulo = "Modificar esencia";
+            $entidad = new Producto();
+            $entidad->cargarDesdeRequest($request);
+            $idproducto=$_REQUEST['id'];
+    
+        if($_FILES["archivo"]["error"] === UPLOAD_ERR_OK)
+    {
+        $nombre = date("Ymdhmsi") . ".jpg"; 
+        $archivo = $_FILES["archivo"]["tmp_name"];
+        move_uploaded_file($archivo, env('APP_PATH') . "/Users/nelson/Desktop/Proyectos FS/broker-seguros");//guardaelarchivo
+        $entidad->imagen =$nombre;
+    }   
+    //validaciones
+    if ($entidad->nombre == "") {
+        $msg["ESTADO"] = MSG_ERROR;
+        $msg["MSG"] = "Complete todos los datos";
+    } else {
+        if ($_POST["id"] > 0) {
+            $productoAnt = new Producto();
+            $productoAnt->obtenerPorId($entidad->idproducto);
+       
+            if(isset($_FILES["archivo"]) && $_FILES["archivo"]["name"] != ""){
+                $archivoAnterior =$_FILES["archivo"]["name"];
+                if($archivoAnterior !=""){
+                    @unlink (env('APP_PATH') . "/Users/nelson/Desktop/Proyectos FS/broker-seguros");
+                }
+            } else {
+                $entidad->imagen = $productAnt->imagen;
+            }
+
+         //Es actualizacion
+         $entidad->guardar();
+
+         $msg["ESTADO"] = MSG_SUCCESS;
+         $msg["MSG"] = OKINSERT;
+     }  else {
+         //Es nuevo
+         $entidad->insertar();
+
+         $msg["ESTADO"] = MSG_SUCCESS;
+         $msg["MSG"] = OKINSERT;
+     }
+   
+     $_POST["id"] = $entidad->idproducto;
+     return view('producto.producto-listar', compact('titulo', 'msg'));
+ }
+    }      catch (Exception $e) {
+        $msg["ESTADO"] = MSG_ERROR;
+    $msg["MSG"] = ERRORINSERT;
+
+
+   }
+   }
     
 }

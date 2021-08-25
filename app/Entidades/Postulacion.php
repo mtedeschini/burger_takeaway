@@ -79,7 +79,7 @@ class Postulacion extends model
         idpostulacion=$this->idpostulacion,
         nombre='$this->nombre',
         apellido='$this->apellido',
-        localidad=$this->localidad,
+        localidad='$this->localidad',
         documento='$this->documento',
         correo='$this->correo',
         telefono='$this->telefono',

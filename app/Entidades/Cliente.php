@@ -72,7 +72,7 @@ class Cliente extends Model{
                 apellido,
                 telefono,
                 correo,
-                fk_idusuario
+                fk_idusuario 
             ) VALUES (?, ?, ?, ?, ?);";
         $result = DB::insert($sql, [
             $this->nombre,
