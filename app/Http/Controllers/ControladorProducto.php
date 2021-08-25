@@ -100,7 +100,7 @@ class ControladorProducto extends Controller{
         $id = $request->input('id');
 
         if (Usuario::autenticado() == true) {
-            if (Pedido::autorizarOperacion("PRODUCTOELIMINAR")) {
+            if (Pedido::autorizarOperacion("MENUELIMINAR")) {
 
           
                 $entidad = new Producto();
