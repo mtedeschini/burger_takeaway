@@ -134,8 +134,7 @@ class ControladorProducto extends Controller{
         return view('producto.producto-nuevo', compact('msg', 'producto', 'titulo')) . '?id=' . $producto->idproducto;
     }
 
-   public function guardarArchivo(Request $request) 
-   {
+   public function guardarArchivo(Request $request) {
 
         $idproducto=$request['id'];
         try {
@@ -186,12 +185,12 @@ class ControladorProducto extends Controller{
      $_POST["id"] = $entidad->idproducto;
      return view('producto.producto-listar', compact('titulo', 'msg'));
  }
-}      catch (Exception $e) {
+    }      catch (Exception $e) {
         $msg["ESTADO"] = MSG_ERROR;
     $msg["MSG"] = ERRORINSERT;
 
 
    }
-
+   }
     
 }
