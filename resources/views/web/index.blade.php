@@ -32,7 +32,7 @@
               <p><a href="#" class="btn btn-primary p-3 px-xl-4 py-xl-3">Order Now</a> <a href="#" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">View Menu</a></p>
             </div>
             <div class="col-md-6 ftco-animate">
-            	<img src="web/images/burger_44.png" class="img-fluid" alt="">
+            	<img src="web/images/burgers_07.jpg" class="img-fluid" alt="">
             </div>
 
           </div>
