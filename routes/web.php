@@ -19,7 +19,7 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::get('/contacto', 'ControladorWebContacto@index');
     Route::get('/mi-cuenta', 'ControladorWebMiCuenta@index');
     Route::get('/carrito', 'ControladorWebCarrito@index');
-    Route::get('/Promos', 'ControladorWebPromos@index');
+    Route::get('/Promociones', 'ControladorWebPromociones@index');
 
 
     

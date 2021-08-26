@@ -31,15 +31,15 @@
             <div class="row no-gutters d-flex">
 
 
-            @foreach ($aProductos as $producto)                            
+            @foreach ($aPromos as $promo)                            
                     <div class="col-lg-4 d-flex ftco-animate row">
                         <div class="col-5">
-                            <img class="w-100 p-3" src="files/{{$producto->imagen}}" alt="">
+                            <img class="w-100 p-3" src="files/{{$promo->imagen}}" alt="">
                         </div>
                         <div class="text p-4 m-3 col-5">
-                            <h3>{{$producto->nombre}}</h3>
-                            <p> {{$producto->descripcion}}  </p>
-                            <p style="color:orange">Precio: {{$producto->precio}} </p>
+                            <h3>{{$promo->nombre}}</h3>
+                            <p> {{$promo->descripcion}}  </p>
+                            <p style="color:orange">Precio: {{$promo->precio}} </p>
                             <div class="form-group ">
                                 <label>Cantidad:</label>
                                 <input type="number" maxlength="50" id="txtCantidad" name="txtCantidad" class="form-control" placeholder="0" required>
