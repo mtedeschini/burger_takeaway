@@ -50,6 +50,29 @@ class ControladorPostulacion extends Controller{
             return redirect('admin/login');
         }
     }
+    public function eliminar(Request $request)
+    {
+        $id = $request->input('id');
+
+        if (Usuario::autenticado() == true) {
+            if (Patente::autorizarOperacion("MENUELIMINAR")) {
+
+          
+                $entidad = new Postulacion();
+                $entidad->cargarDesdeRequest($request);
+                $entidad->eliminar();
+
+                $aResultado["err"] = EXIT_SUCCESS; //eliminado correctamente
+            } else {
+                $codigo = "ELIMINARPROFESIONAL";
+                $aResultado["err"] = "No tiene pemisos para la operaci&oacute;n.";
+            }
+            echo json_encode($aResultado);
+        } else {
+            return redirect('admin/login');
+        }
+    }
+
 
     public function cargarGrilla()
     {
@@ -76,7 +99,7 @@ class ControladorPostulacion extends Controller{
             $row[] = $aPostulaciones[$i]->documento;
             $row[] = $aPostulaciones[$i]->correo;
             $row[] = $aPostulaciones[$i]->telefono;
-            $row[] = '<img src="/files/'. $aPostulaciones[$i]->archivo_cv .'" class="img-thumbnail">';
+            $row[] = '<a href="/files/'. $aPostulaciones[$i]->archivo_cv .'" class="btn btn-secondary"><i class="far fa-file-pdf"></i></a>';
 
            
             $cont++;
@@ -103,7 +126,7 @@ class ControladorPostulacion extends Controller{
             $entidad->cargarDesdeRequest($request);
 
             if($_FILES["archivo"]["error"] === UPLOAD_ERR_OK)
-            {
+            {//Se adjunta la imagen
                 $nombre = date("Ymdhmsi") . ".pdf"; 
                 $archivo = $_FILES["archivo"]["tmp_name"];
                 move_uploaded_file($archivo, env('APP_PATH') . "/public/files/$nombre");//guardaelarchivo
