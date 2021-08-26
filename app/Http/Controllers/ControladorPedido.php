@@ -121,6 +121,7 @@ class ControladorPedido extends Controller
         return json_encode($json_data);
     }
 
+
     public function eliminar(Request $request)
     {
         $id = $request->input('id');
