@@ -10,7 +10,7 @@
 
                 <div class="col-md-7 col-sm-12 text-center ftco-animate">
                     <h1 class="mb-3 mt-5 bread">NUESTRO MENÚ</h1>
-                    <p class="breadcrumbs"><span class="mr-2"><a href="/">Inicio</a></span></p>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="/">Inicio</a></span></p> m 
                 </div>
 
             </div>
@@ -34,7 +34,7 @@
             @foreach ($aProductos as $producto)                            
                     <div class="col-lg-4 d-flex ftco-animate row">
                         <div class="col-5">
-                            <img class="w-100 p-3" src="files/{{$producto->imagen}}" alt="">
+                            <img class="img-fluid" src="files/{{$producto->imagen}}" alt="">
                         </div>
                         <div class="text p-4 m-3 col-5">
                             <h3>{{$producto->nombre}}</h3>
