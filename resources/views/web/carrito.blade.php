@@ -9,8 +9,8 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-10 col-sm-10">
-                                    <img src="" alt="">
-                                    NombreProducto
+                                    <img src="web/images/burgerCarrito.jpg" alt="Hamburguesa" width="30%" height="100%">
+                                    Hamburguesa
                                 </div>
                                 <div class="col-2 col-sm-2 text-center">
                                     <a href="#">X</a>
