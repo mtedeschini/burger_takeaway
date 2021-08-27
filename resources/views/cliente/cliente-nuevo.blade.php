@@ -67,7 +67,16 @@ if (isset($msg)) {
             </div>
             <div class="form-group col-lg-6">
                 <label>Usuario: </label>
-                <select name="" id=""></select>
+                <select id="txtUsuario" name="txtUsuario" class="form-control" required>
+                    <option value="" disabled selected>Seleccionar</option>
+                    @foreach ($aUsuarios as $usuario)
+                        @if ((isset($usuario->idusuario) && $usuario->idusuario == $cliente->fk_idusuario))
+                            <option selected value="{{$cliente->usuario}}">{{$cliente->usuario}}</option>
+                        @else
+                            <option value="{{$cliente->usuario}}">{{$cliente->usuario}}</option>
+                        @endif
+                    @endforeach
+                </select>
             </div>
         </div>
 </div>

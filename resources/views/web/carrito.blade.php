@@ -1,18 +1,18 @@
 @extends('web.plantilla-sitio')
 @section('contenido')
 <section style="background-image: url(web/images/bg_1.jpg);">
-    <div class="container">
+    <div class="container" style="width: 400px;">
         <div class="row">
             <div class="col-12 col-sm-12 mt-5 mb-5">
-                <div class="card">
+                <div class="card text-white bg-dark">
                     <div class="card-body">
                         <div class="container">
                             <div class="row">
-                                <div class="col-6 col-sm-6">
-                                    <img src="" alt="">
-                                    NombreProducto
+                                <div class="col-10 col-sm-10">
+                                    <img src="web/images/burgerCarrito.jpg" alt="Hamburguesa" width="30%" height="100%">
+                                    Hamburguesa
                                 </div>
-                                <div class="col-6 col-sm-6 text-center">
+                                <div class="col-2 col-sm-2 text-center">
                                     <a href="#">X</a>
                                 </div>
                             </div>
@@ -37,7 +37,7 @@
                                     <p>Sucursal donde retirar el pedido</p>
                                 </div>
                                 <div class="col-12 col-sm-12">
-                                    <select class="custom-select">
+                                    <select class="custom-select text-white bg-dark border-warning">
                                         <option selected>Seleccionar:</option>
                                         <option value="1">...</option>
                                         <option value="2">...</option>
@@ -48,14 +48,14 @@
                             <div class="row">
                                 <div class="col-12 col-sm-12 mt-5">
                                     <div class="form-group">
-                                        <label for="textarea">Example textarea</label>
+                                        <label for="textarea">Comentarios...</label>
                                         <textarea class="form-control" id="textarea" rows="3"></textarea>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-6 col-sm-6 text-center">
-                                    <button class="btn btn-warning">Continuar con el pedido</button>
+                                    <button class="btn btn-warning">Modificar el pedido</button>
                                 </div>
                                 <div class="col-6 col-sm-6 text-center">
                                     <button class="btn btn-warning">Finalizar el pedido</button>

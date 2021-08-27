@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Entidades\Producto;
+use App\Entidades\Sucursal;
 
 class ControladorWebCarrito extends Controller {
 
@@ -11,5 +12,6 @@ class ControladorWebCarrito extends Controller {
         $aProductos = $producto->obtenerTodos();
         return view('web.carrito', compact('aProductos'));
     }
+
 
 }
