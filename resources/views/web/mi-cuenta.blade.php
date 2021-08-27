@@ -1,9 +1,9 @@
 @extends('web.plantilla-sitio')
 @section('contenido')
 
-    <section class="home-slider owl-carousel img" style="background-image: url(web/images/bg_1.jpg);">
+<section class="home-slider owl-carousel img" style="background-image: url(web/images/micuenta2.jpg);">
 
-      <div class="slider-item" style="background-image: url(web/images/bg_3.jpg);">
+<div class="slider-item" style="background-image: url(images/bg_3.jpg);">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row slider-text justify-content-center align-items-center">
