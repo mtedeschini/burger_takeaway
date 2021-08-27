@@ -26,7 +26,7 @@ class Producto extends Model
                     precio,
                     descripcion,
                     imagen
-                FROM productos ORDER BY nombre";
+                FROM productos ORDER BY idproducto";
         $lstRetorno = DB::select($sql);
         return $lstRetorno;
     }
