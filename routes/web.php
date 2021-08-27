@@ -120,6 +120,17 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::get('/admin/producto/{id}', 'ControladorProducto@editar');
     Route::post('/admin/producto/{id}', 'ControladorProducto@guardar');
 
+    /* --------------------------------------------- */
+    /* CONTROLADOR PRODUCTOS                          */
+    /* --------------------------------------------- */
+    Route::get('/admin/promos', 'ControladorPromo@index');
+    Route::get('/admin/promo/nuevo', 'ControladorPromo@nuevo');
+    Route::post('/admin/promo/nuevo', 'ControladorPromo@guardar');
+    Route::get('/admin/promo/cargarGrilla', 'ControladorPromo@cargarGrilla')->name('promo.cargarGrilla');
+    Route::get('/admin/promo/eliminar', 'ControladorPromo@eliminar');
+    Route::get('/admin/promo/{id}', 'ControladorPromo@editar');
+    Route::post('/admin/promo/{id}', 'ControladorPromo@guardar');
+    
 
     /* --------------------------------------------- */
     /* CONTROLADOR PEDIDOS                          */
