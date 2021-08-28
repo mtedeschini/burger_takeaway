@@ -31,12 +31,12 @@ class ControladorPedido extends Controller
         $entidadEstadoPago = new EstadoPago();
         $entidadEstado = new Estado();
         $entidadCliente = new Cliente();
-        $entidadPedido = new Pedido();
+        $pedido = new Pedido();
         $aClientes = $entidadCliente->obtenerTodos();
         $aEstadoPagos = $entidadEstadoPago->obtenerTodos();
         $aEstados = $entidadEstado->obtenerTodos();
         $aSucursales = $entidadSucursal->obtenerTodos();
-        return view('pedido.pedido-nuevo', compact('entidadPedido', 'titulo', 'aSucursales', 'aClientes', 'aEstadoPagos', 'aEstados', 'entidadPedido'));
+        return view('pedido.pedido-nuevo', compact('titulo', 'aSucursales', 'aClientes', 'aEstadoPagos', 'aEstados','pedido'));
     }
     
 
@@ -80,7 +80,7 @@ class ControladorPedido extends Controller
         $pedido = new Pedido();
     
         $pedido->obtenerPorId($id);
-     
+
         return view('pedido.pedido-nuevo', compact('msg', 'pedido', 'titulo')) . '?id=' . $pedido->idpedido;
     }        
     
@@ -121,12 +121,13 @@ class ControladorPedido extends Controller
         return json_encode($json_data);
     }
 
+
     public function eliminar(Request $request)
     {
         $id = $request->input('id');
 
         if (Usuario::autenticado() == true) {
-            if (Patente::autorizarOperacion("PEDIDOLIMINAR")) {
+            if (Patente::autorizarOperacion("MENUELIMINAR")) {
 
           
                 $entidad = new Pedido();
@@ -150,18 +151,19 @@ class ControladorPedido extends Controller
     {
         $titulo = "Modificar Pedido";
         if (Usuario::autenticado() == true)
-        
         {
-            if (!Pedido::autorizarOperacion("MENUMODIFICACION")) {
-                $codigo = "MENUMODIFICACION";
-                $mensaje = "No tiene pemisos para la operaci&oacute;n.";
-                return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
-            } else {
-                $pedido = new Pedido();
-                $pedido->obtenerPorId($id);
-
-                return view('pedido.pedido-nuevo', compact('pedido', 'titulo'));
-            }
+            $pedido = new Pedido();
+            
+            $sucursal = new Sucursal();
+            $estadoPago = new EstadoPago();
+            $estado = new Estado();
+            $cliente = new Cliente();
+            $pedido->obtenerPorId($id);
+            $aClientes = $cliente->obtenerTodos();
+            $aEstadoPagos = $estadoPago->obtenerTodos();
+            $aEstados = $estado->obtenerTodos();
+            $aSucursales = $sucursal->obtenerTodos();
+            return view('pedido.pedido-nuevo', compact('titulo','pedido','aSucursales', 'aClientes', 'aEstadoPagos', 'aEstados'));
         }   else {
             return redirect('admin/login');
         }

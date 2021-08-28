@@ -25,7 +25,7 @@ class Postulacion extends model
         $this->documento = $request->input('txtDocumento');
         $this->correo = $request->input('txtCorreo');
         $this->telefono = $request->input('txtTelefono');
-        $this->archivo_cv = $request->input('txtArchivo');
+        //$this->archivo_cv = $request->input('archivo');
     }
 
     public function obtenerTodos()
@@ -79,7 +79,7 @@ class Postulacion extends model
         idpostulacion=$this->idpostulacion,
         nombre='$this->nombre',
         apellido='$this->apellido',
-        localidad=$this->localidad,
+        localidad='$this->localidad',
         documento='$this->documento',
         correo='$this->correo',
         telefono='$this->telefono',

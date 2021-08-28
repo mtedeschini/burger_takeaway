@@ -50,24 +50,33 @@ if (isset($msg)) {
 
             <div class="form-group col-lg-6">
                 <label>Nombre: </label>
-                <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="" required>
+                <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="{{$cliente->nombre}}" required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Apellido: </label>
-                <input type="text" maxlength="50" id="txtApellido" name="txtApellido" class="form-control" value="" required>
+                <input type="text" maxlength="50" id="txtApellido" name="txtApellido" class="form-control" value="{{$cliente->apellido}}" required>
             </div>
           
             <div class="form-group col-lg-6">
                 <label>Telefono: </label>
-                <input type="text" maxlength="50" id="txtTelefono" name="txtTelefono" class="form-control" value="" required>
+                <input type="text" maxlength="50" id="txtTelefono" name="txtTelefono" class="form-control" value="{{$cliente->telefono}}" required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Correo: </label>
-                <input type="text" maxlength="50" id="txtCorreo" name="txtCorreo" class="form-control" value="" required>
+                <input type="text" maxlength="50" id="txtCorreo" name="txtCorreo" class="form-control" value="{{$cliente->correo}}" required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Usuario: </label>
-                <input type="text" maxlength="50" id="txtUsuario" name="txtUsuario" class="form-control" value="" required>
+                <select id="txtUsuario" name="txtUsuario" class="form-control" required>
+                    <option value="" disabled selected>Seleccionar</option>
+                    @foreach ($aUsuarios as $usuario)
+                        @if ((isset($usuario->idusuario) && $usuario->idusuario == $cliente->fk_idusuario))
+                            <option selected value="{{$cliente->usuario}}">{{$cliente->usuario}}</option>
+                        @else
+                            <option value="{{$cliente->usuario}}">{{$cliente->usuario}}</option>
+                        @endif
+                    @endforeach
+                </select>
             </div>
         </div>
 </div>

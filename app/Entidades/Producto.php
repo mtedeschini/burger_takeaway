@@ -11,7 +11,7 @@ class Producto extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'idproducto', 'nombre', 'precio', 'descripcion'
+        'idproducto', 'nombre', 'precio', 'descripcion', 'imagen'
     ];
 
     protected $hidden = [
@@ -24,20 +24,21 @@ class Producto extends Model
                     idproducto,
                     nombre,
                     precio,
-                    descripcion
-                FROM productos ORDER BY nombre";
+                    descripcion,
+                    imagen
+                FROM productos ORDER BY idproducto";
         $lstRetorno = DB::select($sql);
         return $lstRetorno;
     }
 
-    
     public function obtenerPorId($idproducto)
     {
         $sql = "SELECT
                     idproducto,
                     nombre,
                     precio,
-                    descripcion                
+                    descripcion,
+                    imagen             
                 FROM productos WHERE idproducto = $idproducto";
         $lstRetorno = DB::select($sql);
 
@@ -46,6 +47,7 @@ class Producto extends Model
             $this->nombre = $lstRetorno[0]->nombre;
             $this->precio = $lstRetorno[0]->precio;
             $this->descripcion = $lstRetorno[0]->descripcion;
+            $this->imagen = $lstRetorno[0]->imagen;
             return $this;
         }
         return null;
@@ -55,7 +57,8 @@ class Producto extends Model
         $sql = "UPDATE productos SET
                     nombre='$this->nombre',
                     precio=$this->precio,
-                    descripcion='$this->descripcion'
+                    descripcion='$this->descripcion',
+                    imagen='$this->imagen'
                 WHERE idproducto=?";
         $affected = DB::update($sql, [$this->idproducto]);
     }
@@ -72,12 +75,14 @@ class Producto extends Model
         $sql = "INSERT INTO productos (
                     nombre,
                     precio,
-                    descripcion
-                ) VALUES (?, ?, ?);";
+                    descripcion,
+                    imagen
+                ) VALUES (?, ?, ?, ?);";
         $result = DB::insert($sql, [
             $this->nombre,
             $this->precio,
-            $this->descripcion
+            $this->descripcion,
+            $this->imagen
         ]);
         return $this->idproducto = DB::getPdo()->lastInsertId();
     }
@@ -96,7 +101,8 @@ class Producto extends Model
                     idproducto,
                     nombre,
                     precio,
-                    descripcion
+                    descripcion,
+                    imagen
                     FROM productos 
                 WHERE 1=1
                 ";

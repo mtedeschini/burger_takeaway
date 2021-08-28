@@ -13,7 +13,7 @@
 </ol>
 <ol class="toolbar">
     <li class="btn-item"><a title="Nuevo" href="/admin/producto/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
-    <li class="btn-item"><a title="Recargar" href="/admin/productos" class="fa fa-refresh" aria-hidden="true" onclick='window.location.replace();'><span>Recargar</span></a></li>
+    <li class="btn-item"><a title="Recargar" href="/admin/productos" class="fa fa-refresh" aria-hidden="true" onclick='window.location.replace("/admin/producto");'><span>Recargar</span></a></li>
 </ol>
 @endsection
 @section('contenido')
@@ -26,6 +26,7 @@ if (isset($msg)) {
 <table id="grilla" class="display">
     <thead>
         <tr>
+            <th>Foto</th>
             <th>Nombre</th>
             <th>Precio</th>
             <th>Descripcion</th>

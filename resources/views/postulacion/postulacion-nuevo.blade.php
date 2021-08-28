@@ -15,14 +15,14 @@ globalId = '<?php echo isset($postulacion->idpostulacion) && $postulacion->idpos
 <ol class="toolbar">
     <li class="btn-item"><a title="Nuevo" href="/admin/postulacion/nuevo" class="fa fa-plus-circle"
             aria-hidden="true"><span>Nuevo</span></a></li>
-    <li class="btn-item"><a title="Guardar" href="#" class="fa fa-floppy-o" aria-hidden="true"
+    <li class="btn-item"><a title="Guardar" href="#" class="fas fa-save" aria-hidden="true"
             onclick="javascript: $('#modalGuardar').modal('toggle');"><span>Guardar</span></a>
     </li>
     @if($globalId > 0)
-    <li class="btn-item"><a title="Guardar" href="#" class="fa fa-trash-o" aria-hidden="true"
+    <li class="btn-item"><a title="Guardar" href="#" class="fa fa-trash-alt" aria-hidden="true"
             onclick="javascript: $('#mdlEliminar').modal('toggle');"><span>Eliminar</span></a></li>
     @endif
-    <li class="btn-item"><a title="Salir" href="#" class="fa fa-arrow-circle-o-left" aria-hidden="true"
+    <li class="btn-item"><a title="Salir" href="#" class="fas fa-reply" aria-hidden="true"
             onclick="javascript: $('#modalSalir').modal('toggle');"><span>Salir</span></a></li>
 </ol>
 <script>
@@ -45,7 +45,7 @@ if (isset($msg)) {
     echo '<script>msgShow("' . $msg["MSG"] . '", "' . $msg["ESTADO"] . '")</script>';
 }
 ?>
-    <form id="form1" method="POST">
+    <form id="form1" method="POST" enctype="multipart/form-data">
         <div class="row">
             <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
@@ -80,8 +80,8 @@ if (isset($msg)) {
                     value="{{ $postulacion->telefono }}" required>
             </div>
             <div class="form-group col-lg-6">
-                <label for="txtArchivo">Archivo adjunto:</label>
-                <input type="file" id="txtArchivo" name="txtArchivo" class="form-control-file shadow" accept=".pdf" value="{{ $postulacion->archivo_cv }}">
+                <label for="archivo">Archivo adjunto:</label>
+                <input type="file" id="archivo" name="archivo" class="form-control-file shadow" accept=".pdf" value="">
                 <small class="d-block">Archivo CV: .pdf</small>
             </div>
         </div>
