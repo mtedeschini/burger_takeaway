@@ -12,7 +12,7 @@ class ControladorWebHome extends Controller
     {
     $sucursal = new Sucursal();
     $aSucursales = $sucursal->obtenerTodos();
-    return view('web.index', compact('aSucursales'));
+    return view('web.plantilla-sitio', compact('aSucursales'));
     }
 
 }
