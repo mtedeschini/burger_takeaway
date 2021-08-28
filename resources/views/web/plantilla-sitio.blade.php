@@ -34,7 +34,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-      <a class="navbar-brand" href="/"><span <i class="fas fa-hamburger"></i>"></span>hamburguesas<br><small>Delicous</small></a>
+      <a class="navbar-brand" href="/"><span class="icon icon-burguer mr-1"></span>hamburguesas<br><small>Delicous</small></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="oi oi-menu"></span> Menu
       </button>
@@ -70,6 +70,7 @@
             </ul>
           </div>
         </div>
+        
         <div class="col-lg-4 col-md-6 mb-5 mb-md-5">
           <div class="ftco-footer-widget mb-4">
             <h2 class="ftco-heading-2">Recent Blog</h2>
@@ -108,6 +109,7 @@
             </ul>
           </div>
         </div>
+        
         <div class="col-lg-3 col-md-6 mb-5 mb-md-5">
           <div class="ftco-footer-widget mb-4">
             <h2 class="ftco-heading-2">Have a Questions?</h2>
