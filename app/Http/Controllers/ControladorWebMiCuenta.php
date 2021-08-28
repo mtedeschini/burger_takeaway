@@ -1,13 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Entidades\Sucursal;
 
 class ControladorWebMiCuenta extends Controller
 {
 
     public function index()
     {
-        return view('web.mi-cuenta');
+        $sucursal = new Sucursal();
+        $aSucursales = $sucursal->obtenerTodos();
+
+        return view('web.mi-cuenta', compact('aSucursales'));
     }
 
 }
