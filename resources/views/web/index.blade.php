@@ -39,7 +39,7 @@
         </div>
       </div>
 
-      <div class="slider-item" style="background-image: url(web/images/bg_3.jpg);">
+      <div class="slider-item" style="background-image: url(web/images/fuego.gif);">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
