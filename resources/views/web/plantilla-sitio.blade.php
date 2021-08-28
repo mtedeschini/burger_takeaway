@@ -73,7 +73,7 @@
         
         <div class="col-lg-4 col-md-6 mb-5 mb-md-5">
           <div class="ftco-footer-widget mb-4">
-            <h2 class="ftco-heading-2">     Location</h2>
+            <h2 class="ftco-heading-2">Recent Blog</h2>
             <div class="block-21 mb-4 d-flex">
               <a class="blog-img mr-4" style="background-image: url(images/image_1.jpg);"></a>
               <div class="text">
@@ -110,13 +110,15 @@
           </div>
         </div>
 
-        @foreach ($aSucursales as $sucursal) 
+ 
         <div class="col-lg-3 col-md-6 mb-5 mb-md-5">
           <div class="ftco-footer-widget mb-4">
             <h2 class="ftco-heading-2">Have a Questions?</h2>
             <div class="block-23 mb-3">
               <ul>
+              @foreach ($aSucursales as $sucursal)
                 <li><span class="icon icon-map-marker"></span><span class="text">{{$sucursal->nombre}}</span></li>
+                @endforeach
                 <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
                 <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
               </ul>
@@ -126,7 +128,7 @@
       </div>
       <div class="row">
         <div class="col-md-12 text-center">
-        @endforeach
+        
 
         
           <p>
