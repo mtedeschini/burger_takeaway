@@ -73,7 +73,7 @@
         
         <div class="col-lg-4 col-md-6 mb-5 mb-md-5">
           <div class="ftco-footer-widget mb-4">
-            <h2 class="ftco-heading-2">Recent Blog</h2>
+            <h2 class="ftco-heading-2">     Location</h2>
             <div class="block-21 mb-4 d-flex">
               <a class="blog-img mr-4" style="background-image: url(images/image_1.jpg);"></a>
               <div class="text">
