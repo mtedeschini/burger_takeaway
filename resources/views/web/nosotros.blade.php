@@ -7,10 +7,8 @@
 		<div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
 			<div class="col-md- col-sm-12 text-center ftco-animate">
 				<h1 class="mb-3 mt-5 bread">#MoodHamburguesa</h1>
-				<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>About</span></p>
+				<p class="breadcrumbs"><span class="mr-"><a href="index.php">Inicio</a></span></p>
 			</div>
-		</div>
-		</div>
 		</div>
 	</section>
     
@@ -21,49 +19,34 @@
 		<div class="row row-eq-height">		
 			<div class = "col-sm-12 col-md-6 col-lg-6">
 				<div class="home-slider owl-carousel img">
-				<div class="slider-item">
-					<div class="overlay"></div>
-					<div class="container">
+					<div class="slider-item">
+						<div class="overlay"></div>
 						<div class="row slider-text align-items-center" data-scrollax-parent="true">
-							<div class="col-md-6 ftco-animate">
-								<img src="web/images/person_5.jpg" class="img-fluid" alt="">
-							</div>
+							<img src="web/images/person_5.jpg" class="img-fluid" alt="">
+						</div>
+					</div>
+				
+					<div class="slider-item">
+						<div class="overlay"></div>
+						<div class="row slider-text align-items-center" data-scrollax-parent="true">
+							<img src="web/images/image_7.jpg" class="img-fluid" alt="">
+						</div>
+					</div>
+				
+					<div class="slider-item">
+						<div class="overlay"></div>
+						<div class="row slider-text align-items-center" data-scrollax-parent="true">
+							<img src="web/images/image_8.jpg" class="img-fluid" alt="">
+						</div>
+					</div>
+
+					<div class="slider-item">
+						<div class="overlay"></div>
+						<div class="row slider-text align-items-center" data-scrollax-parent="true">
+							<img src="web/images/image_9.jpg" class="img-fluid" alt="">
 						</div>
 					</div>
 				</div>
-			
-				<div class="slider-item">
-					<div class="overlay"></div>
-					<div class="container">
-						<div class="row slider-text align-items-center" data-scrollax-parent="true">
-							<div class="col-md-6 ftco-animate">
-								<img src="web/images/image_7.jpg" class="img-fluid" alt="">
-							</div>
-						</div>
-					</div>
-				</div>
-			
-				<div class="slider-item">
-					<div class="overlay"></div>
-					<div class="container">
-						<div class="row slider-text align-items-center" data-scrollax-parent="true">
-							<div class="col-md-6 ftco-animate">
-								<img src="web/images/image_8.jpg" class="img-fluid" alt="">
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="slider-item">
-					<div class="overlay"></div>
-					<div class="container">
-						<div class="row slider-text align-items-center" data-scrollax-parent="true">
-							<div class="col-md-6 ftco-animate">
-								<img src="web/images/image_9.jpg" class="img-fluid" alt="">
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
 			</div>
 			<div class = "col-sm-12 col-md-6 col-lg-6">
 					<div class="one-half ftco-animate">
