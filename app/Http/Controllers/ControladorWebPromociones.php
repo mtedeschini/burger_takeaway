@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Entidades\Sucursal;
 use App\Entidades\Promo;
 class ControladorWebPromociones extends Controller
 {
@@ -10,7 +10,11 @@ class ControladorWebPromociones extends Controller
     {   
         $promo = new Promo();
         $aPromos = $promo->obtenerTodos();
-        return view('web.promociones', compact('aPromos'));
+
+        $sucursal = new Sucursal();
+        $aSucursales = $sucursal->obtenerTodos();
+
+        return view('web.promociones', compact('aPromos', 'aSucursales'));
     }
 
 }
