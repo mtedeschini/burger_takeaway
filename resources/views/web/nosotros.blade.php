@@ -129,7 +129,7 @@
       					<h3><a href="teacher-single.html">Martina Perez</a></h3>
       					<span class="position">CHEF</span>
       					<div class="text">
-	        				<p>Cocinero</p>
+	        				<p>Nacida en la capital madrileña, se graduó en la Escuela Superior de Hostelería y Turismo de Madrid, con el título de Técnico en Cocina y Gastronomía.</p>
 	        			</div>
       				</div>
         		</div>
