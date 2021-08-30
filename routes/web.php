@@ -25,6 +25,20 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::post('/admin/patente/nuevo', 'ControladorPatente@guardar');
 
 /* --------------------------------------------- */
+/* CONTROLADOR LOGIN                           */
+/* --------------------------------------------- */
+    Route::get('/admin/login', 'ControladorLogin@index');
+    Route::get('/admin/logout', 'ControladorLogin@logout');
+    Route::post('/admin/logout', 'ControladorLogin@entrar');
+    Route::post('/admin/login', 'ControladorLogin@entrar');
+
+/* --------------------------------------------- */
+/* CONTROLADOR RECUPERO CLAVE                    */
+/* --------------------------------------------- */
+    Route::get('/admin/recupero-clave', 'ControladorRecuperoClave@index');
+    Route::post('/admin/recupero-clave', 'ControladorRecuperoClave@recuperar');
+
+/* --------------------------------------------- */
 /* CONTROLADOR PERMISO                           */
 /* --------------------------------------------- */
     Route::get('/admin/usuarios/cargarGrillaFamiliaDisponibles', 'ControladorPermiso@cargarGrillaFamiliaDisponibles')->name('usuarios.cargarGrillaFamiliaDisponibles');
