@@ -167,7 +167,11 @@ class ControladorCliente extends Controller
                 $cliente = new Cliente();
                 $cliente->obtenerPorId($id);
 
-                return view('cliente.cliente-nuevo', compact('cliente', 'titulo'));
+                $entidadUsuario = new Usuario();
+                $aUsuarios = $entidadUsuario->obtenerTodos();
+
+
+                return view('cliente.cliente-nuevo', compact('cliente', 'aUsuarios', 'titulo'));
             }
         } else {
             return redirect('admin/login');
