@@ -46,6 +46,18 @@
                                 </div>
                             </div>
                             <div class="row">
+                                <div class="col-12 col-sm-12">
+                                    <p>Abona por:</p>
+                                </div>
+                                <div class="col-12 col-sm-12">
+                                    <select class="custom-select text-white bg-dark border-warning">
+                                        <option selected>Seleccionar:</option>
+                                        <option value="1">Sucursal</option>
+                                        <option value="2">Mercado Pago</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-12 col-sm-12 mt-5">
                                     <div class="form-group">
                                         <label for="textarea">Comentarios...</label>
