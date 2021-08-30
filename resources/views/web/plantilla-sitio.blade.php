@@ -59,10 +59,10 @@
     <div class="overlay"></div>
     <div class="container">
       <div class="row mb-5">
-        
 
 
-      @foreach ($aSucursales as $sucursal)
+
+        @foreach ($aSucursales as $sucursal)
         <div class="col-lg-3 col-md-6 mb-5 mb-md-5">
           <div class="ftco-footer-widget mb-4">
             <h2 class="ftco-heading-2">{{$sucursal->nombre}}</h2>
@@ -70,7 +70,7 @@
               <ul>
 
                 <li><span class="icon icon-map-marker"></span><span class="text">{{$sucursal->nombre}}</span></li>
-                
+
                 <li><a href="#"><span class="icon icon-phone"></span><span class="text">{{$sucursal->telefono}}</span></a></li>
                 <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
               </ul>
@@ -78,12 +78,11 @@
           </div>
         </div>
       </div>
-      <div class="row">
-      @endforeach
-        <div class="col-md-12 text-center">
-        
 
-        
+        @endforeach
+
+        <div class="row">
+        <div class="col-md-12 text-center">
           <p>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             Copyright &copy;<script>
