@@ -59,7 +59,6 @@
     <div class="overlay"></div>
     <div class="container">
       <div class="row mb-5">
-        
 
 <div class="row">
       @foreach ($aSucursales as $sucursal)
@@ -80,7 +79,9 @@
         <div class="col-md-12 text-center">
         
 
-        
+
+        <div class="row">
+        <div class="col-md-12 text-center">
           <p>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             Copyright &copy;<script>
