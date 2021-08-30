@@ -65,8 +65,8 @@ class ControladorCliente extends Controller
             $row[] = $aClientes[$i]->nombre . " " .$aClientes[$i]->apellido;
             $row[] = $aClientes[$i]->telefono;
             $row[] = $aClientes[$i]->correo;
-            $row[] = $aClientes[$i]->usuario; 
-
+            $row[] = $aClientes[$i]->usuario;  
+ 
            
 
 
@@ -94,8 +94,11 @@ class ControladorCliente extends Controller
     try { 
         //Define la entidad servicio
         $titulo = "Modificar cliente";
+
         $entidad = new Cliente();
         $entidad->cargarDesdeRequest($request); 
+
+
 
         //validaciones
         if ($entidad->nombre == "") {
@@ -151,10 +154,12 @@ class ControladorCliente extends Controller
             }
             echo json_encode($aResultado);
         } else {
-            return redirect('admin/clientes'); 
+            return redirect('admin/clientes');   
         }
     }
 
+
+    // va por id a la pantalle admin/cliente/nuevo
     public function editar($id)
     {
         $titulo = "Modificar Cliente";
