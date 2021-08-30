@@ -1,6 +1,12 @@
 @extends('web.plantilla-sitio')
 @section('contenido')
 
+<?php
+if($_POST){
+print_r($_POST);
+}
+    ?>
+
 <section class="home-slider owl-carousel img" style="background-image: url(web/images/grill.jpg);">
 
     <div class="slider-item" style="background-image: url(images/bg_3.jpg);">
@@ -36,7 +42,6 @@
                 <div class="row tarjeta d-flex justify-content-center">
                     <div class="col-12 p-0" style="overflow:hidden; height: 300px">
                         <img class="mx-auto d-block" src="files/{{$producto->imagen}}" style="height:340px;" alt="">
-                        <!-- img-fluid para que se adapte la foto al tamaño del contenedor -->
                     </div>
                     <div class="descripcion-items" style="background-color:rgb(18, 18, 18, .5);">
                         <div class="col-12 color-gradiente pt-3 text-center">
@@ -53,10 +58,12 @@
                                 <p>Cantidad:</p>
                             </div>
                             <div class="col-3 pt-1 pb-2">
-                                <input type="number" min="0" maxlength="10" id="txtCantidad" name="txtCantidad" class="form-control" placeholder="0" required>
+                                <input type="number" min="0" max="10" id="txtCantidad_{{$producto->idproducto}}" name="txtCantidad_{{$producto->idproducto}}" class="form-control" placeholder="0" required>
                             </div>
                             <div class="col-4 pt-3 pb-2">
-                                <button  utton class="btn btn-primary p-3 px-xl-4 py-xl-3"><i class="icon-shopping-cart"></i> Agregar</button>
+                                <form action="" method="POST">
+                                    <button class="btn btn-primary p-3 px-xl-4 py-xl-3" type="submit"><i class="icon-shopping-cart"></i> Agregar</button>
+                                </form>
                             </div>
                         </div>
                     </div>
