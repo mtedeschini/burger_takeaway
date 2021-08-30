@@ -1,30 +1,29 @@
 @extends('plantilla')
 @section('titulo', "$titulo")
 @section('scripts')
-
 <script>
-    globalId = '<?php echo isset($cliente->idcliente) && $cliente->idcliente > 0 ? $cliente->idcliente : 0; ?>';
-    <?php $globalId = isset($cliente->idcliente) ? $cliente->idcliente : "0"; ?>
+    globalId = '<?php echo isset($producto->idproducto) && $producto->idproducto > 0 ? $producto->idproducto : 0; ?>';
+    <?php $globalId = isset($producto->idproducto) ? $producto->idproducto : "0"; ?>
 </script>
 @endsection
 @section('breadcrumb')
 <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#">Inicio</a></li> <!--a donde lleva -->
-    <li class="breadcrumb-item"><a href="/admin/clientes">Clientes</a></li>
+    <li class="breadcrumb-item"><a href="/admin">Inicio</a></li>
+    <li class="breadcrumb-item"><a href="/admin/productos">Productos</a></li>
     <li class="breadcrumb-item active">Modificar</li>
 </ol>
 <ol class="toolbar">
-    <li class="btn-item"><a title="Nuevo" href="/admin/cliente/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
-    <li class="btn-item"><a title="Guardar" href="#" class="fas fa-save" aria-hidden="true" onclick="javascript: $('#modalGuardar').modal('toggle');"><span>Guardar</span></a> 
-    </li> <!--si esta seleccionado el id y es mayor a 0 sale esta opcion "eliminar"-->
-    @if ($globalId > 0) 
-    <li class="btn-item"><a title="Eliminar" href="#" class="fas fa-trash-alt" aria-hidden="true" onclick="javascript: $('#mdlEliminar').modal('toggle');"><span>Eliminar</span></a>   
+    <li class="btn-item"><a title="Nuevo" href="/admin/producto/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
+    <li class="btn-item"><a title="Guardar" href="#" class="fas fa-save" aria-hidden="true" onclick="javascript: $('#modalGuardar').modal('toggle');"><span>Guardar</span></a>
+    </li>
+    @if ($globalId > 0)
+    <li class="btn-item"><a title="Eliminar" href="#" class="fas fa-trash-alt" aria-hidden="true" onclick="javascript: $('#mdlEliminar').modal('toggle');"><span>Eliminar</span></a>
     </li>
     @endif
     <li class="btn-item"><a title="Salir" href="#" class="fas fa-reply" aria-hidden="true" onclick="javascript: $('#modalSalir').modal('toggle');"><span>Salir</span></a></li>
 </ol>
 <script>
-    function fsalir() { 
+    function fsalir() {
         location.href = "/admin";
     }
 </script>
@@ -43,40 +42,27 @@ if (isset($msg)) {
         echo '<script>msgShow("' . $msg["MSG"] . '", "' . $msg["ESTADO"] . '")</script>';
     }
     ?>
-    <form id="form1" method="POST">
+    <form id="form1" method="POST" enctype="multipart/form-data">
+
         <div class="row">
             <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
-
             <div class="form-group col-lg-6">
-                <label>Nombre: </label>
-                <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="{{$cliente->nombre}}" required>
+                <label>Nombre: *</label>
+                <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="{{ $producto->nombre}}" required>
             </div>
             <div class="form-group col-lg-6">
-                <label>Apellido: </label>
-                <input type="text" maxlength="50" id="txtApellido" name="txtApellido" class="form-control" value="{{$cliente->apellido}}" required>
-            </div>
-          
-            <div class="form-group col-lg-6">
-                <label>Telefono: </label>
-                <input type="text" maxlength="50" id="txtTelefono" name="txtTelefono" class="form-control" value="{{$cliente->telefono}}" required>
+                <label>Precio: *</label>
+                <input type="number" maxlength="50" id="txtPrecio" name="txtPrecio" class="form-control" value="{{ $producto->precio}}" required>
             </div>
             <div class="form-group col-lg-6">
-                <label>Correo: </label>
-                <input type="text" maxlength="50" id="txtCorreo" name="txtCorreo" class="form-control" value="{{$cliente->correo}}" required>
+                <label>Descripción: *</label>
+                <textarea class="form-control" name="txtDescripcion" id="txtDescripcion" cols="30" style="height:70px !important;" maxlength="50" rows="10">{{ $producto->descripcion}}</textarea>
             </div>
             <div class="form-group col-lg-6">
-                <label>Usuario: </label>
-                <select id="lstUsuario" name="lstUsuario" class="form-control" required>
-                    <option value="" disabled selected>Seleccionar</option> 
-                    @foreach ($aUsuarios as $usuario)
-                        @if ((isset($usuario->idusuario) && $usuario->idusuario == $cliente->fk_idusuario))
-                            <option selected value="{{$usuario->idusuario}}">{{$usuario->usuario}}</option>
-                        @else
-                            <option value="{{$usuario->usuario}}">{{$usuario->usuario}}</option>
-                        @endif
-                    @endforeach
-                </select>
+                <label for="archivo">Archivo adjunto:</label>
+                <input type="file" id="archivo" name="archivo" class="form-control-file" accept=".jpg, .jpeg, .png" value="">
+                <small class="d-block">Archivos admitidos: .jpg, .jpeg, .png </small>
             </div>
         </div>
 </div>
@@ -86,12 +72,12 @@ if (isset($msg)) {
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Eliminar registro?</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Eliminar producto?</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body">¿Deseas eliminar el registro actual?</div>
+            <div class="modal-body">¿Deseas eliminar el producto actual?</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
                 <button type="button" class="btn btn-primary" onclick="eliminar();">Sí</button>
@@ -116,7 +102,7 @@ if (isset($msg)) {
     function eliminar() {
         $.ajax({
             type: "GET",
-            url: "{{ asset('/admin/cliente/eliminar') }}", 
+            url: "{{ asset('/admin/producto/eliminar') }}",
             data: {
                 id: globalId
             },
@@ -124,7 +110,7 @@ if (isset($msg)) {
             dataType: "json",
             success: function(data) {
                 if (data.err = "0") {
-                    msgShow("Registro eliminado exitosamente.", "success");
+                    msgShow("Producto eliminado exitosamente.", "success");
                     $("#btnEnviar").hide();
                     $("#btnEliminar").hide();
                     $('#mdlEliminar').modal('toggle');
@@ -134,6 +120,6 @@ if (isset($msg)) {
                 }
             }
         });
-    } 
+    }
 </script>
 @endsection

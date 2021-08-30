@@ -10,7 +10,11 @@ class ControladorWebCarrito extends Controller {
     public function index() {
         $producto = new Producto();
         $aProductos = $producto->obtenerTodos();
-        return view('web.carrito', compact('aProductos'));
+
+        $sucursal = new Sucursal();
+        $aSucursales = $sucursal->obtenerTodos();
+
+        return view('web.carrito', compact('aProductos', 'aSucursales'));
     }
 
 

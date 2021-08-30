@@ -4,7 +4,7 @@
 
 use App\Entidades\Cliente;    
 use App\Entidades\Sistema\Patente;
-use App\Entidades\Sistema\Usuario;
+use App\Entidades\Sistema\Usuario; // 
 use Illuminate\Http\Request;
 
 
@@ -32,7 +32,10 @@ class ControladorCliente extends Controller
         $titulo = "Nuevo cliente";
         $cliente = new Cliente();
 
-        return view('cliente.cliente-nuevo', compact('cliente', 'titulo') );
+        $entidadUsuario = new Usuario();
+        $aUsuarios = $entidadUsuario->obtenerTodos(); 
+
+        return view('cliente.cliente-nuevo', compact('cliente', 'titulo' , 'aUsuarios') ); 
     }
 
   
@@ -43,6 +46,9 @@ class ControladorCliente extends Controller
 
         $entidad = new Cliente();
         $aClientes = $entidad->obtenerFiltrado(); 
+
+        /*$entidad = new Usuario();
+        $aUsuarios = $entidad->obtenerFiltrado(); */
 
         $data = array();
         $cont = 0;
@@ -55,11 +61,11 @@ class ControladorCliente extends Controller
             $row = array();
 
 
-             $row[] = '<a href="/admin/cliente/' . $aClientes[$i]->idcliente . '" class="btn btn-secondary"><i class="fas fa-search"></i></a>'; 
-             $row[] = $aClientes[$i]->nombre . " " .$aClientes[$i]->apellido;
+            $row[] = '<a href="/admin/cliente/' . $aClientes[$i]->idcliente . '" class="btn btn-secondary"><i class="fas fa-search"></i></a>'; 
+            $row[] = $aClientes[$i]->nombre . " " .$aClientes[$i]->apellido;
             $row[] = $aClientes[$i]->telefono;
             $row[] = $aClientes[$i]->correo;
-            $row[] = $aClientes[$i]->usuario;
+            $row[] = $aClientes[$i]->usuario; 
 
            
 
@@ -119,10 +125,10 @@ class ControladorCliente extends Controller
     }
 
     $id = $entidad->idcliente;
-        $cliente= new Producto();
+        $cliente= new Cliente(); 
         $cliente->obtenerPorId($id);
 
-        return view('producto.producto-nuevo', compact('msg', 'producto', 'titulo')) . '?id=' . $cliente->idproducto; 
+        return view('cliente.cliente-nuevo', compact('msg', 'cliente', 'titulo')) . '?id=' . $cliente->idcliente; 
 }
 
 
