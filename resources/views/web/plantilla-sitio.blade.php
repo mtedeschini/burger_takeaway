@@ -34,7 +34,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-      <a class="navbar-brand" href="/"><span class="fas fa-hamburger mr-1"></span>hamburguesas<br><small>Delicous</small></a>
+      <a class="navbar-brand" href="/"><span class="fas fa-hamburger mr-1"></span>hamburguesas<br><small>Delicious</small></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="oi oi-menu"></span> Menu
       </button>
@@ -45,6 +45,7 @@
           <li class="nav-item"><a href="/takeaway" class="nav-link">Takeaway</a></li>
           <li class="nav-item"><a href="/promociones" class="nav-link">Promociones</a></li>
           <li class="nav-item"><a href="/contacto" class="nav-link">Contacto</a></li>
+          <li class="nav-item"><a href="#scrsls" class="nav-link">Sucursales</a></li>
           <li class="nav-item"><a href="/mi-cuenta" class="nav-link">Mi cuenta</a></li>
           <li class="nav-item"><a href="/carrito" class="nav-link">Carrito</a></li>
         </ul>
@@ -59,7 +60,7 @@
     <div class="overlay"></div>
     <div class="container">
 
-<div class="row">
+<div class="row" id='scrsls'>
       @foreach ($aSucursales as $sucursal)
         <div class="col-lg-3 col-md-6 mb-5 mb-md-5">
           <div class="ftco-footer-widget mb-4">
