@@ -24,8 +24,6 @@ class ControladorWebTakeaway extends Controller
 
     public function guardar(Request $request)
     {
-        print_r($_REQUEST);
-        exit;
         $cantidad = $request->input('txtCantidad');
         $idProducto = $request->input('txtProducto');
 
