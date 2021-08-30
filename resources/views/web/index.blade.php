@@ -29,7 +29,7 @@
             	<span class="subheading">Bacombo </span>
               <h1 class="mb-4">Burgers</h1>
               <p class="mb-4 mb-md-5">Disfruta de 2 hamburguesas Bacon doble por $850.</p>
-              <p><a href="#" <a href="/takeaway" class="nav-link btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">View Menu</a></p>
+              <p><a href="#" <a href="/takeaway" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">View Menu</a></p>
             </div>
             <div class="col-md-6 ftco-animate">
             	<img src="web/images/burgers777.png" class="img-fluid" alt="">
@@ -48,7 +48,7 @@
             	<span class="subheading">Delicious</span>
               <h1 class="mb-4">Compra felicidad en forma de hamburguesa</h1>
               <p class="mb-4 mb-md-5"> Donde la comida habla con el paladar. Una sabrosa hamburguesa es lo que te mereces.</p>
-              <p><a href="/takeaway" class="nav-link btn btn-primary p-3 px-xl-4 py-xl-3 ">Order Now</a> </p>
+              <p><a href="/takeaway" class="btn btn-primary p-3 px-xl-4 py-xl-3 ">Order Now</a> </p>
             </div>
 
           </div>
