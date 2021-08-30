@@ -12,7 +12,7 @@ use MercadoPago\Payer;
 use MercadoPago\Payment;
 use MercadoPago\Preference;
 use MercadoPago\SDK;
-
+use Session;
 
 class ControladorWebCarrito extends Controller
 {
@@ -20,7 +20,7 @@ class ControladorWebCarrito extends Controller
     public function index()
     {
         $carrito = new Carrito();
-        $aCarritos = $carrito->obtenerPorUsuario();
+        $aCarritos = $carrito->obtenerPorUsuario(Session::get('cliente_id'));
 
         $sucursal = new Sucursal();
         $aSucursales = $sucursal->obtenerTodos();

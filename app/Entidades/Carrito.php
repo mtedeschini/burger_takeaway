@@ -40,14 +40,15 @@ class Carrito extends Model
         return $this->idcarrito = DB::getPdo()->lastInsertId();
     }
 
-    public function obtenerPorUsuario() 
+    public function obtenerPorUsuario($idCliente) 
     {
         $sql ="SELECT
             idcarrito,
             fk_idproducto,
             fk_idcliente
             FROM carritos
-            ORDER BY idcarrito"
+            ORDER BY idcarrito
+            WHERE fk_idcliente = $idCliente";
         ;
 
         $lstRetorno = DB::select($sql);
