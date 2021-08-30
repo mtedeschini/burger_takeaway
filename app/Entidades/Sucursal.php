@@ -64,7 +64,7 @@ class Sucursal extends Model{
                 nombre,
                 telefono
                 ) VALUES (?, ?);";
-        $result = DB::insert($sql,[$this->direccion, $this->nombre]);
+        $result = DB::insert($sql,[$this->direccion, $this->nombre, $this->telefono]);
         return $this->idsucursal = DB::getPdo()->lastInsertId();
     }
 
