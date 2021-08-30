@@ -58,16 +58,15 @@
   <footer class="ftco-footer ftco-section img">
     <div class="overlay"></div>
     <div class="container">
-      <div class="row mb-5">
 
 <div class="row">
       @foreach ($aSucursales as $sucursal)
-        <div class="col-lg-4 col-md-6 mb-5 mb-md-5">
+        <div class="col-lg-3 col-md-6 mb-5 mb-md-5">
           <div class="ftco-footer-widget mb-4">
             <h2 class="ftco-heading-2">{{$sucursal->nombre}}</h2>
             <div class="block-23 mb-3">
               <ul>
-                <li><span class="icon icon-map-marker"></span><span class="text"> {{$sucursal->nombre}}</span></li>        
+                <li><span class="icon icon-map-marker"></span><span class="text"> {{$sucursal->direccion}}</span></li>        
                 <li><a href="#"><span class="icon icon-phone"></span><span class="text"> {{$sucursal->telefono}}</span></a></li>
               </ul>
             </div>
