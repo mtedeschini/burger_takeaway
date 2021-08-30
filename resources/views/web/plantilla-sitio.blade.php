@@ -66,7 +66,7 @@
         <div class="col-lg-3 col-md-6 mb-5 mb-md-5">
           <div class="ftco-footer-widget mb-4">
             <h2 class="ftco-heading-2">{{$sucursal->nombre}}</h2>
-            <div class="block-18 mb-3">
+            <div class="block-23 mb-3">
               <ul>
 
                 <li><span class="icon icon-map-marker"></span><span class="text">{{$sucursal->nombre}}</span></li>
@@ -79,9 +79,9 @@
         </div>
       </div>
 
-      @endforeach
+        @endforeach
 
-      <div class="row">
+        <div class="row">
         <div class="col-md-12 text-center">
           <p>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
