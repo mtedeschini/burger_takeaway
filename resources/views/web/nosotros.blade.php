@@ -1,128 +1,135 @@
 @extends('web.plantilla-sitio')
 @section('contenido')
-    <section class="home-slider owl-carousel img" style="background-image: url(web/images/bg_1.jpg);">
 
-      <div class="slider-item" style="background-image: url(web/images/bg_3.jpg);">
-      	<div class="overlay"></div>
-        <div class="container">
-          <div class="row slider-text justify-content-center align-items-center">
 
-            <div class="col-md-7 col-sm-12 text-center ftco-animate">
-            	<h1 class="mb-3 mt-5 bread">About</h1>
-	            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>About</span></p>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </section>
+	<section class="home-slider owl-carousel img" style="background-image: url(web/images/bg_1.jpg);">
+		<div class="slider-item" style="background-image: url(web/images/bg_3.jpg);">
+		<div class="overlay"></div>
+		<div class="container">
+		<div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+			<div class="col-md- col-sm-12 text-center ftco-animate">
+				<h1 class="mb-3 mt-5 bread">#MoodHamburguesa</h1>
+				<p class="breadcrumbs"><span class="mr-"><a href="/">Inicio</a></span></p>
+			</div>
+		</div>
+	</section>
     
 
-    <section class="ftco-intro">
-    	<div class="container-wrap">
-    		<div class="wrap d-md-flex">
-	    		<div class="info">
-	    			<div class="row no-gutters">
-	    				<div class="col-md-4 d-flex ftco-animate">
-	    					<div class="icon"><span class="icon-phone"></span></div>
-	    					<div class="text">
-	    						<h3>000 (123) 456 7890</h3>
-	    						<p>A small river named Duden flows</p>
-	    					</div>
-	    				</div>
-	    				<div class="col-md-4 d-flex ftco-animate">
-	    					<div class="icon"><span class="icon-my_location"></span></div>
-	    					<div class="text">
-	    						<h3>198 West 21th Street</h3>
-	    						<p>Suite 721 New York NY 10016</p>
-	    					</div>
-	    				</div>
-	    				<div class="col-md-4 d-flex ftco-animate">
-	    					<div class="icon"><span class="icon-clock-o"></span></div>
-	    					<div class="text">
-	    						<h3>Open Monday-Friday</h3>
-	    						<p>8:00am - 9:00pm</p>
-	    					</div>
-	    				</div>
-	    			</div>
-	    		</div>
-	    		<div class="social d-md-flex pl-md-5 p-4 align-items-center">
-	    			<ul class="social-icon">
-              <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-              <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-              <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-            </ul>
-	    		</div>
-    		</div>
-    	</div>
-    </section>
 
-    <section class="ftco-about d-md-flex">
-    	<div class="one-half img" style="background-image: url(web/images/about.jpg);"></div>
-    	<div class="one-half ftco-animate">
-        <div class="heading-section ftco-animate ">
-          <h2 class="mb-4">Welcome to <span class="flaticon-pizza">Pizza</span> A Restaurant</h2>
-        </div>
-        <div>
-  				<p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
-  			</div>
-    	</div>
-    </section>
+	<section class="ftco-about d-md-flex">
+	<div class="container-fluid">
+		<div class="col-xs-12">
+		<div class="row row-eq-height">		
+			<div class = "col-sm-12 col-md-6 col-lg-6">
+				<div class="home-slider owl-carousel img">
+					<div class="slider-item">
+						<div class="overlay"></div>
+						<div class="row slider-text align-items-center" data-scrollax-parent="true">
+							<img src="web/images/person_5.jpg" class="img-fluid" alt="">
+						</div>
+					</div>
+				
+					<div class="slider-item">
+						<div class="overlay"></div>
+						<div class="row slider-text align-items-center" data-scrollax-parent="true">
+							<img src="web/images/image_7.jpg" class="img-fluid" alt="">
+						</div>
+					</div>
+				
+					<div class="slider-item">
+						<div class="overlay"></div>
+						<div class="row slider-text align-items-center" data-scrollax-parent="true">
+							<img src="web/images/image_8.jpg" class="img-fluid" alt="">
+						</div>
+					</div>
+
+					<div class="slider-item">
+						<div class="overlay"></div>
+						<div class="row slider-text align-items-center" data-scrollax-parent="true">
+							<img src="web/images/image_9.jpg" class="img-fluid" alt="">
+						</div>
+					</div>	
+
+				</div>
+			</div>
+			<div class = "col-sm-12 col-md-6 col-lg-6">
+					<div class="one-half ftco-animate">
+						<div class="heading-section ftco-animate ">
+							<h2 class="mb-4">Hamburguesa<span class="flaticon-pizza">Deliciosas</span>Ricas ricas</h2>
+						</div>
+						<div>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quo, vitae dolore, placeat aspernatur cumque error porro nisi expedita dolorem quisquam! Illum ab quod eveniet odit ex eaque itaque dolorem.
+							   <br>
+							   <br>
+							   Si quiere formar parte de nuestro proyecto y de nuestro equipo de profesionales, por favor rellene este formulario para ponerse en contacto con nosotros y envíenos su currículum para que podamos incorporar su candidatura en futuros procesos de selección. 
+							</p>
+							<a type="button" class="btn btn-outline-light" href="#formulario">Rellene el formulario</a>
+							<br>
+							<br>
+							<p>¡Gracias!</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	</section>
 
     <section class="ftco-section">
       <div class="container">
       	<div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section ftco-animate text-center">
-            <h2 class="mb-4">Our Chef</h2>
+            <h2 class="mb-4">Nuestro Equipo</h2>
             <p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p>
-            <p class="mt-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+            <p class="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident aut animi enim possimus officiis quae, laborum rerum iure neque! Officia quibusdam magnam deleniti beatae sapiente quaerat ipsam ullam dolore facere!</p>
           </div>
         </div>
         <div class="row">
         	<div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
         		<div class="staff">
-      				<div class="img mb-4" style="background-image: url(web/images/person_1.jpg);"></div>
+      				<div class="img mb-4" style="background-image: url(web/images/person_7.jpg);"></div>
       				<div class="info text-center">
-      					<h3><a href="teacher-single.html">Tom Smith</a></h3>
-      					<span class="position">Hair Specialist</span>
+      					<h3><a href="teacher-single.html">Oscar Alegre</a></h3>
+      					<span class="position">JEFE AYB</span>
       					<div class="text">
-	        				<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+	        				<p>Apasionado por el servicio. Toda su experiencia puesta al servicio de las hamburguesas.</p>
 	        			</div>
       				</div>
         		</div>
         	</div>
         	<div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
         		<div class="staff">
-      				<div class="img mb-4" style="background-image: url(web/images/person_2.jpg);"></div>
+      				<div class="img mb-4" style="background-image: url(web/images/person_8.jpg);"></div>
       				<div class="info text-center">
-      					<h3><a href="teacher-single.html">Mark Wilson</a></h3>
-      					<span class="position">Beard Specialist</span>
+      					<h3><a href="teacher-single.html">Susana Oria</a></h3>
+      					<span class="position">CHEF</span>
       					<div class="text">
-	        				<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+	        				<p>Chef Cordobesa especialista en carnes.</p>
 	        			</div>
       				</div>
         		</div>
         	</div>
         	<div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
         		<div class="staff">
-      				<div class="img mb-4" style="background-image: url(web/images/person_3.jpg);"></div>
+      				<div class="img mb-4" style="background-image: url(web/images/person_9.jpg);"></div>
       				<div class="info text-center">
       					<h3><a href="teacher-single.html">Patrick Jacobson</a></h3>
-      					<span class="position">Hair Stylist</span>
+      					<span class="position">CHEF</span>
       					<div class="text">
-	        				<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+	        				<p>Cocinero y Sommelier de profesión, lleva más de 10 años trabajando en hoteles y restaurantes.</p>
 	        			</div>
       				</div>
         		</div>
         	</div>
         	<div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
         		<div class="staff">
-      				<div class="img mb-4" style="background-image: url(web/images/person_4.jpg);"></div>
+      				<div class="img mb-4" style="background-image: url(web/images/person_10.jpg);"></div>
       				<div class="info text-center">
-      					<h3><a href="teacher-single.html">Ivan Dorchsner</a></h3>
-      					<span class="position">Beard Specialist</span>
+      					<h3><a href="teacher-single.html">Martina Perez</a></h3>
+      					<span class="position">CHEF</span>
       					<div class="text">
-	        				<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+	        				<p>Nacida en la capital madrileña, se graduó en la Escuela Superior de Hostelería y Turismo de Madrid, con el título de Técnico en Cocina y Gastronomía.</p>
 	        			</div>
       				</div>
         		</div>
@@ -130,86 +137,64 @@
         </div>
       </div>
     </section>
+	<section class="ftco-appointment" id="formulario">
+	<div class="overlay"></div>
+		<div class="container-wrap">
+			<div class="row no-gutters d-md-flex align-items-center">
+				<div class="col-md-6 appointment ftco-animate">
+					<h3 class="mb-3">Trabajá con Nosotros</h3>
+					<small class="d-block"><i>Recuerde adjuntar su CV</i></small>
+					<form action="#" class="appointment-form">
+						<div class="d-md-flex">
+							<div class="form-group">
+								<input  type="text" id="txtNombre" name="txtNombre" class="form-control" placeholder="Nombre">
+							</div>
+						</div>
+						<div class="d-me-flex">
+							<div class="form-group">
+								<input type="text" id="txtApellido" name="txtApellido" class="form-control" placeholder="Apellido">
+							</div>
+						</div>
+						<div class="d-me-flex">
+							<div class="form-group">
+								<input type="text" id="txtDni" name="txtDni" class="form-control" placeholder="Dni">
+							</div>
+						</div>  
+						<div class="d-me-flex">
+							<div class="form-group">
+								<input type="email" id="txtCorreo" name="txtCorreo" class="form-control" placeholder="Email">
+							</div>
+						</div>
+						<div class="d-me-flex">
+							<div class="form-group">
+								<input type="tel" id="txtTelefono" name="txtTelefono" class="form-control" placeholder="Teléfono/Whatsapp">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<textarea name="" id="" cols="30" rows="3" class="form-control" placeholder="Datos de Interés"></textarea>
+						</div>
+
+						<div class="d-me-flex">
+							<div class="form-group">
+								<label for="txtDocumento">Archivo adjunto:</label>
+								<input type="file" id="archivo" name="archivo" class="form-control-file py-2" accept=".pdf, .doc, .docx">
+								<small class="d-block">Archivos admitidos: .pdf, .doc .docx</small>
+							</div>		
+						</div>
 
 
-		<section class="ftco-counter ftco-bg-dark img" id="section-counter" style="background-image: url(web/images/bg_2.jpg);" data-stellar-background-ratio="0.5">
-			<div class="overlay"></div>
-      <div class="container">
-        <div class="row justify-content-center">
-        	<div class="col-md-10">
-        		<div class="row">
-		          <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
-		            <div class="block-18 text-center">
-		              <div class="text">
-		              	<div class="icon"><span class="flaticon-pizza-1"></span></div>
-		              	<strong class="number" data-number="100">0</strong>
-		              	<span>Pizza Branches</span>
-		              </div>
-		            </div>
-		          </div>
-		          <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
-		            <div class="block-18 text-center">
-		              <div class="text">
-		              	<div class="icon"><span class="flaticon-medal"></span></div>
-		              	<strong class="number" data-number="85">0</strong>
-		              	<span>Number of Awards</span>
-		              </div>
-		            </div>
-		          </div>
-		          <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
-		            <div class="block-18 text-center">
-		              <div class="text">
-		              	<div class="icon"><span class="flaticon-laugh"></span></div>
-		              	<strong class="number" data-number="10567">0</strong>
-		              	<span>Happy Customer</span>
-		              </div>
-		            </div>
-		          </div>
-		          <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
-		            <div class="block-18 text-center">
-		              <div class="text">
-		              	<div class="icon"><span class="flaticon-chef"></span></div>
-		              	<strong class="number" data-number="900">0</strong>
-		              	<span>Staff</span>
-		              </div>
-		            </div>
-		          </div>
-		        </div>
-		      </div>
-        </div>
-      </div>
-    </section>
+				<div class="form-group">
+					<input type="submit" value="Enviar" class="btn btn-primary py-3 px-4">
+				</div>
+				</form>
+				</div>
+				<div>
+					Aca el QR 
+				</div>
+			</div>  
 
-		
-		<section class="ftco-appointment">
-			<div class="overlay"></div>
-    	<div class="container-wrap">
-    		<div class="row no-gutters d-md-flex align-items-center">
-    			<div class="col-md-6 d-flex align-self-stretch">
-    				<div id="map"></div>
-    			</div>
-	    		<div class="col-md-6 appointment ftco-animate">
-	    			<h3 class="mb-3">Contact Us</h3>
-	    			<form action="#" class="appointment-form">
-	    				<div class="d-md-flex">
-		    				<div class="form-group">
-		    					<input type="text" class="form-control" placeholder="First Name">
-		    				</div>
-	    				</div>
-	    				<div class="d-me-flex">
-	    					<div class="form-group">
-		    					<input type="text" class="form-control" placeholder="Last Name">
-		    				</div>
-	    				</div>
-	    				<div class="form-group">
-	              <textarea name="" id="" cols="30" rows="3" class="form-control" placeholder="Message"></textarea>
-	            </div>
-	            <div class="form-group">
-	              <input type="submit" value="Send" class="btn btn-primary py-3 px-4">
-	            </div>
-	    			</form>
-	    		</div>    			
-    		</div>
-    	</div>
+			</div>
+		</div>
     </section>
 @endsection

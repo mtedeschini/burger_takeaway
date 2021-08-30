@@ -66,6 +66,12 @@ body {
 
 [tabindex="-1"]:focus {
   outline: 0 !important; }
+  
+.precio-item{
+  font-family: 'Nothing You Could Do', cursive !important;
+  font-size: 20px !important;
+  color: #fac564 !important;
+}
 
 hr {
   -webkit-box-sizing: content-box;
@@ -398,6 +404,7 @@ mark,
   max-width: 100%;
   height: auto; }
 
+  
 .img-thumbnail {
   padding: 0.25rem;
   background-color: #fff;
@@ -4343,6 +4350,12 @@ button.close {
   border: 0;
   -webkit-appearance: none; }
 
+.boton-carrito{
+    background-color: #fac564;
+    color:#121618 ;
+    border-radius: 25px;
+    border: none;
+}
 .modal-open {
   overflow: hidden; }
 

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Entidades\Sucursal;
 
 use App\Entidades\Producto;
 class ControladorWebTakeaway extends Controller
@@ -10,7 +11,11 @@ class ControladorWebTakeaway extends Controller
     {   
         $producto = new Producto();
         $aProductos = $producto->obtenerTodos();
-        return view('web.takeaway', compact('aProductos'));
+
+        $sucursal = new Sucursal();
+        $aSucursales = $sucursal->obtenerTodos();
+
+        return view('web.takeaway', compact('aProductos', 'aSucursales'));
     }
 
 }
