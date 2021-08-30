@@ -47,20 +47,20 @@
                         <div class="col-12 text-center">
                             <p class="precio-item"> Precio: ${{$producto->precio}}</p>
                         </div>
-                        <div class="row pt-2 text-center d-flex justify-content-center">
-                            <div class="col-3 pt-3 pb-2">
-                                <p>Cantidad:</p>
+                        <form action="" method="POST">
+                            <div class="row pt-2 text-center d-flex justify-content-center">
+                                <div class="col-3 pt-3 pb-2">
+                                    <p>Cantidad:</p>
+                                </div>
+                                <div class="col-3 pt-1 pb-2">
+                                    <input type="number" min="0" max="10" id="txtCantidad_{{$producto->idproducto}}" name="txtCantidad_{{$producto->idproducto}}" class="form-control" placeholder="0" required>
+                                </div>
+                                <div class="col-4 pt-3 pb-2">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
+                                    <button class="btn btn-primary p-3 px-xl-4 py-xl-3" type="submit"><i class="icon-shopping-cart"></i> Agregar</button>
+                                </div>
                             </div>
-                              <form action="" method="POST">
-                            <div class="col-3 pt-1 pb-2">
-                                <input type="number" min="0" max="10" id="txtCantidad_{{$producto->idproducto}}" name="txtCantidad_{{$producto->idproducto}}" class="form-control" placeholder="0" required>
-                            </div>
-                            <div class="col-4 pt-3 pb-2">
-                                <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
-                                <button class="btn btn-primary p-3 px-xl-4 py-xl-3" type="submit"><i class="icon-shopping-cart"></i> Agregar</button>
-                            </div>
-                            </form>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
