@@ -10,7 +10,7 @@
 
                 <div class="col-md-7 col-sm-12 text-center ftco-animate">
                     <h1 class="mb-3 mt-5 bread">NUESTRO MENÚ</h1>
-                    <p class="breadcrumbs"><span class="mr-2"><a href="/">Inicio</a></span></p> 
+                    <p class="breadcrumbs"><span class="mr-2"><a href="/">Inicio</a></span></p>
                 </div>
 
             </div>
@@ -31,7 +31,7 @@
             <div class="row d-flex justify-content-center ">
 
             <!--Comienzo Item Menu-->
-            @foreach ($aProductos as $producto)         
+            @foreach ($aProductos as $producto)
             <div class="col-md-6 col-xl-4 col-12 p-sm-4 px-4 py-2 ftco-animate">
                 <div class="row tarjeta d-flex justify-content-center">
                     <div class="col-12 p-0" style="overflow:hidden; height: 300px">
@@ -51,15 +51,15 @@
                             <div class="col-3 pt-3 pb-2">
                                 <p>Cantidad:</p>
                             </div>
+                              <form action="" method="POST">
                             <div class="col-3 pt-1 pb-2">
                                 <input type="number" min="0" max="10" id="txtCantidad_{{$producto->idproducto}}" name="txtCantidad_{{$producto->idproducto}}" class="form-control" placeholder="0" required>
                             </div>
                             <div class="col-4 pt-3 pb-2">
-                                <form action="" method="POST">
-                                    <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
-                                    <button class="btn btn-primary p-3 px-xl-4 py-xl-3" type="submit"><i class="icon-shopping-cart"></i> Agregar</button>
-                                </form>
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
+                                <button class="btn btn-primary p-3 px-xl-4 py-xl-3" type="submit"><i class="icon-shopping-cart"></i> Agregar</button>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -74,5 +74,3 @@
 </section>
 
 @endsection
-
-
