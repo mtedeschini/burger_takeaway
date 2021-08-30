@@ -66,7 +66,7 @@
             <h2 class="ftco-heading-2">{{$sucursal->nombre}}</h2>
             <div class="block-23 mb-3">
               <ul>
-                <li><span class="icon icon-map-marker"></span><span class="text"> {{$sucursal->nombre}}</span></li>        
+                <li><span class="icon icon-map-marker"></span><span class="text"> {{$sucursal->direccion}}</span></li>        
                 <li><a href="#"><span class="icon icon-phone"></span><span class="text"> {{$sucursal->telefono}}</span></a></li>
               </ul>
             </div>
