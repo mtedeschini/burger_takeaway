@@ -39,7 +39,7 @@
                                         <option value="" disabled selected>Seleccionar</option>
                                         @foreach ($aSucursales as $sucursal)
                                             @if (isset($sucursal->idsucursal) && $sucursal->idsucursal == $sucursal->idsucursal)
-                                                <option  selected value="{{$sucursal->idsucursal}}">{{$sucursal->nombre}}</option>
+                                                <option  value="{{$sucursal->idsucursal}}">{{$sucursal->nombre}}</option>
                                             @else
                                                 <option  value="{{$sucursal->idsucursal}}">{{$sucursal->nombre}}</option>
                                             @endif
@@ -52,7 +52,7 @@
                                     <label>Abona por: </label>
                                     <select id="txtAbona" name="txtAbona" class="form-control" required>
                                         <option value="" disabled selected>Seleccionar</option>
-                                            <option  selected value="">En local</option>
+                                            <option  value="">En local</option>
                                             <option  value="">Mercado Pago</option>
                                     </select>
                                 </div>
