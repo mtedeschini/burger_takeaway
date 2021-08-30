@@ -78,10 +78,10 @@
           </div>
         </div>
       </div>
-      <div class="row">
-        @endforeach
 
-        
+      @endforeach
+
+      <div class="row">
         <div class="col-md-12 text-center">
           <p>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
