@@ -46,7 +46,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-12 col-sm-12">
+                                <div class="col-12 col-sm-12 mt-3">
                                     <p>Abona por:</p>
                                 </div>
                                 <div class="col-12 col-sm-12">
