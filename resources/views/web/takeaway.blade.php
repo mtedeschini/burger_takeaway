@@ -53,7 +53,8 @@
                                     <p>Cantidad:</p>
                                 </div>
                                 <div class="col-3 pt-1 pb-2">
-                                    <input type="number" min="0" max="10" id="txtCantidad_{{$producto->idproducto}}" name="txtCantidad_{{$producto->idproducto}}" class="form-control" placeholder="0" required>
+                                    <input type="number" min="0" max="10" id="txtCantidad" name="txtCantidad" class="form-control" placeholder="0" required>
+                                    <input type="hidden"id="txtProducto" name="txtProducto" class="form-control" value="{{$producto->idproducto}}">
                                 </div>
                                 <div class="col-4 pt-3 pb-2">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
