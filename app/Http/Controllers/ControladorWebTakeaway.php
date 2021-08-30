@@ -1,15 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Entidades\Sucursal;
+
+use App\Entidades\Carrito;
 use App\Entidades\Producto;
+use App\Entidades\Sucursal;
 use Illuminate\Http\Request;
+use Session;
 
 class ControladorWebTakeaway extends Controller
 {
 
     public function index()
-    {   
+    {
         $producto = new Producto();
         $aProductos = $producto->obtenerTodos();
 
@@ -19,54 +22,17 @@ class ControladorWebTakeaway extends Controller
         return view('web.takeaway', compact('aProductos', 'aSucursales'));
     }
 
+    public function guardar(Request $request)
+    {
+        $cantidad = $request->input('txtCantidad');
+        $idProducto = $request->input('txtProducto');
 
-    
-    public function guardar(Request $request){
-        try {
-print_r($_REQUEST);
-exit;
+        $entidadCarrito = new Carrito();
+        $entidadCarrito->fk_idproducto = $idProducto;
+        $entidadCarrito->fk_idcliente = Session::get('cliente_id');
+        $entidadCarrito->insertar();
 
-            //Define la entidad servicio
-            $titulo = "Modificar Carrito";
-            $entidadCarrito = new Carrito();
-            $entidadCarrito->cargarDesdeRequest($request);
-
-            //validaciones
-            if ($entidadCarrito->fk_idproducto == ""){
-                $msg["ESTADO"] = MSG_ERROR;
-                $msg["MSG"] = "Complete todos los datos";
-            } else {
-                if ($_POST["id"] > 0) {
-                    //Es actualizacion
-                    $entidadCarrito->guardar();
-
-                    $msg["ESTADO"] = MSG_SUCCESS;
-                    $msg["MSG"] = OKINSERT;
-                    
-                } else {
-                    //es nuevo
-                    $entidadCarrito->insertar();
-
-                    $msg["ESTADO"] = MSG_SUCCESS;
-                    $msg["MSG"] = OKINSERT;        
-                }
-
-            
-                $_POST["id"] = $entidadCarrito->idcarrito;
-                return view('carrito.carrito-listar', compact('titulo','msg',));
-            }
-        } catch (Exception $e) {
-            $msg["ESTADO"] = MSG_ERROR;
-            $msg["MSG"] = ERRORINSERT;
-        }  
-        
-        $id = $entidadCarrito->idcarrito;
-        $carrito = new Carrito();
-
-        $carrito->obtenerPorId($id);
-
-        return view('carrito.carrito-nuevo', compact('msg', 'carrito', 'titulo')) . '?id=' . $carrito->idcarrito;
-    }        
-
+        return redirect('/carrito');
+    }
 
 }
