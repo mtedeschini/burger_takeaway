@@ -89,6 +89,7 @@
       </ul>
     </nav>
 
+    <!--Side bar-->
     <div id="wrapper">
       <ul class="sidebar navbar-nav">
       @for ($i = 0; Session::get('array_menu') && $i < count(Session::get('array_menu')); $i++)
