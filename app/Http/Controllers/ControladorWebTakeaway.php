@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Entidades\Sucursal;
-
 use App\Entidades\Producto;
+use Illuminate\Http\Request;
+
 class ControladorWebTakeaway extends Controller
 {
 
@@ -22,6 +23,9 @@ class ControladorWebTakeaway extends Controller
     
     public function guardar(Request $request){
         try {
+print_r($_REQUEST);
+exit;
+
             //Define la entidad servicio
             $titulo = "Modificar Carrito";
             $entidadCarrito = new Carrito();

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Entidades\Carrito;
 use App\Entidades\Sucursal;
+use Illuminate\Http\Request;
 
 use MercadoPago\Item;
 use MercadoPago\MerchantOrder;
@@ -27,21 +28,13 @@ class ControladorWebCarrito extends Controller
         return view('web.carrito', compact('aCarritos', 'aSucursales'));
     }
 
-<<<<<<< HEAD
+
     public function finalizarPedido(Request $request)
     {
         SDK::setClientId(config("payment-methods.mercadopago.client"));
         SDK::setClientSecret(config("payment-methods.mercadopago.secret"));
         SDK::setAccessToken($access_token); //Es el token de la cuenta de MP donde se deposita el dinero
 
-=======
-    public function eliminar(Request $request)
-    {
-        
-    }
-
-    public function finalizarPedido(Request $request){
->>>>>>> 485b9113a169fba76b0507ad4248e550bbf6409c
         //Obtener de la BBDD el carrito actual del usuario
         $item = new Item();
         $item->id = "1234";
@@ -81,12 +74,14 @@ class ControladorWebCarrito extends Controller
 
 
 
-<<<<<<< HEAD
+
+
+
 
     }
-}
-=======
-    public function guardar(Request $request){
+
+    public function guardar(Request $request)
+    {
         try {
             //Define la entidad servicio
             $titulo = "Modificar Carrito";
@@ -94,7 +89,7 @@ class ControladorWebCarrito extends Controller
             $entidadCarrito->cargarDesdeRequest($request);
 
             //validaciones
-            if ($entidadCarrito->fk_idproducto == ""){
+            if ($entidadCarrito->fk_idproducto == "") {
                 $msg["ESTADO"] = MSG_ERROR;
                 $msg["MSG"] = "Complete todos los datos";
             } else {
@@ -104,32 +99,28 @@ class ControladorWebCarrito extends Controller
 
                     $msg["ESTADO"] = MSG_SUCCESS;
                     $msg["MSG"] = OKINSERT;
-                    
                 } else {
                     //es nuevo
                     $entidadCarrito->insertar();
 
                     $msg["ESTADO"] = MSG_SUCCESS;
-                    $msg["MSG"] = OKINSERT;        
+                    $msg["MSG"] = OKINSERT;
                 }
 
-            
+
                 $_POST["id"] = $entidadCarrito->idcarrito;
-                return view('carrito.carrito-listar', compact('titulo','msg',));
+                return view('carrito.carrito-listar', compact('titulo', 'msg',));
             }
         } catch (Exception $e) {
             $msg["ESTADO"] = MSG_ERROR;
             $msg["MSG"] = ERRORINSERT;
-        }  
-        
+        }
+
         $id = $entidadCarrito->idcarrito;
         $carrito = new Carrito();
 
         $carrito->obtenerPorId($id);
 
         return view('carrito.carrito-nuevo', compact('msg', 'carrito', 'titulo')) . '?id=' . $carrito->idcarrito;
-    }        
-
-
+    }
 }
->>>>>>> 485b9113a169fba76b0507ad4248e550bbf6409c
