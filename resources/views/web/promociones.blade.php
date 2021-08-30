@@ -1,7 +1,7 @@
 @extends('web.plantilla-sitio')
 @section('contenido')
 
-<section class="home-slider owl-carousel img" style="background-image: url(web/images/bg_1.jpg);">
+<section class="home-slider owl-carousel img" style="background-image: url(web/images/micuenta2.jpg);">
 
     <div class="slider-item" style="background-image: url(images/bg_3.jpg);">
         <div class="overlay"></div>
@@ -9,7 +9,7 @@
             <div class="row slider-text justify-content-center align-items-center">
 
                 <div class="col-md-7 col-sm-12 text-center ftco-animate">
-                    <h1 class="mb-3 mt-5 bread">Promociones</h1>
+                    <h1 class="mb-3 mt-5 bread">Promo</h1>
                     <p class="breadcrumbs"><span class="mr-2"><a href="/">Inicio</a></span></p>
                 </div>
 
