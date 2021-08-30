@@ -119,7 +119,7 @@ class ControladorSucursal extends Controller{
         $sucursal = new Sucursal();
         $sucursal->obtenerPorId($id);
 
-        return view('sucursal.sucursal-nuevo', compact('msg', 'sucursal', 'titulo')) . '?id=' . $sucursal->idsucursal;
+        return view('sucursal.sucursal-nuevo', compact('msg', 'sucursal', 'titulo', 'telefono')) . '?id=' . $sucursal->idsucursal;
 
     }
 
