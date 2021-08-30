@@ -157,5 +157,16 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::get('/admin/sucursal/{id}', 'ControladorSucursal@editar');
     Route::post('/admin/sucursal/{id}', 'ControladorSucursal@guardar');
 
+    /* --------------------------------------------- */
+    /* CONTROLADOR SPONSORS                        */
+    /* --------------------------------------------- */
+    Route::get('/admin/sponsors', 'ControladorSponsor@index');
+    Route::get('/admin/sponsors/nuevo', 'ControladorSponsor@nuevo');
+    Route::post('/admin/sponsors/nuevo', 'ControladorSponsor@guardar');
+    Route::get('/admin/sponsors/cargarGrilla', 'ControladorSponsor@cargarGrilla')->name('postulacion.cargarGrilla');
+    Route::get('/admin/sponsors/eliminar', 'ControladorSponsor@eliminar');
+    Route::get('/admin/sponsors/{id}', 'ControladorSponsor@editar');
+    Route::post('/admin/sponsors/{id}', 'ControladorSponsor@guardar');
+
     
 });
