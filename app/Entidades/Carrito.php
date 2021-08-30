@@ -5,6 +5,8 @@ namespace App\Entidades;
 use DB;
 use Illuminate\Database\Eloquent\Model;
 
+use function PHPSTORM_META\sql_injection_subst;
+
 class Carrito extends Model
 {
 
@@ -28,7 +30,7 @@ class Carrito extends Model
   
             ) VALUES (?, ?, ?);";
             $result = DB::insert($sql, [
-            $this->idpedido,
+            $this->idcarrito,
             $this->fk_idproducto,
             $this->fk_idcliente
   
@@ -36,8 +38,26 @@ class Carrito extends Model
         return $this->idcarrito = DB::getPdo()->lastInsertId();
     }
 
-    public function obtenerPorUsuario() {
+    public function obtenerPorUsuario() 
+    {
+        $sql ="SELECT
+            idcarrito,
+            fk_idproducto,
+            fk_idcliente
+            FROM carritos
+            ORDER BY idcarrito"
+        ;
 
+        $lstRetorno = DB::select($sql);
+
+        if (count($lstRetorno) > 0) {
+            $this->idcarrito = $lstRetorno[0]->idcarrito;
+            $this->fk_idproducto = $lstRetorno[0]->fk_idproducto;
+            $this->fk_idcliente = $lstRetorno[0]->fk_idcliente;
+
+            return $this;
+        }
+        return null;
     }
 
    public function eliminar()
