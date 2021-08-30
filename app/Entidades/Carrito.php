@@ -67,6 +67,6 @@ class Carrito extends Model
         $affected = DB::delete($sql, [$this->idcarrito]);
    }
 
-
+   
 
 }
