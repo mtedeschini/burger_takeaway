@@ -57,7 +57,6 @@ class ControladorSponsor extends Controller{
         if (Usuario::autenticado() == true) {
             if (Patente::autorizarOperacion("MENUELIMINAR")) {
 
-          
                 $entidad = new Sponsor();
                 $entidad->cargarDesdeRequest($request);
                 $entidad->eliminar();
@@ -96,7 +95,7 @@ class ControladorSponsor extends Controller{
             $row[] = $aSponsors[$i]->nombre_empresa;
             $row[] = $aSponsors[$i]->nombre_producto;
             $row[] = $aSponsors[$i]->descripcion;
-            $row[] = $aSponsors[$i]->cantidad;
+            $row[] = $aSponsors[$i]->cantidad_producto;
             $row[] = $aSponsors[$i]->email;
             $row[] = $aSponsors[$i]->telefono;
             $row[] = '<a href="/files/'. $aSponsors[$i]->foto_producto .'" class="btn btn-secondary"><i class="far fa-file-pdf"></i></a>';

@@ -35,7 +35,7 @@ class ControladorCliente extends Controller
         $entidadUsuario = new Usuario();
         $aUsuarios = $entidadUsuario->obtenerTodos(); 
 
-        return view('cliente.cliente-nuevo', compact('cliente', 'titulo' , 'aUsuarios') ); 
+        return view('cliente.cliente-nuevo', compact('cliente', 'titulo') ); 
     }
 
   
@@ -65,7 +65,7 @@ class ControladorCliente extends Controller
             $row[] = $aClientes[$i]->nombre . " " .$aClientes[$i]->apellido;
             $row[] = $aClientes[$i]->telefono;
             $row[] = $aClientes[$i]->correo;
-            $row[] = $aClientes[$i]->usuario; 
+            $row[] = $aClientes[$i]->fk_idusuario; 
 
            
 

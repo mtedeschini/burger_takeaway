@@ -5,7 +5,7 @@ namespace App\Entidades;
 use DB;
 use Illuminate\database\Eloquent\Model;
 
-class Sponsor extends model
+class Sponsor extends Model
 {
     protected $table = 'sponsors';
     public $timestamps = false;
@@ -18,15 +18,15 @@ class Sponsor extends model
     ];
 
     public function cargarDesdeRequest($request) {
-        $this->idpostulacion = $request->input('id') != "0" ? $request->input('id') : $this->idpostulacion;
+        $this->idsponsor = $request->input('id') != "0" ? $request->input('id') : $this->idsponsor;
         $this->nombre_empresa = $request->input('txtNombreEmpresa');
         $this->nombre_producto = $request->input('txtNombreProducto');
-        $this->apellido = $request->input('txtDescripcion');
-        $this->localidad = $request->input('Cantidad');
+        $this->descripcion = $request->input('txtDescripcion');
+        $this->cantidad = $request->input('Cantidad');
         $this->documento = $request->input('Archivo');
         $this->correo = $request->input('txtEmail');
         $this->telefono = $request->input('txtTelefono');
-        //$this->archivo_cv = $request->input('archivo');
+        
     }
 
     public function obtenerTodos()
@@ -36,7 +36,7 @@ class Sponsor extends model
             nombre_empresa,
             nombre_producto,
             descripcion,
-            cantidad,
+            cantidad_producto,
             telefono,
             email,
             foto_producto
@@ -53,19 +53,19 @@ class Sponsor extends model
             nombre_empresa,
             nombre_producto,
             descripcion,
-            cantidad,
+            cantidad_producto,
             telefono,
             email,
             foto_producto
-            FROM sponsors WHERE idsponsor = $idsponsor";
+            FROM sponsors";
         $lstRetorno = DB::select($sql);
 
         if (count($lstRetorno) > 0) {
-            $this->$idsponsor = $lstRetorno[0]->idsponsor;
+            $this->idsponsor = $lstRetorno[0]->idsponsor;
             $this->nombre_empresa = $lstRetorno[0]->nombre_empresa;
             $this->nombre_producto = $lstRetorno[0]->nombre_producto;
             $this->descripcion = $lstRetorno[0]->descripcion;
-            $this->cantidad = $lstRetorno[0]->cantidad;
+            $this->cantidad_producto = $lstRetorno[0]->cantidad_producto;
             $this->telefono = $lstRetorno[0]->telefono;
             $this->email = $lstRetorno[0]->email;
             $this->foto_producto = $lstRetorno[0]->foto_producto;
@@ -81,8 +81,8 @@ class Sponsor extends model
         nombre_empresa='$this->nombre_empresa',
         nombre_producto='$this->nombre_producto',
         descripcion='$this->descripcion',
-        cantidad='$this->cantidad',
-        telefono='$this->telefono',
+        cantidad_producto=$this->cantidad_producto,
+        telefono=$this->telefono,
         email='$this->email',
         foto_producto='$this->foto_producto'
         WHERE idsponsor=?";
@@ -103,18 +103,18 @@ class Sponsor extends model
             nombre_empresa,
             nombre_producto,
             descripcion,
-            cantidad,
+            cantidad_producto,
             telefono,
             email,
             foto_producto
         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
 
         $result = DB::insert($sql, [
-            $this->$idsponsor,
+            $this->idsponsor,
             $this->nombre_empresa,
             $this->nombre_producto,
             $this->descripcion,
-            $this->cantidad,
+            $this->cantidad_producto,
             $this->telefono,
             $this->email,
             $this->foto_producto,
@@ -130,7 +130,7 @@ class Sponsor extends model
             1 => 'nombre_empresa',
             2 => 'nombre_producto',
             3 => 'descripcion',
-            4 => 'cantidad',
+            4 => 'cantidad_producto',
             5 => 'telefono',
             6 => 'email',
             7 => 'foto_producto'
@@ -141,7 +141,7 @@ class Sponsor extends model
                     nombre_empresa,
                     nombre_producto,
                     descripcion,
-                    cantidad,
+                    cantidad_producto,
                     telefono,
                     email,
                     foto_producto
@@ -155,7 +155,7 @@ class Sponsor extends model
             $sql .= " OR nombre_empresa LIKE '%" . $request['search']['value'] . "%' ";
             $sql .= " OR nombre_producto LIKE '%" . $request['search']['value'] . "%' ";
             $sql .= " OR descripcion LIKE '%" . $request['search']['value'] . "%' "; 
-            $sql .= " OR cantidad LIKE '%" . $request['search']['value'] . "%' "; 
+            $sql .= " OR cantidad_producto LIKE '%" . $request['search']['value'] . "%' "; 
             $sql .= " OR telefono LIKE '%" . $request['search']['value'] . "%' "; 
             $sql .= " OR email LIKE '%" . $request['search']['value'] . "%' "; 
             $sql .= " OR foto_producto LIKE '%" . $request['search']['value'] . "%' )"; 

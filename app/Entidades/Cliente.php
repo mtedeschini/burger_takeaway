@@ -184,7 +184,7 @@ class Cliente extends Model{
     $this->apellido = $request->input('txtApellido');
     $this->telefono = $request->input('txtTelefono');
     $this->correo = $request->input('txtCorreo');
-    $this->usuario = $request->input('listUsuario'); 
+    $this->fk_idusuario = $request->input('lstUsuario'); 
 
     } 
 
