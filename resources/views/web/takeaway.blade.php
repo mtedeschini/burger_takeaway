@@ -56,6 +56,7 @@
                             </div>
                             <div class="col-4 pt-3 pb-2">
                                 <form action="" method="POST">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
                                     <button class="btn btn-primary p-3 px-xl-4 py-xl-3" type="submit"><i class="icon-shopping-cart"></i> Agregar</button>
                                 </form>
                             </div>
