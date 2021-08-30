@@ -37,12 +37,12 @@ class Carrito extends Model
     }
 
     public function obtenerPorUsuario() {
-        
+
     }
 
    public function eliminar()
    {
-       $sql = "DELETE FROM carrito 
+       $sql = "DELETE FROM carritos 
             WHERE idcarrito=?";
         $affected = DB::delete($sql, [$this->idcarrito]);
    }

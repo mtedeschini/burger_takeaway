@@ -153,4 +153,11 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::get('/admin/sponsors/{id}', 'ControladorSponsor@editar');
     Route::post('/admin/sponsors/{id}', 'ControladorSponsor@guardar');
 
+    /* --------------------------------------------- */
+    /* CONTROLADOR CARRITO                           */
+    /* --------------------------------------------- */
+    
+    Route::get('/admin/carrito/nuevo', 'ControladorCarrito@nuevo');
+    Route::post('/admin/carrito/nuevo', 'ControladorCarrito@guardar');
+
 });
