@@ -16,10 +16,12 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::get('/', 'ControladorWebHome@index');
     Route::get('/nosotros', 'ControladorWebNosotros@index');
     Route::get('/takeaway', 'ControladorWebTakeaway@index');
+    Route::post('/takeaway', 'ControladorWebTakeaway@guardar');
     Route::get('/promociones', 'ControladorWebpromociones@index');
     Route::get('/contacto', 'ControladorWebContacto@index');
     Route::get('/mi-cuenta', 'ControladorLogin@index');
     Route::get('/carrito', 'ControladorWebCarrito@index');
+
 
     Route::get('/admin', 'ControladorHome@index');
     Route::post('/admin/patente/nuevo', 'ControladorPatente@guardar');
@@ -152,12 +154,5 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::get('/admin/sponsors/eliminar', 'ControladorSponsor@eliminar');
     Route::get('/admin/sponsors/{id}', 'ControladorSponsor@editar');
     Route::post('/admin/sponsors/{id}', 'ControladorSponsor@guardar');
-
-    /* --------------------------------------------- */
-    /* CONTROLADOR CARRITO                           */
-    /* --------------------------------------------- */
-    
-    Route::get('/admin/carrito/nuevo', 'ControladorCarrito@nuevo');
-    Route::post('/admin/carrito/nuevo', 'ControladorCarrito@guardar');
 
 });

@@ -4,7 +4,7 @@
 
 use App\Entidades\Cliente;    
 use App\Entidades\Sistema\Patente;
-use App\Entidades\Sistema\Usuario; // 
+use App\Entidades\Sistema\Usuario;
 use Illuminate\Http\Request;
 
 
@@ -65,8 +65,8 @@ class ControladorCliente extends Controller
             $row[] = $aClientes[$i]->nombre . " " .$aClientes[$i]->apellido;
             $row[] = $aClientes[$i]->telefono;
             $row[] = $aClientes[$i]->correo;
-            $row[] = $aClientes[$i]->usuario; 
-
+            $row[] = $aClientes[$i]->usuario;  
+ 
            
 
 
@@ -94,8 +94,11 @@ class ControladorCliente extends Controller
     try { 
         //Define la entidad servicio
         $titulo = "Modificar cliente";
+
         $entidad = new Cliente();
         $entidad->cargarDesdeRequest($request); 
+
+
 
         //validaciones
         if ($entidad->nombre == "") {
@@ -103,12 +106,22 @@ class ControladorCliente extends Controller
             $msg["MSG"] = "Complete todos los datos";
         } else {
             if ($_POST["id"] > 0) {
+            
                 //Es actualizacion
                 $entidad->guardar();
 
                 $msg["ESTADO"] = MSG_SUCCESS;
                 $msg["MSG"] = OKINSERT;
             } else {
+                $usuario = new Usuario();
+                $usuario->nombre = $cliente->nombre;
+
+
+
+
+                $idUsuario = $usuario->insertar();
+
+                $entidad->fk_idusuario = $idUsuario;
                 //Es nuevo
                 $entidad->insertar();
 
@@ -151,10 +164,12 @@ class ControladorCliente extends Controller
             }
             echo json_encode($aResultado);
         } else {
-            return redirect('admin/clientes'); 
+            return redirect('admin/clientes');   
         }
     }
 
+
+    // va por id a la pantalle admin/cliente/nuevo
     public function editar($id)
     {
         $titulo = "Modificar Cliente";
