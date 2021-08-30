@@ -34,14 +34,26 @@
                             </div>
                             <div class="row">
                                 <div class="col-12 col-sm-12">
-                                    <p>Sucursal donde retirar el pedido</p>
+                                    <label>Sucursal de su pedido: </label>
+                                    <select id="txtSucursal" name="txtSucursal" class="form-control" required>
+                                        <option value="" disabled selected>Seleccionar</option>
+                                        @foreach ($aSucursales as $sucursal)
+                                            @if (isset($sucursal->idsucursal) && $sucursal->idsucursal == $sucursal->idsucursal)
+                                                <option  value="{{$sucursal->idsucursal}}">{{$sucursal->nombre}}</option>
+                                            @else
+                                                <option  value="{{$sucursal->idsucursal}}">{{$sucursal->nombre}}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
                                 </div>
-                                <div class="col-12 col-sm-12">
-                                    <select class="custom-select text-white bg-dark border-warning">
-                                        <option selected>Seleccionar:</option>
-                                        <option value="1">...</option>
-                                        <option value="2">...</option>
-                                        <option value="3">...</option>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-sm-12 mt-3">
+                                    <label>Abona por: </label>
+                                    <select id="txtAbona" name="txtAbona" class="form-control" required>
+                                        <option value="" disabled selected>Seleccionar</option>
+                                            <option  value="">En local</option>
+                                            <option  value="">Mercado Pago</option>
                                     </select>
                                 </div>
                             </div>
