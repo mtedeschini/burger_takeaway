@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-  <title>hamburguesa - Free Bootstrap 4 Template by Colorlib</title>
+  <title>Burgers SRL</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -43,7 +43,7 @@
           <li class="nav-item active"><a href="/" class="nav-link">Inicio</a></li>
           <li class="nav-item"><a href="/nosotros" class="nav-link">Nosotros</a></li>
           <li class="nav-item"><a href="/takeaway" class="nav-link">Takeaway</a></li>
-          <li class="nav-item"><a href="/promociones" class="nav-link">promociones</a></li>
+          <li class="nav-item"><a href="/promociones" class="nav-link">Promociones</a></li>
           <li class="nav-item"><a href="/contacto" class="nav-link">Contacto</a></li>
           <li class="nav-item"><a href="/mi-cuenta" class="nav-link">Mi cuenta</a></li>
           <li class="nav-item"><a href="/carrito" class="nav-link">Carrito</a></li>
