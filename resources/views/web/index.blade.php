@@ -48,7 +48,7 @@
             	<span class="subheading">Delicious</span>
               <h1 class="mb-4">Compra felicidad en forma de hamburguesa</h1>
               <p class="mb-4 mb-md-5"> Donde la comida habla con el paladar. Una sabrosa hamburguesa es lo que te mereces.</p>
-              <p><a href="/takeaway" class="nav-link btn-black btn-primary p-3 px-xl-4 py-xl-3 ">Order Now</a> </p>
+              <p><a href="/takeaway" class="nav-link btn-black btn-outline-black p-3 px-xl-4 py-xl-3 ">Order Now</a> </p>
             </div>
 
           </div>
