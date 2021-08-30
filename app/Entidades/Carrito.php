@@ -25,12 +25,14 @@ class Carrito extends Model
     {
         $sql = "INSERT INTO carritos (
                 idcarrito,
-                fk_idproducto
-                fk_idcliente,
+                fk_idproducto,
+                cantidad,
+                fk_idcliente
   
-            ) VALUES (?, ?, ?);";
+            ) VALUES (?, ?, ?, ?);";
             $result = DB::insert($sql, [
             $this->idcarrito,
+            $this->cantidad,
             $this->fk_idproducto,
             $this->fk_idcliente
   

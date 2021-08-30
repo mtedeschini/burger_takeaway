@@ -70,7 +70,7 @@ if (isset($msg)) {
                 <select id="lstUsuario" name="lstUsuario" class="form-control" required>
                     <option value="" disabled selected>Seleccionar</option> 
                     @foreach ($aUsuarios as $usuario)
-                        @if ((isset($usuario->idusuario) ))
+                        @if ((isset($usuario->idusuario) && $usuario->idusuario == $cliente->fk_idusuario))
                             <option selected value="{{$usuario->idusuario}}">{{$usuario->usuario}}</option>
                         @else
                             <option value="{{$usuario->usuario}}">{{$usuario->usuario}}</option>
