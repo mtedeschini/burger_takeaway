@@ -138,10 +138,9 @@
       </div>
     </section>
 	<section class="ftco-appointment" id="formulario">
-	<div class="overlay"></div>
-		<div class="container-wrap">
-			<div class="row no-gutters d-md-flex align-items-center">
-				<div class="col-md-6 appointment ftco-animate">
+		<div class="container mt-5 py-5">
+			<div class="row block-9 justify-content-around">
+				<div class="col-md-6 ftco-animate">
 					<h3 class="mb-3">Trabajá con Nosotros</h3>
 					<small class="d-block"><i>Recuerde adjuntar su CV</i></small>
 					<form action="#" class="appointment-form">
@@ -188,10 +187,7 @@
 					<input type="submit" value="Enviar" class="btn btn-primary py-3 px-4">
 				</div>
 				</form>
-				</div>
-				<div>
-					Aca el QR 
-				</div>
+			</div>
 			</div>  
 
 			</div>
