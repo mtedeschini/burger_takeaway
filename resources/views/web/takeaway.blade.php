@@ -1,12 +1,6 @@
 @extends('web.plantilla-sitio')
 @section('contenido')
 
-<?php
-if($_POST){
-print_r($_POST);
-}
-    ?>
-
 <section class="home-slider owl-carousel img" style="background-image: url(web/images/grill.jpg);">
 
     <div class="slider-item" style="background-image: url(images/bg_3.jpg);">
