@@ -48,6 +48,8 @@ class ControladorSucursal extends Controller{
             $row[] = '<a href="/admin/sucursal/' . $aSucursales[$i]->idsucursal . '">' . $aSucursales[$i]->nombre . '</a>';
            
             $row[] = $aSucursales[$i]->direccion;
+
+            $row[] = $aSucursales[$i]->telefono;
             
             $cont++;
             $data[] = $row;
