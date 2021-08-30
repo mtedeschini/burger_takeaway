@@ -24,11 +24,14 @@ class ControladorWebTakeaway extends Controller
 
     public function guardar(Request $request)
     {
+        print_r($_REQUEST);
+        exit;
         $cantidad = $request->input('txtCantidad');
         $idProducto = $request->input('txtProducto');
 
         $entidadCarrito = new Carrito();
         $entidadCarrito->fk_idproducto = $idProducto;
+        $entidadCarrito->cantidad = $cantidad;
         $entidadCarrito->fk_idcliente = Session::get('cliente_id');
         $entidadCarrito->insertar();
 
