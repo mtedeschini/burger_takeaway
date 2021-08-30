@@ -24,6 +24,11 @@ class ControladorWebCarrito extends Controller {
         return view('web.carrito', compact('aCarritos', 'aSucursales'));
     }
 
+    public function eliminar(Request $request)
+    {
+        
+    }
+
     public function finalizarPedido(Request $request){
         //Obtener de la BBDD el carrito actual del usuario
 
