@@ -38,7 +38,6 @@ class ControladorWebCarrito extends Controller
         SDK::setClientId(config("payment-methods.mercadopago.client"));
         SDK::setClientSecret(config("payment-methods.mercadopago.secret"));
         SDK::setAccessToken($access_token); //Es el token de la cuenta de MP donde se deposita el dinero
-
         //Obtener de la BBDD el carrito actual del usuario
         $item = new Item();
         $item->id = "1234";
