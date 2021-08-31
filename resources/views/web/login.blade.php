@@ -12,7 +12,7 @@
             	<div class="row">
             		<div class="col-12 col-md-8">
 	                <div class="form-group">
-	                  <input type="text" class="form-control" name="txtUsuario" placeholder="Usuario">
+	                  <input type="text" class="form-control" name="txtUsuario" placeholder="Correo">
 	                </div>
                   </div>
 
