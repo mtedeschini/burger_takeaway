@@ -26,7 +26,7 @@
               <div class="col-12 col-md-8">
                 <button class="btn btn-primary" type="submit">ENTRAR</button>
               </div>
-              <div class="col-12 col-md-8">
+              <div class="col-12 col-md-8 mt-3">
                 ¿No tenés cuenta? <a href="/registro"> Registrate </a>
               </div>
           </form>
