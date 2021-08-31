@@ -19,6 +19,7 @@ class ControladorWebCarrito extends Controller
 
     public function index()
     {
+        if(Session::get('cliente_id') != ""){
         $carrito = new Carrito();
         $aCarritos = $carrito->obtenerPorUsuario(Session::get('cliente_id'));
 
@@ -26,6 +27,9 @@ class ControladorWebCarrito extends Controller
         $aSucursales = $sucursal->obtenerTodos();
 
         return view('web.carrito', compact('aCarritos', 'aSucursales'));
+        } else {
+            return redirect("/login");
+        }
     }
 
 
