@@ -1,7 +1,7 @@
 @extends('web.plantilla-sitio')
 @section('contenido')
 
-<section class="home-slider owl-carousel img" style="background-image: url(web/images/bg_1.jpg);">
+<section class="home-slider owl-carousel img" style="background-image: url(web/images/micuenta2.jpg);">
 
     <div class="slider-item" style="background-image: url(images/bg_3.jpg);">
         <div class="overlay"></div>
@@ -22,7 +22,7 @@
     <div class="container">
         <div class="row justify-content-center mb-5 pb-3">
             <div class="col-md-7 heading-section ftco-animate text-center">
-                <h2 class="mb-4">Promos </h2>
+                <h2 class="mb-4">Promos</h2>
                 <p>Estamos en C.A.B.A y G.B.A. Te esperamos en cualquiera de nuestras sucursales para retirar nuestras mejores hamburguesas.</p>
             </div>
         </div>

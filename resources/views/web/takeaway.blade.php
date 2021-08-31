@@ -10,7 +10,7 @@
 
                 <div class="col-md-7 col-sm-12 text-center ftco-animate">
                     <h1 class="mb-3 mt-5 bread">NUESTRO MENÚ</h1>
-                    <p class="breadcrumbs"><span class="mr-2"><a href="/">Inicio</a></span></p> 
+                    <p class="breadcrumbs"><span class="mr-2"><a href="/">Inicio</a></span></p>
                 </div>
 
             </div>
@@ -31,12 +31,11 @@
             <div class="row d-flex justify-content-center ">
 
             <!--Comienzo Item Menu-->
-            @foreach ($aProductos as $producto)         
+            @foreach ($aProductos as $producto)
             <div class="col-md-6 col-xl-4 col-12 p-sm-4 px-4 py-2 ftco-animate">
                 <div class="row tarjeta d-flex justify-content-center">
                     <div class="col-12 p-0" style="overflow:hidden; height: 300px">
                         <img class="mx-auto d-block" src="files/{{$producto->imagen}}" style="height:340px;" alt="">
-                        <!-- img-fluid para que se adapte la foto al tamaño del contenedor -->
                     </div>
                     <div class="descripcion-items" style="background-color:rgb(18, 18, 18, .5);">
                         <div class="col-12 color-gradiente pt-3 text-center">
@@ -48,17 +47,21 @@
                         <div class="col-12 text-center">
                             <p class="precio-item"> Precio: ${{$producto->precio}}</p>
                         </div>
-                        <div class="row pt-2 text-center d-flex justify-content-center">
-                            <div class="col-3 pt-3 pb-2">
-                                <p>Cantidad:</p>
+                        <form action="" method="POST">
+                            <div class="row pt-2 text-center d-flex justify-content-center">
+                                <div class="col-3 pt-3 pb-2">
+                                    <p>Cantidad:</p>
+                                </div>
+                                <div class="col-3 pt-1 pb-2">
+                                    <input type="number" min="0" max="10" id="txtCantidad" name="txtCantidad" class="form-control" placeholder="0" required>
+                                    <input type="hidden"id="txtProducto" name="txtProducto" class="form-control" value="{{$producto->idproducto}}">
+                                </div>
+                                <div class="col-4 pt-3 pb-2">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
+                                    <button class="btn btn-primary p-3 px-xl-4 py-xl-3" type="submit"><i class="icon-shopping-cart"></i> Agregar</button>
+                                </div>
                             </div>
-                            <div class="col-3 pt-1 pb-2">
-                                <input type="number" min="0" maxlength="10" id="txtCantidad" name="txtCantidad" class="form-control" placeholder="0" required>
-                            </div>
-                            <div class="col-4 pt-3 pb-2">
-                                <button  utton class="btn btn-primary p-3 px-xl-4 py-xl-3"><i class="icon-shopping-cart"></i> Agregar</button>
-                            </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -72,5 +75,3 @@
 </section>
 
 @endsection
-
-

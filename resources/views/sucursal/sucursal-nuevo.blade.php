@@ -55,6 +55,10 @@ if (isset($msg)) {
                 <label>Dirección: *</label>
                 <input type="text" maxlength="50" id="txtDireccion" name="txtDireccion" class="form-control" value="{{ $sucursal->direccion }}">
             </div>
+            <div class="form-group col-lg-6">
+                <label>Teléfono: *</label>
+                <input type="text" maxlength="50" id="txtTelefono" name="txtTelefono" class="form-control" value="{{-- $sucursal->telefono --}}">
+            </div>
         </div>
 </div>
 </form>

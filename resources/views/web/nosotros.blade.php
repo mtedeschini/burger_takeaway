@@ -3,13 +3,26 @@
 
 
 	<section class="home-slider owl-carousel img" style="background-image: url(web/images/bg_1.jpg);">
-		<div class="slider-item" style="background-image: url(web/images/bg_3.jpg);">
-		<div class="overlay"></div>
-		<div class="container">
-		<div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
-			<div class="col-md- col-sm-12 text-center ftco-animate">
-				<h1 class="mb-3 mt-5 bread">#MoodHamburguesa</h1>
-				<p class="breadcrumbs"><span class="mr-"><a href="/">Inicio</a></span></p>
+		<div class="slider-item" style="background-image: url(web/images/image_10.jpg);">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row slider-text align-items-center" data-scrollax-parent="true">
+					<div class="col-md- col-sm-12 text-center ftco-animate">
+						<h1 class="mb-3 mt-5 bread">#MoodHamburguesa</h1>
+						<p class="breadcrumbs"><span class="mr-"><a href="/">Inicio</a></span></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="slider-item" style="background-image: url(web/images/image_11.jpg);">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row slider-text align-items-center" data-scrollax-parent="true">
+					<div class="col-md- col-sm-12 text-center ftco-animate">
+						<h1 class="mb-3 mt-5 bread">#QuieroTodo</h1>
+						<p class="breadcrumbs"><span class="mr-"><a href="/">Inicio</a></span></p>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -55,7 +68,7 @@
 			<div class = "col-sm-12 col-md-6 col-lg-6">
 					<div class="one-half ftco-animate">
 						<div class="heading-section ftco-animate ">
-							<h2 class="mb-4">Hamburguesa<span class="flaticon-pizza">Deliciosas</span>Ricas ricas</h2>
+							<h2 class="mb-4">Burger SRL</h2>
 						</div>
 						<div>
 							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quo, vitae dolore, placeat aspernatur cumque error porro nisi expedita dolorem quisquam! Illum ab quod eveniet odit ex eaque itaque dolorem.
@@ -138,10 +151,9 @@
       </div>
     </section>
 	<section class="ftco-appointment" id="formulario">
-	<div class="overlay"></div>
-		<div class="container-wrap">
-			<div class="row no-gutters d-md-flex align-items-center">
-				<div class="col-md-6 appointment ftco-animate">
+		<div class="container mt-5 py-5">
+			<div class="row block-9 justify-content-around">
+				<div class="col-md-6 ftco-animate">
 					<h3 class="mb-3">Trabajá con Nosotros</h3>
 					<small class="d-block"><i>Recuerde adjuntar su CV</i></small>
 					<form action="#" class="appointment-form">
@@ -160,6 +172,11 @@
 								<input type="text" id="txtDni" name="txtDni" class="form-control" placeholder="Dni">
 							</div>
 						</div>  
+						<div class="d-md-flex">
+							<div class="form-group">
+								<input  type="text" id="txtLocalidad" name="txtLocalidad" class="form-control" placeholder="Localidad">
+							</div>
+						</div>
 						<div class="d-me-flex">
 							<div class="form-group">
 								<input type="email" id="txtCorreo" name="txtCorreo" class="form-control" placeholder="Email">
@@ -188,10 +205,7 @@
 					<input type="submit" value="Enviar" class="btn btn-primary py-3 px-4">
 				</div>
 				</form>
-				</div>
-				<div>
-					Aca el QR 
-				</div>
+			</div>
 			</div>  
 
 			</div>

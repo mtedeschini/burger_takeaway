@@ -8,7 +8,7 @@ class Sucursal extends Model{
     protected $table = 'sucursales';
     public $timestamps = false;
     protected $fillable = [
-        'idsucursal','direccion','nombre'
+        'idsucursal','direccion','nombre','telefono'
     ];
     protected $hidden = [
 
@@ -19,6 +19,7 @@ class Sucursal extends Model{
         $this->idsucursal = $request->input('id') != "0" ? $request->input('id') : $this->idsucursal;
         $this->direccion = $request->input('txtDireccion');
         $this->nombre = $request->input('txtNombre');
+        $this->telefono = $request->input('txtTelefono');
         
     }
 
@@ -27,7 +28,8 @@ class Sucursal extends Model{
         $sql = "SELECT
                     idsucursal,
                     direccion,
-                    nombre
+                    nombre,
+                    telefono
                 FROM sucursales ORDER BY idsucursal";
         $lstRetorno = DB::select($sql);
 
@@ -39,7 +41,8 @@ class Sucursal extends Model{
         $sql = "SELECT
                     idsucursal,
                     direccion,
-                    nombre
+                    nombre,
+                    telefono
                 FROM sucursales WHERE idsucursal = $idsucursal";
         $lstRetorno = DB::select($sql);
         
@@ -47,6 +50,7 @@ class Sucursal extends Model{
             $this->idsucursal = $lstRetorno[0]->idsucursal;
             $this->direccion = $lstRetorno[0]->direccion;
             $this->nombre =  $lstRetorno[0]->nombre;
+            $this->telefono =  $lstRetorno[0]->telefono;
             return $this;
         }
 
@@ -57,9 +61,10 @@ class Sucursal extends Model{
     {
         $sql = "INSERT INTO sucursales (
                 direccion,
-                nombre
-                ) VALUES (?, ?);";
-        $result = DB::insert($sql,[$this->direccion, $this->nombre]);
+                nombre,
+                telefono
+                ) VALUES (?, ?, ?);";
+        $result = DB::insert($sql,[$this->direccion, $this->nombre, $this->telefono]);
         return $this->idsucursal = DB::getPdo()->lastInsertId();
     }
 
@@ -68,6 +73,7 @@ class Sucursal extends Model{
         $sql = "UPDATE sucursales SET
                 direccion = '$this->direccion',
                 nombre = '$this->nombre'
+                telefono = '$this->telefono'
                 WHERE idsucursal=?;";
         $affected = DB::update($sql,[$this->idsucursal]);
     }
@@ -83,12 +89,14 @@ class Sucursal extends Model{
         $request = $_REQUEST;
         $columns = array(
             0 => 'nombre',  
-            1 => 'direccion'
+            1 => 'direccion',
+            2 => 'telefono'
         );
         $sql = "SELECT DISTINCT
                     idsucursal,
                     nombre,
-                    direccion
+                    direccion,
+                    telefono
                     
                     FROM sucursales";
 

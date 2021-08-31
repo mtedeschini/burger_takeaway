@@ -48,6 +48,8 @@ class ControladorSucursal extends Controller{
             $row[] = '<a href="/admin/sucursal/' . $aSucursales[$i]->idsucursal . '">' . $aSucursales[$i]->nombre . '</a>';
            
             $row[] = $aSucursales[$i]->direccion;
+
+            $row[] = $aSucursales[$i]->telefono;
             
             $cont++;
             $data[] = $row;
@@ -119,7 +121,7 @@ class ControladorSucursal extends Controller{
         $sucursal = new Sucursal();
         $sucursal->obtenerPorId($id);
 
-        return view('sucursal.sucursal-nuevo', compact('msg', 'sucursal', 'titulo')) . '?id=' . $sucursal->idsucursal;
+        return view('sucursal.sucursal-nuevo', compact('msg', 'sucursal', 'titulo', 'telefono')) . '?id=' . $sucursal->idsucursal;
 
     }
 
