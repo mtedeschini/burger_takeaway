@@ -29,6 +29,7 @@ class ControladorWebTakeaway extends Controller
 
         $entidadCarrito = new Carrito();
         $entidadCarrito->fk_idproducto = $idProducto;
+        $entidadCarrito->cantidad = $cantidad;
         $entidadCarrito->fk_idcliente = Session::get('cliente_id');
         $entidadCarrito->insertar();
 

@@ -25,12 +25,14 @@ class Carrito extends Model
     {
         $sql = "INSERT INTO carritos (
                 idcarrito,
-                fk_idproducto
-                fk_idcliente,
+                fk_idproducto,
+                cantidad,
+                fk_idcliente
   
-            ) VALUES (?, ?, ?);";
+            ) VALUES (?, ?, ?, ?);";
             $result = DB::insert($sql, [
             $this->idcarrito,
+            $this->cantidad,
             $this->fk_idproducto,
             $this->fk_idcliente
   
@@ -38,14 +40,15 @@ class Carrito extends Model
         return $this->idcarrito = DB::getPdo()->lastInsertId();
     }
 
-    public function obtenerPorUsuario() 
+    public function obtenerPorUsuario($idCliente) 
     {
         $sql ="SELECT
             idcarrito,
             fk_idproducto,
             fk_idcliente
             FROM carritos
-            ORDER BY idcarrito"
+            ORDER BY idcarrito
+            WHERE fk_idcliente = $idCliente";
         ;
 
         $lstRetorno = DB::select($sql);
