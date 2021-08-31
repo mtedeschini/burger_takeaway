@@ -39,8 +39,8 @@
                 </div>
               </div>
               <div class="col-12 col-md-8 mt-3">
-                <button class="btn btn-primary" type="submit">REGISTRARTE </button> 
-                <div>
+                <button class="btn btn-primary" type="submit" >REGISTRARTE </button> 
+              <div>
                 </div>
                 <p class="mt-3"> ¿Ya tenés una cuenta? <a href="/login"> Iniciá sesión </a> 
               </div>
