@@ -11,7 +11,7 @@
                                    
             	<div class="row justify-content-center">
                 <div class="col-8 col-md-8">
-                  <h2>Iniciá Sesión</h2>                   
+                  <h2>Registrate</h2>                   
                 </div>
             		<div class="col-12 col-md-8">
 	                <div class="form-group">

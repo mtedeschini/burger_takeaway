@@ -22,6 +22,7 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::get('/mi-cuenta', 'ControladorWebMiCuenta@index');
     Route::get('/login', 'ControladorWebLogin@index');
     Route::get('/carrito', 'ControladorWebCarrito@index');
+    Route::get('/registro', 'ControladorWebRegistro@index');
 
 
     Route::get('/admin', 'ControladorHome@index');
