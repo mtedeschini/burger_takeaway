@@ -47,6 +47,7 @@
           <li class="nav-item"><a href="/contacto" class="nav-link">Contacto</a></li>
           <li class="nav-item"><a href="/mi-cuenta" class="nav-link">Mi cuenta</a></li>
           <li class="nav-item"><a href="/carrito" class="nav-link">Carrito</a></li>
+          <li class="nav-item"><a href="/sponsor" class="nav-link">Sponsors</a></li>
         </ul>
       </div>
     </div>
