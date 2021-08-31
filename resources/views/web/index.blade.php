@@ -47,8 +47,8 @@
         <div class="col-md-7 col-sm-12 text-center ftco-animate">
           <span class="subheading">Delicious</span>
           <h1 class="mb-4">Compra felicidad en forma de hamburguesa</h1>
-          <div class="col-12 ftco-animate">
-            <img src="web/images/hamburguesas1.jpg" class="img-fluid" alt="">
+          <div class="col-12 ftco-animate ">
+            <img src="web/images/hamburguesas1.jpg" class="img-fluid rounded-pill" alt="">
           </div>
           <p class="mb-4 mb-md-5"> Donde la comida habla con el paladar. Una sabrosa hamburguesa es lo que te mereces.</p>
           <p><a href="/takeaway" class="nav-link btn btn-primary p-3 px-xl-4 py-xl-3 ">Order Now</a> </p>
