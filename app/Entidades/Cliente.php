@@ -187,6 +187,16 @@ class Cliente extends Model{
     $this->usuario = $request->input('listUsuario'); 
 
     } 
+    
+    public function encriptarClave($clave){
+        $claveEncriptada = password_hash($clave, PASSWORD_DEFAULT);
+        return $claveEncriptada;
+    }
+ 
+    public function verificarClave($claveIngresada, $claveEnBBDD){
+        return password_verify($claveIngresada, $claveEnBBDD);
+    }
+ 
 
 } 
 ?>
