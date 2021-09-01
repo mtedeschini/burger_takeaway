@@ -59,9 +59,11 @@ if (isset($msg)) {
                 <label>Descripción: *</label>
                 <textarea class="form-control" name="txtDescripcion" id="txtDescripcion" cols="30" style="height:70px !important;" maxlength="50" rows="10">{{ $producto->descripcion}}</textarea>
             </div>
-            <div class="form-group col-lg-6">
+            </div>
+        <div class="row">
+            <div class="form-group col-lg-12">
                 <label for="archivo">Archivo adjunto:</label>
-                <input type="file" id="archivo" name="archivo" class="form-control-file" accept=".jpg, .jpeg, .png" value="">
+                <input type="file" id="archivo" name="archivo" class="form-control-file" accept=".jpg, .jpeg, .png" style="height:300px !important;" value="">
                 <small class="d-block">Archivos admitidos: .jpg, .jpeg, .png </small>
             </div>
         </div>
