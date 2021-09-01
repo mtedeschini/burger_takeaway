@@ -129,7 +129,7 @@
 						</div>
 						<div class="d-me-flex">
 							<div class="form-group">
-								<input type="text" id="txtDni" name="txtDni" class="form-control" placeholder="Dni">
+								<input type="text" id="txtDni" name="txtDocumento" class="form-control" placeholder="Dni">
 							</div>
 						</div>  
 						<div class="d-md-flex">
