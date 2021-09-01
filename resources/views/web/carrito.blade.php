@@ -8,6 +8,11 @@
                 <div class="card text-white bg-dark">
                     <div class="card-body">
                         <div class="container">
+                            <?php
+                            if (isset($msg)) {
+                                echo '<script>msgShow("' . $msg["MSG"] . '", "' . $msg["ESTADO"] . '")</script>';
+                            }
+                            ?>
                             <div class="row">
                                 <div class="col-10 col-sm-10">
                                     <img src="web/images/burgerCarrito.jpg" alt="Hamburguesa" width="30%" height="100%">
@@ -68,14 +73,16 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-6 col-sm-6 text-center">
-                                    <button class="btn btn-warning">Modificar el pedido</button>
+                            <form action="" method="post">
+                                <div class="row">
+                                    <div class="col-6 col-sm-6 text-center">
+                                        <button class="btn btn-warning">Modificar el pedido</button>
+                                    </div>
+                                    <div class="col-6 col-sm-6 text-center">
+                                        <button class="btn btn-warning">Finalizar el pedido</button>
+                                    </div>
                                 </div>
-                                <div class="col-6 col-sm-6 text-center">
-                                    <button class="btn btn-warning">Finalizar el pedido</button>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                         
                     </div>
