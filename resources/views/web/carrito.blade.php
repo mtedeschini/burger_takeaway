@@ -20,10 +20,12 @@
                                 <div class="col-12 col-sm-12 mt-5">
                                     <table class="table">
                                         <tbody>
+                                            @foreach($aCarritos as $carrito)
                                             <tr>
-                                                <th scope="row">Precio</th>
-                                                <td class="text-center">PrecioProducto</td>
+                                                <th scope="row">{{ $carrito->producto}}</th>
+                                                <td class="text-center">${{ $carrito->precio}}</td>
                                             </tr>
+                                            @endforeach
                                             <tr>
                                                 <th scope="row" class="text-warning">TOTAL</th>
                                                 <td class="text-center">PrecioProducto</td>
