@@ -44,11 +44,11 @@
           <li class="nav-item"><a href="/nosotros" class="nav-link">Nosotros</a></li>
           <li class="nav-item"><a href="/takeaway" class="nav-link">Takeaway</a></li>
           <li class="nav-item"><a href="/promociones" class="nav-link">Promociones</a></li>
-          <li class="nav-item"><a href="/contacto" class="nav-link">Contacto</a></li>
           <li class="nav-item"><a href="#scrsls" class="nav-link">Sucursales</a></li>
           <li class="nav-item"><a href="/mi-cuenta" class="nav-link">Mi cuenta</a></li>
           <li class="nav-item"><a href="/carrito" class="nav-link">Carrito</a></li>
           <li class="nav-item"><a href="/sponsors" class="nav-link">Sponsors</a></li>
+          <li class="nav-item"><a href="/contacto" class="nav-link">Contacto</a></li>
         </ul>
       </div>
     </div>
