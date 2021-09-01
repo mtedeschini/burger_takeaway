@@ -30,7 +30,7 @@ class ControladorWebRegistro extends Controller
         $entidadCliente->nombre = $nombre;
         $entidadCliente->apellido = $apellido;
         $entidadCliente->telefono = $telefono;
-        $entidadCliente->fk_idcliente = "2";
+        $entidadCliente->fk_idusuario = "2";
         $entidadCliente->insertar();
 
         return redirect('/carrito');
