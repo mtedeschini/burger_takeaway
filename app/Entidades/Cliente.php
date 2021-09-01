@@ -130,7 +130,7 @@ class Cliente extends Model
         return null;
     }
 
-    public function nuevo()
+    public function insertar()
     {
         $sql = "INSERT INTO clientes (
                 nombre,
@@ -144,7 +144,7 @@ class Cliente extends Model
             $this->apellido,
             $this->telefono,
             $this->correo,
-            $this->clave,
+            $this->clave
         ]);
         return $this->idcliente = DB::getPdo()->lastInsertId();
     }
@@ -154,32 +154,6 @@ class Cliente extends Model
         $sql = "DELETE FROM clientes WHERE
             idcliente=?";
         $affected = DB::delete($sql, [$this->idcliente]);
-    }
-
-    public function insertar()
-    {
-
-        $sql = "INSERT INTO clientes (
-
-                    nombre,
-                    apellido,
-                    telefono,
-                    correo,
-                    clave
-
-             )
-
-                VALUES (?, ?, ?, ?, ?); ";
-        $result = DB::insert($sql, [
-
-            $this->nombre,
-            $this->apellido,
-            $this->telefono,
-            $this->correo,
-            $this->clave,
-
-        ]);
-        return $this->idcliente = DB::getPdo()->lastInsertId();
     }
 
     public function guardar()
