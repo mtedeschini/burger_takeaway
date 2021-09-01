@@ -1,5 +1,8 @@
 @extends('web.plantilla-sitio')
 @section('contenido')
+@section('scripts')
+
+<form name="form" method="POST">
 <section style="background-image: url(web/images/bg_1.jpg);">
     <div class="container" style="width: 400px;">
         <div class="row">
@@ -20,14 +23,26 @@
                                 <div class="col-12 col-sm-12 mt-5">
                                     <table class="table">
                                         <tbody>
+                                            @foreach($aCarritos as $carrito)
                                             <tr>
-                                                <th scope="row">Precio</th>
-                                                <td class="text-center">PrecioProducto</td>
+                                                <th scope="row">{{ $carrito->producto}}</th>
+                                                <td class="text-center"><?php $precioProducto = $carrito->precio; echo "$" . number_format($precioProducto, 2); ?></td>
                                             </tr>
+                                            @endforeach
                                             <tr>
                                                 <th scope="row" class="text-warning">TOTAL</th>
-                                                <td class="text-center">PrecioProducto</td>
-                                            </tr>
+                                                <td class="text-center">
+                                                <?php 
+                                                    $total = 0;
+                                                    foreach($aCarritos as $carrito) {
+                                                        $total += $carrito->precio;
+                                                    }
+
+                                                    echo "$" . number_format($total, 2);
+
+                                                ?>
+                                                </td>
+                                            </tr> 
                                         </tbody>
                                     </table>
                                 </div>
@@ -65,14 +80,18 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-6 col-sm-6 text-center">
-                                    <button class="btn btn-warning">Modificar el pedido</button>
+                            <form action="" method="post">
+                                <div class="row">
+                                    <div class="col-6 col-sm-6 text-center">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
+                                        <button class="btn btn-warning"> Modificar el pedido</button>
+                                    </div>
+                                    <div class="col-6 col-sm-6 text-center">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
+                                        <button class="btn btn-warning">Finalizar el pedido</button>
+                                    </div>
                                 </div>
-                                <div class="col-6 col-sm-6 text-center">
-                                    <button class="btn btn-warning">Finalizar el pedido</button>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                         
                     </div>
@@ -81,4 +100,5 @@
         </div>
     </div>
 </section>
+</form>
 @endsection

@@ -25,7 +25,7 @@ class Postulacion extends model
         $this->documento = $request->input('txtDocumento');
         $this->correo = $request->input('txtCorreo');
         $this->telefono = $request->input('txtTelefono');
-        //$this->archivo_cv = $request->input('archivo');
+        $this->archivo_cv = $request->input('archivo');
     }
 
     public function obtenerTodos()

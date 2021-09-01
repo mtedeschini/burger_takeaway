@@ -6,8 +6,8 @@
     <div class="container mt-5">
       <div class="row block-9 justify-content-center">
         <div class="col-md-12 ftco-animate">
-          <form action="#" class="contact-form">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
+          <form action="" method="post" class="contact-form">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
             
             <div class="row justify-content-center" >
               <div class="col-12 col-md-8 mx-3">
@@ -15,12 +15,12 @@
               </div>
               <div class="col-12 col-md-8">
                 <div class="form-group">
-                  <input type="text" class="form-control" name="txtUsuario" placeholder="Correo">
+                  <input type="text" class="form-control" name="txtCorreo" placeholder="Correo">
                 </div>
               </div>
               <div class="col-12 col-md-8 px-3">
                 <div class="form-group">
-                  <input type="text" name="txtClave" class="form-control" placeholder="Clave">
+                  <input type="password" name="txtClave" class="form-control" placeholder="Clave">
                 </div>
               </div>
               <div class="col-12 col-md-8">
@@ -39,7 +39,7 @@
                 </div>
               </div>
               <div class="col-12 col-md-8 mt-3">
-                <button class="btn btn-primary" type="submit" >REGISTRARTE </button> 
+                <button class="btn btn-primary" type="submit" >Completar Registro</button> 
               <div>
                 </div>
                 <p class="mt-3"> ¿Ya tenés una cuenta? <a href="/login"> Iniciá sesión </a> 

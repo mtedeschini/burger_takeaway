@@ -24,7 +24,7 @@ class ControladorCliente extends Controller
                 $mensaje = "No tiene permisos para la operaci&oacute;n.";
                 return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
             } else {
-                return view('cliente.cliente-listar', compact('titulo')); //crear carpeta
+                return view('cliente.cliente-listar', compact('titulo')); 
             }
         } else {
             return redirect('admin/login');
@@ -35,10 +35,7 @@ class ControladorCliente extends Controller
         $titulo = "Nuevo cliente";
         $cliente = new Cliente();
 
-        $entidadUsuario = new Usuario();
-        $aUsuarios = $entidadUsuario->obtenerTodos(); 
-
-        return view('cliente.cliente-nuevo', compact('cliente', 'titulo' , 'aUsuarios') ); 
+        return view('cliente.cliente-nuevo', compact('cliente', 'titulo' ) );  
     }
 
   
@@ -50,14 +47,11 @@ class ControladorCliente extends Controller
         $entidad = new Cliente();
         $aClientes = $entidad->obtenerFiltrado(); 
 
-        /*$entidad = new Usuario();
-        $aUsuarios = $entidad->obtenerFiltrado(); */
-
         $data = array();
         $cont = 0;
 
         $inicio = $request['start'];
-        $registros_por_pagina = $request['length'];
+        $registros_por_pagina = $request['length']; 
 
 
         for ($i = $inicio; $i < count($aClientes) && $cont < $registros_por_pagina; $i++) {
@@ -68,7 +62,7 @@ class ControladorCliente extends Controller
             $row[] = $aClientes[$i]->nombre . " " .$aClientes[$i]->apellido;
             $row[] = $aClientes[$i]->telefono;
             $row[] = $aClientes[$i]->correo;
-            $row[] = $aClientes[$i]->usuario;  
+               
  
            
 
@@ -118,30 +112,6 @@ class ControladorCliente extends Controller
             } else {
 
 
-                $date = new Carbon;
-                $fecha = $date->format('Y-m-d H:i:s'); 
-                
-
-                $usuario = new Usuario();
-
-                $usuario->usuario = $entidad->correo;
-                $usuario->activo = 1;
-                $usuario->nombre = $entidad->nombre;
-                $usuario->apellido = $entidad->apellido;
-                $usuario->mail = $entidad->correo;
-                $usuario->areapredeterminada = 1;  
-                $usuario->clave = "";
-                $usuario->create_at = $fecha; 
-               
-
-
-                $idusuario = $usuario->insertar();
-
- 
-
-               
-
-                $entidad->fk_idusuario = $idusuario->idusuario;
                 //Es nuevo
                 $entidad->insertar();
 
@@ -149,7 +119,7 @@ class ControladorCliente extends Controller
                 $msg["MSG"] = OKINSERT;
             }
             
-            $_POST["id"] = $entidad->idcliente;
+            $_POST["id"] = $entidad->idcliente; 
             return view('cliente.cliente-listar', compact('titulo', 'msg'));
         }
     } catch (Exception $e) {
@@ -157,7 +127,7 @@ class ControladorCliente extends Controller
         $msg["MSG"] = ERRORINSERT;
     }
 
-    $id = $entidad->idcliente;
+        $id = $entidad->idcliente;
         $cliente= new Cliente(); 
         $cliente->obtenerPorId($id);
 
@@ -179,7 +149,7 @@ class ControladorCliente extends Controller
 
                 $aResultado["err"] = EXIT_SUCCESS; //eliminado correctamente
             } else {
-                $codigo = "ELIMINARPROFESIONAL";
+                $codigo = "ELIMINARPROFESIONAL"; 
                 $aResultado["err"] = "No tiene pemisos para la operaci&oacute;n.";
             }
             echo json_encode($aResultado);
@@ -199,17 +169,16 @@ class ControladorCliente extends Controller
                 $mensaje = "No tiene pemisos para la operaci&oacute;n.";
                 return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
             } else {
+                
                 $cliente = new Cliente();
                 $cliente->obtenerPorId($id);
 
-                $entidadUsuario = new Usuario();
-                $aUsuarios = $entidadUsuario->obtenerTodos();
 
 
-                return view('cliente.cliente-nuevo', compact('cliente', 'aUsuarios', 'titulo'));
+                return view('cliente.cliente-nuevo', compact('cliente', 'titulo'));
             }
         } else {
-            return redirect('admin/login');
+            return redirect('admin/login'); 
         }
     }
 

@@ -34,35 +34,8 @@
 		<div class="col-xs-12">
 		<div class="row row-eq-height">		
 			<div class = "col-sm-12 col-md-6 col-lg-6">
-				<div class="home-slider owl-carousel img">
-					<div class="slider-item">
-						<div class="overlay"></div>
-						<div class="row slider-text align-items-center" data-scrollax-parent="true">
-							<img src="web/images/person_5.jpg" class="img-fluid" alt="">
-						</div>
-					</div>
-				
-					<div class="slider-item">
-						<div class="overlay"></div>
-						<div class="row slider-text align-items-center" data-scrollax-parent="true">
-							<img src="web/images/image_7.jpg" class="img-fluid" alt="">
-						</div>
-					</div>
-				
-					<div class="slider-item">
-						<div class="overlay"></div>
-						<div class="row slider-text align-items-center" data-scrollax-parent="true">
-							<img src="web/images/image_8.jpg" class="img-fluid" alt="">
-						</div>
-					</div>
-
-					<div class="slider-item">
-						<div class="overlay"></div>
-						<div class="row slider-text align-items-center" data-scrollax-parent="true">
-							<img src="web/images/image_9.jpg" class="img-fluid" alt="">
-						</div>
-					</div>	
-
+				<div class="overlay">
+					<img src="web/images/image_7.jpg" class="img-fluid" alt="">
 				</div>
 			</div>
 			<div class = "col-sm-12 col-md-6 col-lg-6">
@@ -89,74 +62,62 @@
 
 	</section>
 
+
     <section class="ftco-section">
-      <div class="container">
-      	<div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section ftco-animate text-center">
-            <h2 class="mb-4">Nuestro Equipo</h2>
-            <p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p>
-            <p class="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident aut animi enim possimus officiis quae, laborum rerum iure neque! Officia quibusdam magnam deleniti beatae sapiente quaerat ipsam ullam dolore facere!</p>
-          </div>
-        </div>
-        <div class="row">
-        	<div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-      				<div class="img mb-4" style="background-image: url(web/images/person_7.jpg);"></div>
-      				<div class="info text-center">
-      					<h3><a href="teacher-single.html">Oscar Alegre</a></h3>
-      					<span class="position">JEFE AYB</span>
-      					<div class="text">
-	        				<p>Apasionado por el servicio. Toda su experiencia puesta al servicio de las hamburguesas.</p>
-	        			</div>
-      				</div>
-        		</div>
-        	</div>
-        	<div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-      				<div class="img mb-4" style="background-image: url(web/images/person_8.jpg);"></div>
-      				<div class="info text-center">
-      					<h3><a href="teacher-single.html">Susana Oria</a></h3>
-      					<span class="position">CHEF</span>
-      					<div class="text">
-	        				<p>Chef Cordobesa especialista en carnes.</p>
-	        			</div>
-      				</div>
-        		</div>
-        	</div>
-        	<div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-      				<div class="img mb-4" style="background-image: url(web/images/person_9.jpg);"></div>
-      				<div class="info text-center">
-      					<h3><a href="teacher-single.html">Patrick Jacobson</a></h3>
-      					<span class="position">CHEF</span>
-      					<div class="text">
-	        				<p>Cocinero y Sommelier de profesión, lleva más de 10 años trabajando en hoteles y restaurantes.</p>
-	        			</div>
-      				</div>
-        		</div>
-        	</div>
-        	<div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-      				<div class="img mb-4" style="background-image: url(web/images/person_10.jpg);"></div>
-      				<div class="info text-center">
-      					<h3><a href="teacher-single.html">Martina Perez</a></h3>
-      					<span class="position">CHEF</span>
-      					<div class="text">
-	        				<p>Nacida en la capital madrileña, se graduó en la Escuela Superior de Hostelería y Turismo de Madrid, con el título de Técnico en Cocina y Gastronomía.</p>
-	        			</div>
-      				</div>
-        		</div>
-        	</div>
-        </div>
-      </div>
+	<div id="mi-carousel" class="carousel slide" data-ride="carousel">
+		<div class="carousel-inner">
+		  <div class="carousel-item active">
+			<div class="container">
+			    <div class="row justify-content-center mb-5 pb-3">
+			    <div class="col-md-7 heading-section ftco-animate text-center">
+					<h2 class="mb-4">Nuestro Equipo</h2>
+					<p class="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident aut animi enim possimus officiis quae, laborum rerum iure neque! Officia quibusdam magnam deleniti beatae sapiente quaerat ipsam ullam dolore facere!</p>
+			    </div>
+			  </div>
+			</div>
+		  </div>
+		  <div class="carousel-item">
+			<div class="container">
+			    <div class="row justify-content-center mb-5 pb-3">
+			    	<div class="col-md-7 heading-section ftco-animate text-center">
+					<h2 class="mb-4">Nuestras Sucursales</h2>
+					<p class="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident aut animi enim possimus officiis quae, laborum rerum iure neque! Officia quibusdam magnam deleniti beatae sapiente quaerat ipsam ullam dolore facere!</p>
+			    </div>
+			  </div>
+			</div>
+		  </div>
+		  <div class="carousel-item">
+			<div class="container">
+				<div class="row justify-content-center mb-5 pb-3">
+					<div class="col-md-7 heading-section ftco-animate text-center">
+					  <h2 class="mb-4">Nuestros Reconocimientos</h2>
+					  <p class="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident aut animi enim possimus officiis quae, laborum rerum iure neque! Officia quibusdam magnam deleniti beatae sapiente quaerat ipsam ullam dolore facere!</p>
+				</div>
+			    </div>
+			</div>
+		  </div>
+		</div>
+		<a class="carousel-control-prev" href="#mi-carousel" role="button" data-slide="prev">
+		  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		  <span class="sr-only">Previous</span>
+		</a>
+		<a class="carousel-control-next" href="#mi-carousel" role="button" data-slide="next">
+		  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+		  <span class="sr-only">Next</span>
+		</a>
+	</div>
     </section>
+
+
+
 	<section class="ftco-appointment" id="formulario">
 		<div class="container mt-5 py-5">
 			<div class="row block-9 justify-content-around">
 				<div class="col-md-6 ftco-animate">
 					<h3 class="mb-3">Trabajá con Nosotros</h3>
 					<small class="d-block"><i>Recuerde adjuntar su CV</i></small>
-					<form action="#" class="appointment-form">
+					<form action="#" method="POST" class="appointment-form">						
+						
 						<div class="d-md-flex">
 							<div class="form-group">
 								<input  type="text" id="txtNombre" name="txtNombre" class="form-control" placeholder="Nombre">
@@ -186,10 +147,6 @@
 							<div class="form-group">
 								<input type="tel" id="txtTelefono" name="txtTelefono" class="form-control" placeholder="Teléfono/Whatsapp">
 							</div>
-						</div>
-
-						<div class="form-group">
-							<textarea name="" id="" cols="30" rows="3" class="form-control" placeholder="Datos de Interés"></textarea>
 						</div>
 
 						<div class="d-me-flex">
