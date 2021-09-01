@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Entidades\Postulacion;
-use App\Entidades\Sistema\Usuario;
-use App\Entidades\Sistema\Patente;
 use Illuminate\Http\Request;
+use App\Entidades\Postulacion;
+use App\Entidades\Sistema\Patente;
+use App\Entidades\Sistema\Usuario;
+use Illuminate\Support\Facades\DB;
 
 require app_path() . '/start/constants.php';
 
