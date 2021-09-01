@@ -24,7 +24,7 @@ class ControladorCliente extends Controller
                 $mensaje = "No tiene permisos para la operaci&oacute;n.";
                 return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
             } else {
-                return view('cliente.cliente-listar', compact('titulo')); //crear carpeta
+                return view('cliente.cliente-listar', compact('titulo')); 
             }
         } else {
             return redirect('admin/login');
@@ -38,7 +38,7 @@ class ControladorCliente extends Controller
         $entidadUsuario = new Usuario();
         $aUsuarios = $entidadUsuario->obtenerTodos(); 
 
-        return view('cliente.cliente-nuevo', compact('cliente', 'titulo' , 'aUsuarios') ); 
+        return view('cliente.cliente-nuevo', compact('cliente', 'titulo' , 'aUsuarios') );  
     }
 
   
@@ -49,9 +49,6 @@ class ControladorCliente extends Controller
 
         $entidad = new Cliente();
         $aClientes = $entidad->obtenerFiltrado(); 
-
-        /*$entidad = new Usuario();
-        $aUsuarios = $entidad->obtenerFiltrado(); */
 
         $data = array();
         $cont = 0;
@@ -68,7 +65,7 @@ class ControladorCliente extends Controller
             $row[] = $aClientes[$i]->nombre . " " .$aClientes[$i]->apellido;
             $row[] = $aClientes[$i]->telefono;
             $row[] = $aClientes[$i]->correo;
-            $row[] = $aClientes[$i]->usuario;  
+            $row[] = $aClientes[$i]->usuario;     
  
            
 
@@ -117,31 +114,30 @@ class ControladorCliente extends Controller
                 $msg["MSG"] = OKINSERT;
             } else {
 
-
-                $date = new Carbon;
-                $fecha = $date->format('Y-m-d H:i:s'); 
-                
+                /*
+                $now = new \DateTime();
+ 
 
                 $usuario = new Usuario();
 
                 $usuario->usuario = $entidad->correo;
-                $usuario->activo = 1;
+                $usuario->activo = "ACTIVO" ;
                 $usuario->nombre = $entidad->nombre;
                 $usuario->apellido = $entidad->apellido;
                 $usuario->mail = $entidad->correo;
-                $usuario->areapredeterminada = 1;  
-                $usuario->clave = "";
-                $usuario->create_at = $fecha; 
+                $usuario->areapredeterminada = 0;  
+                
+                $usuario->create_at = $now->format('Y-m-d H:i:s'); 
                
 
 
                 $idusuario = $usuario->insertar();
 
- 
+            */
 
                
 
-                $entidad->fk_idusuario = $idusuario->idusuario;
+                //$entidad->fk_idusuario = $idusuario->idusuario;
                 //Es nuevo
                 $entidad->insertar();
 
@@ -149,7 +145,7 @@ class ControladorCliente extends Controller
                 $msg["MSG"] = OKINSERT;
             }
             
-            $_POST["id"] = $entidad->idcliente;
+            $_POST["id"] = $entidad->idcliente; 
             return view('cliente.cliente-listar', compact('titulo', 'msg'));
         }
     } catch (Exception $e) {
@@ -206,7 +202,7 @@ class ControladorCliente extends Controller
                 $aUsuarios = $entidadUsuario->obtenerTodos();
 
 
-                return view('cliente.cliente-nuevo', compact('cliente', 'aUsuarios', 'titulo'));
+                return view('cliente.cliente-nuevo', compact('cliente', 'titulo' ,'aUsuarios'));
             }
         } else {
             return redirect('admin/login');
