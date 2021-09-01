@@ -11,7 +11,8 @@
             
             <div class="row justify-content-center" >
               <div class="col-12 col-md-8 mx-3">
-                <h2>Recibimos tu pedido</h2>
+                <h1>¡Recibimos tu pedido!</h1>
+                <h4>En instantes vas a poder retirarlo por la sucursal seleccionada.</h4>
               </div>
             </div>
 
