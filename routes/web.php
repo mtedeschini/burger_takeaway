@@ -25,6 +25,7 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::post('/contacto', 'ControladorWebContacto@enviarCorreo');
     Route::get('/mi-cuenta', 'ControladorWebMiCuenta@index');
     Route::get('/login', 'ControladorWebLogin@index');
+    Route::post('/login', 'ControladorWebLogin@ingresar');
     Route::get('/carrito', 'ControladorWebCarrito@index');
     Route::get('/registro', 'ControladorWebRegistro@index');
     Route::post('/registro', 'ControladorWebRegistro@guardar');
@@ -132,7 +133,7 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     /* --------------------------------------------- */
     Route::get('/admin/postulaciones', 'ControladorPostulacion@index');
     Route::get('/admin/postulacion/nuevo', 'ControladorPostulacion@nuevo');
-    Route::post('/admin/postulacion/nuevo', 'ControladorPostulacion@guardar');
+    Route::post('/admin/postulacion/nuevo', 'ControladorPostulacion@guardar')->name('postulacion.guardar');
     Route::get('/admin/postulacion/cargarGrilla', 'ControladorPostulacion@cargarGrilla')->name('postulacion.cargarGrilla');
     Route::get('/admin/postulacion/eliminar', 'ControladorPostulacion@eliminar');
     Route::get('/admin/postulacion/{id}', 'ControladorPostulacion@editar');

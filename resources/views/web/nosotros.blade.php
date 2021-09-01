@@ -156,7 +156,8 @@
 				<div class="col-md-6 ftco-animate">
 					<h3 class="mb-3">Trabajá con Nosotros</h3>
 					<small class="d-block"><i>Recuerde adjuntar su CV</i></small>
-					<form action="#" class="appointment-form">
+					<form action="#" method="POST" class="appointment-form">						
+						
 						<div class="d-md-flex">
 							<div class="form-group">
 								<input  type="text" id="txtNombre" name="txtNombre" class="form-control" placeholder="Nombre">
@@ -186,10 +187,6 @@
 							<div class="form-group">
 								<input type="tel" id="txtTelefono" name="txtTelefono" class="form-control" placeholder="Teléfono/Whatsapp">
 							</div>
-						</div>
-
-						<div class="form-group">
-							<textarea name="" id="" cols="30" rows="3" class="form-control" placeholder="Datos de Interés"></textarea>
 						</div>
 
 						<div class="d-me-flex">

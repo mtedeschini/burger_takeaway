@@ -103,7 +103,34 @@ class Cliente extends Model
         return null;
     }
 
-    public function nuevo()
+    public function obtenerPorCorreo($correo)
+    {
+        $sql = "SELECT
+                    A.idcliente,
+                    A.nombre,
+                    A.apellido,
+                    A.telefono,
+                    A.correo,
+                    A.clave
+                FROM clientes A
+                WHERE A.correo = '$correo';
+
+                ";
+        $lstRetorno = DB::select($sql);
+
+        if (count($lstRetorno) > 0) {
+            $this->idcliente = $lstRetorno[0]->idcliente;
+            $this->nombre = $lstRetorno[0]->nombre;
+            $this->apellido = $lstRetorno[0]->apellido;
+            $this->telefono = $lstRetorno[0]->telefono;
+            $this->correo = $lstRetorno[0]->correo;
+            $this->clave = $lstRetorno[0]->clave;
+            return $this;
+        }
+        return null;
+    }
+
+    public function insertar()
     {
         $sql = "INSERT INTO clientes (
                 nombre,
@@ -117,7 +144,7 @@ class Cliente extends Model
             $this->apellido,
             $this->telefono,
             $this->correo,
-            $this->clave,
+            $this->clave
         ]);
         return $this->idcliente = DB::getPdo()->lastInsertId();
     }
@@ -127,32 +154,6 @@ class Cliente extends Model
         $sql = "DELETE FROM clientes WHERE
             idcliente=?";
         $affected = DB::delete($sql, [$this->idcliente]);
-    }
-
-    public function insertar()
-    {
-
-        $sql = "INSERT INTO clientes (
-
-                    nombre,
-                    apellido,
-                    telefono,
-                    correo,
-                    clave
-
-             )
-
-                VALUES (?, ?, ?, ?, ?); ";
-        $result = DB::insert($sql, [
-
-            $this->nombre,
-            $this->apellido,
-            $this->telefono,
-            $this->correo,
-            $this->clave,
-
-        ]);
-        return $this->idcliente = DB::getPdo()->lastInsertId();
     }
 
     public function guardar()

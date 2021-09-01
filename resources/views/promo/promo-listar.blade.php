@@ -12,8 +12,8 @@
     <li class="breadcrumb-item active">Promociones</a></li>
 </ol>
 <ol class="toolbar">
-    <li class="btn-item"><a title="Nuevo" href="/admin/promo/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
-    <li class="btn-item"><a title="Recargar" href="/admin/promos" class="fa fa-refresh" aria-hidden="true" onclick='window.location.replace("/admin/promo");'><span>Recargar</span></a></li>
+    <li class="btn-item"><a title="Nuevo" href="/admin/producto/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
+    <li class="btn-item"><a title="Recargar" href="/admin/productos" class="fa fa-refresh" aria-hidden="true" onclick='window.location.replace("/admin/producto");'><span>Recargar</span></a></li>
 </ol>
 @endsection
 @section('contenido')
@@ -43,7 +43,7 @@ if (isset($msg)) {
 	    "bSearchable": true,
         "pageLength": 25,
         "order": [[ 0, "asc" ]],
-	    "ajax": "{{ route('promo.cargarGrilla') }}"
+	    "ajax": "{{ route('producto.cargarGrilla') }}"
 	});
 </script>
 @endsection
