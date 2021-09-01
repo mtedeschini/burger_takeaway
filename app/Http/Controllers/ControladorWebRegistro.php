@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Entidades\Sucursal;
 use App\Entidades\Cliente;
+use Illuminate\Http\Request;
 
 
 class ControladorWebRegistro extends Controller

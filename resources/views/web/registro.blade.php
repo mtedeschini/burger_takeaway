@@ -6,7 +6,7 @@
     <div class="container mt-5">
       <div class="row block-9 justify-content-center">
         <div class="col-md-12 ftco-animate">
-          <form action="#" class="contact-form">
+          <form action="" method="post" class="contact-form">
             <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
             
             <div class="row justify-content-center" >
@@ -15,7 +15,7 @@
               </div>
               <div class="col-12 col-md-8">
                 <div class="form-group">
-                  <input type="text" class="form-control" name="txtUsuario" placeholder="Correo">
+                  <input type="text" class="form-control" name="txtCorreo" placeholder="Correo">
                 </div>
               </div>
               <div class="col-12 col-md-8 px-3">
