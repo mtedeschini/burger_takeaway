@@ -23,7 +23,7 @@ class Sponsor extends Model
         $this->nombre_producto = $request->input('txtNombreProducto');
         $this->descripcion = $request->input('txtDescripcion');
         $this->cantidad = $request->input('Cantidad');
-        $this->documento = $request->input('Archivo');
+        $this->foto_producto = $request->input('Archivo');
         $this->correo = $request->input('txtEmail');
         $this->telefono = $request->input('txtTelefono');
         
@@ -82,7 +82,7 @@ class Sponsor extends Model
         nombre_producto='$this->nombre_producto',
         descripcion='$this->descripcion',
         cantidad_producto=$this->cantidad_producto,
-        telefono=$this->telefono,
+        telefono='$this->telefono',
         email='$this->email',
         foto_producto='$this->foto_producto'
         WHERE idsponsor=?";
@@ -99,7 +99,7 @@ class Sponsor extends Model
     public function insertar()
     {
         $sql = "INSERT INTO sponsors (
-            idsponsor,
+            
             nombre_empresa,
             nombre_producto,
             descripcion,
@@ -107,10 +107,10 @@ class Sponsor extends Model
             telefono,
             email,
             foto_producto
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+        ) VALUES (?, ?, ?, ?, ?, ?, ?);";
 
         $result = DB::insert($sql, [
-            $this->idsponsor,
+         
             $this->nombre_empresa,
             $this->nombre_producto,
             $this->descripcion,

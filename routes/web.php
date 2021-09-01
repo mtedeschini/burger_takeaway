@@ -1,5 +1,5 @@
 <?php
-
+ //use Carbon\Carbon; 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +11,9 @@
 |
  */
 
+/*Route::get('/time' , function(){$date =new Carbon;echo $date ; } );*/
+
+
 Route::group(array('domain' => '127.0.0.1'), function () {
 
     Route::get('/', 'ControladorWebHome@index');
@@ -19,9 +22,11 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::post('/takeaway', 'ControladorWebTakeaway@guardar');
     Route::get('/promociones', 'ControladorWebpromociones@index');
     Route::get('/contacto', 'ControladorWebContacto@index');
-    Route::get('/mi-cuenta', 'ControladorLogin@index');
+    Route::get('/mi-cuenta', 'ControladorWebMiCuenta@index');
+    Route::get('/login', 'ControladorWebLogin@index');
     Route::get('/carrito', 'ControladorWebCarrito@index');
-
+    Route::get('/registro', 'ControladorWebRegistro@index');
+    Route::post('/registro', 'ControladorWebRegistro@guardar');
 
     Route::get('/admin', 'ControladorHome@index');
     Route::post('/admin/patente/nuevo', 'ControladorPatente@guardar');

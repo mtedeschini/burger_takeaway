@@ -19,28 +19,36 @@ class ControladorWebContacto extends Controller
     }
 
 }
+if($_POST){ /* es postback */
+    $nombre = $_POST["txtNombre"];
+    $correo = $_POST["txtCorreo"];
+    $mensaje = $_POST["txtMensaje"];
 
-$mail = new PHPMailer(true);
-$mail->SMTPDebug = 0;
-$mail->isSMTP();
-$mail->Host = env('MAIL_HOST');
-$mail->SMTPAuth = true;
-$mail->Username = env('MAIL_USERNAME');
-$mail->Password = env('MAIL_PASSWORD');
-$mail->SMTPSecure = env('MAIL_ENCRYPTION');
-$mail->Port = env('MAIL_PORT');
+    if($nombre != "" && $correo != ""){
+        $mail = new PHPMailer(true);
+        $mail->SMTPDebug = 0;
+        $mail->isSMTP();
+        $mail->Host = env('MAIL_HOST');
+        $mail->SMTPAuth = true;
+        $mail->Username = env('MAIL_USERNAME');
+        $mail->Password = env('MAIL_PASSWORD');
+        $mail->SMTPSecure = env('MAIL_ENCRYPTION');
+        $mail->Port = env('MAIL_PORT');
 
-//Destinatarios
-$mail->setFrom(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME')); //Dirección desde
-$mail->addAddress($email); //Dirección para
-$mail->addReplyTo($replyTo); //Dirección de reply no-reply
-$mail->addBCC($copiaOculta);//Dirección de CCO
+        //Destinatarios
+        $mail->setFrom(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME')); //Dirección desde
+        $mail->addAddress($email); //Dirección para
+        $mail->addReplyTo($replyTo); //Dirección de reply no-reply
+        $mail->addBCC($copiaOculta);//Dirección de CCO
 
-//Contenido del mail
-$mail->isHTML(true);
-$mail->Subject = $subject;
-$mail->Body = $body;
-$mail->send();
+        //Contenido del mail
+        $mail->isHTML(true);
+        $mail->Subject = $subject;
+        $mail->Body = $body;
+        $mail->send();
+
+    }
+}
 
 
 
