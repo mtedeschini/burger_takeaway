@@ -2,18 +2,18 @@
 @section('titulo', "$titulo")
 @section('scripts')
 <script>
-    globalId = '<?php echo isset($promo->idpromo) && $promo->idpromo > 0 ? $promo->idpromo : 0; ?>';
-    <?php $globalId = isset($promo->idpromo) ? $promo->idpromo : "0"; ?>
+    globalId = '<?php echo isset($producto->idproducto) && $producto->idproducto > 0 ? $producto->idproducto : 0; ?>';
+    <?php $globalId = isset($producto->idproducto) ? $producto->idproducto : "0"; ?>
 </script>
 @endsection
 @section('breadcrumb')
 <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/admin">Inicio</a></li>
-    <li class="breadcrumb-item"><a href="/admin/promos">Promociones</a></li>
+    <li class="breadcrumb-item"><a href="/admin/productos">Promociones</a></li>
     <li class="breadcrumb-item active">Modificar</li>
 </ol>
 <ol class="toolbar">
-    <li class="btn-item"><a title="Nuevo" href="/admin/promoo/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
+    <li class="btn-item"><a title="Nuevo" href="/admin/producto/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
     <li class="btn-item"><a title="Guardar" href="#" class="fas fa-save" aria-hidden="true" onclick="javascript: $('#modalGuardar').modal('toggle');"><span>Guardar</span></a>
     </li>
     @if ($globalId > 0)
@@ -49,15 +49,15 @@ if (isset($msg)) {
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
             <div class="form-group col-lg-6">
                 <label>Nombre: *</label>
-                <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="{{ $promo->nombre}}" required>
+                <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="{{ $producto->nombre}}" required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Precio: *</label>
-                <input type="number" maxlength="50" id="txtPrecio" name="txtPrecio" class="form-control" value="{{ $promo->precio}}" required>
+                <input type="number" maxlength="50" id="txtPrecio" name="txtPrecio" class="form-control" value="{{ $producto->precio}}" required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Descripción: *</label>
-                <textarea class="form-control" name="txtDescripcion" id="txtDescripcion" cols="30" style="height:70px !important;" maxlength="50" rows="10">{{ $promo->descripcion}}</textarea>
+                <textarea class="form-control" name="txtDescripcion" id="txtDescripcion" cols="30" style="height:70px !important;" maxlength="50" rows="10">{{ $producto->descripcion}}</textarea>
             </div>
             <div class="form-group col-lg-6">
                 <label for="archivo">Archivo adjunto:</label>
@@ -102,7 +102,7 @@ if (isset($msg)) {
     function eliminar() {
         $.ajax({
             type: "GET",
-            url: "{{ asset('/admin/promo/eliminar') }}",
+            url: "{{ asset('/admin/producto/eliminar') }}",
             data: {
                 id: globalId
             },
@@ -110,7 +110,7 @@ if (isset($msg)) {
             dataType: "json",
             success: function(data) {
                 if (data.err = "0") {
-                    msgShow("Promo eliminada exitosamente.", "success");
+                    msgShow("Producto eliminada exitosamente.", "success");
                     $("#btnEnviar").hide();
                     $("#btnEliminar").hide();
                     $('#mdlEliminar').modal('toggle');
