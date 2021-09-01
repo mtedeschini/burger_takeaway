@@ -11,7 +11,7 @@ class ControladorWebRecibido extends Controller
         $sucursal = new Sucursal();
         $aSucursales = $sucursal->obtenerTodos();
 
-        return view('web.nosotros', compact('aPostulaciones','aSucursales'));
+        return view('web.recibido', compact('aSucursales'));
     }
 
 
