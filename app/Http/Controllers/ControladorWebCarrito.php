@@ -96,7 +96,7 @@ class ControladorWebCarrito extends Controller
 
             $entidadPedido->insertar();
   
-            return redirect('/index');
+            return redirect('/');
 
     }
 
