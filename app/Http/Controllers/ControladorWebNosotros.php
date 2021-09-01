@@ -26,7 +26,12 @@ class ControladorWebNosotros extends Controller
         $documento = trim($request->input('txtDni'));
         $correo = trim($request->input('txtCorreo'));
         $telefono = trim($request->input('txtTelefono'));
-        $archivo_cv = "";//$request->input('archivo');
+        if ($_FILES["archivo"]["error"] === UPLOAD_ERR_OK) { //Se adjunta la imagen
+            $nombre = date("Ymdhmsi") . ".pdf";
+            $archivo = $_FILES["archivo"]["tmp_name"];
+            move_uploaded_file($archivo, env('APP_PATH') . "/public/files/$nombre"); //guardaelarchivo
+            $entidadPostulacion->archivo_cv = $nombre;
+        }
 
         $entidadPostulacion = new Postulacion();
         $entidadPostulacion->nombre = $nombre;
