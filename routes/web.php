@@ -1,5 +1,5 @@
 <?php
-
+ //use Carbon\Carbon; 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
  */
+
+/*Route::get('/time' , function(){$date =new Carbon;echo $date ; } );*/
+
 
 Route::group(array('domain' => '127.0.0.1'), function () {
 

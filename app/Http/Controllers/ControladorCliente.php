@@ -1,11 +1,14 @@
 <?php 
 
- namespace App\Http\Controllers;
+
+namespace App\Http\Controllers;
 
 use App\Entidades\Cliente;    
 use App\Entidades\Sistema\Patente;
 use App\Entidades\Sistema\Usuario;
 use Illuminate\Http\Request;
+use Carbon\Carbon;  
+
 
 
 require app_path().'/start/constants.php';
@@ -113,15 +116,32 @@ class ControladorCliente extends Controller
                 $msg["ESTADO"] = MSG_SUCCESS;
                 $msg["MSG"] = OKINSERT;
             } else {
+
+
+                $date = new Carbon;
+                $fecha = $date->format('Y-m-d H:i:s'); 
+                
+
                 $usuario = new Usuario();
-                $usuario->nombre = $cliente->nombre;
+
+                $usuario->usuario = $entidad->correo;
+                $usuario->activo = 1;
+                $usuario->nombre = $entidad->nombre;
+                $usuario->apellido = $entidad->apellido;
+                $usuario->mail = $entidad->correo;
+                $usuario->areapredeterminada = 1;  
+                $usuario->clave = "";
+                $usuario->create_at = $fecha; 
+               
 
 
+                $idusuario = $usuario->insertar();
 
+ 
 
-                $idUsuario = $usuario->insertar();
+               
 
-                $entidad->fk_idusuario = $idUsuario;
+                $entidad->fk_idusuario = $idusuario->idusuario;
                 //Es nuevo
                 $entidad->insertar();
 

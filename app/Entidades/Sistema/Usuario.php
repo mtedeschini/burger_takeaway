@@ -106,7 +106,7 @@ class Usuario extends Model
                     mail,
                     areapredeterminada,
                     clave
-                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
             $result = DB::insert($sql, [
             		$this->usuario,
                     ACTIVO, 
