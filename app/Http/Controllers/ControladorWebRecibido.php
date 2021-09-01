@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Entidades\Sucursal;
 
 class ControladorWebRecibido extends Controller
 {
