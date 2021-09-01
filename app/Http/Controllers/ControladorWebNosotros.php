@@ -18,4 +18,7 @@ class ControladorWebNosotros extends Controller
         return view('web.nosotros', compact('aPostulaciones','aSucursales'));
     }
 
+
+    
+
 }
