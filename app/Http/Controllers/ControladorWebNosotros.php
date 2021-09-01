@@ -19,26 +19,23 @@ class ControladorWebNosotros extends Controller
         return view('web.nosotros', compact('aPostulaciones','aSucursales'));
     }
 
-    public function guardar(Request $request){
-        $entidadPostulacion = new Postulacion();
-
+    public function guardarPostulacion(Request $request){
         $nombre = trim($request->input('txtNombre'));
         $apellido = trim($request->input('txtApellido'));
         $localidad = trim($request->input('txtLocalidad'));
-        $documento = trim($request->input('txtDocumento'));
+        $documento = trim($request->input('txtDni'));
         $correo = trim($request->input('txtCorreo'));
         $telefono = trim($request->input('txtTelefono'));
-        $archivo_cv = $request->input('archivo');
+        $archivo_cv = "";//$request->input('archivo');
 
-        
-        
+        $entidadPostulacion = new Postulacion();
         $entidadPostulacion->nombre = $nombre;
         $entidadPostulacion->apellido = $apellido;
         $entidadPostulacion->localidad = $localidad;
         $entidadPostulacion->documento = $documento;
         $entidadPostulacion->correo = $correo;
         $entidadPostulacion->telefono = $telefono;
-        $entidadPostulacion->telefono = $archivo_cv;
+        $entidadPostulacion->archivo_cv = $archivo_cv;
         $entidadPostulacion->insertar();
 
         return redirect('/nosotros');
