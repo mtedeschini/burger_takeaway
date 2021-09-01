@@ -104,6 +104,33 @@ class Cliente extends Model
         return null;
     }
 
+    public function obtenerPorCorreo($correo)
+    {
+        $sql = "SELECT
+                    A.idcliente,
+                    A.nombre,
+                    A.apellido,
+                    A.telefono,
+                    A.correo,
+                    A.clave
+                FROM clientes A
+                WHERE A.correo = '$correo';
+
+                ";
+        $lstRetorno = DB::select($sql);
+
+        if (count($lstRetorno) > 0) {
+            $this->idcliente = $lstRetorno[0]->idcliente;
+            $this->nombre = $lstRetorno[0]->nombre;
+            $this->apellido = $lstRetorno[0]->apellido;
+            $this->telefono = $lstRetorno[0]->telefono;
+            $this->correo = $lstRetorno[0]->correo;
+            $this->clave = $lstRetorno[0]->clave;
+            return $this;
+        }
+        return null;
+    }
+
     public function nuevo()
     {
         $sql = "INSERT INTO clientes (
