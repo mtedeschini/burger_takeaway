@@ -1,5 +1,6 @@
 @extends('web.plantilla-sitio')
 @section('contenido')
+<form name="form" method="POST">
 <section style="background-image: url(web/images/bg_1.jpg);">
     <div class="container" style="width: 400px;">
         <div class="row">
@@ -20,10 +21,12 @@
                                 <div class="col-12 col-sm-12 mt-5">
                                     <table class="table">
                                         <tbody>
+                                            @foreach($aCarritos as $carrito)
                                             <tr>
-                                                <th scope="row">Precio</th>
-                                                <td class="text-center">PrecioProducto</td>
+                                                <th scope="row">{{ $carrito->producto}}</th>
+                                                <td class="text-center">${{ $carrito->precio}}</td>
                                             </tr>
+                                            @endforeach
                                             <tr>
                                                 <th scope="row" class="text-warning">TOTAL</th>
                                                 <td class="text-center">PrecioProducto</td>
@@ -81,4 +84,5 @@
         </div>
     </div>
 </section>
+</form>
 @endsection

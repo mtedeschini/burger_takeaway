@@ -21,7 +21,7 @@ class ControladorWebCarrito extends Controller
     {
         if(Session::get('cliente_id') != ""){
         $carrito = new Carrito();
-        $aCarritos = $carrito->obtenerPorUsuario(Session::get('cliente_id'));
+        $aCarritos = $carrito->obtenerPorCliente(Session::get('cliente_id'));
 
         $sucursal = new Sucursal();
         $aSucursales = $sucursal->obtenerTodos();
