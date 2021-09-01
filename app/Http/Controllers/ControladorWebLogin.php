@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Entidades\Sucursal;
 use App\Entidades\Cliente;
-
+use Session;
 class ControladorWebLogin extends Controller
 {
     public function index()
@@ -20,9 +20,21 @@ class ControladorWebLogin extends Controller
         $clave = $request->input("txtClave");
 
         $cliente = new Cliente;
-        $cliente->obtenerPorCorreo($correo);
+        if($cliente->obtenerPorCorreo($correo)){
+            if($cliente->verificarClave($clave, $cliente->clave)){
+                //Ingresa a la web
+                Session::put("cliente_id", "$cliente->idcliente");
+                return redirect("/takeaway");
 
-        $cliente->verificarClave($clave, $cliente->clave)
+            } else {
+                $msg = "Credenciales incorrectas";
+                return view("web.login", compact('$msg'));
+            }
+        } else {
+            $msg = "Credenciales incorrectas";
+            return view("web.login", compact('$msg'));
+        }
+
 
     }
 }
