@@ -48,7 +48,7 @@ class Cliente extends Model
             $sql .= " AND ( A.nombre LIKE '%" . $request['search']['value'] . "%' ";
             $sql .= " OR A.apellido LIKE '%" . $request['search']['value'] . "%' ";
             $sql .= " OR A.telefono LIKE '%" . $request['search']['value'] . "%' ";
-            $sql .= " OR B.correo LIKE '%" . $request['search']['value'] . "%') ";
+            $sql .= " OR A.correo LIKE '%" . $request['search']['value'] . "%') ";
             $sql .= " ORDER BY " . $columns[$request['order'][0]['column']] . "   " . $request['order'][0]['dir'];
         }
 
@@ -65,11 +65,10 @@ class Cliente extends Model
                     A.nombre,
                     A.apellido,
                     A.telefono,
-                    A.correo,
-                    A.clave
+                    A.correo
+                   
                   FROM clientes A
-                  LEFT JOIN sistema_usuarios B ON A.clave = B.idusuario
-
+                 
 
                 ";
 
