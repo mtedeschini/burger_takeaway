@@ -45,13 +45,13 @@
       <div class="row slider-text align-items-center" data-scrollax-parent="true">
 
         <div class="col-md-6 col-sm-12 order-md-last ftco-animate">
-          <span class="subheading">pickle </span>
+          <span class="subheading">Delicious </span>
           <h1 class="mb-4">Burgers</h1>
           <p class="mb-4 mb-md-5">Disfruta de 2 hamburguesas Bacon doble por $850.</p>
           <p><a href="/takeaway" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">View Menu</a></p>
         </div>
         <div class="col-md-6 ftco-animate">
-          <img src="web/images/burgers777.png" class="img-fluid" alt="">
+          <img src="web/images/triple.png" class="img-fluid" alt="">
         </div>
 
       </div>
