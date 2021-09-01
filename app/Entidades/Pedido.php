@@ -127,7 +127,6 @@ class Pedido extends Model
     public function insertar()
     {
         $sql = "INSERT INTO pedidos (
-                idpedido,
                 total,
                 fk_idsucursal,
                 fk_idcliente,
@@ -135,9 +134,8 @@ class Pedido extends Model
                 fk_idestadopago,
                 fecha
 
-            ) VALUES (?, ?, ?, ?, ?, ?, ?);";
+            ) VALUES (?, ?, ?, ?, ?, ?);";
         $result = DB::insert($sql, [
-            $this->idpedido,
             $this->total,
             $this->fk_idsucursal,
             $this->fk_idcliente,

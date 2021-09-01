@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-namespace Carbon\Carbon;
 
 use App\Entidades\Carrito;
 use App\Entidades\Sucursal;
 use App\Entidades\Pedido;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+
 
 use MercadoPago\Item;
 use MercadoPago\MerchantOrder;
@@ -82,22 +83,20 @@ class ControladorWebCarrito extends Controller
     
             $entidadPedido = new Pedido();
     
-            $total = $request->'txtTotal';
+            $total = $request->input('txtTotal');
             $sucursal = $request->input('txtSucursal'); // IDSUCURSAL
             
-            $entidadPedido->total = $total;
+ 
+            $entidadPedido->total = '500'; //$entidadPedido->total = $total;
             $entidadPedido->fk_idsucursal = $sucursal;
             $entidadPedido->fk_idcliente = Session::get('cliente_id');
             $entidadPedido->fk_idestado = '1';
             $entidadPedido->fk_idestadopago = '3';
-            $entidadPedido->fecha = Carbon\Carbon::now();
+            $entidadPedido->fecha = Carbon::now();
 
             $entidadPedido->insertar();
-
-            $msg["ESTADO"] = MSG_SUCCESS;
-            $msg["MSG"] = OKPEDIDO;
   
-            return redirect('/carrito');
+            return redirect('/index');
 
     }
 
