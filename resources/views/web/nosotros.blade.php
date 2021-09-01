@@ -66,28 +66,23 @@
 		<div class="carousel-inner">
 		  <div class="carousel-item active">
 			<div class="container">
-			    <div class="row justify-content-center mb-5 pb-3">
-			    <div class="col-md-7 heading-section ftco-animate text-center">
-					<h2 class="mt-5">>>Si entre amigos quieres compartir, nuestras hamburguesas debes pedir.<<</h2>
-			    </div>
+			    <div class="row justify-content-center mb-5 pb-3 text-center">
+					<h2 class="mt-5">>> Si entre amigos quieres compartir, nuestras hamburguesas debes pedir. <<</h2>
 			  </div>
 			</div>
 		  </div>
 		  <div class="carousel-item">
 			<div class="container">
-			    <div class="row justify-content-center mb-5 pb-3">
-			    	<div class="col-md-7 heading-section ftco-animate text-center">
-					<h2 class="mt-5">>>Cocinamos para ti las mejores hamburguesas de mundo mundial, perfectas en todo momento, sobre todo cuando no quieres cocinar.<<</h2>
-			    	</div>
+				<div class="row justify-content-center mb-5 pb-3 text-center">
+					<h2 class="mt-5">>> Cocinamos para ti las mejores hamburguesas de mundo mundial, perfectas en todo momento, sobre todo cuando no quieres cocinar. <<</h2>
 			  </div>
 			</div>
 		  </div>
 		  <div class="carousel-item">
 			<div class="container">
-				<div class="row justify-content-center mb-5 pb-3">
-					<div class="col-md-7 heading-section ftco-animate text-center">
-					  <h2 class="mt-5">>>Con el primer bocado ya te sentirás en el cielo, será una experiencia del otro mundo.<<</h2>
-					</div>
+				<div class="row justify-content-center mb-5 pb-3 text-center">
+					<h2 class="mt-5">>> Con el primer bocado ya te sentirás en el cielo, será una experiencia del otro mundo. <<</h2>
+				</div>
 			    </div>
 			</div>
 		  </div>
