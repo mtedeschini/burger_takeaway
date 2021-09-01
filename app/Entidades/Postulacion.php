@@ -91,7 +91,7 @@ class Postulacion extends model
     public function eliminar()
     {
         $sql = "DELETE FROM postulaciones WHERE
-        idpostulacion=?";
+            idpostulacion=?";
         $affected = DB::delete($sql, [$this->idpostulacion]);
     }
 

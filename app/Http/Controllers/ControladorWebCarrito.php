@@ -12,20 +12,24 @@ use MercadoPago\Payer;
 use MercadoPago\Payment;
 use MercadoPago\Preference;
 use MercadoPago\SDK;
-
+use Session;
 
 class ControladorWebCarrito extends Controller
 {
 
     public function index()
     {
+        if(Session::get('cliente_id') != ""){
         $carrito = new Carrito();
-        $aCarritos = $carrito->obtenerPorUsuario();
+        $aCarritos = $carrito->obtenerPorUsuario(Session::get('cliente_id'));
 
         $sucursal = new Sucursal();
         $aSucursales = $sucursal->obtenerTodos();
 
         return view('web.carrito', compact('aCarritos', 'aSucursales'));
+        } else {
+            return redirect("/login");
+        }
     }
 
 
@@ -34,7 +38,6 @@ class ControladorWebCarrito extends Controller
         SDK::setClientId(config("payment-methods.mercadopago.client"));
         SDK::setClientSecret(config("payment-methods.mercadopago.secret"));
         SDK::setAccessToken($access_token); //Es el token de la cuenta de MP donde se deposita el dinero
-
         //Obtener de la BBDD el carrito actual del usuario
         $item = new Item();
         $item->id = "1234";

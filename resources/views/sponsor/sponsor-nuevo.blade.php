@@ -9,11 +9,11 @@ globalId = '<?php echo isset($sponsor->idsponsor) && $sponsor->idsponsor > 0 ? $
 @section('breadcrumb')
 <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/admin/home">Inicio</a></li>
-    <li class="breadcrumb-item"><a href="/admin/postulaciones">Sponsor</a></li>
+    <li class="breadcrumb-item"><a href="/admin/sponsors">Sponsor</a></li>
     <li class="breadcrumb-item active">Modificar</li>
 </ol>
 <ol class="toolbar">
-    <li class="btn-item"><a title="Nuevo" href="/admin/sponsor/nuevo" class="fa fa-plus-circle"
+    <li class="btn-item"><a title="Nuevo" href="/admin/sponsors/nuevo" class="fa fa-plus-circle"
             aria-hidden="true"><span>Nuevo</span></a></li>
     <li class="btn-item"><a title="Guardar" href="#" class="fas fa-save" aria-hidden="true"
             onclick="javascript: $('#modalGuardar').modal('toggle');"><span>Guardar</span></a>
@@ -69,11 +69,7 @@ if (isset($msg)) {
                 <input type="text" id="txtEmail" name="txtEmail" class="form-control"
                     value="{{ $sponsor->email }}" required>
             </div>
-            <div class="form-group col-lg-6">
-                <label>Correo: *</label>
-                <input type="text" id="txtCorreo" name="txtCorreo" class="form-control"
-                    value="{{ $sponsor->correo }}" required>
-            </div>
+           
             <div class="form-group col-lg-6">
                 <label>Teléfono: *</label>
                 <input type="text" id="txtTelefono" name="txtTelefono" class="form-control"

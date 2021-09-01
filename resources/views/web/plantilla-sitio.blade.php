@@ -48,6 +48,7 @@
           <li class="nav-item"><a href="#scrsls" class="nav-link">Sucursales</a></li>
           <li class="nav-item"><a href="/mi-cuenta" class="nav-link">Mi cuenta</a></li>
           <li class="nav-item"><a href="/carrito" class="nav-link">Carrito</a></li>
+          <li class="nav-item"><a href="/sponsors" class="nav-link">Sponsors</a></li>
         </ul>
       </div>
     </div>
@@ -58,13 +59,13 @@
 
   <footer class="ftco-footer ftco-section img">
     <div class="overlay"></div>
-    <div class="container">
+    <div class='container' >
 
 <div class="row" id='scrsls'>
       @foreach ($aSucursales as $sucursal)
         <div class="col-lg-3 col-md-6 mb-5 mb-md-5">
           <div class="ftco-footer-widget mb-4">
-            <h2 class="ftco-heading-2">{{$sucursal->nombre}}</h2>
+            <h2 class="ftco-heading-2" style="color:orange;">{{$sucursal->nombre}}</h2>
             <div class="block-23 mb-3">
               <ul>
                 <li><span class="icon icon-map-marker"></span><span class="text"> {{$sucursal->direccion}}</span></li>        
