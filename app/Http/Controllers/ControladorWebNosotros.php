@@ -19,7 +19,6 @@ class ControladorWebNosotros extends Controller
         return view('web.nosotros', compact('aPostulaciones','aSucursales'));
     }
 
-<<<<<<< HEAD
     public function guardar(Request $request){
         $entidadPostulacion = new Postulacion();
 
@@ -44,9 +43,5 @@ class ControladorWebNosotros extends Controller
 
         return redirect('/nosotros');
     }
-=======
-
-    
->>>>>>> 47316a38f602f8150a36f634371502f1978cfb25
 
 }
