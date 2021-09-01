@@ -34,35 +34,8 @@
 		<div class="col-xs-12">
 		<div class="row row-eq-height">		
 			<div class = "col-sm-12 col-md-6 col-lg-6">
-				<div class="home-slider owl-carousel img">
-					<div class="slider-item">
-						<div class="overlay"></div>
-						<div class="row slider-text align-items-center" data-scrollax-parent="true">
-							<img src="web/images/person_5.jpg" class="img-fluid" alt="">
-						</div>
-					</div>
-				
-					<div class="slider-item">
-						<div class="overlay"></div>
-						<div class="row slider-text align-items-center" data-scrollax-parent="true">
-							<img src="web/images/image_7.jpg" class="img-fluid" alt="">
-						</div>
-					</div>
-				
-					<div class="slider-item">
-						<div class="overlay"></div>
-						<div class="row slider-text align-items-center" data-scrollax-parent="true">
-							<img src="web/images/image_8.jpg" class="img-fluid" alt="">
-						</div>
-					</div>
-
-					<div class="slider-item">
-						<div class="overlay"></div>
-						<div class="row slider-text align-items-center" data-scrollax-parent="true">
-							<img src="web/images/image_9.jpg" class="img-fluid" alt="">
-						</div>
-					</div>	
-
+				<div class="overlay">
+					<img src="web/images/image_7.jpg" class="img-fluid" alt="">
 				</div>
 			</div>
 			<div class = "col-sm-12 col-md-6 col-lg-6">
@@ -71,9 +44,7 @@
 							<h2 class="mb-4">Burger SRL</h2>
 						</div>
 						<div>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quo, vitae dolore, placeat aspernatur cumque error porro nisi expedita dolorem quisquam! Illum ab quod eveniet odit ex eaque itaque dolorem.
-							   <br>
-							   <br>
+							<p>
 							   Si quiere formar parte de nuestro proyecto y de nuestro equipo de profesionales, por favor rellene este formulario para ponerse en contacto con nosotros y envíenos su currículum para que podamos incorporar su candidatura en futuros procesos de selección. 
 							</p>
 							<a type="button" class="btn btn-outline-light" href="#formulario">Rellene el formulario</a>
@@ -143,8 +114,9 @@
 				<div class="col-md-6 ftco-animate">
 					<h3 class="mb-3">Trabajá con Nosotros</h3>
 					<small class="d-block"><i>Recuerde adjuntar su CV</i></small>
-					<form action="" method="POST" class="appointment-form">
-
+					<form action="#" method="POST" class="appointment-form">						
+						  <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
+      
 						<div class="d-md-flex">
 							<div class="form-group">
 								<input  type="text" id="txtNombre" name="txtNombre" class="form-control" placeholder="Nombre">
@@ -157,7 +129,7 @@
 						</div>
 						<div class="d-me-flex">
 							<div class="form-group">
-								<input type="text" id="txtDocumento" name="txtDocumento" class="form-control" placeholder="Dni">
+								<input type="text" id="txtDni" name="txtDni" class="form-control" placeholder="Dni">
 							</div>
 						</div>  
 						<div class="d-md-flex">

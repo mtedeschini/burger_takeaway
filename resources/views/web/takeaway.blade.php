@@ -45,7 +45,7 @@
                             <p>{{$producto->descripcion}} </p>
                         </div>
                         <div class="col-12 text-center">
-                            <p class="precio-item"> Precio: ${{$producto->precio}}</p>
+                            <p class="precio-item"> Precio: ${{number_format($producto->precio,2,",",".")}}</p> 
                         </div>
                         <form action="" method="POST">
                             <div class="row pt-2 text-center d-flex justify-content-center">

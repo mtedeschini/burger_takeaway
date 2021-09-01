@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Entidades\Carrito;
 use App\Entidades\Sucursal;
+use App\Entidades\Pedido;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+
 
 use MercadoPago\Item;
 use MercadoPago\MerchantOrder;
@@ -33,8 +36,7 @@ class ControladorWebCarrito extends Controller
     }
 
 
-    public function finalizarPedido(Request $request)
-    {
+    public function finalizarPedidoMP(Request $request){
         SDK::setClientId(config("payment-methods.mercadopago.client"));
         SDK::setClientSecret(config("payment-methods.mercadopago.secret"));
         SDK::setAccessToken($access_token); //Es el token de la cuenta de MP donde se deposita el dinero
@@ -75,14 +77,30 @@ class ControladorWebCarrito extends Controller
         $preference->notification_url = '';
         $preference->save(); //Ejecuta la transacción
 
+    }
 
+    public function finalizarPedido(Request $request){
+    
+            $entidadPedido = new Pedido();
+    
+            $total = $request->input('txtTotal');
+            $sucursal = $request->input('txtSucursal'); // IDSUCURSAL
+            
+ 
+            $entidadPedido->total = '500'; //$entidadPedido->total = $total;
+            $entidadPedido->fk_idsucursal = $sucursal;
+            $entidadPedido->fk_idcliente = Session::get('cliente_id');
+            $entidadPedido->fk_idestado = '1';
+            $entidadPedido->fk_idestadopago = '3';
+            $entidadPedido->fecha = Carbon::now();
 
-
-
-
+            $entidadPedido->insertar();
+  
+            return redirect('/');
 
     }
 
+        
     public function guardar(Request $request)
     {
         try {
