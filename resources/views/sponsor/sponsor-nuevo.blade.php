@@ -9,11 +9,11 @@ globalId = '<?php echo isset($sponsor->idsponsor) && $sponsor->idsponsor > 0 ? $
 @section('breadcrumb')
 <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/admin/home">Inicio</a></li>
-    <li class="breadcrumb-item"><a href="/admin/postulaciones">Sponsor</a></li>
+    <li class="breadcrumb-item"><a href="/admin/sponsors">Sponsor</a></li>
     <li class="breadcrumb-item active">Modificar</li>
 </ol>
 <ol class="toolbar">
-    <li class="btn-item"><a title="Nuevo" href="/admin/sponsor/nuevo" class="fa fa-plus-circle"
+    <li class="btn-item"><a title="Nuevo" href="/admin/sponsors/nuevo" class="fa fa-plus-circle"
             aria-hidden="true"><span>Nuevo</span></a></li>
     <li class="btn-item"><a title="Guardar" href="#" class="fas fa-save" aria-hidden="true"
             onclick="javascript: $('#modalGuardar').modal('toggle');"><span>Guardar</span></a>
