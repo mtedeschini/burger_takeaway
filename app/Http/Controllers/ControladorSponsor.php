@@ -12,22 +12,29 @@ require app_path() . '/start/constants.php';
 
 class ControladorSponsor extends Controller{
 
-    public function index()
+    
+
+     public function index()
     {
-        $titulo = "Sponsors";
+        $titulo = "Sponsors";;
         if (Usuario::autenticado() == true) {
-            return view('sponsor.sponsor-listar', compact('titulo'));
+            if (!Patente::autorizarOperacion("MENUCONSULTA")) {
+                $codigo = "MENUCONSULTA";
+                $mensaje = "No tiene permisos para la operaci&oacute;n.";
+                return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
+            } else {
+                return view('sponsor.sponsor-lista', compact('titulo'));  
+            }
         } else {
             return redirect('admin/login');
         }
-
     }
     
 
     public function nuevo()
     {
         $titulo = "Nuevo Sponsor";
-        $sponsor = new Sponsor();
+        $sponsor = new Sponsor(); // ???
 
         return view('sponsor.sponsor-nuevo', compact('sponsor', 'titulo'));
 

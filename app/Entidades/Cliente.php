@@ -27,7 +27,8 @@ class Cliente extends Model{
             2 => 'A.apellido',
             3 => 'A.telefono',
             4 => 'A.correo',
-            5 => 'B.usuario'
+            5 => 'A.fk_idusuario',
+            6 => 'B.usuario' 
 
         );
         $sql = "SELECT DISTINCT
@@ -140,24 +141,27 @@ class Cliente extends Model{
 
       public function insertar()
     {
+
+        
+
         $sql = "INSERT INTO clientes (
-                    idcliente,
+                    
                     nombre,
                     apellido,
                     telefono,
                     correo,
-                    fk_idusuario 
-                  
-                ) 
+                    fk_idusuario
 
-                VALUES (?, ?, ?, ?, ?, ?);";
+             ) 
+
+                VALUES (?, ?, ?, ?, ?); "; 
         $result = DB::insert($sql, [
-            $this->idcliente,
+           
             $this->nombre,
             $this->apellido,
             $this->telefono,
             $this->correo,
-            $this->fk_idusuario,
+            $this->fk_idusuario
 
         ]);
         return $this->idcliente = DB::getPdo()->lastInsertId();
@@ -165,13 +169,14 @@ class Cliente extends Model{
 
     public function guardar() {
         $sql = "UPDATE clientes SET
-            idcliente='$this->idcliente',
+           
             nombre='$this->nombre',
             apellido='$this->apellido',
             telefono='$this->telefono',
             correo='$this->correo',
             fk_idusuario=$this->fk_idusuario
             WHERE idcliente=?";
+
         $affected = DB::update($sql, [$this->idcliente]);
     }
 
@@ -184,7 +189,7 @@ class Cliente extends Model{
     $this->apellido = $request->input('txtApellido');
     $this->telefono = $request->input('txtTelefono');
     $this->correo = $request->input('txtCorreo');
-    $this->usuario = $request->input('listUsuario'); 
+    $this->fk_idusuario = $request->input('listUsuario');  
 
     } 
     
