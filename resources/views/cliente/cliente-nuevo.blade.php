@@ -65,19 +65,13 @@ if (isset($msg)) {
                 <label>Correo: </label>
                 <input type="text" maxlength="50" id="txtCorreo" name="txtCorreo" class="form-control" value="{{$cliente->correo}}" required>
             </div>
-           <div class="form-group col-lg-6">
-                <label>Usuario: </label>
-                <select id="lstUsuario" name="lstUsuario" class="form-control" required>
-                    <option value="" disabled selected>Seleccionar</option> 
-                    @foreach ($aUsuarios as $usuario)
-                        @if ( (isset($usuario->idusuario) && $usuario->idusuario == $cliente->fk_idusuario))
-                            <option selected value="{{$usuario->idusuario}}">{{$usuario->usuario}}</option>
-                        @else
-                            <option value="{{$usuario->idusuario}}">{{$usuario->usuario}}</option>
-                        @endif
-                    @endforeach
-                </select>
+
+             <div class="form-group col-lg-6">
+                <label>Clave: </label>
+                <input type="password" maxlength="50" id="txtClave" name="txtClave" class="form-control" value="{{$cliente->clave}}" required> 
             </div>
+
+
         </div>
 </div>
 </form>
