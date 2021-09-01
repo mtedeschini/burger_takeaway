@@ -51,7 +51,7 @@
             <img src="web/images/hamburguesas1.jpg" class="img-fluid rounded-pill" alt="">
           </div>
           <p class="mb-4 mb-md-5"> Donde la comida habla con el paladar. Una sabrosa hamburguesa es lo que te mereces.</p>
-          <p><a href="/takeaway" class="nav-link btn btn-primary p-3 px-xl-4 py-xl-3 ">Order Now</a> </p>
+
         </div>
 
       </div>
