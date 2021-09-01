@@ -41,8 +41,8 @@ class Carrito extends Model
             fk_idproducto,
             fk_idcliente
             FROM carritos
-            ORDER BY idcarrito
-            WHERE fk_idcliente = $idCliente";
+            WHERE fk_idcliente = $idCliente
+            ORDER BY idcarrito";
 
         $lstRetorno = DB::select($sql);
 
