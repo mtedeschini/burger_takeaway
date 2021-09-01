@@ -61,7 +61,7 @@ if (isset($msg)) {
             </div>
             <div class="form-group col-lg-6">
                 <label for="archivo">Archivo adjunto:</label>
-                <input type="file" id="archivo" name="archivo" class="form-control-file" accept=".jpg, .jpeg, .png" value="">
+                <input type="file" id="archivo" name="archivo" class="form-control-file" accept=".jpg, .jpeg, .png"  value="">
                 <small class="d-block">Archivos admitidos: .jpg, .jpeg, .png </small>
             </div>
         </div>

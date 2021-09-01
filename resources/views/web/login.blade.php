@@ -2,11 +2,11 @@
 @section('contenido')
 
 
-<section class="home-slider owl-carousel img" style="background-image: url(web/images/m12.jpg);">
+<section class="home-slider owl-carousel img">
     <div class="container mt-5">
       <div class="row block-9">
         <div class="col-md-12 ftco-animate">
-          <form action="#" class="contact-form">
+          <form action="#" class="contact-form" method="POST">
             <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
 
             <div class="row justify-content-center">
@@ -20,7 +20,7 @@
               </div>
               <div class="col-12 col-md-8">
                 <div class="form-group">
-                  <input type="text" name="txtClave" class="form-control" placeholder="Clave">
+                  <input type="password" name="txtClave" class="form-control" placeholder="Clave">
                 </div>
               </div>
               <div class="col-12 col-md-8">
