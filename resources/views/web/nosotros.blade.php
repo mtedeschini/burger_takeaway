@@ -44,9 +44,7 @@
 							<h2 class="mb-4">Burger SRL</h2>
 						</div>
 						<div>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quo, vitae dolore, placeat aspernatur cumque error porro nisi expedita dolorem quisquam! Illum ab quod eveniet odit ex eaque itaque dolorem.
-							   <br>
-							   <br>
+							<p>
 							   Si quiere formar parte de nuestro proyecto y de nuestro equipo de profesionales, por favor rellene este formulario para ponerse en contacto con nosotros y envíenos su currículum para que podamos incorporar su candidatura en futuros procesos de selección. 
 							</p>
 							<a type="button" class="btn btn-outline-light" href="#formulario">Rellene el formulario</a>
@@ -117,7 +115,8 @@
 					<h3 class="mb-3">Trabajá con Nosotros</h3>
 					<small class="d-block"><i>Recuerde adjuntar su CV</i></small>
 					<form action="#" method="POST" class="appointment-form">						
-						
+						  <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
+      
 						<div class="d-md-flex">
 							<div class="form-group">
 								<input  type="text" id="txtNombre" name="txtNombre" class="form-control" placeholder="Nombre">
