@@ -2,7 +2,7 @@
 @section('contenido')
 
 
-<section class="ftco-section contact-section">
+<section class="home-slider owl-carousel img" style="background-image: url(web/images/m12.jpg);">
     <div class="container mt-5">
       <div class="row block-9">
         <div class="col-md-12 ftco-animate">
