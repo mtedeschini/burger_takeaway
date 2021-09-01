@@ -20,7 +20,7 @@
               </div>
               <div class="col-12 col-md-8 px-3">
                 <div class="form-group">
-                  <input type="text" name="txtClave" class="form-control" placeholder="Clave">
+                  <input type="password" name="txtClave" class="form-control" placeholder="Clave">
                 </div>
               </div>
               <div class="col-12 col-md-8">
