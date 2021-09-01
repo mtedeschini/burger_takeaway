@@ -44,9 +44,7 @@
 							<h2 class="mb-4">Burger SRL</h2>
 						</div>
 						<div>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quo, vitae dolore, placeat aspernatur cumque error porro nisi expedita dolorem quisquam! Illum ab quod eveniet odit ex eaque itaque dolorem.
-							   <br>
-							   <br>
+							<p>
 							   Si quiere formar parte de nuestro proyecto y de nuestro equipo de profesionales, por favor rellene este formulario para ponerse en contacto con nosotros y envíenos su currículum para que podamos incorporar su candidatura en futuros procesos de selección. 
 							</p>
 							<a type="button" class="btn btn-outline-light" href="#formulario">Rellene el formulario</a>
@@ -70,8 +68,7 @@
 			<div class="container">
 			    <div class="row justify-content-center mb-5 pb-3">
 			    <div class="col-md-7 heading-section ftco-animate text-center">
-					<h2 class="mb-4">Nuestro Equipo</h2>
-					<p class="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident aut animi enim possimus officiis quae, laborum rerum iure neque! Officia quibusdam magnam deleniti beatae sapiente quaerat ipsam ullam dolore facere!</p>
+					<h2 class="mt-5">>>Si entre amigos quieres compartir, nuestras hamburguesas debes pedir.<<</h2>
 			    </div>
 			  </div>
 			</div>
@@ -80,9 +77,8 @@
 			<div class="container">
 			    <div class="row justify-content-center mb-5 pb-3">
 			    	<div class="col-md-7 heading-section ftco-animate text-center">
-					<h2 class="mb-4">Nuestras Sucursales</h2>
-					<p class="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident aut animi enim possimus officiis quae, laborum rerum iure neque! Officia quibusdam magnam deleniti beatae sapiente quaerat ipsam ullam dolore facere!</p>
-			    </div>
+					<h2 class="mt-5">>>Cocinamos para ti las mejores hamburguesas de mundo mundial, perfectas en todo momento, sobre todo cuando no quieres cocinar.<<</h2>
+			    	</div>
 			  </div>
 			</div>
 		  </div>
@@ -90,9 +86,8 @@
 			<div class="container">
 				<div class="row justify-content-center mb-5 pb-3">
 					<div class="col-md-7 heading-section ftco-animate text-center">
-					  <h2 class="mb-4">Nuestros Reconocimientos</h2>
-					  <p class="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident aut animi enim possimus officiis quae, laborum rerum iure neque! Officia quibusdam magnam deleniti beatae sapiente quaerat ipsam ullam dolore facere!</p>
-				</div>
+					  <h2 class="mt-5">>>Con el primer bocado ya te sentirás en el cielo, será una experiencia del otro mundo.<<</h2>
+					</div>
 			    </div>
 			</div>
 		  </div>
@@ -117,7 +112,8 @@
 					<h3 class="mb-3">Trabajá con Nosotros</h3>
 					<small class="d-block"><i>Recuerde adjuntar su CV</i></small>
 					<form action="#" method="POST" class="appointment-form">						
-						
+						  <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
+      
 						<div class="d-md-flex">
 							<div class="form-group">
 								<input  type="text" id="txtNombre" name="txtNombre" class="form-control" placeholder="Nombre">
