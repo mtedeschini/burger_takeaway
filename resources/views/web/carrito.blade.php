@@ -29,13 +29,23 @@
                                             @foreach($aCarritos as $carrito)
                                             <tr>
                                                 <th scope="row">{{ $carrito->producto}}</th>
-                                                <td class="text-center">${{ $carrito->precio}}</td>
+                                                <td class="text-center"><?php $precioProducto = $carrito->precio; echo "$" . number_format($precioProducto, 2); ?></td>
                                             </tr>
                                             @endforeach
                                             <tr>
                                                 <th scope="row" class="text-warning">TOTAL</th>
-                                                <td class="text-center">PrecioProducto</td>
-                                            </tr>
+                                                <td class="text-center">
+                                                <?php 
+                                                    $total = 0;
+                                                    foreach($aCarritos as $carrito) {
+                                                        $total += $carrito->precio;
+                                                    }
+
+                                                    echo "$" . number_format($total, 2);
+
+                                                ?>
+                                                </td>
+                                            </tr> 
                                         </tbody>
                                     </table>
                                 </div>
