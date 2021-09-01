@@ -35,10 +35,7 @@ class ControladorCliente extends Controller
         $titulo = "Nuevo cliente";
         $cliente = new Cliente();
 
-        $entidadUsuario = new Usuario();
-        $aUsuarios = $entidadUsuario->obtenerTodos(); 
-
-        return view('cliente.cliente-nuevo', compact('cliente', 'titulo' , 'aUsuarios') );  
+        return view('cliente.cliente-nuevo', compact('cliente', 'titulo' ) );  
     }
 
   
@@ -65,7 +62,7 @@ class ControladorCliente extends Controller
             $row[] = $aClientes[$i]->nombre . " " .$aClientes[$i]->apellido;
             $row[] = $aClientes[$i]->telefono;
             $row[] = $aClientes[$i]->correo;
-            $row[] = $aClientes[$i]->usuario;     
+               
  
            
 
@@ -114,30 +111,7 @@ class ControladorCliente extends Controller
                 $msg["MSG"] = OKINSERT;
             } else {
 
-                /*
-                $now = new \DateTime();
- 
 
-                $usuario = new Usuario();
-
-                $usuario->usuario = $entidad->correo;
-                $usuario->activo = "ACTIVO" ;
-                $usuario->nombre = $entidad->nombre;
-                $usuario->apellido = $entidad->apellido;
-                $usuario->mail = $entidad->correo;
-                $usuario->areapredeterminada = 0;  
-                
-                $usuario->create_at = $now->format('Y-m-d H:i:s'); 
-               
-
-
-                $idusuario = $usuario->insertar();
-
-            */
-
-               
-
-                //$entidad->fk_idusuario = $idusuario->idusuario;
                 //Es nuevo
                 $entidad->insertar();
 
@@ -153,7 +127,7 @@ class ControladorCliente extends Controller
         $msg["MSG"] = ERRORINSERT;
     }
 
-    $id = $entidad->idcliente;
+        $id = $entidad->idcliente;
         $cliente= new Cliente(); 
         $cliente->obtenerPorId($id);
 
@@ -202,7 +176,7 @@ class ControladorCliente extends Controller
                 $aUsuarios = $entidadUsuario->obtenerTodos();
 
 
-                return view('cliente.cliente-nuevo', compact('cliente', 'titulo' ,'aUsuarios'));
+                return view('cliente.cliente-nuevo', compact('cliente', 'titulo'));
             }
         } else {
             return redirect('admin/login');
