@@ -90,7 +90,7 @@ class ControladorSponsor extends Controller{
         for ($i = $inicio; $i < count($aSponsors) && $cont < $registros_por_pagina; $i++) {
             $row = array();
 
-            $row[] = '<a href="/admin/sponsor/' . $aSponsors[$i]->idsponsor . '" class="btn btn-secondary"><i class="fas fa-search"></i></a>';
+            $row[] = '<a href="/admin/sponsors/' . $aSponsors[$i]->idsponsor . '" class="btn btn-secondary"><i class="fas fa-search"></i></a>';
 
             $row[] = $aSponsors[$i]->nombre_empresa;
             $row[] = $aSponsors[$i]->nombre_producto;
@@ -116,7 +116,7 @@ class ControladorSponsor extends Controller{
     }
 
     public function guardar(Request $request) {
-        $idpostulacion=$request['id'];
+        $idsponsor=$request['id'];
         try {
             //Define la entidad 
             $titulo = "Modificar Sponsors";

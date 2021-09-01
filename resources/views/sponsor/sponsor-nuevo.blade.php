@@ -69,11 +69,7 @@ if (isset($msg)) {
                 <input type="text" id="txtEmail" name="txtEmail" class="form-control"
                     value="{{ $sponsor->email }}" required>
             </div>
-            <div class="form-group col-lg-6">
-                <label>Correo: *</label>
-                <input type="text" id="txtCorreo" name="txtCorreo" class="form-control"
-                    value="{{ $sponsor->correo }}" required>
-            </div>
+           
             <div class="form-group col-lg-6">
                 <label>Teléfono: *</label>
                 <input type="text" id="txtTelefono" name="txtTelefono" class="form-control"
