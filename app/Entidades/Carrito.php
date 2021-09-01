@@ -5,51 +5,44 @@ namespace App\Entidades;
 use DB;
 use Illuminate\Database\Eloquent\Model;
 
-use function PHPSTORM_META\sql_injection_subst;
-
 class Carrito extends Model
 {
 
     protected $table = 'carritos';
     public $timestamps = false;
-  
+
     protected $fillable = [
-        'idcarrito', 'fk_idproducto', 'fk_idcliente'
+        'idcarrito', 'fk_idproducto', 'fk_idcliente',
     ];
-  
+
     protected $hidden = [
-  
+
     ];
-  
+
     public function insertar()
     {
         $sql = "INSERT INTO carritos (
-                idcarrito,
                 fk_idproducto,
                 cantidad,
                 fk_idcliente
-  
             ) VALUES (?, ?, ?, ?);";
-            $result = DB::insert($sql, [
-            $this->idcarrito,
-            $this->cantidad,
+        $result = DB::insert($sql, [
             $this->fk_idproducto,
-            $this->fk_idcliente
-  
+            $this->cantidad,
+            $this->fk_idcliente,
         ]);
         return $this->idcarrito = DB::getPdo()->lastInsertId();
     }
 
-    public function obtenerPorUsuario($idCliente) 
+    public function obtenerPorUsuario($idCliente)
     {
-        $sql ="SELECT
+        $sql = "SELECT
             idcarrito,
             fk_idproducto,
             fk_idcliente
             FROM carritos
             ORDER BY idcarrito
             WHERE fk_idcliente = $idCliente";
-        ;
 
         $lstRetorno = DB::select($sql);
 
@@ -63,13 +56,11 @@ class Carrito extends Model
         return null;
     }
 
-   public function eliminar()
-   {
-       $sql = "DELETE FROM carritos 
+    public function eliminar()
+    {
+        $sql = "DELETE FROM carritos
             WHERE idcarrito=?";
         $affected = DB::delete($sql, [$this->idcarrito]);
-   }
-
-   
+    }
 
 }

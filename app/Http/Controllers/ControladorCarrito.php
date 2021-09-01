@@ -22,3 +22,4 @@ public function nuevo()
     $aProductos = $entidadProducto->obtenerTodos();
     return view('carrito.carrito-nuevo', compact('titulo', 'aClientes', 'aProductos', 'carrito'));
 }
+}
