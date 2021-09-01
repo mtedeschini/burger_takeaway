@@ -31,6 +31,7 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::post('/carrito', 'ControladorWebCarrito@finalizarPedido');
     Route::get('/registro', 'ControladorWebRegistro@index');
     Route::post('/registro', 'ControladorWebRegistro@guardar');
+    Route::get('/recibido', 'ControladorWebRecibido@index');
 
     Route::get('/admin', 'ControladorHome@index');
     Route::post('/admin/patente/nuevo', 'ControladorPatente@guardar');

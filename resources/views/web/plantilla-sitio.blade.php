@@ -45,7 +45,15 @@
           <li class="nav-item"><a href="/takeaway" class="nav-link">Takeaway</a></li>
           <li class="nav-item"><a href="/promociones" class="nav-link">Promociones</a></li>
           <li class="nav-item"><a href="#scrsls" class="nav-link">Sucursales</a></li>
-          <li class="nav-item"><a href="/mi-cuenta" class="nav-link">Mi cuenta</a></li>
+          
+          <div class="dropdown"><a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Mi cuenta</a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <li><a class="dropdown-item" href="/login">Iniciar Sesion</a></li>
+              <li><a class="dropdown-item" href="/registro">Registrarse</a></li>
+    
+            </ul>
+          </div>
+          
           <li class="nav-item"><a href="/carrito" class="nav-link">Carrito</a></li>
           <li class="nav-item"><a href="/sponsors" class="nav-link">Sponsors</a></li>
           <li class="nav-item"><a href="/contacto" class="nav-link">Contacto</a></li>
