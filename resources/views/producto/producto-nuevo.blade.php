@@ -50,11 +50,10 @@ if (isset($msg)) {
             <div class="form-group col-lg-6">
                 <label>Nombre: *</label>
                 <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="{{ $producto->nombre}}" required>
-            </div> 
-            
+            </div>
             <div class="form-group col-lg-6">
-                <label>Precio: *</label>      
-                <input type="number" maxlength="50" id="txtPrecio" name="txtPrecio" class="form-control" value="{{ number_format( $producto->precio , 2) }}" required>
+                <label>Precio: *</label>
+                <input type="number" maxlength="50" id="txtPrecio" name="txtPrecio" class="form-control" value="{{ $producto->precio}}" required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Descripción: *</label>
