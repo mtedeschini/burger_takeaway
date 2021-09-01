@@ -39,7 +39,7 @@
                         <div class="text p-4 m-3 col-5">
                             <h3>{{$producto->nombre}}</h3>
                             <p> {{$producto->descripcion}}  </p>
-                            <p style="color:orange">Precio: {{$producto->precio}} </p>
+                            <p style="color:orange">Precio: {{ number_format($producto->precio,2,",",".")}} </p> 
                             <div class="form-group ">
                                 <label>Cantidad:</label>
                                 <input type="number" maxlength="50" id="txtCantidad" name="txtCantidad" class="form-control" placeholder="0" required>

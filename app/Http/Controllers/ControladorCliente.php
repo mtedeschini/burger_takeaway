@@ -169,6 +169,7 @@ class ControladorCliente extends Controller
                 $mensaje = "No tiene pemisos para la operaci&oacute;n.";
                 return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
             } else {
+                
                 $cliente = new Cliente();
                 $cliente->obtenerPorId($id);
 
