@@ -51,7 +51,7 @@ class ControladorCliente extends Controller
         $cont = 0;
 
         $inicio = $request['start'];
-        $registros_por_pagina = $request['length'];
+        $registros_por_pagina = $request['length']; 
 
 
         for ($i = $inicio; $i < count($aClientes) && $cont < $registros_por_pagina; $i++) {
@@ -149,7 +149,7 @@ class ControladorCliente extends Controller
 
                 $aResultado["err"] = EXIT_SUCCESS; //eliminado correctamente
             } else {
-                $codigo = "ELIMINARPROFESIONAL";
+                $codigo = "ELIMINARPROFESIONAL"; 
                 $aResultado["err"] = "No tiene pemisos para la operaci&oacute;n.";
             }
             echo json_encode($aResultado);
@@ -172,14 +172,12 @@ class ControladorCliente extends Controller
                 $cliente = new Cliente();
                 $cliente->obtenerPorId($id);
 
-                $entidadUsuario = new Usuario();
-                $aUsuarios = $entidadUsuario->obtenerTodos();
 
 
                 return view('cliente.cliente-nuevo', compact('cliente', 'titulo'));
             }
         } else {
-            return redirect('admin/login');
+            return redirect('admin/login'); 
         }
     }
 
