@@ -82,7 +82,7 @@
                                 <div class="row">
                                     <div class="col-6 col-sm-6 text-center">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
-                                        <button class="btn btn-warning"> Modificar el pedido</button>
+                                        <a href="/takeaway" class="btn btn-warning"> Agregar más productos</a>
                                     </div>
                                     <div class="col-6 col-sm-6 text-center">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
