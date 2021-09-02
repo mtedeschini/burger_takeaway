@@ -143,7 +143,7 @@
 						<div class="d-me-flex">
 							<div class="form-group">
 								<label for="txtDocumento">Archivo adjunto:</label>
-								<input type="file" id="archivo" name="archivo" class="form-control-file py-2" accept=".pdf, .doc, .docx">
+								<input type="file" id="archivo_cv" name="archivo_cv" class="form-control-file py-2" accept=".pdf, .doc, .docx">
 								<small class="d-block">Archivos admitidos: .pdf, .doc .docx</small>
 							</div>		
 						</div>
