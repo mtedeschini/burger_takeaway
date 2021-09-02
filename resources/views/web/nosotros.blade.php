@@ -106,7 +106,7 @@
 				<div class="col-md-6 ftco-animate">
 					<h3 class="mb-3">Trabajá con Nosotros</h3>
 					<small class="d-block"><i>Recuerde adjuntar su CV</i></small>
-					<form action="#" method="POST" class="appointment-form">						
+					<form action="#" method="POST" class="appointment-form" enctype="multipart/form-data">						
 						  <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
       
 						<div class="d-md-flex">
