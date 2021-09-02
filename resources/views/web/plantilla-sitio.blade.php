@@ -45,12 +45,12 @@
       </button>
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active"><a href="/" class="nav-link"><i class="fas fa-home"></i></a></li>
-          <li class="nav-item"><a href="/nosotros" class="nav-link"><i class="fas fa-info-circle"></i></a></li>
-          <li class="nav-item"><a href="/takeaway" class="nav-link"><i class="fas fa-shopping-bag"></i></a></li>
-          <li class="nav-item"><a href="/promociones" class="nav-link"><i class="fas fa-percent"></i></a></li>
-          <li class="nav-item"><a href="/sponsors" class="nav-link"><i class="fas fa-hands-helping"></i></a></li>
-          <li class="nav-item"><a href="/contacto" class="nav-link"><i class="fas fa-envelope"></i></a></li>
+          <li class="nav-item active"><a href="/" class="nav-link"><i class="fas fa-home"></i>  Inicio</a></li>
+          <li class="nav-item"><a href="/nosotros" class="nav-link"><i class="fas fa-info-circle"></i>  Nosotros</a></li>
+          <li class="nav-item"><a href="/takeaway" class="nav-link"><i class="fas fa-shopping-bag"></i>  Takeaway</a></li>
+          <li class="nav-item"><a href="/promociones" class="nav-link"><i class="fas fa-percent"></i>  Promociones</a></li>
+          <li class="nav-item"><a href="/sponsors" class="nav-link"><i class="fas fa-hands-helping"></i>  Sponsors</a></li>
+          <li class="nav-item"><a href="/contacto" class="nav-link"><i class="fas fa-envelope"></i>  Contacto</a></li>
 
                     @if(Session::get('cliente_id') != "")
           <li class="nav-item dropdown">
@@ -61,9 +61,9 @@
           </ul>
           </li>
           @else
-           <li class="nav-item"><a href="#scrsls" class="nav-link"><i class="fas fa-sign-in-alt"></i></a></li>
+           <li class="nav-item"><a href="#scrsls" class="nav-link"><i class="fas fa-sign-in-alt"></i>  Ingresar</a></li>
           @endif
-            <li class="nav-item"><a href="/carrito" class="nav-link"><i class="fas fa-shopping-cart"></i></a></li>
+            <li class="nav-item"><a href="/carrito" class="nav-link"><i class="fas fa-shopping-cart"></i>  Carrito</a></li>
       
         </ul>
       </div>
