@@ -50,7 +50,6 @@
           <li class="nav-item"><a href="/takeaway" class="nav-link"><i class="fas fa-utensils"></i></a></li>
           <li class="nav-item"><a href="/promociones" class="nav-link"><i class="fas fa-percent"></i></a></li>
           <li class="nav-item"><a href="/sponsors" class="nav-link">Sponsors</a></li>
-          <li class="nav-item"><a href="/contacto" class="nav-link">Contacto</a></li>
           <li class="nav-item"><a href="/contacto" class="nav-link"><i class="fas fa-phone-square"></i></a></li>
 
                     @if(Session::get('cliente_id') != "")
