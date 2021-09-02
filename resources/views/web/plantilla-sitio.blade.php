@@ -49,19 +49,21 @@
           <li class="nav-item"><a href="/nosotros" class="nav-link">Nosotros</a></li>
           <li class="nav-item"><a href="/takeaway" class="nav-link">Takeaway</a></li>
           <li class="nav-item"><a href="/promociones" class="nav-link">Promociones</a></li>
-          <li class="nav-item"><a href="#scrsls" class="nav-link">Sucursales</a></li>
-          
-          <div class="dropdown"><a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Mi cuenta</a>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <li><a class="dropdown-item" href="/login">Iniciar Sesion</a></li>
-              <li><a class="dropdown-item" href="/registro">Registrarse</a></li>
-    
-            </ul>
-          </div>
-          
-          <li class="nav-item"><a href="/carrito" class="nav-link">Carrito</a></li>
           <li class="nav-item"><a href="/sponsors" class="nav-link">Sponsors</a></li>
           <li class="nav-item"><a href="/contacto" class="nav-link">Contacto</a></li>
+                    @if(Session::get('cliente_id') != "")
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle show" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="true">Mi cuenta</a>
+          <ul class="dropdown-menu show" aria-labelledby="dropdown01" data-bs-popper="none">
+            <li><a class="dropdown-item" href="/mi-cuenta">Perfil</a></li>
+            <li><a class="dropdown-item" href="/logout">Cerrar sesión</a></li>
+          </ul>
+          </li>
+          @else
+           <li class="nav-item"><a href="#scrsls" class="nav-link">Ingresar</a></li>
+          @endif
+            <li class="nav-item"><a href="/carrito" class="nav-link"><i class="fas fa-shopping-cart"></i></a></li>
+      
         </ul>
       </div>
     </div>
@@ -81,17 +83,17 @@
             <h2 class="ftco-heading-2" style="color:orange;">{{$sucursal->nombre}}</h2>
             <div class="block-23 mb-3">
               <ul>
-                <li><span class="icon icon-map-marker"></span><span class="text"> {{$sucursal->direccion}}</span></li>        
+                <li><span class="icon icon-map-marker"></span><span class="text"> {{$sucursal->direccion}}</span></li>
                 <li><a href="#"><span class="icon icon-phone"></span><span class="text"> {{$sucursal->telefono}}</span></a></li>
               </ul>
             </div>
           </div>
         </div>
-      
+
       @endforeach
   </div>
         <div class="col-md-12 text-center">
-        
+
 
 
         <div class="row">
@@ -100,7 +102,7 @@
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             Copyright &copy;<script>
               document.write(new Date().getFullYear());
-            </script> - Burgers SRL 
+            </script> - Burgers SRL
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
           </p>
         </div>

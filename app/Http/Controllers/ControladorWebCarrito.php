@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Entidades\Carrito;
 use App\Entidades\Sucursal;
 use App\Entidades\Pedido;
+use App\Entidades\Sistema\Pedido_detalle;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -93,8 +94,14 @@ class ControladorWebCarrito extends Controller
             $entidadPedido->fk_idestado = '1';
             $entidadPedido->fk_idestadopago = '3';
             $entidadPedido->fecha = Carbon::now();
+            $idPedido = $entidadPedido->insertar();
 
-            $entidadPedido->insertar();
+            $pedidoDetalle = new Pedido_detalle();
+            $pedidoDetalle->fk_idpedido = $idPedido;
+            
+            //Hacer foreach que recorra los productos del carrito e insertarlo en el pedido_detallle
+
+            //Vaciar la tabla carrito para el cliente logueado
   
             return redirect('/recibido');
 

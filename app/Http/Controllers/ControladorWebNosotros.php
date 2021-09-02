@@ -20,18 +20,24 @@ class ControladorWebNosotros extends Controller
     }
 
     public function guardarPostulacion(Request $request){
+
+        $entidadPostulacion = new Postulacion();
+        $entidadPostulacion->cargarDesdeRequest($request);
+        
         $nombre = trim($request->input('txtNombre'));
         $apellido = trim($request->input('txtApellido'));
         $localidad = trim($request->input('txtLocalidad'));
         $documento = trim($request->input('txtDni'));
         $correo = trim($request->input('txtCorreo'));
         $telefono = trim($request->input('txtTelefono'));
-        if ($_FILES["archivo"]["error"] === UPLOAD_ERR_OK) { //Se adjunta la imagen
+        
+       /* if ($_FILES["archivo"]["error"] === UPLOAD_ERR_OK) { //Se adjunta la imagen
             $nombre = date("Ymdhmsi") . ".pdf";
             $archivo = $_FILES["archivo"]["tmp_name"];
             move_uploaded_file($archivo, env('APP_PATH') . "/public/files/$nombre"); //guardaelarchivo
             $entidadPostulacion->archivo_cv = $nombre;
-        }
+        }*/
+
 
         $entidadPostulacion = new Postulacion();
         $entidadPostulacion->nombre = $nombre;
@@ -40,7 +46,7 @@ class ControladorWebNosotros extends Controller
         $entidadPostulacion->documento = $documento;
         $entidadPostulacion->correo = $correo;
         $entidadPostulacion->telefono = $telefono;
-        $entidadPostulacion->archivo_cv = $archivo_cv;
+        //$entidadPostulacion->archivo_cv = $archivo_cv;
         $entidadPostulacion->insertar();
 
         return redirect('/nosotros');
