@@ -4,10 +4,10 @@
 
 <form name="form" method="POST">
 <section style="background-image: url(web/images/bg_1.jpg);">
-    <div class="container" style="width: 400px;">
+    <div class="container" style="width: 30%;">
         <div class="row">
             <div class="col-12 col-sm-12 mt-5 mb-5">
-                <div class="card text-white bg-dark">
+                <div class="card text-white bg-dark"> 
                     <div class="card-body">
                         <div class="container">
                             <div class="row">
@@ -30,16 +30,20 @@
                                                 <th scope="row">{{ $carrito->producto}}</th>
                                                 <td class="text-center">
                                                     <?php 
-                                                    $precioProducto = $carrito->precio * $carrito->cantidad; 
-                                                    $total += $precioProducto;
-                                                    echo "$" . number_format($precioProducto, 2); ?>
-                                                    </td>
+                                                        $precioProducto = $carrito->precio * $carrito->cantidad; 
+                                                        $total += $precioProducto;
+                                                        echo "$" . number_format($precioProducto, 2); 
+                                                    ?>
+                                                    <br>
+                                                    <form action="" method="POST">
+                                                        <input class="btn btn-danger" type="button" value="Delete"></input>
+                                                    </form>
+                                                </td>
                                             </tr>
                                             @endforeach
                                             <tr>
                                                 <th scope="row" class="text-warning">TOTAL</th>
-                                                <td class="text-center">${{ number_format($total, 2) }}
-                                                </td>
+                                                <td class="text-center">${{ number_format($total, 2) }}</td>
                                             </tr> 
                                         </tbody>
                                     </table>
@@ -74,7 +78,7 @@
                                 <div class="col-12 col-sm-12 mt-5">
                                     <div class="form-group">
                                         <label for="textarea">Comentarios...</label>
-                                        <textarea class="form-control" id="textarea" rows="3"></textarea>
+                                        <textarea class="form-control" id="textarea" rows="1"></textarea>
                                     </div>
                                 </div>
                             </div>
