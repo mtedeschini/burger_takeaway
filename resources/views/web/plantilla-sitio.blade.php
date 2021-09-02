@@ -25,6 +25,11 @@
   <link rel="stylesheet" href="{{ asset('web/css/jquery.timepicker.css') }}">
 
 
+  <link rel="stylesheet" href="{{asset('web/css/fontawesome/css/solid.css')}}">
+  <link rel="stylesheet" href="{{asset('web/css/fontawesome/css/all.min.css')}}">
+  <link rel="stylesheet" href="{{asset('web/css/fontawesome/css/fontawesome.min.css')}}">
+
+
   <link rel="stylesheet" href="{{ asset('web/css/flaticon.css') }}">
   <link rel="stylesheet" href="{{ asset('web/css/icomoon.css') }}">
   <link rel="stylesheet" href="{{ asset('web/css/style.css') }}">
@@ -41,11 +46,12 @@
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active"><a href="/" class="nav-link">Inicio</a></li>
-          <li class="nav-item"><a href="/nosotros" class="nav-link">Nosotros</a></li>
-          <li class="nav-item"><a href="/takeaway" class="nav-link">Takeaway</a></li>
-          <li class="nav-item"><a href="/promociones" class="nav-link">Promociones</a></li>
+          <li class="nav-item"><a href="/nosotros" class="nav-link"><i class="far fa-handshake"></i></a></li>
+          <li class="nav-item"><a href="/takeaway" class="nav-link"><i class="fas fa-utensils"></i></a></li>
+          <li class="nav-item"><a href="/promociones" class="nav-link"><i class="fas fa-percent"></i></a></li>
           <li class="nav-item"><a href="/sponsors" class="nav-link">Sponsors</a></li>
-          <li class="nav-item"><a href="/contacto" class="nav-link">Contacto</a></li>
+          <li class="nav-item"><a href="/contacto" class="nav-link"><i class="fas fa-phone-square"></i></a></li>
+
                     @if(Session::get('cliente_id') != "")
           <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle show" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="true">Mi cuenta</a>
