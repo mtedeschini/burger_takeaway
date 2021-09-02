@@ -46,9 +46,9 @@
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active"><a href="/" class="nav-link">Inicio</a></li>
-          <li class="nav-item"><a href="/nosotros" class="nav-link">Nosotros</a></li>
-          <li class="nav-item"><a href="/takeaway" class="nav-link">Takeaway</a></li>
-          <li class="nav-item"><a href="/promociones" class="nav-link">Promociones</a></li>
+          <li class="nav-item"><a href="/nosotros" class="nav-link"><i class="far fa-handshake"></i></a></li>
+          <li class="nav-item"><a href="/takeaway" class="nav-link"><i class="fas fa-utensils"></i></a></li>
+          <li class="nav-item"><a href="/promociones" class="nav-link"><i class="fas fa-percent"></i></a></li>
           <li class="nav-item"><a href="/sponsors" class="nav-link">Sponsors</a></li>
           <li class="nav-item"><a href="/contacto" class="nav-link">Contacto</a></li>
           <li class="nav-item"><a href="/contacto" class="nav-link"><i class="fas fa-phone-square"></i></a></li>
