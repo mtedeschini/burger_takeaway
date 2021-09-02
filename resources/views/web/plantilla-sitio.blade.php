@@ -25,9 +25,9 @@
   <link rel="stylesheet" href="{{ asset('web/css/jquery.timepicker.css') }}">
 
 
-  <link rel="stylesheet" href="{{asset('web/css/solid.css')}}">
-  <link rel="stylesheet" href="{{asset('web/css/all.min.css')}}">
-  <link rel="stylesheet" href="{{asset('web/css/fontawesome.min.css')}}">
+  <link rel="stylesheet" href="{{asset('web/css/fontawesome/css/solid.css')}}">
+  <link rel="stylesheet" href="{{asset('web/css/fontawesome/css/all.min.css')}}">
+  <link rel="stylesheet" href="{{asset('web/css/fontawesome/css/fontawesome.min.css')}}">
 
 
   <link rel="stylesheet" href="{{ asset('web/css/flaticon.css') }}">
@@ -51,6 +51,8 @@
           <li class="nav-item"><a href="/promociones" class="nav-link">Promociones</a></li>
           <li class="nav-item"><a href="/sponsors" class="nav-link">Sponsors</a></li>
           <li class="nav-item"><a href="/contacto" class="nav-link">Contacto</a></li>
+          <li class="nav-item"><a href="/contacto" class="nav-link"><i class="fas fa-phone-square"></i></a></li>
+
                     @if(Session::get('cliente_id') != "")
           <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle show" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="true">Mi cuenta</a>
