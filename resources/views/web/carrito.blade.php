@@ -23,24 +23,22 @@
                                 <div class="col-12 col-sm-12 mt-5">
                                     <table class="table">
                                         <tbody>
+                                            <?php $total = 0; ?>
                                             @foreach($aCarritos as $carrito)
                                             <tr>
+                                                <td scope="row">{{ $carrito->cantidad}}</td>
                                                 <th scope="row">{{ $carrito->producto}}</th>
-                                                <td class="text-center"><?php $precioProducto = $carrito->precio; echo "$" . number_format($precioProducto, 2); ?></td>
+                                                <td class="text-center">
+                                                    <?php 
+                                                    $precioProducto = $carrito->precio * $carrito->cantidad; 
+                                                    $total += $precioProducto;
+                                                    echo "$" . number_format($precioProducto, 2); ?>
+                                                    </td>
                                             </tr>
                                             @endforeach
                                             <tr>
                                                 <th scope="row" class="text-warning">TOTAL</th>
-                                                <td class="text-center">
-                                                <?php 
-                                                    $total = 0;
-                                                    foreach($aCarritos as $carrito) {
-                                                        $total += $carrito->precio;
-                                                    }
-
-                                                    echo "$" . number_format($total, 2);
-
-                                                ?>
+                                                <td class="text-center">${{ number_format($total, 2) }}
                                                 </td>
                                             </tr> 
                                         </tbody>
