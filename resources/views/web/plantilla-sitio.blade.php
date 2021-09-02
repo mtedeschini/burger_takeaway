@@ -25,6 +25,11 @@
   <link rel="stylesheet" href="{{ asset('web/css/jquery.timepicker.css') }}">
 
 
+  <link rel="stylesheet" href="{{asset('web/css/solid.css')}}">
+  <link rel="stylesheet" href="{{asset('web/css/all.min.css')}}">
+  <link rel="stylesheet" href="{{asset('web/css/fontawesome.min.css')}}">
+
+
   <link rel="stylesheet" href="{{ asset('web/css/flaticon.css') }}">
   <link rel="stylesheet" href="{{ asset('web/css/icomoon.css') }}">
   <link rel="stylesheet" href="{{ asset('web/css/style.css') }}">
