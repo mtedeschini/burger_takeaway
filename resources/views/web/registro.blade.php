@@ -1,9 +1,8 @@
 @extends('web.plantilla-sitio')
 @section('contenido')
-@section('scripts')
 
-<section class="ftco-section contact-section">
-    <div class="container mt-5">
+<section class="ftco-section contact-section" >
+    <div class="container mt-5" style="max-width: 600px">
       <div class="row block-9 justify-content-center">
         <div class="col-md-12 ftco-animate">
           <form action="" method="post" class="contact-form">
@@ -36,6 +35,17 @@
               <div class="col-12 col-md-8">
                 <div class="form-group">
                   <input type="text" name="txtTelefono" class="form-control" placeholder="Teléfono">
+                </div>
+              </div>
+              <div class="panel-body col-12 col-md-8">
+                  <div id="msg row ">
+                  <?php
+                  if (isset($msg)) {
+                    echo '<div class="col-12 mx-auto alert alert-'. $msg["ESTADO"] .'" role="alert">'; 
+                    echo $msg["MSG"];
+                    echo '</div>';
+                  }
+                  ?>
                 </div>
               </div>
               <div class="col-12 col-md-8 mt-3">

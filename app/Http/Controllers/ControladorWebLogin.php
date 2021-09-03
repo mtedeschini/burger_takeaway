@@ -44,7 +44,6 @@ class ControladorWebLogin extends Controller
             return view("web.login", compact('msg', 'aSucursales'));
         }
 
-
     }
 
     public function cerrarSesion(){

@@ -19,6 +19,8 @@ class ControladorWebRegistro extends Controller
 
     public function guardar(Request $request)
     {
+        $sucursal = new Sucursal();
+        $aSucursales = $sucursal->obtenerTodos();
         $entidadCliente = new Cliente();
 
         $correo = trim($request->input('txtCorreo'));
@@ -29,11 +31,11 @@ class ControladorWebRegistro extends Controller
         
         if($entidadCliente->obtenerPorCorreo($correo)){
 
-          $msg["ESTADO"] = MSG_ERROR;
-          $msg["MSG"] = "Ya existe una cuenta con el correo" . $correo;;
+          $msg["ESTADO"] = "danger";
+          $msg["MSG"] = "Ya existe una cuenta con el correo <b>" . $correo;;
 
-          return view("web.registro", compact('msg'));
-        }
+          return view("web.registro", compact('msg', 'aSucursales'));
+                }
         else{
         $entidadCliente->correo = $correo;
         $entidadCliente->clave = $clave;
@@ -42,10 +44,10 @@ class ControladorWebRegistro extends Controller
         $entidadCliente->telefono = $telefono;
         $entidadCliente->insertar();
 
-        $msg["ESTADO"] = MSG_SUCCESS;
-        $msg["MSG"] = "¡Usuario creado exitosamente! Por favor complete sus datos.";
+        $msg["ESTADO"] = "success";
+        $msg["MSG"] = "¡Usuario creado exitosamente! Por favor complete sus datos para ingresar.";
 
-        return view("web.login", compact('msg'));
+        return view("web.creado", compact('aSucursales'));
         ;
       }
     }
