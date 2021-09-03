@@ -11,6 +11,7 @@
                     <div class="card-body">
                         <div class="container">
                             <div class="row">
+                            <form action="" method="post">
                                 <div class="col-10 col-sm-10">
                                     <img src="web/images/burgerCarrito.jpg" alt="Hamburguesa" width="30%" height="100%">
                                     Hamburguesa
@@ -82,7 +83,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <form action="" method="post">
                                 <div class="row">
                                     <div class="col-6 col-sm-6 text-center">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>

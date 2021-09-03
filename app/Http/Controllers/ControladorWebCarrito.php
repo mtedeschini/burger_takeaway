@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Entidades\Carrito;
 use App\Entidades\Sucursal;
 use App\Entidades\Pedido;
-use App\Entidades\Sistema\Pedido_detalle;
+use App\Entidades\Pedido_detalle;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -83,26 +83,36 @@ class ControladorWebCarrito extends Controller
     public function finalizarPedido(Request $request){
     
             $entidadPedido = new Pedido();
+            $entidadCarrito = new Carrito();
     
             $total = $request->input('txtTotal');
-            $sucursal = $request->input('txtSucursal'); // IDSUCURSAL
+            $idSucursal = $request->input('txtSucursal'); // IDSUCURSAL
             
- 
-            $entidadPedido->total = '500'; //$entidadPedido->total = $total;
-            $entidadPedido->fk_idsucursal = $sucursal;
             $entidadPedido->fk_idcliente = Session::get('cliente_id');
+            $entidadPedido->total = $total; //$entidadPedido->total = $total;
+            $entidadPedido->fk_idsucursal = $idSucursal;
             $entidadPedido->fk_idestado = '1';
             $entidadPedido->fk_idestadopago = '3';
             $entidadPedido->fecha = Carbon::now();
             $idPedido = $entidadPedido->insertar();
+             
+;           $aCarritos = $entidadCarrito->obtenerPorCliente(Session::get('cliente_id'));
+
+            foreach ($aCarritos as $item){  //Hacer foreach que recorra los productos del carrito e insertarlo en el pedido_detallle
 
             $pedidoDetalle = new Pedido_detalle();
             $pedidoDetalle->fk_idpedido = $idPedido;
-            
-            //Hacer foreach que recorra los productos del carrito e insertarlo en el pedido_detallle
+            $pedidoDetalle->fk_idproducto = $item->fk_idproducto;
+            $pedidoDetalle->precio_unitario = $item->precio;
+            $pedidoDetalle->cantidad = $item->cantidad;
+            $pedidoDetalle->subtotal = ($item->cantidad * $item->precio);           
+            $pedidoDetalle->insertar();
 
-            //Vaciar la tabla carrito para el cliente logueado
-  
+            }
+            
+            $entidadCarrito->vaciarCarrito($entidadPedido->fk_idcliente);//Vaciar la tabla carrito para el cliente logueado
+
+
             return redirect('/recibido');
 
     }

@@ -12,7 +12,7 @@ class Carrito extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'idcarrito', 'fk_idproducto', 'fk_idcliente'
+        'idcarrito', 'fk_idproducto', 'fk_idcliente', 'fk_idsucursal'
     ];
 
     protected $hidden = [
@@ -56,6 +56,13 @@ class Carrito extends Model
         $sql = "DELETE FROM carritos
             WHERE idcarrito=?";
         $affected = DB::delete($sql, [$this->idcarrito]);
+    }
+
+    public function vaciarCarrito($idCliente)
+    {
+        $sql = "DELETE FROM carritos
+            WHERE fk_idcliente=$idCliente";
+        $affected = DB::delete($sql, [$this->fk_idcliente]);
     }
 
 }
