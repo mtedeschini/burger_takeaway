@@ -12,7 +12,7 @@ class Carrito extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'idcarrito', 'fk_idproducto', 'fk_idcliente', 'fk_idsucursal'
+        'idcarrito', 'fk_idproducto', 'fk_idcliente', 'fk_idsucursal', 'comentarios'
     ];
 
     protected $hidden = [
@@ -24,12 +24,14 @@ class Carrito extends Model
         $sql = "INSERT INTO carritos (
                 fk_idproducto,
                 cantidad,
-                fk_idcliente
-            ) VALUES (?, ?, ?);";
+                fk_idcliente,
+                comentarios
+            ) VALUES (?, ?, ?, ?);";
         $result = DB::insert($sql, [
             $this->fk_idproducto,
             $this->cantidad,
             $this->fk_idcliente,
+            $this->comentarios
         ]);
         return $this->idcarrito = DB::getPdo()->lastInsertId();
     }
@@ -41,6 +43,7 @@ class Carrito extends Model
             A.fk_idproducto,
             A.fk_idcliente,
             A.cantidad,
+            A.comentarios,
             B.nombre AS producto,
             B.precio
             FROM carritos A

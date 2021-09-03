@@ -87,12 +87,14 @@ class ControladorWebCarrito extends Controller
     
             $total = $request->input('txtTotal');
             $idSucursal = $request->input('txtSucursal'); // IDSUCURSAL
+            $comentarios = $request->input('txtComentarios'); 
             
             $entidadPedido->fk_idcliente = Session::get('cliente_id');
-            $entidadPedido->total = $total; //$entidadPedido->total = $total;
+            $entidadPedido->total = "400"; 
             $entidadPedido->fk_idsucursal = $idSucursal;
             $entidadPedido->fk_idestado = '1';
             $entidadPedido->fk_idestadopago = '3';
+            $entidadPedido->comentarios = $comentarios;
             $entidadPedido->fecha = Carbon::now();
             $idPedido = $entidadPedido->insertar();
              
@@ -111,7 +113,6 @@ class ControladorWebCarrito extends Controller
             }
             
             $entidadCarrito->vaciarCarrito($entidadPedido->fk_idcliente);//Vaciar la tabla carrito para el cliente logueado
-
 
             return redirect('/recibido');
 
