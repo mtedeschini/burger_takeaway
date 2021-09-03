@@ -77,7 +77,7 @@
     <div class="overlay"></div>
     <div class='container' >
 
-<div class="row" id='scrsls'>
+ <div class="row" id='scrsls'>
       @foreach ($aSucursales as $sucursal)
         <div class="col-lg-3 col-md-6 mb-5 mb-md-5">
           <div class="ftco-footer-widget mb-4">

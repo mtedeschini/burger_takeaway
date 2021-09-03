@@ -46,7 +46,7 @@ class ControladorSponsor extends Controller{
             if (!Patente::autorizarOperacion("MENUMODIFICACION")) {
                 $codigo = "MENUMODIFICACION";
                 $mensaje = "No tiene pemisos para la operaci&oacute;n.";
-                return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
+                return view('sistema.pagina-error', compact('titulo',  'codigo', 'mensaje'));
             } else {
                 $sponsor = new Sponsor();
                 $sponsor->obtenerPorId($id);
@@ -105,7 +105,8 @@ class ControladorSponsor extends Controller{
             $row[] = $aSponsors[$i]->cantidad_producto;
             $row[] = $aSponsors[$i]->email;
             $row[] = $aSponsors[$i]->telefono;
-            $row[] = '<a href="/files/'. $aSponsors[$i]->foto_producto .'" class="btn btn-secondary"><i class="far fa-file-pdf"></i></a>';
+            $row[] = '<img src="/files/'. $aSponsors[$i]->foto_producto .'" class="img-thumbnail">';
+           
 
             $cont++;
             $data[] = $row;
@@ -130,13 +131,13 @@ class ControladorSponsor extends Controller{
             $entidad = new Sponsor();
             $entidad->cargarDesdeRequest($request);
 
-            /*if($_FILES["archivo"]["error"] === UPLOAD_ERR_OK)
+            if($_FILES["archivo"]["error"] === UPLOAD_ERR_OK)
             {//Se adjunta la imagen
                 $nombre = date("Ymdhmsi") . ".jpg"; 
                 $archivo = $_FILES["archivo"]["tmp_name"];
                 move_uploaded_file($archivo, env('APP_PATH') . "/public/files/$nombre");//guardaelarchivo
                 $entidad->foto_producto =$nombre;
-            }  */ 
+            }  
             //validaciones
             if ($entidad->nombre_producto == "") {
                 $msg["ESTADO"] = MSG_ERROR;
@@ -146,12 +147,12 @@ class ControladorSponsor extends Controller{
                     $sponsorAnt = new Sponsor();
                     $sponsorAnt->obtenerPorId($entidad->idsponsor);
 
-                   /* if ($_FILES["archivo"]["error"] === UPLOAD_ERR_OK){
+                    if ($_FILES["archivo"]["error"] === UPLOAD_ERR_OK){
                         //Eliminar imagen anterior
                         @unlink(env('APP_PATH') . "/public/files/$sponsorAnt->foto_producto");                          
                     } else {
                         $entidad->foto_producto = $sponsorAnt->foto_producto;
-                    }*/
+                    }
                     //Es actualizacion
                     $entidad->guardar();
 

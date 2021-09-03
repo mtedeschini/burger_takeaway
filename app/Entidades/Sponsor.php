@@ -22,9 +22,9 @@ class Sponsor extends Model
         $this->nombre_empresa = $request->input('txtNombreEmpresa');
         $this->nombre_producto = $request->input('txtNombreProducto');
         $this->descripcion = $request->input('txtDescripcion');
-        $this->cantidad = $request->input('Cantidad');
-        $this->foto_producto = $request->input('Archivo');
-        $this->correo = $request->input('txtEmail');
+        $this->cantidad_producto = $request->input('intCantidad');
+        $this->foto_producto = $request->input('archivo');
+        $this->email = $request->input('txtEmail');
         $this->telefono = $request->input('txtTelefono');
         
     }
@@ -57,7 +57,8 @@ class Sponsor extends Model
             telefono,
             email,
             foto_producto
-            FROM sponsors";
+            FROM sponsors
+            WHERE idsponsor = $idsponsor";
         $lstRetorno = DB::select($sql);
 
         if (count($lstRetorno) > 0) {
