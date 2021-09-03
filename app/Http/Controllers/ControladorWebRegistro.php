@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Entidades\Sucursal;
 use App\Entidades\Cliente;
+use Illuminate\Http\Request;
 
 
 class ControladorWebRegistro extends Controller
@@ -18,19 +19,19 @@ class ControladorWebRegistro extends Controller
 
     public function guardar(Request $request)
     {
-        $correo = $request->input('txtCorreo');
-        $clave = $request->input(encriptarClave('txtClave')); 
-        $nombre = $request->input('txtNombre');
-        $apellido = $request->input('txtApellido');
-        $telefono = $request->input('txtTelefono');
-
         $entidadCliente = new Cliente();
+
+        $correo = trim($request->input('txtCorreo'));
+        $clave = $entidadCliente->encriptarClave(trim($request->input('txtClave'))); 
+        $nombre = trim($request->input('txtNombre'));
+        $apellido = trim($request->input('txtApellido'));
+        $telefono = trim($request->input('txtTelefono'));
+        
         $entidadCliente->correo = $correo;
         $entidadCliente->clave = $clave;
         $entidadCliente->nombre = $nombre;
         $entidadCliente->apellido = $apellido;
         $entidadCliente->telefono = $telefono;
-        $entidadCliente->fk_idcliente = "2";
         $entidadCliente->insertar();
 
         return redirect('/carrito');

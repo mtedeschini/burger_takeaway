@@ -25,6 +25,11 @@
   <link rel="stylesheet" href="{{ asset('web/css/jquery.timepicker.css') }}">
 
 
+  <link rel="stylesheet" href="{{asset('web/css/fontawesome/css/solid.css')}}">
+  <link rel="stylesheet" href="{{asset('web/css/fontawesome/css/all.min.css')}}">
+  <link rel="stylesheet" href="{{asset('web/css/fontawesome/css/fontawesome.min.css')}}">
+
+
   <link rel="stylesheet" href="{{ asset('web/css/flaticon.css') }}">
   <link rel="stylesheet" href="{{ asset('web/css/icomoon.css') }}">
   <link rel="stylesheet" href="{{ asset('web/css/style.css') }}">
@@ -34,21 +39,32 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-      <a class="navbar-brand" href="/"><span class="fas fa-hamburger mr-1"></span>hamburguesas<br><small>Delicious</small></a>
+      <a class="navbar-brand" href="/"><span class="fas fa-hamburger mr-1"></span>BURGER<br><small>Delicious</small></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="oi oi-menu"></span> Menu
       </button>
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active"><a href="/" class="nav-link">Inicio</a></li>
-          <li class="nav-item"><a href="/nosotros" class="nav-link">Nosotros</a></li>
-          <li class="nav-item"><a href="/takeaway" class="nav-link">Takeaway</a></li>
-          <li class="nav-item"><a href="/promociones" class="nav-link">Promociones</a></li>
-          <li class="nav-item"><a href="/contacto" class="nav-link">Contacto</a></li>
-          <li class="nav-item"><a href="#scrsls" class="nav-link">Sucursales</a></li>
-          <li class="nav-item"><a href="/mi-cuenta" class="nav-link">Mi cuenta</a></li>
-          <li class="nav-item"><a href="/carrito" class="nav-link">Carrito</a></li>
-          <li class="nav-item"><a href="/sponsors" class="nav-link">Sponsors</a></li>
+          <li class="nav-item active"><a href="/" class="nav-link"><i class="fas fa-home"></i>  Inicio</a></li>
+          <li class="nav-item"><a href="/nosotros" class="nav-link"><i class="fas fa-info-circle"></i>  Nosotros</a></li>
+          <li class="nav-item"><a href="/takeaway" class="nav-link"><i class="fas fa-shopping-bag"></i>  Takeaway</a></li>
+          <li class="nav-item"><a href="/promociones" class="nav-link"><i class="fas fa-percent"></i>  Promociones</a></li>
+          <li class="nav-item"><a href="/sponsors" class="nav-link"><i class="fas fa-hands-helping"></i>  Sponsors</a></li>
+          <li class="nav-item"><a href="/contacto" class="nav-link"><i class="fas fa-envelope"></i>  Contacto</a></li>
+
+                    @if(Session::get('cliente_id') != "")
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle show" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="true">Mi cuenta</a>
+          <ul class="dropdown-menu show" aria-labelledby="dropdown01" data-bs-popper="none">
+            <li><a class="dropdown-item" href="/mi-cuenta">Perfil</a></li>
+            <li><a class="dropdown-item" href="/logout">Cerrar sesión</a></li>
+          </ul>
+          </li>
+          @else
+           <li class="nav-item"><a href="/login" class="nav-link"><i class="fas fa-sign-in-alt"></i>  Ingresar</a></li>
+          @endif
+            <li class="nav-item"><a href="/carrito" class="nav-link"><i class="fas fa-shopping-cart"></i></a></li>
+      
         </ul>
       </div>
     </div>
@@ -68,17 +84,17 @@
             <h2 class="ftco-heading-2" style="color:orange;">{{$sucursal->nombre}}</h2>
             <div class="block-23 mb-3">
               <ul>
-                <li><span class="icon icon-map-marker"></span><span class="text"> {{$sucursal->direccion}}</span></li>        
+                <li><span class="icon icon-map-marker"></span><span class="text"> {{$sucursal->direccion}}</span></li>
                 <li><a href="#"><span class="icon icon-phone"></span><span class="text"> {{$sucursal->telefono}}</span></a></li>
               </ul>
             </div>
           </div>
         </div>
-      
+
       @endforeach
   </div>
         <div class="col-md-12 text-center">
-        
+
 
 
         <div class="row">
@@ -87,7 +103,7 @@
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             Copyright &copy;<script>
               document.write(new Date().getFullYear());
-            </script> - Burgers SRL 
+            </script> - Burgers SRL
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
           </p>
         </div>

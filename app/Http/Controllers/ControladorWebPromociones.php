@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 use App\Entidades\Sucursal;
-use App\Entidades\Promo;
+use App\Entidades\Producto;
 class ControladorWebPromociones extends Controller
 {
 
     public function index()
     {   
-        $promo = new Promo();
-        $aPromos = $promo->obtenerTodos();
+        $producto = new Producto();
+        $aProductos = $producto->obtenerTodos();
 
         $sucursal = new Sucursal();
         $aSucursales = $sucursal->obtenerTodos();
 
-        return view('web.promociones', compact('aPromos', 'aSucursales'));
+        return view('web.promociones', compact('aProductos', 'aSucursales'));
     }
 
 }

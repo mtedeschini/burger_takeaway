@@ -33,6 +33,7 @@ if (!defined('USURIONOEXISTEENLDAP')) define("USURIONOEXISTEENLDAP", "Usuario o 
 if (!defined('USUARIOBLOQUEADO')) define("USUARIOBLOQUEADO", "Usuario bloqueado. Comun&iacute;quese con el administrador");
 if (!defined('USUARIOINCORRECTO')) define("USUARIOINCORRECTO", "El usuario no est&aacute; autorizado a usar el sistema. Comun&iacute;quese con el administrador");
 
-
+//Web Carrito
+if (!defined('OKPEDIDO')) define("OKPEDIDO", "¡Pedido enviado!");
 
 ?>

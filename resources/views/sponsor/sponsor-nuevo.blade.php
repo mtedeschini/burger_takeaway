@@ -5,6 +5,7 @@
 globalId = '<?php echo isset($sponsor->idsponsor) && $sponsor->idsponsor > 0 ? $sponsor->idsponsor : 0; ?>';
 <?php $globalId = isset($sponsor->idsponsor) ? $sponsor->idsponsor : "0";?>
 </script>
+
 @endsection
 @section('breadcrumb')
 <ol class="breadcrumb">
