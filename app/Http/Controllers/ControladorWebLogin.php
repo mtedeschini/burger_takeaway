@@ -19,6 +19,9 @@ class ControladorWebLogin extends Controller
         $correo = $request->input("txtUsuario");
         $clave = $request->input("txtClave");
 
+        $sucursal = new Sucursal();
+        $aSucursales = $sucursal->obtenerTodos();
+
         $cliente = new Cliente;
         if($cliente->obtenerPorCorreo($correo)){
             if($cliente->verificarClave($clave, $cliente->clave)){
@@ -27,12 +30,18 @@ class ControladorWebLogin extends Controller
                 return redirect("/takeaway");
 
             } else {
-                $msg = "Credenciales incorrectas";
-                return view("web.login", compact('$msg'));
+
+                $msg["ESTADO"] = "danger";
+                $msg["MSG"] = "Contraseña incorrecta" ;
+
+                return view("web.login", compact('msg', 'aSucursales'));
+                
             }
         } else {
-            $msg = "Credenciales incorrectas";
-            return view("web.login", compact('$msg'));
+            $msg["ESTADO"] = "danger";
+            $msg["MSG"] = "Correo incorrecto" ;
+
+            return view("web.login", compact('msg', 'aSucursales'));
         }
 
 

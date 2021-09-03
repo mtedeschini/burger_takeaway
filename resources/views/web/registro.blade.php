@@ -1,6 +1,6 @@
 @extends('web.plantilla-sitio')
 @section('contenido')
-
+@section('scripts')
 
 <section class="ftco-section contact-section">
     <div class="container mt-5">

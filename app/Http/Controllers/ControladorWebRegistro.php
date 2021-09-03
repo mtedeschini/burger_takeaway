@@ -27,6 +27,14 @@ class ControladorWebRegistro extends Controller
         $apellido = trim($request->input('txtApellido'));
         $telefono = trim($request->input('txtTelefono'));
         
+        if($entidadCliente->obtenerPorCorreo($correo)){
+
+          $msg["ESTADO"] = MSG_ERROR;
+          $msg["MSG"] = "Ya existe una cuenta con el correo" . $correo;;
+
+          return view("web.registro", compact('msg'));
+        }
+        else{
         $entidadCliente->correo = $correo;
         $entidadCliente->clave = $clave;
         $entidadCliente->nombre = $nombre;
@@ -34,7 +42,12 @@ class ControladorWebRegistro extends Controller
         $entidadCliente->telefono = $telefono;
         $entidadCliente->insertar();
 
-        return redirect('/carrito');
+        $msg["ESTADO"] = MSG_SUCCESS;
+        $msg["MSG"] = "¡Usuario creado exitosamente! Por favor complete sus datos.";
+
+        return view("web.login", compact('msg'));
+        ;
+      }
     }
 
 }
