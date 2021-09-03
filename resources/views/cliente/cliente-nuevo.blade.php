@@ -50,7 +50,7 @@ if (isset($msg)) {
 
             <div class="form-group col-lg-6">
                 <label>Nombre: </label>
-                <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="{{$cliente->nombre}}" required>
+                <input type="text" maxlength="50" id="txtNombre" name="txtNombre" class="form-control" value="{{$cliente->nombre,}}" required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Apellido: </label>

@@ -117,7 +117,7 @@ class Sponsor extends Model
             $this->cantidad_producto,
             $this->telefono,
             $this->email,
-            $this->foto_producto,
+            $this->foto_producto
         ]);
         return $this->idsponsor = DB::getPdo()->lastInsertId();
     }
@@ -145,7 +145,7 @@ class Sponsor extends Model
                     telefono,
                     email,
                     foto_producto
-                    FROM sponsor 
+                    FROM sponsors 
                 WHERE 1=1
                 ";
 
