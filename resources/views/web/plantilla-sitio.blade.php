@@ -61,7 +61,7 @@
           </ul>
           </li>
           @else
-           <li class="nav-item"><a href="#scrsls" class="nav-link"><i class="fas fa-sign-in-alt"></i>  Ingresar</a></li>
+           <li class="nav-item"><a href="/login" class="nav-link"><i class="fas fa-sign-in-alt"></i>  Ingresar</a></li>
           @endif
             <li class="nav-item"><a href="/carrito" class="nav-link"><i class="fas fa-shopping-cart"></i></a></li>
       
