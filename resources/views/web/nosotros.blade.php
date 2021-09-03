@@ -34,35 +34,8 @@
 		<div class="col-xs-12">
 		<div class="row row-eq-height">		
 			<div class = "col-sm-12 col-md-6 col-lg-6">
-				<div class="home-slider owl-carousel img">
-					<div class="slider-item">
-						<div class="overlay"></div>
-						<div class="row slider-text align-items-center" data-scrollax-parent="true">
-							<img src="web/images/person_5.jpg" class="img-fluid" alt="">
-						</div>
-					</div>
-				
-					<div class="slider-item">
-						<div class="overlay"></div>
-						<div class="row slider-text align-items-center" data-scrollax-parent="true">
-							<img src="web/images/image_7.jpg" class="img-fluid" alt="">
-						</div>
-					</div>
-				
-					<div class="slider-item">
-						<div class="overlay"></div>
-						<div class="row slider-text align-items-center" data-scrollax-parent="true">
-							<img src="web/images/image_8.jpg" class="img-fluid" alt="">
-						</div>
-					</div>
-
-					<div class="slider-item">
-						<div class="overlay"></div>
-						<div class="row slider-text align-items-center" data-scrollax-parent="true">
-							<img src="web/images/image_9.jpg" class="img-fluid" alt="">
-						</div>
-					</div>	
-
+				<div class="overlay">
+					<img src="web/images/image_7.jpg" class="img-fluid" alt="">
 				</div>
 			</div>
 			<div class = "col-sm-12 col-md-6 col-lg-6">
@@ -71,9 +44,7 @@
 							<h2 class="mb-4">Burger SRL</h2>
 						</div>
 						<div>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quo, vitae dolore, placeat aspernatur cumque error porro nisi expedita dolorem quisquam! Illum ab quod eveniet odit ex eaque itaque dolorem.
-							   <br>
-							   <br>
+							<p>
 							   Si quiere formar parte de nuestro proyecto y de nuestro equipo de profesionales, por favor rellene este formulario para ponerse en contacto con nosotros y envíenos su currículum para que podamos incorporar su candidatura en futuros procesos de selección. 
 							</p>
 							<a type="button" class="btn btn-outline-light" href="#formulario">Rellene el formulario</a>
@@ -89,75 +60,55 @@
 
 	</section>
 
+
     <section class="ftco-section">
-      <div class="container">
-      	<div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section ftco-animate text-center">
-            <h2 class="mb-4">Nuestro Equipo</h2>
-            <p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p>
-            <p class="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident aut animi enim possimus officiis quae, laborum rerum iure neque! Officia quibusdam magnam deleniti beatae sapiente quaerat ipsam ullam dolore facere!</p>
-          </div>
-        </div>
-        <div class="row">
-        	<div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-      				<div class="img mb-4" style="background-image: url(web/images/person_7.jpg);"></div>
-      				<div class="info text-center">
-      					<h3><a href="teacher-single.html">Oscar Alegre</a></h3>
-      					<span class="position">JEFE AYB</span>
-      					<div class="text">
-	        				<p>Apasionado por el servicio. Toda su experiencia puesta al servicio de las hamburguesas.</p>
-	        			</div>
-      				</div>
-        		</div>
-        	</div>
-        	<div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-      				<div class="img mb-4" style="background-image: url(web/images/person_8.jpg);"></div>
-      				<div class="info text-center">
-      					<h3><a href="teacher-single.html">Susana Oria</a></h3>
-      					<span class="position">CHEF</span>
-      					<div class="text">
-	        				<p>Chef Cordobesa especialista en carnes.</p>
-	        			</div>
-      				</div>
-        		</div>
-        	</div>
-        	<div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-      				<div class="img mb-4" style="background-image: url(web/images/person_9.jpg);"></div>
-      				<div class="info text-center">
-      					<h3><a href="teacher-single.html">Patrick Jacobson</a></h3>
-      					<span class="position">CHEF</span>
-      					<div class="text">
-	        				<p>Cocinero y Sommelier de profesión, lleva más de 10 años trabajando en hoteles y restaurantes.</p>
-	        			</div>
-      				</div>
-        		</div>
-        	</div>
-        	<div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-      				<div class="img mb-4" style="background-image: url(web/images/person_10.jpg);"></div>
-      				<div class="info text-center">
-      					<h3><a href="teacher-single.html">Martina Perez</a></h3>
-      					<span class="position">CHEF</span>
-      					<div class="text">
-	        				<p>Nacida en la capital madrileña, se graduó en la Escuela Superior de Hostelería y Turismo de Madrid, con el título de Técnico en Cocina y Gastronomía.</p>
-	        			</div>
-      				</div>
-        		</div>
-        	</div>
-        </div>
-      </div>
+	<div id="mi-carousel" class="carousel slide" data-ride="carousel">
+		<div class="carousel-inner">
+		  <div class="carousel-item active">
+			<div class="container">
+			    <div class="row justify-content-center mb-5 pb-3 text-center">
+					<h2 class="mt-5">>> Si entre amigos quieres compartir, nuestras hamburguesas debes pedir. <<</h2>
+			  </div>
+			</div>
+		  </div>
+		  <div class="carousel-item">
+			<div class="container">
+				<div class="row justify-content-center mb-5 pb-3 text-center">
+					<h2 class="mt-5">>> Cocinamos para ti las mejores hamburguesas de mundo mundial, perfectas en todo momento, sobre todo cuando no quieres cocinar. <<</h2>
+			  </div>
+			</div>
+		  </div>
+		  <div class="carousel-item">
+			<div class="container">
+				<div class="row justify-content-center mb-5 pb-3 text-center">
+					<h2 class="mt-5">>> Con el primer bocado ya te sentirás en el cielo, será una experiencia del otro mundo. <<</h2>
+				</div>
+			    </div>
+			</div>
+		  </div>
+		</div>
+		<a class="carousel-control-prev" href="#mi-carousel" role="button" data-slide="prev">
+		  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		  <span class="sr-only">Previous</span>
+		</a>
+		<a class="carousel-control-next" href="#mi-carousel" role="button" data-slide="next">
+		  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+		  <span class="sr-only">Next</span>
+		</a>
+	</div>
     </section>
+
+
+
 	<section class="ftco-appointment" id="formulario">
 		<div class="container mt-5 py-5">
 			<div class="row block-9 justify-content-around">
 				<div class="col-md-6 ftco-animate">
 					<h3 class="mb-3">Trabajá con Nosotros</h3>
 					<small class="d-block"><i>Recuerde adjuntar su CV</i></small>
-					<form action="#" method="POST" class="appointment-form">						
-						
+					<form action="#" method="POST" class="appointment-form" enctype="multipart/form-data">						
+						  <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
+      
 						<div class="d-md-flex">
 							<div class="form-group">
 								<input  type="text" id="txtNombre" name="txtNombre" class="form-control" placeholder="Nombre">
@@ -170,7 +121,7 @@
 						</div>
 						<div class="d-me-flex">
 							<div class="form-group">
-								<input type="text" id="txtDni" name="txtDni" class="form-control" placeholder="Dni">
+								<input type="text" id="txtDni" name="txtDocumento" class="form-control" placeholder="Dni">
 							</div>
 						</div>  
 						<div class="d-md-flex">
@@ -192,7 +143,7 @@
 						<div class="d-me-flex">
 							<div class="form-group">
 								<label for="txtDocumento">Archivo adjunto:</label>
-								<input type="file" id="archivo" name="archivo" class="form-control-file py-2" accept=".pdf, .doc, .docx">
+								<input type="file" id="archivo_cv" name="archivo_cv" class="form-control-file py-2" accept=".pdf, .doc, .docx">
 								<small class="d-block">Archivos admitidos: .pdf, .doc .docx</small>
 							</div>		
 						</div>

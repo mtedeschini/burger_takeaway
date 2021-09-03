@@ -22,4 +22,12 @@ public function nuevo()
     $aProductos = $entidadProducto->obtenerTodos();
     return view('carrito.carrito-nuevo', compact('titulo', 'aClientes', 'aProductos', 'carrito'));
 }
+
+
+public function eliminar()
+{
+    $sql = "DELETE FROM carritos WHERE
+        idcarrito=?";
+    $affected = DB::delete($sql, [$this->idproducto]);
+}
 }

@@ -40,6 +40,7 @@ class Carrito extends Model
             A.idcarrito,
             A.fk_idproducto,
             A.fk_idcliente,
+            A.cantidad,
             B.nombre AS producto,
             B.precio
             FROM carritos A
