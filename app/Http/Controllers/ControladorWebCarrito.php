@@ -85,12 +85,11 @@ class ControladorWebCarrito extends Controller
             $entidadPedido = new Pedido();
             $entidadCarrito = new Carrito();
     
-            $total = $request->input('txtTotal');
             $idSucursal = $request->input('txtSucursal'); // IDSUCURSAL
             $comentarios = $request->input('txtComentarios'); 
             
             $entidadPedido->fk_idcliente = Session::get('cliente_id');
-            $entidadPedido->total = "400"; 
+            $entidadPedido->total = '499'; //$total; 
             $entidadPedido->fk_idsucursal = $idSucursal;
             $entidadPedido->fk_idestado = '1';
             $entidadPedido->fk_idestadopago = '3';

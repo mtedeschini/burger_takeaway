@@ -79,7 +79,7 @@
                                 <div class="col-12 col-sm-12 mt-5">
                                     <div class="form-group">
                                         <label for="textarea">Comentarios </label>
-                                        <textarea style="font-size: 15px" class="form-control" id="textarea" name="txtComentarios" rows="1"> Sin comentarios</textarea>
+                                        <textarea style="font-size: 15px;" class="form-control" id="textarea" name="txtComentarios" rows="1"> Sin comentarios</textarea>
                                     </div>
                                 </div>
                             </div>
