@@ -33,12 +33,11 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::post('/registro', 'ControladorWebRegistro@guardar');
     Route::get('/logout', 'ControladorWebLogin@cerrarSesion');
     Route::get('/recibido', 'ControladorWebRecibido@index');
-<<<<<<< HEAD
+
     Route::get('/sponsors', 'ControladorWebSponsor@index');
-=======
+
     Route::get('/creado', 'ControladorWebCreado@index');
 
->>>>>>> f126bbdc4800e1558db2acc729d7d99a258262f3
     Route::get('/admin', 'ControladorHome@index');
     Route::post('/admin/patente/nuevo', 'ControladorPatente@guardar');
 
