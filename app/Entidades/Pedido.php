@@ -32,7 +32,7 @@ class Pedido extends Model
                     A.idpedido,
                     A.total,
                     B.nombre as sucursal,
-                    C.nombre as cliente,
+                    CONCAT(C.apellido,', ',C.nombre) AS cliente,
                     D.nombre as estado,
                     E.nombre as estado_pago,
                     A.fecha,
