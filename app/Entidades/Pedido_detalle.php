@@ -40,7 +40,8 @@ class Pedido_detalle extends Model
             A.fk_idpedido,
             B.nombre AS producto,
             A.precio_unitario,
-            A.cantidad
+            A.cantidad,
+            A.subtotal
             FROM pedido_detalles A
             INNER JOIN productos B ON A.fk_idproducto = B.idproducto
             WHERE fk_idpedido = $idPedido

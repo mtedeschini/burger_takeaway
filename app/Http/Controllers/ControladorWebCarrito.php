@@ -88,9 +88,16 @@ class ControladorWebCarrito extends Controller
 
             $idSucursal = $request->input('txtSucursal'); // IDSUCURSAL
             $comentarios = $request->input('txtComentarios'); 
+
+            $aCarritos = $entidadCarrito->obtenerPorCliente(Session::get('cliente_id'));
+
+            $total = 0;
+            foreach ($aCarritos as $item){
+                $total = $total + $item->cantidad * $item->precio;
+            }
             
             $entidadPedido->fk_idcliente = Session::get('cliente_id');
-            $entidadPedido->total = '499'; //$total; 
+            $entidadPedido->total = $total; 
             $entidadPedido->fk_idsucursal = $idSucursal;
             $entidadPedido->fk_idestado = '1';
             $entidadPedido->fk_idestadopago = '3';
@@ -98,7 +105,6 @@ class ControladorWebCarrito extends Controller
             $entidadPedido->fecha = Carbon::now();
             $idPedido = $entidadPedido->insertar();
              
-            $aCarritos = $entidadCarrito->obtenerPorCliente(Session::get('cliente_id'));
 
             foreach ($aCarritos as $item){  //Hacer foreach que recorra los productos del carrito e insertarlo en el pedido_detallle
 
