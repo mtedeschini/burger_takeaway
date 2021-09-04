@@ -161,14 +161,14 @@
                         <tr>
                             <th scope="row">{{$detalle->producto }}</th>
                             <td>{{$detalle->cantidad }}</td>
-                            <td>$ {{$detalle->precio_unitario }}</td>                 
+                            <td>$ {{ number_format($detalle->precio_unitario,2,",",".")}}</td>                 
                         </tr>
                         @endforeach
                     @endif
                     
                     <tr class="thead-dark">
                         <th colspan="2">Total</th>
-                        <th> {{$pedido->total}} </th>
+                        <th>$ {{$pedido->total}} </th>
                     </tr>
 
                 </table>
