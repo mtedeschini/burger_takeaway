@@ -154,6 +154,7 @@
                             <th scope="col">Producto</th>
                             <th scope="col">Cantidad</th>
                             <th scope="col">Precio unitario</th>
+                            <th scope="col">Subtotal</th>
                         </tr>
                     </thead> 
                     @if (isset($aPedidoDetalles))
@@ -162,13 +163,14 @@
                             <th scope="row">{{$detalle->producto }}</th>
                             <td>{{$detalle->cantidad }}</td>
                             <td>$ {{ number_format($detalle->precio_unitario,2,",",".")}}</td>                 
+                            <td>$ {{ number_format($detalle->precio_unitario * $detalle->cantidad)}} </td>                 
                         </tr>
                         @endforeach
                     @endif
                     
                     <tr class="thead-dark">
-                        <th colspan="2">Total</th>
-                        <th>$ {{$pedido->total}} </th>
+                        <th colspan="3">Total</th>
+                        <th>$ {{number_format($pedido->total,2,",",".")}} </th>
                     </tr>
 
                 </table>
