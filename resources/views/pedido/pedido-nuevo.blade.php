@@ -130,7 +130,7 @@
             </div>
             <div class="form-group col-lg-6">
                 <label>Total:</label>
-                    <input type="text" maxlength="50" id="txtTotal" name="txtTotal" class="form-control" value="{{$pedido->total}}" required>
+                    <input type="text" maxlength="50" id="txtTotal" name="txtTotal" class="form-control" value="{{$pedido->total}}" >
             </div>
             <div class="form-group col-lg-6">
                 <label>Estado de pedido:</label>
