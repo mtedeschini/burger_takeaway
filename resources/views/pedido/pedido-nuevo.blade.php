@@ -144,9 +144,30 @@
                             @endif
                     @endforeach
                 </select>
-                </select>
-                
             </div>
+
+            <div class="form-group col-6">
+                <label>Detalle del Pedido:</label>
+                    <table id="grilla" class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Producto</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Precio unitario</th>
+                        </tr>
+                    </thead>
+                    
+                    @foreach ($aPedidoDetalles as $detalle)
+                    <tr>
+                        <th scope="row">{{$detalle->producto }}</th>
+                        <td>{{$detalle->cantidad }}</td>
+                        <td>$ {{$detalle->precio_unitario }}</td>                 
+                    </tr>
+                    @endforeach
+                </table>
+                </select>
+            </div>
+
         </div>
     </form>
     </div>
