@@ -148,22 +148,29 @@
 
             <div class="form-group col-6">
                 <label>Detalle del Pedido:</label>
-                    <table id="grilla" class="table">
+                    <table id="grilla" class="table table-striped table-bordered">
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">Producto</th>
                             <th scope="col">Cantidad</th>
                             <th scope="col">Precio unitario</th>
                         </tr>
-                    </thead>
+                    </thead> 
+                    @if (isset($aPedidoDetalles))
+                        @foreach ($aPedidoDetalles as $detalle)
+                        <tr>
+                            <th scope="row">{{$detalle->producto }}</th>
+                            <td>{{$detalle->cantidad }}</td>
+                            <td>$ {{$detalle->precio_unitario }}</td>                 
+                        </tr>
+                        @endforeach
+                    @endif
                     
-                    @foreach ($aPedidoDetalles as $detalle)
-                    <tr>
-                        <th scope="row">{{$detalle->producto }}</th>
-                        <td>{{$detalle->cantidad }}</td>
-                        <td>$ {{$detalle->precio_unitario }}</td>                 
+                    <tr class="thead-dark">
+                        <th colspan="2">Total</th>
+                        <th> {{$pedido->total}} </th>
                     </tr>
-                    @endforeach
+
                 </table>
                 </select>
             </div>
