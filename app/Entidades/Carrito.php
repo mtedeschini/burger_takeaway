@@ -42,10 +42,10 @@ class Carrito extends Model
             A.idcarrito,
             A.fk_idproducto,
             A.fk_idcliente,
-            A.cantidad,
+            A.cantidad AS cantidad,
             A.comentarios,
             B.nombre AS producto,
-            B.precio
+            B.precio AS precio
             FROM carritos A
             INNER JOIN productos B ON A.fk_idproducto = B.idproducto
             WHERE fk_idcliente = $idCliente

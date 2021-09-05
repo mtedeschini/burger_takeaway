@@ -81,15 +81,23 @@ class ControladorWebCarrito extends Controller
     }
 
     public function finalizarPedido(Request $request){
-    
-            $entidadPedido = new Pedido();
-            $entidadCarrito = new Carrito();
-    
+        $entidadPedido = new Pedido();
+        $entidadCarrito = new Carrito();
+
+        if ($request->has('finalizar')){
+
             $idSucursal = $request->input('txtSucursal'); // IDSUCURSAL
             $comentarios = $request->input('txtComentarios'); 
+
+            $aCarritos = $entidadCarrito->obtenerPorCliente(Session::get('cliente_id'));
+
+            $total = 0;
+            foreach ($aCarritos as $item){
+                $total = $total + $item->cantidad * $item->precio;
+            }
             
             $entidadPedido->fk_idcliente = Session::get('cliente_id');
-            $entidadPedido->total = '499'; //$total; 
+            $entidadPedido->total = $total; 
             $entidadPedido->fk_idsucursal = $idSucursal;
             $entidadPedido->fk_idestado = '1';
             $entidadPedido->fk_idestadopago = '3';
@@ -97,7 +105,6 @@ class ControladorWebCarrito extends Controller
             $entidadPedido->fecha = Carbon::now();
             $idPedido = $entidadPedido->insertar();
              
-;           $aCarritos = $entidadCarrito->obtenerPorCliente(Session::get('cliente_id'));
 
             foreach ($aCarritos as $item){  //Hacer foreach que recorra los productos del carrito e insertarlo en el pedido_detallle
 
@@ -112,11 +119,15 @@ class ControladorWebCarrito extends Controller
             }
             
             $entidadCarrito->vaciarCarrito($entidadPedido->fk_idcliente);//Vaciar la tabla carrito para el cliente logueado
-
             return redirect('/recibido');
+        }
 
+        if ($request->has('vaciar')){
+            $entidadCarrito->fk_idcliente = Session::get('cliente_id');
+            $entidadCarrito->vaciarCarrito($entidadCarrito->fk_idcliente);//Vaciar la tabla carrito para el cliente logueado
+            return redirect('/carrito');
+        }
     }
-
         
     public function guardar(Request $request)
     {

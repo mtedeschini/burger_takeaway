@@ -32,6 +32,24 @@ class Pedido_detalle extends Model
         return $lstRetorno;
     }
 
+    
+    public function obtenerPorPedido($idPedido)
+    {
+        $sql = "SELECT
+            A.iddetalle,
+            A.fk_idpedido,
+            B.nombre AS producto,
+            A.precio_unitario,
+            A.cantidad,
+            A.subtotal
+            FROM pedido_detalles A
+            INNER JOIN productos B ON A.fk_idproducto = B.idproducto
+            WHERE fk_idpedido = $idPedido
+            ORDER BY producto ASC";
+        $lstRetorno = DB::select($sql);
+        return $lstRetorno;
+    }
+
     public function obtenerPorId($iddetalle)
     {
         $sql = "SELECT
