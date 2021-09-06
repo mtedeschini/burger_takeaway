@@ -26,27 +26,27 @@
             	<div class="row">
             		<div class="col-12 col-md-8">
 	                <div class="form-group">
-	                  <input type="text" class="form-control" placeholder="Nombre">
+	                  <input type="text" class="form-control" placeholder="Nombre" value="{{ $cliente->nombre }}">
 	                </div>
                 </div>
                 
             		  <div class="col-12 col-md-8">
 	                  <div class="form-group">
-	                    <input type="text" class="form-control" placeholder="Apellido">
+	                    <input type="text" class="form-control" placeholder="Apellido" value="{{ $cliente->apellido }}">
 	                  </div>
 	                </div>
                 
                 
             		  <div class="col-12 col-md-8">
 	                  <div class="form-group">
-	                    <input type="text" class="form-control" placeholder="Celular">
+	                    <input type="text" class="form-control" placeholder="Celular" value="{{ $cliente->telefonoo }}">
 	                  </div>
                   </div>
                 
                
             		  <div class="col-12 col-md-8">
 	                  <div class="form-group">
-	                    <input type="text" class="form-control" placeholder="Email">
+	                    <input type="text" class="form-control" placeholder="Email" value="{{ $cliente->correo }}">
 	                  </div>
                   </div>	
                   <div class="col-12 col-md-8">

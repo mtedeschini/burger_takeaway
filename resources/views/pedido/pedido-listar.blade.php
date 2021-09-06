@@ -44,7 +44,7 @@ if (isset($msg)) {
         "bInfo": true,
         "bSearchable": true,
         "pageLength": 25,
-        "order": [[0, "asc"]],
+        "order": [[6, "desc"]],
         "ajax": "{{ route('pedido.cargarGrilla') }}"
     });
 </script>

@@ -111,32 +111,32 @@
       
 						<div class="d-md-flex">
 							<div class="form-group">
-								<input  type="text" id="txtNombre" name="txtNombre" class="form-control" placeholder="Nombre">
+								<input  type="text" id="txtNombre" name="txtNombre" class="form-control" placeholder="Nombre" required>
 							</div>
 						</div>
 						<div class="d-me-flex">
 							<div class="form-group">
-								<input type="text" id="txtApellido" name="txtApellido" class="form-control" placeholder="Apellido">
+								<input type="text" id="txtApellido" name="txtApellido" class="form-control" placeholder="Apellido" required>
 							</div>
 						</div>
 						<div class="d-me-flex">
 							<div class="form-group">
-								<input type="text" id="txtDni" name="txtDocumento" class="form-control" placeholder="Dni">
+								<input type="text" id="txtDni" name="txtDocumento" class="form-control" placeholder="DNI" required>
 							</div>
 						</div>  
 						<div class="d-md-flex">
 							<div class="form-group">
-								<input  type="text" id="txtLocalidad" name="txtLocalidad" class="form-control" placeholder="Localidad">
+								<input  type="text" id="txtLocalidad" name="txtLocalidad" class="form-control" placeholder="Localidad" required>
 							</div>
 						</div>
 						<div class="d-me-flex">
 							<div class="form-group">
-								<input type="email" id="txtCorreo" name="txtCorreo" class="form-control" placeholder="Email">
+								<input type="email" id="txtCorreo" name="txtCorreo" class="form-control" placeholder="Email" required>
 							</div>
 						</div>
 						<div class="d-me-flex">
 							<div class="form-group">
-								<input type="tel" id="txtTelefono" name="txtTelefono" class="form-control" placeholder="Teléfono/Whatsapp">
+								<input type="tel" id="txtTelefono" name="txtTelefono" class="form-control" placeholder="Teléfono/Whatsapp" required>
 							</div>
 						</div>
 

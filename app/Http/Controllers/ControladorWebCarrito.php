@@ -3,17 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Entidades\Carrito;
-use App\Entidades\Sucursal;
+use App\Entidades\Cliente;
 use App\Entidades\Pedido;
 use App\Entidades\Pedido_detalle;
-use Illuminate\Http\Request;
+use App\Entidades\Sucursal;
 use Carbon\Carbon;
-
-
+use Illuminate\Http\Request;
 use MercadoPago\Item;
-use MercadoPago\MerchantOrder;
 use MercadoPago\Payer;
-use MercadoPago\Payment;
 use MercadoPago\Preference;
 use MercadoPago\SDK;
 use Session;
@@ -22,55 +19,80 @@ class ControladorWebCarrito extends Controller
 {
     public function index()
     {
-        if(Session::get('cliente_id') != ""){
-        $carrito = new Carrito();
-        $aCarritos = $carrito->obtenerPorCliente(Session::get('cliente_id'));
+        if (Session::get('cliente_id') != "") {
+            $carrito = new Carrito();
+            $aCarritos = $carrito->obtenerPorCliente(Session::get('cliente_id'));
 
-        $sucursal = new Sucursal();
-        $aSucursales = $sucursal->obtenerTodos();
+            $sucursal = new Sucursal();
+            $aSucursales = $sucursal->obtenerTodos();
 
-        $productosCarrito = 0;
-        foreach ($aCarritos as $item){
-            $productosCarrito += $item->cantidad;
-        }
+            $productosCarrito = 0;
+            foreach ($aCarritos as $item) {
+                $productosCarrito += $item->cantidad;
+            }
 
-        return view('web.carrito', compact('aCarritos', 'aSucursales', 'productosCarrito'));
+            return view('web.carrito', compact('aCarritos', 'aSucursales', 'productosCarrito'));
         } else {
             return redirect("/login");
         }
     }
 
-    public function finalizarPedido(Request $request){
+    public function finalizarPedido(Request $request)
+    {
         $entidadPedido = new Pedido();
         $entidadCarrito = new Carrito();
+        $access_token = "TEST-5604004131987858-090620-795ecabade5d71251d2f779be752a54b-819945987";
 
-        if ($request->has('finalizar')){
+        if ($request->has('finalizar')) {
 
             $idSucursal = $request->input('txtSucursal'); // IDSUCURSAL
-            $comentarios = $request->input('txtComentarios'); 
-            $abona = $request->input('txtAbona'); 
+            $comentarios = $request->input('txtComentarios');
+            $abona = $request->input('txtAbona');
 
             $aCarritos = $entidadCarrito->obtenerPorCliente(Session::get('cliente_id'));
 
             $total = 0;
-            foreach ($aCarritos as $item){
+            foreach ($aCarritos as $item) {
                 $total = $total + $item->cantidad * $item->precio;
             }
-            
-            if ($abona == "local"){
-                
+
+            if ($abona == "local") {
+
                 $entidadPedido->fk_idcliente = Session::get('cliente_id');
-                $entidadPedido->total = $total; 
+                $entidadPedido->total = $total;
                 $entidadPedido->fk_idsucursal = $idSucursal;
                 $entidadPedido->fk_idestado = '1';
                 $entidadPedido->fk_idestadopago = '3';
                 $entidadPedido->comentarios = $comentarios;
                 $entidadPedido->fecha = Carbon::now();
                 $idPedido = $entidadPedido->insertar();
-               
+
             }
 
-            if ($abona == "mp"){
+            if ($abona == "mp") {
+                $entidadPedido->fk_idcliente = Session::get('cliente_id');
+                $entidadPedido->total = $total;
+                $entidadPedido->fk_idsucursal = $idSucursal;
+                $entidadPedido->fk_idestado = '1';
+                $entidadPedido->fk_idestadopago = '3';
+                $entidadPedido->comentarios = $comentarios;
+                $entidadPedido->fecha = Carbon::now();
+                $idPedido = $entidadPedido->insertar();
+
+                foreach ($aCarritos as $item) { //Hacer foreach que recorra los productos del carrito e insertarlo en el pedido_detallle
+
+                    $pedidoDetalle = new Pedido_detalle();
+                    $pedidoDetalle->fk_idpedido = $idPedido;
+                    $pedidoDetalle->fk_idproducto = $item->fk_idproducto;
+                    $pedidoDetalle->precio_unitario = $item->precio;
+                    $pedidoDetalle->cantidad = $item->cantidad;
+                    $pedidoDetalle->subtotal = ($item->cantidad * $item->precio);
+                    $pedidoDetalle->insertar();
+
+                }
+                $entidadCarrito->vaciarCarrito($entidadPedido->fk_idcliente); //Vaciar la tabla carrito para el cliente logueado
+              
+
                 SDK::setClientId(config("payment-methods.mercadopago.client"));
                 SDK::setClientSecret(config("payment-methods.mercadopago.secret"));
                 SDK::setAccessToken($access_token); //Es el token de la cuenta de MP donde se deposita el dinero
@@ -82,78 +104,56 @@ class ControladorWebCarrito extends Controller
                 $item->quantity = 1;
                 $item->unit_price = $total;
                 $item->currency_id = "ARS";
-        
+
                 $preference = new Preference();
                 $preference->items = array($item);
-        
+
                 //Datos del comprador
                 $payer = new Payer();
+
+                $cliente = new Cliente();
+                $cliente->obtenerPorId(Session::get('cliente_id'));
                 $payer->name = $cliente->nombre;
                 $payer->surname = $cliente->apellido;
                 $payer->email = $cliente->email;
                 $payer->date_created = date('Y-m-d H:m:s');
                 $payer->identification = array(
                     "type" => "CUIT",
-                    "number" => $cliente->cuit
+                    "number" => $cliente->cuit,
                 );
                 $preference->payer = $payer;
-        
+
                 //URL de configuración para indicarle a MP
                 $preference->back_urls = [
-                    "success" => "http://127.0.0.1:8000/mercado-pago/aprobado/" . $pedido->idpedido,
-                    "pending" => "http://127.0.0.1:8000/mercado-pago/pendiente/" . $pedido->idpedido,
-                    "failure" => "http://127.0.0.1:8000/mercado-pago/error/" . $pedido->idpedido,
+                    "success" => "http://127.0.0.1:8000/mercado-pago/aprobado/" . $idPedido,
+                    "pending" => "http://127.0.0.1:8000/mercado-pago/pendiente/" . $idPedido,
+                    "failure" => "http://127.0.0.1:8000/mercado-pago/error/" . $idPedido,
                 ];
-        
+
                 //Preparar la transaccion con mercadopago
                 $preference->payment_methods = array("installments" => 6);
                 $preference->auto_return = "all";
                 $preference->notification_url = '';
                 $preference->save(); //Ejecuta la transacción
-
-                $entidadPedido->fk_idcliente = Session::get('cliente_id');
-                $entidadPedido->total = $total; 
-                $entidadPedido->fk_idsucursal = $idSucursal;
-                $entidadPedido->fk_idestado = '1';
-                $entidadPedido->fk_idestadopago = '1';
-                $entidadPedido->comentarios = $comentarios;
-                $entidadPedido->fecha = Carbon::now();
-                $idPedido = $entidadPedido->insertar();
-                
+                header("Location: " . $preference->init_point);
+                exit;
             }
 
-            foreach ($aCarritos as $item){  //Hacer foreach que recorra los productos del carrito e insertarlo en el pedido_detallle
-
-                $pedidoDetalle = new Pedido_detalle();
-                $pedidoDetalle->fk_idpedido = $idPedido;
-                $pedidoDetalle->fk_idproducto = $item->fk_idproducto;
-                $pedidoDetalle->precio_unitario = $item->precio;
-                $pedidoDetalle->cantidad = $item->cantidad;
-                $pedidoDetalle->subtotal = ($item->cantidad * $item->precio);           
-                $pedidoDetalle->insertar();
-
-                }
-                
-                $entidadCarrito->vaciarCarrito($entidadPedido->fk_idcliente);//Vaciar la tabla carrito para el cliente logueado
-                return redirect('/recibido');
-
-                $entidadCarrito->eliminarProducto($entidadPedido->fk_idcliente);
-                return redirect('/recibido');
         }
 
-        if ($request->has('vaciar')){
+        if ($request->has('vaciar')) {
             $entidadCarrito->fk_idcliente = Session::get('cliente_id');
-            $entidadCarrito->vaciarCarrito($entidadCarrito->fk_idcliente);//Vaciar la tabla carrito para el cliente logueado
+            $entidadCarrito->vaciarCarrito($entidadCarrito->fk_idcliente); //Vaciar la tabla carrito para el cliente logueado
             return redirect('/carrito');
         }
 
-        if ($request->has('eliminarProducto')){
+        if ($request->has('eliminarProducto')) {
             $entidadCarrito->fk_idcliente = Session::get('cliente_id');
             $entidadCarrito->eliminarProducto($entidadCarrito->fk_idcliente);
             return redirect('/carrito');
         }
     }
-        
+
     public function guardar(Request $request)
     {
         try {
@@ -181,9 +181,8 @@ class ControladorWebCarrito extends Controller
                     $msg["MSG"] = OKINSERT;
                 }
 
-
                 $_POST["id"] = $entidadCarrito->idcarrito;
-                return view('carrito.carrito-listar', compact('titulo', 'msg',));
+                return view('carrito.carrito-listar', compact('titulo', 'msg', ));
             }
         } catch (Exception $e) {
             $msg["ESTADO"] = MSG_ERROR;
@@ -196,5 +195,11 @@ class ControladorWebCarrito extends Controller
         $carrito->obtenerPorId($id);
 
         return view('carrito.carrito-nuevo', compact('msg', 'carrito', 'titulo')) . '?id=' . $carrito->idcarrito;
+    }
+
+    public function mercadoPagoAprobado($idPedido){
+        $pedido = new Pedido();
+        $pedido->aprobarMercadoPago($idPedido);
+        return redirect("/recibido");
     }
 }
