@@ -15,7 +15,7 @@ class ControladorWebPromociones extends Controller
         $sucursal = new Sucursal();
         $aSucursales = $sucursal->obtenerTodos();
         $producto = new Producto();
-        $aProductos = $producto->obtenerTodos();
+        $aProductos = $producto->obtenerTodoos();
 
         if(Session::get('cliente_id') != ""){
             $carrito = new Carrito();
