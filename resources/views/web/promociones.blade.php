@@ -30,7 +30,8 @@
         <div class="container-wrap">
             <div class="row no-gutters d-flex">
 
-
+            
+            
             @foreach ($aProductos as $producto)                            
                     <div class="col-lg-4 d-flex ftco-animate row">
                         <div class="col-5">

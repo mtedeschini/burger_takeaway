@@ -1,10 +1,9 @@
 @extends('web.plantilla-sitio')
 @section('contenido')
-@section('scripts')
 
 <section style="background-image: url(web/images/bg_1.jpg);">
-<form name="form" method="POST">
-    <div class="container " style="max-width: 500px;">
+<div class="container "  style="max-width: 500px;">
+    <form name="form" method="POST">
         <div class="row ">
             <div class="col-12 col-sm-12 mt-5 mb-5">
                 <div class="card text-white bg-dark"> 
@@ -36,9 +35,10 @@
                                                         echo "$" . number_format($precioProducto, 2); 
                                                     ?>
                                                     <br>
-                                                    <form action="" method="POST">
-                                                        <input class="btn btn-danger" type="button" value="Delete"></input>
-                                                    </form>
+                                                    <div>
+                                                        <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
+                                                        <button class="btn btn-danger" type="submit" value="eliminarProducto" name="eliminarProducto" id="eliminarProducto" onclick="alert('¿Está seguro de eliminar este producto?')">Delete</button>
+                                                    </div>  
                                                 </td>
                                             </tr>
                                             @endforeach
@@ -70,8 +70,8 @@
                                     <label>Abona por: </label>
                                     <select id="txtAbona" name="txtAbona" class="form-control" required>
                                         <option value="" disabled selected>Seleccionar</option>
-                                            <option  value="">En local</option>
-                                            <option  value="">Mercado Pago</option>
+                                            <option value="local">En local</option>
+                                            <option value="mp">Mercado Pago</option>
                                     </select>
                                 </div>
                             </div>

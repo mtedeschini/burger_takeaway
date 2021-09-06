@@ -68,4 +68,11 @@ class Carrito extends Model
         $affected = DB::delete($sql, [$this->fk_idcliente]);
     }
 
+    public function eliminarProducto($fk_idproducto)
+    {
+        $sql = "DELETE fk_idproducto FROM carritos
+            WHERE fk_idproducto=$fk_idproducto";
+        $affected = DB::delete($sql, [$this->fk_idproducto]);
+    }
+
 }
