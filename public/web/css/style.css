@@ -220,6 +220,11 @@ textarea {
   font-size: inherit;
   line-height: inherit; }
 
+select,
+option {
+background-color: #343a40 !important;
+}
+
 button,
 input {
   overflow: visible; }

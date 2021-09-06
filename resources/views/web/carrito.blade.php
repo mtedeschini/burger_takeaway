@@ -2,15 +2,16 @@
 @section('contenido')
 @section('scripts')
 
-<form name="form" method="POST">
 <section style="background-image: url(web/images/bg_1.jpg);">
-    <div class="container" style="width: 30%;">
-        <div class="row">
+<form name="form" method="POST">
+    <div class="container " style="max-width: 500px;">
+        <div class="row ">
             <div class="col-12 col-sm-12 mt-5 mb-5">
                 <div class="card text-white bg-dark"> 
                     <div class="card-body">
                         <div class="container">
                             <div class="row">
+                            <form action="" method="post">
                                 <div class="col-10 col-sm-10">
                                     <img src="web/images/burgerCarrito.jpg" alt="Hamburguesa" width="30%" height="100%">
                                     Hamburguesa
@@ -77,20 +78,23 @@
                             <div class="row">
                                 <div class="col-12 col-sm-12 mt-5">
                                     <div class="form-group">
-                                        <label for="textarea">Comentarios...</label>
-                                        <textarea class="form-control" id="textarea" rows="1"></textarea>
+                                        <label for="textarea">Comentarios </label>
+                                        <textarea style="font-size: 15px;" class="form-control" id="textarea" name="txtComentarios" rows="1"> Sin comentarios</textarea>
                                     </div>
                                 </div>
                             </div>
-                            <form action="" method="post">
-                                <div class="row">
-                                    <div class="col-6 col-sm-6 text-center">
+                                <div class="row justify-content-around">
+                                    <div class="col-12 text-center my-1" >
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
-                                        <a href="/takeaway" class="btn btn-warning"> Agregar más productos</a>
+                                        <a href="/takeaway" class="btn btn-outline-light" style="width: 200px;"> Agregar más productos</a>
                                     </div>
-                                    <div class="col-6 col-sm-6 text-center">
+                                    <div class="col-12 text-center my-1">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
-                                        <button class="btn btn-warning">Finalizar el pedido</button>
+                                        <button name="vaciar" type="submit" value="vaciar" class="btn btn-outline-light" style="width: 200px;">Vaciar carrito</button>
+                                    </div>
+                                    <div class="col-12 text-center my-1">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
+                                        <button name="finalizar" type="submit" value="finalizar" class="btn btn-warning" style="width: 200px;"><b>Finalizar el pedido</button>
                                     </div>
                                 </div>
                             </form>

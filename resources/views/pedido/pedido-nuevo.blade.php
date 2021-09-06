@@ -130,7 +130,7 @@
             </div>
             <div class="form-group col-lg-6">
                 <label>Total:</label>
-                    <input type="text" maxlength="50" id="txtTotal" name="txtTotal" class="form-control" value="{{$pedido->total}}" required>
+                    <input type="text" maxlength="50" id="txtTotal" name="txtTotal" class="form-control" value="{{$pedido->total}}" >
             </div>
             <div class="form-group col-lg-6">
                 <label>Estado de pedido:</label>
@@ -144,9 +144,39 @@
                             @endif
                     @endforeach
                 </select>
-                </select>
-                
             </div>
+
+            <div class="form-group col-6">
+                <label>Detalle del Pedido:</label>
+                    <table id="grilla" class="table table-striped table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Producto</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Precio unitario</th>
+                            <th scope="col">Subtotal</th>
+                        </tr>
+                    </thead> 
+                    @if (isset($aPedidoDetalles))
+                        @foreach ($aPedidoDetalles as $detalle)
+                        <tr>
+                            <th scope="row">{{$detalle->producto }}</th>
+                            <td>{{$detalle->cantidad }}</td>
+                            <td>$ {{ number_format($detalle->precio_unitario,2,",",".")}}</td>                 
+                            <td>$ {{ number_format($detalle->precio_unitario * $detalle->cantidad)}} </td>                 
+                        </tr>
+                        @endforeach
+                    @endif
+                    
+                    <tr class="thead-dark">
+                        <th colspan="3">Total</th>
+                        <th>$ {{number_format($pedido->total,2,",",".")}} </th>
+                    </tr>
+
+                </table>
+                </select>
+            </div>
+
         </div>
     </form>
     </div>

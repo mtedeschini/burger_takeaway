@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Entidades\Carrito;
 use App\Entidades\Sucursal;
 use App\Entidades\Pedido;
-use App\Entidades\Sistema\Pedido_detalle;
+use App\Entidades\Pedido_detalle;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -81,32 +81,53 @@ class ControladorWebCarrito extends Controller
     }
 
     public function finalizarPedido(Request $request){
-    
-            $entidadPedido = new Pedido();
-    
-            $total = $request->input('txtTotal');
-            $sucursal = $request->input('txtSucursal'); // IDSUCURSAL
+        $entidadPedido = new Pedido();
+        $entidadCarrito = new Carrito();
+
+        if ($request->has('finalizar')){
+
+            $idSucursal = $request->input('txtSucursal'); // IDSUCURSAL
+            $comentarios = $request->input('txtComentarios'); 
+
+            $aCarritos = $entidadCarrito->obtenerPorCliente(Session::get('cliente_id'));
+
+            $total = 0;
+            foreach ($aCarritos as $item){
+                $total = $total + $item->cantidad * $item->precio;
+            }
             
- 
-            $entidadPedido->total = '500'; //$entidadPedido->total = $total;
-            $entidadPedido->fk_idsucursal = $sucursal;
             $entidadPedido->fk_idcliente = Session::get('cliente_id');
+            $entidadPedido->total = $total; 
+            $entidadPedido->fk_idsucursal = $idSucursal;
             $entidadPedido->fk_idestado = '1';
             $entidadPedido->fk_idestadopago = '3';
+            $entidadPedido->comentarios = $comentarios;
             $entidadPedido->fecha = Carbon::now();
             $idPedido = $entidadPedido->insertar();
+             
+
+            foreach ($aCarritos as $item){  //Hacer foreach que recorra los productos del carrito e insertarlo en el pedido_detallle
 
             $pedidoDetalle = new Pedido_detalle();
             $pedidoDetalle->fk_idpedido = $idPedido;
+            $pedidoDetalle->fk_idproducto = $item->fk_idproducto;
+            $pedidoDetalle->precio_unitario = $item->precio;
+            $pedidoDetalle->cantidad = $item->cantidad;
+            $pedidoDetalle->subtotal = ($item->cantidad * $item->precio);           
+            $pedidoDetalle->insertar();
+
+            }
             
-            //Hacer foreach que recorra los productos del carrito e insertarlo en el pedido_detallle
-
-            //Vaciar la tabla carrito para el cliente logueado
-  
+            $entidadCarrito->vaciarCarrito($entidadPedido->fk_idcliente);//Vaciar la tabla carrito para el cliente logueado
             return redirect('/recibido');
+        }
 
+        if ($request->has('vaciar')){
+            $entidadCarrito->fk_idcliente = Session::get('cliente_id');
+            $entidadCarrito->vaciarCarrito($entidadCarrito->fk_idcliente);//Vaciar la tabla carrito para el cliente logueado
+            return redirect('/carrito');
+        }
     }
-
         
     public function guardar(Request $request)
     {
