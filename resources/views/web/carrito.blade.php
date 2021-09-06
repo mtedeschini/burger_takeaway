@@ -1,10 +1,9 @@
 @extends('web.plantilla-sitio')
 @section('contenido')
-@section('scripts')
 
 <section style="background-image: url(web/images/bg_1.jpg);">
-<form name="form" method="POST">
-    <div class="container " style="max-width: 500px;">
+<div class="container "  style="max-width: 500px;">
+    <form name="form" method="POST">
         <div class="row ">
             <div class="col-12 col-sm-12 mt-5 mb-5">
                 <div class="card text-white bg-dark"> 
