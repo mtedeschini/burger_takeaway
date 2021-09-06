@@ -35,9 +35,10 @@
                                                         echo "$" . number_format($precioProducto, 2); 
                                                     ?>
                                                     <br>
-                                                    <form action="" method="POST">
-                                                        <input class="btn btn-danger" type="button" value="Delete"></input>
-                                                    </form>
+                                                    <div>
+                                                        <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
+                                                        <button class="btn btn-danger" type="submit" value="eliminarProducto" name="eliminarProducto" id="eliminarProducto" onclick="alert('¿Está seguro de eliminar este producto?')">Delete</button>
+                                                    </div>  
                                                 </td>
                                             </tr>
                                             @endforeach
