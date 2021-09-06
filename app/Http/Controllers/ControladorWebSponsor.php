@@ -29,7 +29,7 @@ class ControladorWebSponsor extends Controller
         
             return view('web.sponsor', compact('aCarritos', 'aSucursales', 'titulo', 'aSponsors', 'productosCarrito'));
         }
-        return view('web.sponsor', compact('aSucursales', 'titulo', 'aSponsors', 'productosCarrito'));    
+        return view('web.sponsor', compact('aSucursales', 'titulo', 'aSponsors'));    
 
     }
 

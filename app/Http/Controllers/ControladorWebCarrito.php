@@ -149,7 +149,11 @@ class ControladorWebCarrito extends Controller
 
         if ($request->has('eliminarProducto')) {
             $entidadCarrito->fk_idcliente = Session::get('cliente_id');
+<<<<<<< HEAD
             $entidadCarrito->eliminarProducto($entidadCarrito->fk_idproducto);
+=======
+            $entidadCarrito->eliminarProducto($entidadCarrito->fk_idcliente);
+>>>>>>> cf6aae376e321a33d7b65238b5f5cf142e7a0863
             return redirect('/carrito');
         }
     }
@@ -195,5 +199,11 @@ class ControladorWebCarrito extends Controller
         $carrito->obtenerPorId($id);
 
         return view('carrito.carrito-nuevo', compact('msg', 'carrito', 'titulo')) . '?id=' . $carrito->idcarrito;
+    }
+
+    public function mercadoPagoAprobado($idPedido){
+        $pedido = new Pedido();
+        $pedido->aprobarMercadoPago($idPedido);
+        return redirect("/recibido");
     }
 }

@@ -37,6 +37,11 @@ Route::group(array('domain' => '127.0.0.1'), function () {
 
     Route::get('/creado', 'ControladorWebCreado@index');
 
+    Route::get('/mercado-pago/aprobado/{id}', 'ControladorWebCarrito@mercadoPagoAprobado');
+    Route::get('/mercado-pago/pendiente/{id}', 'ControladorWebCarrito@mercadoPagoPendiente');
+    Route::get('/mercado-pago/error/{id}', 'ControladorWebCarrito@mercadoPagoError');
+
+
     Route::get('/admin', 'ControladorHome@index');
     Route::post('/admin/patente/nuevo', 'ControladorPatente@guardar');
 
