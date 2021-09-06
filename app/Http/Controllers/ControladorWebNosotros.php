@@ -22,7 +22,6 @@ class ControladorWebNosotros extends Controller
 
     public function store(Request $request){
 
-  /
          //Validación del campo
          $data = $request->validate([
             'txtNombre'=>'required',

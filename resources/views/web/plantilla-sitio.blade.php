@@ -52,16 +52,16 @@
           <li class="nav-item"><a href="/sponsors" class="nav-link"><i class="fas fa-hands-helping"></i>  Sponsors</a></li>
           <li class="nav-item"><a href="/contacto" class="nav-link"><i class="fas fa-envelope"></i>  Contacto</a></li>
 
-                    @if(Session::get('cliente_id') != "")
-          <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle show" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="true">Mi cuenta</a>
-          <ul class="dropdown-menu show" aria-labelledby="dropdown01" data-bs-popper="none">
-            <li><a class="dropdown-item" href="/mi-cuenta">Perfil</a></li>
-            <li><a class="dropdown-item" href="/logout">Cerrar sesión</a></li>
-          </ul>
-          </li>
+          @if(Session::get('cliente_id') != "")
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle show" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="true"><i class="fas fa-user-circle"></i>   Mi cuenta</a>
+              <ul class="dropdown-menu show" aria-labelledby="dropdown01" data-bs-popper="none">
+                <li><a class="dropdown-item" href="/mi-cuenta"><i class="fas fa-user"></i> Perfil</a></li>
+                <li><a class="dropdown-item" href="/logout"><i class="fas fa-sign-in-alt"></i> Cerrar sesión</a></li>
+              </ul>
+              </li>
           @else
-           <li class="nav-item"><a href="/login" class="nav-link"><i class="fas fa-sign-in-alt"></i>  Ingresar</a></li>
+              <li class="nav-item"><a href="/login" class="nav-link">  <i class="fas fa-user-alt-slash"></i> Ingresar</a></li>
           @endif
             <li class="nav-item"><a href="/carrito" class="nav-link"><i class="fas fa-shopping-cart"></i></a></li>
       

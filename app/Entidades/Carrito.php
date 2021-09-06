@@ -12,7 +12,7 @@ class Carrito extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'idcarrito', 'fk_idproducto', 'fk_idcliente'
+        'idcarrito', 'fk_idproducto', 'fk_idcliente', 'fk_idsucursal', 'comentarios'
     ];
 
     protected $hidden = [
@@ -24,12 +24,14 @@ class Carrito extends Model
         $sql = "INSERT INTO carritos (
                 fk_idproducto,
                 cantidad,
-                fk_idcliente
-            ) VALUES (?, ?, ?);";
+                fk_idcliente,
+                comentarios
+            ) VALUES (?, ?, ?, ?);";
         $result = DB::insert($sql, [
             $this->fk_idproducto,
             $this->cantidad,
             $this->fk_idcliente,
+            $this->comentarios
         ]);
         return $this->idcarrito = DB::getPdo()->lastInsertId();
     }
@@ -40,9 +42,10 @@ class Carrito extends Model
             A.idcarrito,
             A.fk_idproducto,
             A.fk_idcliente,
-            A.cantidad,
+            A.cantidad AS cantidad,
+            A.comentarios,
             B.nombre AS producto,
-            B.precio
+            B.precio AS precio
             FROM carritos A
             INNER JOIN productos B ON A.fk_idproducto = B.idproducto
             WHERE fk_idcliente = $idCliente
@@ -56,6 +59,13 @@ class Carrito extends Model
         $sql = "DELETE FROM carritos
             WHERE idcarrito=?";
         $affected = DB::delete($sql, [$this->idcarrito]);
+    }
+
+    public function vaciarCarrito($idCliente)
+    {
+        $sql = "DELETE FROM carritos
+            WHERE fk_idcliente=$idCliente";
+        $affected = DB::delete($sql, [$this->fk_idcliente]);
     }
 
 }
