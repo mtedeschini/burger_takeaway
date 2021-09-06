@@ -60,10 +60,14 @@
                 <li><a class="dropdown-item" href="/logout"><i class="fas fa-sign-in-alt"></i> Cerrar sesión</a></li>
               </ul>
               </li>
+              @if(isset($total))
+              <li class="nav-item"><a href="/carrito" class="nav-link"><i class="fas fa-shopping-cart"></i> {{$total}}</a></li>
+              @else
+              <li class="nav-item"><a href="/carrito" class="nav-link"><i class="fas fa-shopping-cart"></i></a></li>
+              @endif
           @else
               <li class="nav-item"><a href="/login" class="nav-link">  <i class="fas fa-user-alt-slash"></i> Ingresar</a></li>
           @endif
-            <li class="nav-item"><a href="/carrito" class="nav-link"><i class="fas fa-shopping-cart"></i></a></li>
       
         </ul>
       </div>

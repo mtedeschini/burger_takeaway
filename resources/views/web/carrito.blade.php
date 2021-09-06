@@ -70,8 +70,8 @@
                                     <label>Abona por: </label>
                                     <select id="txtAbona" name="txtAbona" class="form-control" required>
                                         <option value="" disabled selected>Seleccionar</option>
-                                            <option  value="">En local</option>
-                                            <option  value="">Mercado Pago</option>
+                                            <option value="local">En local</option>
+                                            <option value="mp">Mercado Pago</option>
                                     </select>
                                 </div>
                             </div>
