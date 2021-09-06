@@ -136,11 +136,20 @@ class ControladorWebCarrito extends Controller
                 
                 $entidadCarrito->vaciarCarrito($entidadPedido->fk_idcliente);//Vaciar la tabla carrito para el cliente logueado
                 return redirect('/recibido');
+
+                $entidadCarrito->eliminarProducto($entidadPedido->fk_idcliente);
+                return redirect('/recibido');
         }
 
         if ($request->has('vaciar')){
             $entidadCarrito->fk_idcliente = Session::get('cliente_id');
             $entidadCarrito->vaciarCarrito($entidadCarrito->fk_idcliente);//Vaciar la tabla carrito para el cliente logueado
+            return redirect('/carrito');
+        }
+
+        if ($request->has('eliminarProducto')){
+            $entidadCarrito->fk_idcliente = Session::get('cliente_id');
+            $entidadCarrito->eliminarProducto($entidadCarrito->fk_idproducto);
             return redirect('/carrito');
         }
     }
