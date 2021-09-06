@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Entidades\Producto;
 use App\Entidades\Sistema\Usuario;
 use App\Entidades\Sistema\Patente;
+use App\Entidades\Pedido_detalle;
+use App\Entidades\Tipo_producto;
 use Illuminate\Http\Request;
 
 
@@ -68,8 +70,11 @@ class ControladorProducto extends Controller{
     {
         $titulo = "Nuevo Producto";
         $producto = new Producto();
+        
+        $tipoProducto = new Tipo_producto();
+        $aTipoProductos = $tipoProducto->obtenerTodos();
 
-        return view('producto.producto-nuevo', compact('producto', 'titulo'));
+        return view('producto.producto-nuevo', compact('producto', 'titulo', 'aTipoProductos'));
     }
 
 
@@ -86,8 +91,10 @@ class ControladorProducto extends Controller{
             } else {
                 $producto = new Producto();
                 $producto->obtenerPorId($id);
+                $tipoProducto = new Tipo_producto();
+                $aTipoProductos = $tipoProducto->obtenerTodos();
 
-                return view('producto.producto-nuevo', compact('producto', 'titulo'));
+                return view('producto.producto-nuevo', compact('producto', 'titulo', 'aTipoProductos'));
             }
         }   else {
             return redirect('admin/login');
