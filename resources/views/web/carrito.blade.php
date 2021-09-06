@@ -1,6 +1,7 @@
 @extends('web.plantilla-sitio')
 @section('contenido')
 
+
 <section style="background-image: url(web/images/bg_1.jpg);">
 <div class="container "  style="max-width: 500px;">
     <form name="form" method="POST">
@@ -104,6 +105,9 @@
             </div>
         </div>
     </div>
+    
 </section>
+
 </form>
+
 @endsection

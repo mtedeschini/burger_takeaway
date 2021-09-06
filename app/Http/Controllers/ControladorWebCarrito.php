@@ -71,17 +71,20 @@ class ControladorWebCarrito extends Controller
             }
 
             if ($abona == "mp"){
+                
                 SDK::setClientId(config("payment-methods.mercadopago.client"));
                 SDK::setClientSecret(config("payment-methods.mercadopago.secret"));
-                SDK::setAccessToken($access_token); //Es el token de la cuenta de MP donde se deposita el dinero
+                SDK::setAccessToken(config('services.mercadopago.token')); //Es el token de la cuenta de MP donde se deposita el dinero
                 //Obtener de la BBDD el carrito actual del usuario
-                $item = new Item();
-                $item->id = "1234";
-                $item->title = "Burger SRL";
-                $item->category_id = "products";
-                $item->quantity = 1;
-                $item->unit_price = $total;
-                $item->currency_id = "ARS";
+                foreach ($item as $product){
+                    $item = new Item();
+                    $item->id = "1234";
+                    $item->title = "Burger SRL";
+                    $item->category_id = "products";
+                    $item->quantity = 1;
+                    $item->unit_price = $total;
+                    $item->currency_id = "ARS";
+                }
         
                 $preference = new Preference();
                 $preference->items = array($item);
