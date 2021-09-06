@@ -36,12 +36,6 @@ class ControladorWebCarrito extends Controller
         }
     }
 
-
-    public function finalizarPedidoMP(Request $request){
-
-
-    }
-
     public function finalizarPedido(Request $request){
         $entidadPedido = new Pedido();
         $entidadCarrito = new Carrito();
