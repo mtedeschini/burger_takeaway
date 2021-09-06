@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Entidades\Cliente;
 use App\Entidades\Sucursal;
 use App\Entidades\Carrito;
 use Session;
@@ -20,7 +21,10 @@ class ControladorWebMiCuenta extends Controller
             $productosCarrito += $item->cantidad;
         }
 
-        return view('web.mi-cuenta', compact('aCarritos', 'aSucursales', 'productosCarrito'));
+        $cliente = new Cliente();
+        $cliente->obtenerPorId(Session::get("cliente_id"));
+
+        return view('web.mi-cuenta', compact('aCarritos', 'aSucursales', 'productosCarrito', 'cliente'));
         } else {
             return redirect("/login");
         }
