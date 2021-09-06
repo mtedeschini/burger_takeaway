@@ -27,18 +27,14 @@
             <!--Comienzo Item Menu-->
            
             @foreach ($aSponsors as $sponsor)
-            <div class="col-md-6 col-xl-4 col-12 p-sm-4 px-4 py-2 ftco-animate">
-                <div class="row tarjeta d-flex justify-content-center">
+            <div class="col-3 ftco-animate">
+                <div class="row  d-flex justify-content-center">
                     <div class="descripcion-items" style="background-color:rgb(18, 18, 18, .5);">
-                        <div class="col-12 color-gradiente pt-3 text-center">
-                            <h2>{{$sponsor->nombre_empresa}}</h2>
+                    
+                        <div class="col-12 p-0" style="overflow:hidden;">
+                             <img class="mx-auto d-block " src="files/{{$sponsor->foto_producto}}" style="height:10em; width:10em" alt="">
                         </div>
-                        <div class="col-12 p-0" style="overflow:hidden; height: 200px">
-                             <img class="mx-auto d-block " src="files/{{$sponsor->foto_producto}}" style="height:240px;" alt="">
-                        </div>
-                        <div class="col-12 text-center">
-                            <h4>{{$sponsor->nombre_producto}} </h4>
-                        </div>
+                       
                     </div>
                 </div>
             </div>
