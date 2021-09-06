@@ -13,11 +13,11 @@ class ControladorWebCreado extends Controller
     public function index()
     {
         $sucursal = new Sucursal();
-        $entidadCarrito = new Carrito();
         $aSucursales = $sucursal->obtenerTodos();
         
         if(Session::get('cliente_id') != ""){
-
+            
+            $entidadCarrito = new Carrito();
             $aCarritos = $entidadCarrito->obtenerPorCliente(Session::get('cliente_id'));
             $productosCarrito = 0;
             foreach ($aCarritos as $item){

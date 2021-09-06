@@ -20,7 +20,6 @@ use Session;
 
 class ControladorWebCarrito extends Controller
 {
-
     public function index()
     {
         if(Session::get('cliente_id') != ""){
@@ -30,7 +29,12 @@ class ControladorWebCarrito extends Controller
         $sucursal = new Sucursal();
         $aSucursales = $sucursal->obtenerTodos();
 
-        return view('web.carrito', compact('aCarritos', 'aSucursales'));
+        $productosCarrito = 0;
+        foreach ($aCarritos as $item){
+            $productosCarrito += $item->cantidad;
+        }
+
+        return view('web.carrito', compact('aCarritos', 'aSucursales', 'productosCarrito'));
         } else {
             return redirect("/login");
         }
