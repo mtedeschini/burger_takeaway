@@ -60,6 +60,20 @@ if (isset($msg)) {
                 <textarea class="form-control" name="txtDescripcion" id="txtDescripcion" cols="30" style="height:70px !important;" maxlength="50" rows="10">{{ $producto->descripcion}}</textarea>
             </div>
             <div class="form-group col-lg-6">
+            <label>Tipo de Producto: </label>
+                <select id="txtTipoProducto" name="txtTipoProducto" class="form-control" required>
+                    <option value="" disabled selected>Seleccionar</option>
+                    @foreach ($aTipoProductos as $tipoProducto)
+                        @if ((isset($tipoProducto->idtipoproducto) && $tipoProducto->idtipoproducto == $producto->fk_idtipoproducto))
+                            <option selected value="{{$tipoProducto->idtipoproducto}}">{{$tipoProducto->nombre}}</option>
+                        @else
+                            <option value="{{$tipoProducto->idtipoproducto}}">{{$tipoProducto->nombre}}</option>
+                        @endif
+                    @endforeach
+                </select>
+
+            </div>
+            <div class="form-group col-lg-6">
                 <label for="archivo">Archivo adjunto:</label>
                 <input type="file" id="archivo" name="archivo" class="form-control-file" accept=".jpg, .jpeg, .png" value="">
                 <small class="d-block">Archivos admitidos: .jpg, .jpeg, .png </small>
