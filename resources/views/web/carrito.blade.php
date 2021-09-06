@@ -11,12 +11,9 @@
                         <div class="container">
                             <div class="row">
                             <form action="" method="post">
-                                <div class="col-10 col-sm-10">
-                                    <img src="web/images/burgerCarrito.jpg" alt="Hamburguesa" width="30%" height="100%">
-                                    Hamburguesa
-                                </div>
-                                <div class="col-2 col-sm-2 text-center">
-                                    <a href="#">X</a>
+                                <div class="col-12 col-sm-12 text-warning">
+                                    <i class="fas fa-shopping-cart" style="font-size: 25px;"></i> 
+                                    Carrito
                                 </div>
                             </div>
                             <div class="row">

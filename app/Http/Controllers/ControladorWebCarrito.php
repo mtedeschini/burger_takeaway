@@ -149,7 +149,7 @@ class ControladorWebCarrito extends Controller
 
         if ($request->has('eliminarProducto')) {
             $entidadCarrito->fk_idcliente = Session::get('cliente_id');
-            $entidadCarrito->eliminarProducto($entidadCarrito->fk_idproducto);
+            $entidadCarrito->eliminarProducto($entidadCarrito->fk_idcliente);
             return redirect('/carrito');
         }
     }

@@ -105,15 +105,20 @@
                 </select>
                 <select class="form-control d-inline" name="txtAnio" id="txtAnio" style="width: 100px">
                     <option selected="" disabled="">YYYY</option>
-                    @for ($i = 2000; $i <= date("Y"); $i++) 
+                    @for ($i = 2021; $i <= date("Y"); $i++) 
                         @if ($pedido->fecha != ""  and $i == date_format(date_create($pedido->fecha),"Y"))
-                            <option select value="{{ $i }}">{{ $i }}</option>
+                            <option selected value="{{ $i }}">{{ $i }}</option>
                         @else
                             <option value="{{ $i }}">{{ $i }}</option>
                         @endif
                     @endfor
                 </select>
+                @if ($pedido->fecha != ""  and $i == date_format(date_create($pedido->fecha),"H:i"))
+                    <input type="time" required="" class="form-control d-inline" style="width: 120px" name="txtHora" id="txtHora" value="{{ $i }}">
+                @else
                 <input type="time" required="" class="form-control d-inline" style="width: 120px" name="txtHora" id="txtHora" value="">
+                @endif
+
             </div>
             <div class="form-group col-lg-6">
                 <label>Estado de pago: </label>

@@ -68,10 +68,10 @@ class Carrito extends Model
         $affected = DB::delete($sql, [$this->fk_idcliente]);
     }
 
-    public function eliminarProducto($fk_idproducto)
+    public function eliminarProducto($idCliente)
     {
-        $sql = "DELETE fk_idproducto FROM carritos
-            WHERE fk_idproducto=$fk_idproducto";
+        $sql = "DELETE FROM carritos
+            WHERE fk_idcliente=$idCliente AND fk_idproducto=?";
         $affected = DB::delete($sql, [$this->fk_idproducto]);
     }
 
