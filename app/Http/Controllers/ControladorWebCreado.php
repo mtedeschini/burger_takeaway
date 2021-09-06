@@ -19,13 +19,12 @@ class ControladorWebCreado extends Controller
         if(Session::get('cliente_id') != ""){
 
             $aCarritos = $entidadCarrito->obtenerPorCliente(Session::get('cliente_id'));
-            $total = 0;
+            $productosCarrito = 0;
             foreach ($aCarritos as $item){
-                $total = $total + $item->cantidad;
+                $productosCarrito += $item->cantidad;
             }
-            return view('web.mi-cuenta', compact('aSucursales', 'aCarritos', 'total'));
+            return view('web.creado', compact('aSucursales', 'aCarritos', 'total'));
         }
-
         return view('web.login', compact('aSucursales'));
 
     } 
