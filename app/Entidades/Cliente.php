@@ -87,7 +87,7 @@ class Cliente extends Model
                     A.correo,
                     A.clave
                 FROM clientes A
-
+                WHERE A.idcliente = $idcliente 
                 ";
         $lstRetorno = DB::select($sql);
 
@@ -160,11 +160,13 @@ class Cliente extends Model
     {
         $sql = "UPDATE clientes SET
 
+           idcliente='$this->idcliente',
             nombre='$this->nombre',
             apellido='$this->apellido',
             telefono='$this->telefono',
             correo='$this->correo',
             clave=$this->clave
+
             WHERE idcliente=?";
 
         $affected = DB::update($sql, [$this->idcliente]);
@@ -172,7 +174,7 @@ class Cliente extends Model
 
     public function cargarDesdeRequest($request)
     {
-        $this->idcliente = $request->input('id') != "0" ? $request->input('id') : $this->idcliente;
+        $this->idcliente = $request->input('id') !== 0 ? $request->input('id') : $this->idcliente;
         $this->nombre = $request->input('txtNombre');
         $this->apellido = $request->input('txtApellido');
         $this->telefono = $request->input('txtTelefono');

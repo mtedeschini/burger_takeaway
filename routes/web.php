@@ -21,7 +21,7 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::post('/nosotros', 'ControladorWebNosotros@store');
     Route::get('/takeaway', 'ControladorWebTakeaway@index');
     Route::post('/takeaway', 'ControladorWebTakeaway@guardar');
-    Route::get('/promociones', 'ControladorWebpromociones@index');
+    Route::get('/promociones', 'ControladorWebPromociones@index');
     Route::get('/contacto', 'ControladorWebContacto@index');
     Route::post('/contacto', 'ControladorWebContacto@enviarCorreo');
     Route::get('/mi-cuenta', 'ControladorWebMiCuenta@index');
@@ -33,6 +33,9 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::post('/registro', 'ControladorWebRegistro@guardar');
     Route::get('/logout', 'ControladorWebLogin@cerrarSesion');
     Route::get('/recibido', 'ControladorWebRecibido@index');
+    Route::get('/sponsors', 'ControladorWebSponsor@index');
+
+    Route::get('/creado', 'ControladorWebCreado@index');
 
     Route::get('/admin', 'ControladorHome@index');
     Route::post('/admin/patente/nuevo', 'ControladorPatente@guardar');
@@ -161,7 +164,7 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::get('/admin/sponsors', 'ControladorSponsor@index');
     Route::get('/admin/sponsors/nuevo', 'ControladorSponsor@nuevo');
     Route::post('/admin/sponsors/nuevo', 'ControladorSponsor@guardar');
-    Route::get('/admin/sponsors/cargarGrilla', 'ControladorSponsor@cargarGrilla')->name('sponsor.cargarGrilla');
+    Route::get('/admin/sponsors/cargarGrilla', 'ControladorSponsor@cargarGrilla')->name('sponsors.cargarGrilla');
     Route::get('/admin/sponsors/eliminar', 'ControladorSponsor@eliminar');
     Route::get('/admin/sponsors/{id}', 'ControladorSponsor@editar');
     Route::post('/admin/sponsors/{id}', 'ControladorSponsor@guardar');

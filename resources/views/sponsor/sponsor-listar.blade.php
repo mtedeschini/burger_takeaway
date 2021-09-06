@@ -46,9 +46,10 @@ if (isset($msg)) {
 	    "bSearchable": true,
         "pageLength": 25,
         "order": [[ 0, "asc" ]],
-	    "ajax": "{{ route('sponsor.cargarGrilla') }}"
+	    "ajax": "{{ route('sponsors.cargarGrilla') }}"
 	});
 </script>
+
 
 @endsection
 

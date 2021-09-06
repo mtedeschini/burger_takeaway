@@ -21,12 +21,14 @@ class Promo extends Model
     public function obtenerTodos()
     {
         $sql = "SELECT
-                    idpromo,
+                    idproducto,
                     nombre,
                     precio,
                     descripcion,
                     imagen
-                FROM promos ORDER BY nombre";
+                FROM productos 
+                WHERE fk_idtipoproducto = 2 
+                ORDER BY idproducto";
         $lstRetorno = DB::select($sql);
         return $lstRetorno;
     }

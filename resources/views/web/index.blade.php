@@ -52,7 +52,7 @@
         </div>
 
         <div class="col-md-6 ftco-animate">
-          <img src="web/images/burgerch.png" class="img-fluid" alt="">
+          <img src="web/images/beer.PNG" class="img-fluid" alt="">
         </div>
 
       </div>
