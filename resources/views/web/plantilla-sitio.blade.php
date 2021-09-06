@@ -61,7 +61,14 @@
               </ul>
               </li>
               @if(isset($productosCarrito))
-              <li class="nav-item"><a href="/carrito" class="nav-link"><i class="fas fa-shopping-cart"></i> {{$productosCarrito}}</a></li>
+              <li class="nav-item" >
+                  <a href="/carrito" class="nav-link"  >
+                  <div class="cart-num">
+                    <i class="fas fa-shopping-cart"></i> 
+                    {{$productosCarrito}}
+                    </div>
+                  </a>
+              </li>
               @else
               <li class="nav-item"><a href="/carrito" class="nav-link"><i class="fas fa-shopping-cart"></i></a></li>
               @endif
