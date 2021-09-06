@@ -32,6 +32,20 @@ class Producto extends Model
         $lstRetorno = DB::select($sql);
         return $lstRetorno;
     }
+    public function obtenerTodoos()
+    {
+        $sql = "SELECT
+                    idproducto,
+                    nombre,
+                    precio,
+                    descripcion,
+                    imagen
+                FROM productos 
+                WHERE fk_idtipoproducto = 2 
+                ORDER BY idproducto";
+        $lstRetorno = DB::select($sql);
+        return $lstRetorno;
+    }
 
     public function obtenerPromociones()
     {
