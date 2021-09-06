@@ -87,7 +87,7 @@ class Cliente extends Model
                     A.correo,
                     A.clave
                 FROM clientes A
-
+                WHERE A.idcliente = $idcliente 
                 ";
         $lstRetorno = DB::select($sql);
 
@@ -159,7 +159,8 @@ class Cliente extends Model
     public function guardar()
     {
         $sql = "UPDATE clientes SET
-    |       /*idcliente='$this->idcliente',*/
+
+           idcliente='$this->idcliente',
             nombre='$this->nombre',
             apellido='$this->apellido',
             telefono='$this->telefono',
