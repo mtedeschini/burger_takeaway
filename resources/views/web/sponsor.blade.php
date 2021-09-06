@@ -33,10 +33,10 @@
                         <div class="col-12 color-gradiente pt-3 text-center">
                             <h2>{{$sponsor->nombre_empresa}}</h2>
                         </div>
-                        <div class="col-12 p-0 m-3" style="overflow:hidden; height: 200px">
+                        <div class="col-12 p-0" style="overflow:hidden; height: 200px">
                              <img class="mx-auto d-block " src="files/{{$sponsor->foto_producto}}" style="height:240px;" alt="">
                         </div>
-                        <div class="col-12 text-center m-3">
+                        <div class="col-12 text-center">
                             <h4>{{$sponsor->nombre_producto}} </h4>
                         </div>
                     </div>
