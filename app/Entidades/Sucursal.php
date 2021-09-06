@@ -72,7 +72,7 @@ class Sucursal extends Model{
     {
         $sql = "UPDATE sucursales SET
                 direccion = '$this->direccion',
-                nombre = '$this->nombre'
+                nombre = '$this->nombre',
                 telefono = '$this->telefono'
                 WHERE idsucursal=?;";
         $affected = DB::update($sql,[$this->idsucursal]);
