@@ -11,12 +11,13 @@ class Pedido extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'idpedido', 'total', 'fk_idsucursal', 'fk_idcliente', 'fk_idestado', 'fk_idestadopago', 'fecha'
+        'idpedido', 'total', 'fk_idsucursal', 'fk_idcliente', 'fk_idestado', 'fk_idestadopago', 'fecha', 'comentarios',
     ];
 
     protected $hidden = [];
 
-    public function obtenerFiltrado(){
+    public function obtenerFiltrado()
+    {
         $request = $_REQUEST;
         $columns = array(
             0 => 'A.idpedido',
@@ -26,15 +27,17 @@ class Pedido extends Model
             4 => 'D.nombre',
             5 => 'E.nombre',
             6 => 'A.fecha',
+            7 => 'A.comentarios',
         );
         $sql = "SELECT DISTINCT
                     A.idpedido,
                     A.total,
                     B.nombre as sucursal,
-                    C.nombre as cliente,
+                    CONCAT(C.apellido,', ',C.nombre) AS cliente,
                     D.nombre as estado,
                     E.nombre as estado_pago,
-                    A.fecha
+                    A.fecha,
+                    A.comentarios
                     FROM pedidos A
                     LEFT JOIN sucursales B ON A.fk_idsucursal = B.idsucursal
                     LEFT JOIN clientes C ON A.fk_idcliente = C.idcliente
@@ -50,6 +53,7 @@ class Pedido extends Model
             $sql .= " OR C.nombre LIKE '%" . $request['search']['value'] . "%' ";
             $sql .= " OR D.nombre LIKE '%" . $request['search']['value'] . "%' ";
             $sql .= " OR E.nombre LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR A.comentarios LIKE '%" . $request['search']['value'] . "%' ";
             $sql .= " OR A.fecha LIKE '%" . $request['search']['value'] . "%' )";
         }
         $sql .= " ORDER BY " . $columns[$request['order'][0]['column']] . "   " . $request['order'][0]['dir'];
@@ -68,9 +72,9 @@ class Pedido extends Model
                   fk_idcliente,
                   fk_idestado,
                   fk_idestadopago,
-                  fecha
+                  fecha,
+                  comentarios
                 FROM pedidos ORDER BY idpedido;";
-
 
         $lstRetorno = DB::select($sql);
 
@@ -86,7 +90,8 @@ class Pedido extends Model
                     fk_idcliente,
                     fk_idestado,
                     fk_idestadopago,
-                    fecha
+                    fecha,
+                    comentarios
                 FROM pedidos WHERE idpedido = $idpedido";
         $lstRetorno = DB::select($sql);
 
@@ -98,6 +103,7 @@ class Pedido extends Model
             $this->fk_idestado = $lstRetorno[0]->fk_idestado;
             $this->fk_idestadopago = $lstRetorno[0]->fk_idestadopago;
             $this->fecha = $lstRetorno[0]->fecha;
+            $this->comentarios = $lstRetorno[0]->comentarios;
             return $this;
         }
         return null;
@@ -112,9 +118,18 @@ class Pedido extends Model
                     fk_idcliente=$this->fk_idcliente,
                     fk_idestado=$this->fk_idestado,
                     fk_idestadopago=$this->fk_idestadopago,
-                    fecha='$this->fecha'
+                    fecha='$this->fecha',
+                    comentarios='$this->comentarios'
             WHERE idpedido=?;";
         $affected = DB::update($sql, [$this->idpedido]);
+    }
+
+    public function aprobarMercadoPago($idPedido)
+    {
+        $sql = "UPDATE pedidos SET
+                    fk_idestadopago=1
+                WHERE idpedido=?;";
+        $affected = DB::update($sql, [$idPedido]);
     }
 
     public function eliminar()
@@ -127,23 +142,23 @@ class Pedido extends Model
     public function insertar()
     {
         $sql = "INSERT INTO pedidos (
-                idpedido,
                 total,
                 fk_idsucursal,
                 fk_idcliente,
                 fk_idestado,
                 fk_idestadopago,
-                fecha
+                fecha,
+                comentarios
 
-            ) VALUES (?, ?, ?, ?, ?, ?, ?);";
+            ) VALUES (?, ?, ?, ?, ?, ?,?);";
         $result = DB::insert($sql, [
-            $this->idpedido,
             $this->total,
             $this->fk_idsucursal,
             $this->fk_idcliente,
             $this->fk_idestado,
             $this->fk_idestadopago,
-            $this->fecha
+            $this->fecha,
+            $this->comentarios,
 
         ]);
         return $this->idpedido = DB::getPdo()->lastInsertId();
@@ -158,5 +173,6 @@ class Pedido extends Model
         $this->fk_idestado = $request->input('txtEstadoPedido');
         $this->fk_idestadopago = $request->input('txtEstadoPago');
         $this->fecha = $request->input('txtAnio') . ":" . $request->input('txtMes') . ":" . $request->input('txtDia');
+        $this->comentarios = $request->input('txtComentarios');
     }
 }

@@ -5,15 +5,16 @@
 globalId = '<?php echo isset($sponsor->idsponsor) && $sponsor->idsponsor > 0 ? $sponsor->idsponsor : 0; ?>';
 <?php $globalId = isset($sponsor->idsponsor) ? $sponsor->idsponsor : "0";?>
 </script>
+
 @endsection
 @section('breadcrumb')
 <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/admin/home">Inicio</a></li>
-    <li class="breadcrumb-item"><a href="/admin/postulaciones">Sponsor</a></li>
+    <li class="breadcrumb-item"><a href="/admin/sponsors">Sponsor</a></li>
     <li class="breadcrumb-item active">Modificar</li>
 </ol>
 <ol class="toolbar">
-    <li class="btn-item"><a title="Nuevo" href="/admin/sponsor/nuevo" class="fa fa-plus-circle"
+    <li class="btn-item"><a title="Nuevo" href="/admin/sponsors/nuevo" class="fa fa-plus-circle"
             aria-hidden="true"><span>Nuevo</span></a></li>
     <li class="btn-item"><a title="Guardar" href="#" class="fas fa-save" aria-hidden="true"
             onclick="javascript: $('#modalGuardar').modal('toggle');"><span>Guardar</span></a>
@@ -52,36 +53,39 @@ if (isset($msg)) {
             <div class="form-group col-lg-6">
                 <label>Nombre de la Empresa: *</label>
                 <input type="text" id="txtNombreEmpresa" name="txtNombreEmpresa" class="form-control"
-                    value="{{ $sponsor->nombre_empresa }}" required>
+                value="{{$sponsor->nombre_empresa}}"
+                    required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Nombre del Producto: *</label>
-                <input type="text" id="txtNombreProducto" name="txtNombrProducto" class="form-control"
-                    value="{{ $sponsor->nombre_producto }}" required>
+                <input type="text" id="txtNombreProducto" name="txtNombreProducto" class="form-control"
+                value="{{$sponsor->nombre_producto}}"    required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Cantidad: *</label>
-                <input type="text" id="Cantidad" name="Cantidad" class="form-control"
-                    value="{{ $sponsor->cantidad }}" required>
+                <input type="text" id="intCantidad" name="intCantidad" class="form-control"
+                value="{{$sponsor->cantidad_producto}}" required>
             </div>
             <div class="form-group col-lg-6">
                 <label>Email: *</label>
-                <input type="text" id="txtEmail" name="txtEmail" class="form-control"
-                    value="{{ $sponsor->email }}" required>
+                <input type="email" id="txtEmail" name="txtEmail" class="form-control"
+                value="{{$sponsor->email}}" required>
             </div>
             <div class="form-group col-lg-6">
-                <label>Correo: *</label>
-                <input type="text" id="txtCorreo" name="txtCorreo" class="form-control"
-                    value="{{ $sponsor->correo }}" required>
+                <label>Descripcion: *</label>
+                <input type="text" id="txtDescripcion" name="txtDescripcion" class="form-control"
+                value="{{$sponsor->descripcion}}"   required>
             </div>
+           
             <div class="form-group col-lg-6">
                 <label>Teléfono: *</label>
                 <input type="text" id="txtTelefono" name="txtTelefono" class="form-control"
-                    value="{{ $sponsor->telefono }}" required>
+                value="{{$sponsor->telefono}}"    required>
             </div>
             <div class="form-group col-lg-6">
-                <label for="archivo">Archivo adjunto:</label>
-                <input type="file" id="archivo" name="archivo" class="form-control-file shadow" accept=".pdf" value="">
+                <label for="archivo">Foto del producto:</label>
+                <input type="file" id="archivo" name="archivo" class="form-control-file shadow" accept="all" 
+                value="{{$sponsor->foto_producto}}">
                 <small class="d-block">Foto: </small>
             </div>
         </div>
@@ -122,7 +126,7 @@ function guardar() {
 function eliminar() {
     $.ajax({
         type: "GET",
-        url: "{{ asset('admin/sistema/menu/eliminar') }}",
+        url: "{{ asset('admin/sponsors/eliminar') }}",
         data: {
             id: globalId
         },

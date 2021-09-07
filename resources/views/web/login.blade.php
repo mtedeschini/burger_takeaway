@@ -1,12 +1,11 @@
 @extends('web.plantilla-sitio')
 @section('contenido')
 
-
 <section class="ftco-section contact-section">
-    <div class="container mt-5">
+      <div class="container" style="max-width: 600px">
       <div class="row block-9">
         <div class="col-md-12 ftco-animate">
-          <form action="#" class="contact-form">
+          <form action="#" class="contact-form" method="POST">
             <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
 
             <div class="row justify-content-center">
@@ -20,9 +19,21 @@
               </div>
               <div class="col-12 col-md-8">
                 <div class="form-group">
-                  <input type="text" name="txtClave" class="form-control" placeholder="Clave">
+                  <input type="password" name="txtClave" class="form-control" placeholder="Clave">
                 </div>
               </div>
+              <div class="panel-body col-12 col-md-8">
+                  <div id="msg row text-center ">
+                  <?php
+                  if (isset($msg)) {
+                    echo '<div class="col-12 text-center mx-auto alert  alert-'. $msg["ESTADO"] .'" role="alert">'; 
+                    echo $msg["MSG"];
+                    echo '</div>';
+                  }
+                  ?>
+                </div>
+              </div>
+                    
               <div class="col-12 col-md-8">
                 <button class="btn btn-primary" type="submit">ENTRAR</button>
               </div>
@@ -33,7 +44,7 @@
         </div>
       </div>
     </div>
-</section>
+    </section>
 
 <div id="map"></div>
 @endsection

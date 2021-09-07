@@ -12,8 +12,8 @@
     <li class="breadcrumb-item active">Sponsors</a></li>
 </ol>
 <ol class="toolbar">
-    <li class="btn-item"><a title="Nuevo" href="/admin/sponsor/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
-    <li class="btn-item"><a title="Recargar" href="#" class="fa fa-refresh" aria-hidden="true" onclick='window.location.replace("/admin/sponsor");'><span>Recargar</span></a></li>
+    <li class="btn-item"><a title="Nuevo" href="/admin/sponsors/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
+    <li class="btn-item"><a title="Recargar" href="#" class="fa fa-refresh" aria-hidden="true" onclick='window.location.replace("/admin/sponsors");'><span>Recargar</span></a></li>
 </ol>
 @endsection
 @section('contenido')
@@ -46,9 +46,10 @@ if (isset($msg)) {
 	    "bSearchable": true,
         "pageLength": 25,
         "order": [[ 0, "asc" ]],
-	    "ajax": "{{ route('sponsor.cargarGrilla') }}"
+	    "ajax": "{{ route('sponsors.cargarGrilla') }}"
 	});
 </script>
+
 
 @endsection
 

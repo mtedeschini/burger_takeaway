@@ -68,7 +68,7 @@ body {
   outline: 0 !important; }
   
 .precio-item{
-  font-family: 'Nothing You Could Do', cursive !important;
+  font-family: 'Josefin Sans', cursive !important;
   font-size: 20px !important;
   color: #fac564 !important;
 }
@@ -220,6 +220,11 @@ textarea {
   font-size: inherit;
   line-height: inherit; }
 
+select,
+option {
+background-color: #343a40 !important;
+}
+
 button,
 input {
   overflow: visible; }
@@ -276,6 +281,13 @@ legend {
 
 progress {
   vertical-align: baseline; }
+
+  .cart-num{
+    background-color: #fac564 ;
+    padding: 4px;
+    border-radius: 25px;
+    color: #101315;
+  }
 
 [type="number"]::-webkit-inner-spin-button,
 [type="number"]::-webkit-outer-spin-button {

@@ -105,15 +105,20 @@
                 </select>
                 <select class="form-control d-inline" name="txtAnio" id="txtAnio" style="width: 100px">
                     <option selected="" disabled="">YYYY</option>
-                    @for ($i = 2000; $i <= date("Y"); $i++) 
+                    @for ($i = 2021; $i <= date("Y"); $i++) 
                         @if ($pedido->fecha != ""  and $i == date_format(date_create($pedido->fecha),"Y"))
-                            <option select value="{{ $i }}">{{ $i }}</option>
+                            <option selected value="{{ $i }}">{{ $i }}</option>
                         @else
                             <option value="{{ $i }}">{{ $i }}</option>
                         @endif
                     @endfor
                 </select>
+                @if ($pedido->fecha != ""  and $i == date_format(date_create($pedido->fecha),"H:i"))
+                    <input type="time" required="" class="form-control d-inline" style="width: 120px" name="txtHora" id="txtHora" value="{{ $i }}">
+                @else
                 <input type="time" required="" class="form-control d-inline" style="width: 120px" name="txtHora" id="txtHora" value="">
+                @endif
+
             </div>
             <div class="form-group col-lg-6">
                 <label>Estado de pago: </label>
@@ -130,7 +135,7 @@
             </div>
             <div class="form-group col-lg-6">
                 <label>Total:</label>
-                    <input type="text" maxlength="50" id="txtTotal" name="txtTotal" class="form-control" value="{{$pedido->total}}" required>
+                    <input type="text" maxlength="50" id="txtTotal" name="txtTotal" class="form-control" value="{{$pedido->total}}" >
             </div>
             <div class="form-group col-lg-6">
                 <label>Estado de pedido:</label>
@@ -144,9 +149,39 @@
                             @endif
                     @endforeach
                 </select>
-                </select>
-                
             </div>
+
+            <div class="form-group col-6">
+                <label>Detalle del Pedido:</label>
+                    <table id="grilla" class="table table-striped table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Producto</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Precio unitario</th>
+                            <th scope="col">Subtotal</th>
+                        </tr>
+                    </thead> 
+                    @if (isset($aPedidoDetalles))
+                        @foreach ($aPedidoDetalles as $detalle)
+                        <tr>
+                            <th scope="row">{{$detalle->producto }}</th>
+                            <td>{{$detalle->cantidad }}</td>
+                            <td>$ {{ number_format($detalle->precio_unitario,2,",",".")}}</td>                 
+                            <td>$ {{ number_format($detalle->precio_unitario * $detalle->cantidad)}} </td>                 
+                        </tr>
+                        @endforeach
+                    @endif
+                    
+                    <tr class="thead-dark">
+                        <th colspan="3">Total</th>
+                        <th>$ {{number_format($pedido->total,2,",",".")}} </th>
+                    </tr>
+
+                </table>
+                </select>
+            </div>
+
         </div>
     </form>
     </div>

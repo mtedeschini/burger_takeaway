@@ -12,22 +12,29 @@ require app_path() . '/start/constants.php';
 
 class ControladorSponsor extends Controller{
 
-    public function index()
+    
+
+     public function index()
     {
-        $titulo = "Sponsors";
+        $titulo = "Sponsors";;
         if (Usuario::autenticado() == true) {
-            return view('sponsor.sponsor-listar', compact('titulo'));
+            if (!Patente::autorizarOperacion("MENUCONSULTA")) {
+                $codigo = "MENUCONSULTA";
+                $mensaje = "No tiene permisos para la operaci&oacute;n.";
+                return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
+            } else {
+                return view('sponsor.sponsor-listar', compact('titulo'));  
+            }
         } else {
             return redirect('admin/login');
         }
-
     }
     
 
     public function nuevo()
     {
         $titulo = "Nuevo Sponsor";
-        $sponsor = new Sponsor();
+        $sponsor = new Sponsor(); // ???
 
         return view('sponsor.sponsor-nuevo', compact('sponsor', 'titulo'));
 
@@ -39,7 +46,7 @@ class ControladorSponsor extends Controller{
             if (!Patente::autorizarOperacion("MENUMODIFICACION")) {
                 $codigo = "MENUMODIFICACION";
                 $mensaje = "No tiene pemisos para la operaci&oacute;n.";
-                return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
+                return view('sistema.pagina-error', compact('titulo',  'codigo', 'mensaje'));
             } else {
                 $sponsor = new Sponsor();
                 $sponsor->obtenerPorId($id);
@@ -90,7 +97,7 @@ class ControladorSponsor extends Controller{
         for ($i = $inicio; $i < count($aSponsors) && $cont < $registros_por_pagina; $i++) {
             $row = array();
 
-            $row[] = '<a href="/admin/sponsor/' . $aSponsors[$i]->idsponsor . '" class="btn btn-secondary"><i class="fas fa-search"></i></a>';
+            $row[] = '<a href="/admin/sponsors/' . $aSponsors[$i]->idsponsor . '" class="btn btn-secondary"><i class="fas fa-search"></i></a>';
 
             $row[] = $aSponsors[$i]->nombre_empresa;
             $row[] = $aSponsors[$i]->nombre_producto;
@@ -98,7 +105,8 @@ class ControladorSponsor extends Controller{
             $row[] = $aSponsors[$i]->cantidad_producto;
             $row[] = $aSponsors[$i]->email;
             $row[] = $aSponsors[$i]->telefono;
-            $row[] = '<a href="/files/'. $aSponsors[$i]->foto_producto .'" class="btn btn-secondary"><i class="far fa-file-pdf"></i></a>';
+            $row[] = '<img src="/files/'. $aSponsors[$i]->foto_producto .'" class="img-thumbnail">';
+           
 
             $cont++;
             $data[] = $row;
@@ -116,7 +124,7 @@ class ControladorSponsor extends Controller{
     }
 
     public function guardar(Request $request) {
-        $idpostulacion=$request['id'];
+        $idsponsor=$request['id'];
         try {
             //Define la entidad 
             $titulo = "Modificar Sponsors";
@@ -125,11 +133,11 @@ class ControladorSponsor extends Controller{
 
             if($_FILES["archivo"]["error"] === UPLOAD_ERR_OK)
             {//Se adjunta la imagen
-                $nombre = date("Ymdhmsi") . ".pdf"; 
+                $nombre = date("Ymdhmsi") . ".jpg"; 
                 $archivo = $_FILES["archivo"]["tmp_name"];
                 move_uploaded_file($archivo, env('APP_PATH') . "/public/files/$nombre");//guardaelarchivo
                 $entidad->foto_producto =$nombre;
-            }   
+            }  
             //validaciones
             if ($entidad->nombre_producto == "") {
                 $msg["ESTADO"] = MSG_ERROR;

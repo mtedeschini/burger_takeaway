@@ -27,20 +27,20 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Nombre:">
+                                <input type="text" name="txtNombre" id="txtNombre" class="form-control" placeholder="Nombre:">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Email:">
+                                <input type="text" name="txtCorreo" id="txtCorreo" class="form-control" placeholder="Email:">
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Asunto:">
+                        <input type="text" name="txtAsunto" id="txtAsunto" class="form-control" placeholder="Asunto:">
                     </div>
                     <div class="form-group">
-                        <textarea name="" id="" cols="30" rows="7" class="form-control"
+                        <textarea name="txtMensaje" id="txtMensaje" cols="30" rows="7" class="form-control"
                             placeholder="Mensaje:"></textarea>
                     </div>
                     <div class="form-group">

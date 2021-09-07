@@ -25,7 +25,7 @@ class Postulacion extends model
         $this->documento = $request->input('txtDocumento');
         $this->correo = $request->input('txtCorreo');
         $this->telefono = $request->input('txtTelefono');
-        //$this->archivo_cv = $request->input('archivo');
+        $this->archivo_cv = $request->input('archivo_cv');
     }
 
     public function obtenerTodos()
@@ -91,7 +91,7 @@ class Postulacion extends model
     public function eliminar()
     {
         $sql = "DELETE FROM postulaciones WHERE
-        idpostulacion=?";
+            idpostulacion=?";
         $affected = DB::delete($sql, [$this->idpostulacion]);
     }
 

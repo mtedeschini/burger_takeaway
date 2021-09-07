@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Entidades\Pedido;
+use App\Entidades\Pedido_detalle;
 use App\Entidades\Sucursal;
 use App\Entidades\Cliente;
 use App\Entidades\EstadoPago;
@@ -158,12 +159,14 @@ class ControladorPedido extends Controller
             $estadoPago = new EstadoPago();
             $estado = new Estado();
             $cliente = new Cliente();
+            $pedidoDetalle = new Pedido_detalle();
             $pedido->obtenerPorId($id);
             $aClientes = $cliente->obtenerTodos();
             $aEstadoPagos = $estadoPago->obtenerTodos();
             $aEstados = $estado->obtenerTodos();
+            $aPedidoDetalles = $pedidoDetalle->obtenerPorPedido($id);
             $aSucursales = $sucursal->obtenerTodos();
-            return view('pedido.pedido-nuevo', compact('titulo','pedido','aSucursales', 'aClientes', 'aEstadoPagos', 'aEstados'));
+            return view('pedido.pedido-nuevo', compact('titulo','pedido','aSucursales', 'aClientes', 'aEstadoPagos', 'aEstados', 'aPedidoDetalles'));
         }   else {
             return redirect('admin/login');
         }
