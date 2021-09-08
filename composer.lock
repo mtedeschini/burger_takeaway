@@ -1285,7 +1285,7 @@
                 "source": "https://github.com/laravel/framework"
             },
             "time": "2021-08-31T13:55:57+00:00"
-        },
+       },
         {
             "name": "laravel/helpers",
             "version": "v1.4.1",
