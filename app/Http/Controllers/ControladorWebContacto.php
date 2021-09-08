@@ -5,16 +5,34 @@ use App\Entidades\Sucursal;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use Illuminate\Http\Request;
+use Session;
+use App\Entidades\Carrito;
 
 class ControladorWebContacto extends Controller
 {
-
     public function index()
     {
         $sucursal = new Sucursal();
         $aSucursales = $sucursal->obtenerTodos();
-        return view('web.contacto', compact('aSucursales'));
+
+        if(Session::get('cliente_id') != ""){
+            $carrito = new Carrito();
+            $aCarritos = $carrito->obtenerPorCliente(Session::get('cliente_id'));
+        
+            $sucursal = new Sucursal();
+            $aSucursales = $sucursal->obtenerTodos();
+        
+            $productosCarrito = 0;
+            foreach ($aCarritos as $item){
+                $productosCarrito += $item->cantidad;
+            }
+        
+            return view('web.contacto', compact('aCarritos', 'aSucursales', 'productosCarrito'));
+        }
+        return view('web.contacto', compact('aSucursales'));    
+
     }
+
 
     public function enviarCorreo(Request $request){
         $nombre = $request->input("txtNombre");

@@ -54,14 +54,21 @@
 
           @if(Session::get('cliente_id') != "")
               <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle show" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="true"><i class="fas fa-user-circle"></i>   Mi cuenta</a>
-              <ul class="dropdown-menu show" aria-labelledby="dropdown01" data-bs-popper="none">
-                <li><a class="dropdown-item" href="/mi-cuenta"><i class="fas fa-user"></i> Perfil</a></li>
-                <li><a class="dropdown-item" href="/logout"><i class="fas fa-sign-in-alt"></i> Cerrar sesión</a></li>
-              </ul>
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="true"><i class="fas fa-user-circle"></i>   Mi cuenta</a>
+                  <ul class="dropdown-menu" aria-labelledby="dropdown01" data-bs-popper="none">
+                    <li><a class="dropdown-item" href="/mi-cuenta"><i class="fas fa-user"></i> Perfil</a></li>
+                    <li><a class="dropdown-item" href="/logout"><i class="fas fa-sign-in-alt"></i> Cerrar sesión</a></li>
+                </ul>
               </li>
-              @if(isset($total))
-              <li class="nav-item"><a href="/carrito" class="nav-link"><i class="fas fa-shopping-cart"></i> {{$total}}</a></li>
+              @if(isset($productosCarrito))
+              <li class="nav-item" >
+                  <a href="/carrito" class="nav-link"  >
+                  <div class="cart-num">
+                    <i class="fas fa-shopping-cart"></i> 
+                    {{$productosCarrito}}
+                    </div>
+                  </a>
+              </li>
               @else
               <li class="nav-item"><a href="/carrito" class="nav-link"><i class="fas fa-shopping-cart"></i></a></li>
               @endif

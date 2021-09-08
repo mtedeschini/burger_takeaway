@@ -282,6 +282,13 @@ legend {
 progress {
   vertical-align: baseline; }
 
+  .cart-num{
+    background-color: #fac564 ;
+    padding: 4px;
+    border-radius: 25px;
+    color: #101315;
+  }
+
 [type="number"]::-webkit-inner-spin-button,
 [type="number"]::-webkit-outer-spin-button {
   height: auto; }

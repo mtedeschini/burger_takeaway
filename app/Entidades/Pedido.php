@@ -11,12 +11,13 @@ class Pedido extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'idpedido', 'total', 'fk_idsucursal', 'fk_idcliente', 'fk_idestado', 'fk_idestadopago', 'fecha', 'comentarios'
+        'idpedido', 'total', 'fk_idsucursal', 'fk_idcliente', 'fk_idestado', 'fk_idestadopago', 'fecha', 'comentarios',
     ];
 
     protected $hidden = [];
 
-    public function obtenerFiltrado(){
+    public function obtenerFiltrado()
+    {
         $request = $_REQUEST;
         $columns = array(
             0 => 'A.idpedido',
@@ -75,7 +76,6 @@ class Pedido extends Model
                   comentarios
                 FROM pedidos ORDER BY idpedido;";
 
-
         $lstRetorno = DB::select($sql);
 
         return $lstRetorno;
@@ -124,6 +124,14 @@ class Pedido extends Model
         $affected = DB::update($sql, [$this->idpedido]);
     }
 
+    public function aprobarMercadoPago($idPedido)
+    {
+        $sql = "UPDATE pedidos SET
+                    fk_idestadopago=1
+                WHERE idpedido=?;";
+        $affected = DB::update($sql, [$idPedido]);
+    }
+
     public function eliminar()
     {
         $sql = "DELETE FROM pedidos WHERE
@@ -150,7 +158,7 @@ class Pedido extends Model
             $this->fk_idestado,
             $this->fk_idestadopago,
             $this->fecha,
-            $this->comentarios
+            $this->comentarios,
 
         ]);
         return $this->idpedido = DB::getPdo()->lastInsertId();

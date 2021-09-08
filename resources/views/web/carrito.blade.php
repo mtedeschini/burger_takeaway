@@ -1,10 +1,10 @@
 @extends('web.plantilla-sitio')
 @section('contenido')
-@section('scripts')
+
 
 <section style="background-image: url(web/images/bg_1.jpg);">
-<form name="form" method="POST">
-    <div class="container " style="max-width: 500px;">
+<div class="container "  style="max-width: 500px;">
+    <form name="form" method="POST">
         <div class="row ">
             <div class="col-12 col-sm-12 mt-5 mb-5">
                 <div class="card text-white bg-dark"> 
@@ -12,12 +12,9 @@
                         <div class="container">
                             <div class="row">
                             <form action="" method="post">
-                                <div class="col-10 col-sm-10">
-                                    <img src="web/images/burgerCarrito.jpg" alt="Hamburguesa" width="30%" height="100%">
-                                    Hamburguesa
-                                </div>
-                                <div class="col-2 col-sm-2 text-center">
-                                    <a href="#">X</a>
+                                <div class="col-12 col-sm-12 text-warning">
+                                    <i class="fas fa-shopping-cart" style="font-size: 25px;"></i> 
+                                    Carrito
                                 </div>
                             </div>
                             <div class="row">
@@ -36,9 +33,10 @@
                                                         echo "$" . number_format($precioProducto, 2); 
                                                     ?>
                                                     <br>
-                                                    <form action="" method="POST">
-                                                        <input class="btn btn-danger" type="button" value="Delete"></input>
-                                                    </form>
+                                                    <div>
+                                                        <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
+                                                        <button class="btn btn-danger" type="submit" value="eliminarProducto" name="eliminarProducto" id="eliminarProducto" onclick="alert('¿Está seguro de eliminar este producto?')">Delete</button>
+                                                    </div>  
                                                 </td>
                                             </tr>
                                             @endforeach
@@ -105,6 +103,9 @@
             </div>
         </div>
     </div>
+    
 </section>
+
 </form>
+
 @endsection

@@ -11,7 +11,7 @@ class Producto extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'idproducto', 'nombre', 'precio', 'descripcion', 'imagen'
+        'idproducto', 'nombre', 'precio', 'descripcion', 'imagen', 'fk_idtipoproducto'
     ];
 
     protected $hidden = [
@@ -32,6 +32,20 @@ class Producto extends Model
         $lstRetorno = DB::select($sql);
         return $lstRetorno;
     }
+    public function obtenerTodoos()
+    {
+        $sql = "SELECT
+                    idproducto,
+                    nombre,
+                    precio,
+                    descripcion,
+                    imagen
+                FROM productos 
+                WHERE fk_idtipoproducto = 2 
+                ORDER BY idproducto";
+        $lstRetorno = DB::select($sql);
+        return $lstRetorno;
+    }
 
     public function obtenerPromociones()
     {
@@ -40,6 +54,7 @@ class Producto extends Model
                     nombre,
                     precio,
                     descripcion,
+                    fk_idtipoproducto,
                     imagen
                 FROM productos 
                 WHERE fk_idtipoproducto = 2 
@@ -55,7 +70,8 @@ class Producto extends Model
                     nombre,
                     precio,
                     descripcion,
-                    imagen             
+                    imagen,
+                    fk_idtipoproducto
                 FROM productos WHERE idproducto = $idproducto";
         $lstRetorno = DB::select($sql);
 
@@ -65,6 +81,7 @@ class Producto extends Model
             $this->precio = $lstRetorno[0]->precio;
             $this->descripcion = $lstRetorno[0]->descripcion;
             $this->imagen = $lstRetorno[0]->imagen;
+            $this->fk_idtipoproducto = $lstRetorno[0]->fk_idtipoproducto;
             return $this;
         }
         return null;
@@ -75,7 +92,8 @@ class Producto extends Model
                     nombre='$this->nombre',
                     precio=$this->precio,
                     descripcion='$this->descripcion',
-                    imagen='$this->imagen'
+                    imagen='$this->imagen',
+                    fk_idtipoproducto=$this->fk_idtipoproducto 
                 WHERE idproducto=?";
         $affected = DB::update($sql, [$this->idproducto]);
     }
@@ -93,13 +111,15 @@ class Producto extends Model
                     nombre,
                     precio,
                     descripcion,
-                    imagen
-                ) VALUES (?, ?, ?, ?);";
+                    imagen,
+                    fk_idtipoproducto
+                ) VALUES (?, ?, ?, ?, ?);";
         $result = DB::insert($sql, [
             $this->nombre,
             $this->precio,
             $this->descripcion,
-            $this->imagen
+            $this->imagen,
+            $this->fk_idtipoproducto
         ]);
         return $this->idproducto = DB::getPdo()->lastInsertId();
     }
@@ -112,15 +132,18 @@ class Producto extends Model
             0 => 'nombre',
             1 => 'precio',
             2 => 'descripcion',
+            3=> 'fk_idtipoproducto'
        
         );
         $sql = "SELECT DISTINCT
-                    idproducto,
-                    nombre,
-                    precio,
-                    descripcion,
-                    imagen
-                    FROM productos 
+                    A.idproducto,
+                    A.nombre,
+                    A.precio,
+                    A.descripcion,
+                    A.imagen,
+                    B.nombre as fk_idtipoproducto
+                    FROM productos A 
+                    LEFT JOIN tipo_productos B ON A.fk_idtipoproducto = B.idtipoproducto
                 WHERE 1=1
                 ";
 
@@ -144,6 +167,7 @@ class Producto extends Model
     $this->nombre = $request->input('txtNombre');
     $this->precio = $request->input('txtPrecio') != "" ? $request->input('txtPrecio') : 0;
     $this->descripcion = $request->input('txtDescripcion');
+    $this->fk_idtipoproducto = $request->input('txtTipoProducto');
     }
 }
 

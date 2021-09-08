@@ -13,19 +13,18 @@ class ControladorWebCreado extends Controller
     public function index()
     {
         $sucursal = new Sucursal();
-        $entidadCarrito = new Carrito();
         $aSucursales = $sucursal->obtenerTodos();
         
         if(Session::get('cliente_id') != ""){
-
+            
+            $entidadCarrito = new Carrito();
             $aCarritos = $entidadCarrito->obtenerPorCliente(Session::get('cliente_id'));
-            $total = 0;
+            $productosCarrito = 0;
             foreach ($aCarritos as $item){
-                $total = $total + $item->cantidad;
+                $productosCarrito += $item->cantidad;
             }
-            return view('web.mi-cuenta', compact('aSucursales', 'aCarritos', 'total'));
+            return view('web.creado', compact('aSucursales', 'aCarritos', 'total'));
         }
-
         return view('web.login', compact('aSucursales'));
 
     } 
