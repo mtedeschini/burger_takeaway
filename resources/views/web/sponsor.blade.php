@@ -48,7 +48,7 @@
             <div class="container mt-3">
                 <div class="row block-9 justify-content-around">
                     <div class="col-md-6 ftco-animate">
-                        <form action="#" class="contact-form">
+                        <form action="{{route('sponsorResponse.email')}}" method="POST" class="contact-form">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">

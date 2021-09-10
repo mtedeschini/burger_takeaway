@@ -33,4 +33,27 @@ class ControladorWebSponsor extends Controller
 
     }
 
+    public function responseMail(){
+
+        $titulo = "Sponsor contacto";
+       if($_POST){
+       if(Session::get('cliente_id') != ""){
+            $carrito = new Carrito();
+            $aCarritos = $carrito->obtenerPorCliente(Session::get('cliente_id'));
+               
+            $productosCarrito = 0;
+            foreach ($aCarritos as $item){
+                $productosCarrito += $item->cantidad;
+            }//end foreach
+        
+            return view('web.sponsorResponse', compact('aCarritos', 'aSucursales', 'titulo', 'aSponsors', 'productosCarrito'));
+        }//end if
+        
+        
+            return view('web.sponsorResponse', compact( 'titulo'));
+        }
+
+        
+    }
+
 }
