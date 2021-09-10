@@ -37,7 +37,7 @@ Route::group(array('domain' => '127.0.0.1'), function () {
    // Route::get('/sponsorsResponse', 'ControladorWebSponsor@responseMail');
     
    // Route::get('/sponsorsResponse', 'ControladorWebSponsor@index');
-    Route::post('/sponsorsResponse', 'ControladorWebSponsor@responseMail')->name('sponsorResponse.email');
+    Route::post('/sponsorsResponse', 'ControladorWebSponsor@responseMail');
     Route::get('/creado', 'ControladorWebCreado@index');
 
     Route::get('/mercado-pago/aprobado/{id}', 'ControladorWebCarrito@mercadoPagoAprobado');

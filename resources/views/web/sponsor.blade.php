@@ -33,7 +33,7 @@
                     <div class="descripcion-items" style="background-color:rgb(18, 18, 18, .5);">
                     
                         <div class="col-12 p-0" >
-                             <img class="mx-auto d-block rounded m-4" src="files/{{$sponsor->foto_producto}}" style="height:13em; width:13em;" alt="">
+                             <img class="mx-auto d-block rounded m-4" src="files/{{$sponsor->foto_producto}}" style="height:15em; width:17em;" alt="">
                         </div>
                        
                     </div>
@@ -48,7 +48,7 @@
             <div class="container mt-3">
                 <div class="row block-9 justify-content-around">
                     <div class="col-md-6 ftco-animate">
-                        <form action="{{route('sponsorResponse.email')}}" method="POST" class="contact-form">
+                        <form action="" method="POST" class="contact-form">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
