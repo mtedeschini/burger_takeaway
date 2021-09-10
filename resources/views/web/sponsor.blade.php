@@ -28,7 +28,7 @@
             <!--Comienzo Item Menu-->
            
             @foreach ($aSponsors as $sponsor)
-            <div class="col-3 ftco-animate">
+            <div class="col-lg-3 col-md-6 col-sm-12 ftco-animate">
                 <div class="d-flex justify-content-around flex-nowrap">
                     <div class="descripcion-items" style="background-color:rgb(18, 18, 18, .5);">
                     
