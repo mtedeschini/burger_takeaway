@@ -167,7 +167,7 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::post('/admin/sucursal/{id}', 'ControladorSucursal@guardar');
 
     /* --------------------------------------------- */
-    /* CONTROLADOR SPONSORS                        */
+    /* CONTROLADOR SPONSORS                      */
     /* --------------------------------------------- */
     Route::get('/admin/sponsors', 'ControladorSponsor@index');
     Route::get('/admin/sponsors/nuevo', 'ControladorSponsor@nuevo');
